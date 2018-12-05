@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import URLs from '../../../URLs';
+import dataCode from '../../../dataCode';
 // import "./ProductsList.css";
 
 class Product extends Component {
     state = {
-        product: {}, loading: true
+        searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
+        tableHeaderS: '', filters: {}, loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
+        projectName: null
     }
 
     componentDidMount() {
         // http://localhost:80/api/search-part-comp?category=all&keyword=STM32F103C8T6TR
-        let url = URLs.base_URL;
+        let url = URLs.base_URL+"/search-part-comp?category=all&keyword="+this.props.match.params.Product;
         axios.get(url)
             .then(response => {
                 // console.log("componentDidMount");
@@ -30,13 +33,20 @@ class Product extends Component {
 
     render() {
         let headPart;
-        if(Object.keys(this.state.product).length > 0) {
-            headPart
-        }
+        // if(this.state.dataParts.length === 1) {
+        //     headPart = <h1>{this.props.match.params.Product}</h1> ;
+        // }
         return (
             <div className="container">
                 <h1>{this.props.match.params.Product}</h1>
+                <div className="row">
+                    <div className="col-md-6 col-sm-12">
+                        <img src={}/>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
 
+                    </div>
+                </div>
             </div>
         )
     }
