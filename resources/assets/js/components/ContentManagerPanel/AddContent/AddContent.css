@@ -1,0 +1,14 @@
+.draftJsEditor p {
+    text-align: justify;
+    font-size: 20px;
+}
+.draftJsEditor div:first-child {
+    text-align: center;
+}
+.draftJsEditor image {
+    display: block;margin: auto;
+}
+p:first-child {
+    text-align: center;
+    font-size: 25px;
+}

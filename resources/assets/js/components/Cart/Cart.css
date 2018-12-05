@@ -1,0 +1,9 @@
+
+.cart-responsive-font {
+    font-size: 150%;
+}
+@media (max-width: 576px) {
+    .cart-responsive-font {
+        font-size: 75%;
+    }
+}
