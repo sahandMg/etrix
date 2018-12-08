@@ -2,7 +2,6 @@ import React , {Component} from 'react';
 import axios from 'axios';
 import {Link, withRouter} from 'react-router-dom';
 import dataCode from '../../dataCode';
-import Select from 'react-select';
 import { ClipLoader } from 'react-spinners';
 import buildUrl from 'build-url';
 import * as actions from '../../store/actions/index';
@@ -12,7 +11,8 @@ import { connect } from 'react-redux';
 import './showSearchProductResult.css';
 import URLs from "../../URLs";
 import styles from './custom-styling.css';
-import SearchedProductResult from './SearchedProductPrice/SearchedProductPrice';
+import FilterProducts from './FilterProducts/FilterProducts';
+import ProductTable from './ProductsTable/ProductsTable';
 
 let prices = {};let counter = 0;
 
@@ -20,7 +20,7 @@ class showSearchProductResult extends Component {
 
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
-        tableHeaderS: '', filters: {}, loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
+        tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
         projectName: null
     }
 
@@ -29,14 +29,15 @@ class showSearchProductResult extends Component {
         let temp = window.location.href;
         temp = temp.replace(URLs.react_search_url+this.props.match.params.category+'/'+this.props.match.params.keyword,'');
         temp = temp.replace('/','');
-        console.log('temp');console.log(temp);
-        console.log('url');console.log(url);
+        console.log('componentDidMount temp');console.log(temp);
+        console.log('componentDidMount url');console.log(url);
         // if(temp !== '') { url = url + '&filters='+temp; }
         this.setState({searchKey: this.props.match.params.keyword});
+        // url = "http://localhost/api/search-part-filter?keyword=stm32f4&category=Embedded-Microcontrollers&filters=%7B%22rCl%22:[%2240MHz%22],%22tra%22:[%22Microchip+Technology%22]%7D";
         axios.get(url)
             .then(response => {
-                // console.log("componentDidMount");
-                // console.log(response);
+                console.log("componentDidMount showSearchProductResult");
+                console.log(response);
                 // console.log(dataCode.partSearch);
                 if(response.data[0] === dataCode.partSearch) {
                     // console.log("IS EQUAL");
@@ -56,26 +57,18 @@ class showSearchProductResult extends Component {
         console.log(kind);
     }
 
-    filterComponent = () => {
-         let temp = {} ;
-         Object.keys(this.state.filters).map((property) => {
-             let temp2;
-             Object.keys(this.state.tableHeaderS).map((property2) => {
-                if(this.state.tableHeaderS[property2] === property) { temp2 = property2; }
-                return null;
-             });
-            let buffer3 = this.state.filters[property].split(",");
-            temp[temp2] = buffer3;
-             return null;
+    filterComponent = (filters) => {
+        let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
+            queryParams: {
+                'filters': JSON.stringify(filters)
+            }
         });
-         let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
-             queryParams: {
-                 'filters': JSON.stringify(temp)
-             }
-         });
-         url = url.replace('?filters=','/');
-        this.props.history.push(url);
-        window.location.reload();
+        console.log("filterComponent url");
+        console.log(url);
+        url = url.replace('?filters=','/');
+        console.log(url);
+        // this.props.history.push(url);
+        // window.location.reload();
     }
 
     // setNumber = (e,num) => {
@@ -193,89 +186,23 @@ class showSearchProductResult extends Component {
     }
 
     render() {
-        let dataParts;
-        let tableHeads ;
-        let dataFilters ;
-        let filterButton;let projectsOption;
+        let productsTble;
+        let projectsOption;
         if(this.state.dataCode === dataCode.partSearch) {
-            // dataTables
-             tableHeads = Object.keys(this.state.dataParts[0]).map((property) => {
-                 let temp = null;
-                 Object.keys(this.state.tableHeaderS).map((property2,i) => {
-                    if(this.state.tableHeaderS[property2] === property) {
-                        temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>{property}</p><button className="btn btnHoverGreen" style={{margin: '2px' }} onClick={() => {this.sort(property,'increase')}}><i className="fa fa-arrow-up" aria-hidden="true"></i></button><button className="btn btnHoverRed" onClick={() => {this.sort(property,'increase')}}><i className="fa fa-arrow-down" aria-hidden="true"></i></button></th> ;
-                    }
-                    return null;
-                 });
-                 if(temp === null) {
-                     if( !((property === "slug") || (property === "name") || (property === "type") || (property === "original") || (property === "part_status") || (property === "persian_name"))) {
-                         return (   <th key={property + '2'} style={{paddingBottom: '52px'}}><p>{property}</p></th> );
-                     }
-                 } else {  return temp; }
-             });
-             // this.setInitialForPriceInput();
-             dataParts = this.state.dataParts.map((item, i) => {
-                let entry = Object.keys(item).map((property, j) => {
-                    if(property === "unit_price") {
-                        return ( <SearchedProductResult key={property} keyword={item['manufacturer_part_number']} category={item[property]} openModal={this.onOpenModal} />)
-                    } else if(property === "hd_image") {
-                        return ( <td key={property}><img alt={this.state.searchKey} src={item[property]} /></td> )
-                    } else if(property === "ld_image") {
-                        return ( <td key={property}><a href={item[property]}><i className="fa fa-file-text" aria-hidden="true"></i></a></td> )
-                    } else if( !((property === "slug") || (property === "name") || (property === "type") || (property === "original") || (property === "part_status") || (property === "persian_name"))) {
-                        return ( <td key={property}>{item[property]}</td> )
-                    }
-
-                });
-                return (
-                    <tr key={i}>{entry}</tr>
-                );
-            });
-             // data Filters
-            let dataFiltersTemp = this.state.dataFilters;
-            dataFilters = Object.keys(dataFiltersTemp).map((property,i) => {
-                let options =[];
-                dataFiltersTemp[property].map((item) => {options.push({label: item,value: item}); return null; } );
-                    return (
-                        <div className="col-md-2 col-sm-6 colScrollable" key={i}>
-                            <p style={{textAlign: 'center',fontSize: '125%'}}>{property.split('_').join(' ')}</p>
-                            <Select
-                                closeOnSelect
-                                disabled={false}
-                                isMulti
-                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                                options={options}
-                                placeholder=""
-                                removeSelected
-                                simpleValue
-                                value={this.state.filters[property]}
-                            />
-                        </div>
-                    );
-            });
-
+            productsTble = <ProductTable sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             if(this.state.projects.length > 0) {
                 projectsOption = this.state.projects.map((project, i) => {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
                 });
             }
-            if(Object.keys(dataFiltersTemp).length > 1) {  filterButton = <button onClick={this.filterComponent} hidden={this.state.loading} className="btn btn-primary buttonFilter">فیلتر</button> }
         }
         return(
             <div className="container table-responsive text-center searchResultContainer">
                <div>
                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                </div>
-                <div className="row text-center rowScrollable">{dataFilters}</div>
-                <br/>
-                {filterButton}
-                <br/><br/>
-                <table className="table table-striped">
-                    <thead>
-                      <tr>{tableHeads}</tr>
-                    </thead>
-                      <tbody>{dataParts}</tbody>
-                </table>
+                <FilterProducts filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
+                {productsTble}
                 <Modal open={this.state.open} onClose={this.onCloseModal} center
                        classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
                   <div className="select-project">

@@ -258,6 +258,7 @@ class SearchController extends Controller
             }
         }
     }
+
     /**
      * @param Request $request
      *  $filters = [
@@ -269,6 +270,7 @@ class SearchController extends Controller
      * //
      * //        ];
      * @param ColumnCode $code
+     * @param $keyword
      * @return array|string
      */
     public function filterPart($request, $code,$keyword){
@@ -301,6 +303,7 @@ class SearchController extends Controller
         }
 
         $component = DB::table('components')->where('slug','like',"%$component%")->first();
+
         if($component == null ){
             return 410;
         }
