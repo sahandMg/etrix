@@ -463,4 +463,51 @@ class TableMakerController extends Controller
         }
         return 200;
     }
+    /*
+     * Create codes for column names to use in filter part api
+     */
+    public function columnCode(){
+        $columnNames = [];
+        $names = [];
+        $codes = [];
+        $columns = DB::table('helpers')->pluck('helper');
+        foreach ($columns as $key=>$column){
+            $columnNames[$key] = unserialize($column);
+        }
+        for($i=0;$i<count($columnNames);$i++){
+            for($j=0;$j<count($columnNames[$i]);$j++){
+
+                array_push($names,$columnNames[$i][$j]);
+            }
+
+        }
+        array_push($names,'hd_image');
+        array_push($names,'ld_image');
+        array_push($names,'datasheet');
+        array_push($names,'footprint');
+        array_push($names,'manufacturer_part_number');
+        array_push($names,'quantity_available');
+        array_push($names,'unit_price');
+        array_push($names,'manufacturer');
+        array_push($names,'description');
+        array_push($names,'packaging');
+        array_push($names,'series');
+        array_push($names,'part_status');
+        array_push($names,'minimum_quantity');
+        array_push($names,'original');
+
+        $names = array_unique($names);
+        $names = array_values($names);
+
+
+        for($t=0;$t<count($names);$t++){
+            $codes[str_random(4)] = $names[$t];
+        }
+
+
+
+        DB::table('column_names')->update(['column_name'=>serialize($codes)]);
+
+
+    }
 }
