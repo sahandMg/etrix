@@ -26,10 +26,13 @@ class showSearchProductResult extends Component {
 
     componentDidMount() {prices = {};counter = 0;
         let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category+'&keyword='+this.props.match.params.keyword;
-        let temp = window.location.href;
-        temp = temp.replace(URLs.react_search_url+this.props.match.params.category+'/'+this.props.match.params.keyword,'');
-        temp = temp.replace('/','');
-        console.log('componentDidMount temp');console.log(temp);
+        if(this.props.match.params.filter != null) {
+            url = url+"&filters="+this.props.match.params.filter
+        }
+        // let temp = window.location.href;
+        // temp = temp.replace(URLs.react_search_url+this.props.match.params.category+'/'+this.props.match.params.keyword,'');
+        // temp = temp.replace('/','');
+        // console.log('componentDidMount temp');console.log(temp);
         console.log('componentDidMount url');console.log(url);
         // if(temp !== '') { url = url + '&filters='+temp; }
         this.setState({searchKey: this.props.match.params.keyword});
@@ -58,17 +61,24 @@ class showSearchProductResult extends Component {
     }
 
     filterComponent = (filters) => {
-        let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
-            queryParams: {
-                'filters': JSON.stringify(filters)
-            }
-        });
+        console.log("filterComponent filters");
+        console.log(filters);
+        console.log("filterComponent JSON.stringify(filters)");
+        console.log(JSON.stringify(filters));
+        let url = '/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
+        url = url.replace('{',"%7B");
+        url = url.replace('}',"%7D");
+        // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
+        //     queryParams: {
+        //         'filters': JSON.stringify(filters)
+        //     }
+        // });
         console.log("filterComponent url");
         console.log(url);
-        url = url.replace('?filters=','/');
-        console.log(url);
-        // this.props.history.push(url);
-        // window.location.reload();
+        // url = url.replace('?filters=','/');
+        // console.log(url);
+        this.props.history.push(url);
+        window.location.reload();
     }
 
     // setNumber = (e,num) => {

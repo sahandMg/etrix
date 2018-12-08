@@ -61,8 +61,8 @@ class RouteAPI extends Component {
                         <Route path="/google/:token" component={GoogleRegPass}/>
                         <Route path="/Product/:name" component={Product}/>
                         <Route path="/ProductList" component={ProductList}/>
-                        <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
                         <Route path="/search/:category/:keyword/:filter" component={showSearchProductResult}/>
+                        <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
                         <Route path="/cart" component={Cart}/>
                         <Route path="/online-conversion-calculator" component={Conversions}/>
                         <Route path="/Signup" component={Signup}/>
