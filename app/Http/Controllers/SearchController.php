@@ -276,14 +276,14 @@ class SearchController extends Controller
         /**
          * TODO remove part_number unit_price quantity from filters
          */
-//        $filters = [
-//            'rCl' => ['40MHz'],
-//            'tra'=>['Microchip Technology'],
-//                    ];
-        //        $component = 'Embedded-Microcontrollers';
+        $filters = [
+            'rCl' => ['40MHz'],
+            'tra'=>['Microchip Technology'],
+                    ];
+                $component = 'Embedded-Microcontrollers';
 
-        $filters = $request->filters;
-        $component = $request->subcategory;
+//        $filters = $request->filters;
+//        $component = $request->subcategory;
         /*
          * convert json to array
          */
