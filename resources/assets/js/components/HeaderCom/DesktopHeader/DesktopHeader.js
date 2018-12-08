@@ -18,7 +18,8 @@ class DesktopHeader extends Component {
         loggingOut: false, userIconClicked: false
     }
 
-    componentDidMount() { console.log("componentDidMount DesktopHeader");
+    componentDidMount() {
+        // console.log("componentDidMount DesktopHeader");
         this.props.checkAuthState();document.addEventListener('mousedown', this.handleClickOutside, false);
     }
 
@@ -30,19 +31,19 @@ class DesktopHeader extends Component {
         e.preventDefault();
         this.setState({loggingOut: true});
         // this.props.logout();
-        console.log("token 2 : "+this.props.token);
+        // console.log("token 2 : "+this.props.token);
         let url = URLs.base_URL+URLs.user_logout;
         axios.post(url,{token: this.props.token})
             .then(response => {
-                console.log("Not error start");
-                console.log(response);
+                // console.log("Not error start");
+                // console.log(response);
                 this.props.logout();
                 this.setState({loggingOut: false});
                 // this.props.history.push(`/`);
-                console.log("Not error");
+                // console.log("Not error");
             })
             .catch(err => {
-                console.log("error");console.log(err);
+                // console.log("error");console.log(err);
                 this.setState({loggingOut: false});
                 Alert.error('اختلالی پیش آمده است، لطفا دوباره امتحان کنید', {
                     position: 'top-left',

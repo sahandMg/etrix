@@ -7,12 +7,12 @@ const initialState = {
 
 const cartADD = ( state, action ) => {
     let temp = state.cart ;let was = 0;let project = []; let projectPrices = state.projectsPrice;let length = state.cartLength;console.log("cartADD reducer :");
-    console.log(temp);
+    // console.log(temp);
     for(let i=0;i<temp.length;i++) {
        if(action.projectName == null) {console.log("projectName is null ");
            if (temp[i][0].project == null) {
                for (let j = 0; j < temp[i].length; j++) {
-                   console.log("cart Add "+j+" : "+ temp[i][j].keyword );
+                   // console.log("cart Add "+j+" : "+ temp[i][j].keyword );
                    if (temp[i][j].keyword === action.productName) {
                        temp[i][j].num = action.number + temp[i][j].num;
                        was = 1;console.log("was = 1 ");
@@ -81,7 +81,7 @@ const updateCartPrices = (state, action) => {
         cartSumCost = cartSumCost + sumCost ;
     }
     // localStorage.setItem('cart', JSON.stringify(temp));
-    console.log(temp);console.log(projectCost);
+    // console.log(temp);console.log(projectCost);
     let test = state.cart;
     return updateObject( state, { cart: test, projectsPrice: projectCost, cartSumCost: cartSumCost} );
 };
@@ -89,7 +89,7 @@ const updateCartPrices = (state, action) => {
 const addProductPrice = (state, action) => {
    let productPrices = state.productPrices;
     productPrices.push({productName: action.productName, productPrice: action.productPrice});
-    console.log("addProductPrice reducer");console.log(productPrices);
+    // console.log("addProductPrice reducer");console.log(productPrices);
     return updateObject( state, { productPrices: productPrices} );
 }
 
@@ -103,7 +103,7 @@ const cartRemove = (state, action) => {
         localStorage.setItem('cart', JSON.stringify(temp));
     }
     localStorage.setItem('cart', JSON.stringify(temp));
-    console.log("cartRemove reducer : ");console.log(temp);
+    // console.log("cartRemove reducer : ");console.log(temp);
     return updateObject( state, { cart: temp, cartLength: cartLength} );
 };
 
@@ -116,7 +116,7 @@ const cartChangeNum = (state, action) => {
     let temp = state.cart;
     for(let i=0;i<temp.length;i++) {
         if( temp[i].keyword === action.productkeyword ) {
-           console.log('cartChangeNum');console.log(action.productkeyword);
+           // console.log('cartChangeNum');console.log(action.productkeyword);
            temp[i].num = action.number ;
         }
     }

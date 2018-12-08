@@ -56,7 +56,7 @@ export const auth = (email, password,url) => {
             email: email,
             password: password
         };
-        console.log("auth action");console.log(url);
+        // console.log("auth action");console.log(url);
         axios.post(url, authData)
             .then((response) => {
                 if(response.data !== 404)
@@ -66,20 +66,20 @@ export const auth = (email, password,url) => {
                     localStorage.setItem('expirationDate', expirationDate);
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('userData', JSON.stringify(response.data.userData));
-                    console.log("auth");console.log(response);
+                    // console.log("auth");console.log(response);
                     dispatch(authSuccess(response.data.token,response.data.userData));
                     if(response.data.userData.role === null) {
                         dispatch(CartActions.updateCart(response.data.token));
                     }
                     dispatch(checkAuthTimeout(10000));
                 } else {
-                    console.log("Erorr");
+                    // console.log("Erorr");
                     dispatch(authFail('ایمیل یا رمز خود را اشتباه وارد کرده اید'));
                 }
             })
             .catch(err => {
-                console.log("error");
-                console.log(err);
+                // console.log("error");
+                // console.log(err);
                 dispatch(authFail('دوباره امتحان کنید'));
             });
     };
@@ -88,7 +88,7 @@ export const auth = (email, password,url) => {
 
 export const authGoogle = (response) => {
     return dispatch => {
-                    console.log("authGoogle");console.log(response);
+                    // console.log("authGoogle");console.log(response);
                     // response.data.expiresIn
                     const expirationDate = new Date(new Date().getTime() +  10000* 1000);
                     localStorage.setItem('expirationDate', expirationDate);
