@@ -77,6 +77,7 @@ class Cart extends Component {
     }
 
     renderCartTable = () => {
+        console.log('renderCartTable');console.log(this.props.cart);
         let cartLsit = this.props.cart.map((project, i) => {
             // let entry = project.map((list,j) => {
             //     return (<CartProductPrice deleteFromCart={this.deleteFromCart} keyword={list.keyword} num={list.num} project={list.project} />);
@@ -117,7 +118,11 @@ class Cart extends Component {
             if(this.props.cartLength > 0){  //} else
                cartList = this.renderCartTable();
                sum = <h2>جمع کل : {this.props.cartSumCost} تومان</h2>;
-               buyButton = <Link to="/User/SetFactorInfo" className="btn btn-success">نهایی کردن خرید</Link>;
+               if(this.props.token) {
+                   buyButton = <Link to="/User/SetFactorInfo" className="btn btn-success">نهایی کردن خرید</Link>;
+               } else {
+                   buyButton = <Link to="/Signup/cart" className="btn btn-success">نهایی کردن خرید</Link>;
+               }
            } else { cartList = <h1 className="text-center">سبد خرید شما خالی هست</h1>;}
            let projectsOption;
         if(this.state.projects.length > 0) {

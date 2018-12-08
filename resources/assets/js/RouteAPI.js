@@ -65,7 +65,7 @@ class RouteAPI extends Component {
                         <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
                         <Route path="/cart" component={Cart}/>
                         <Route path="/online-conversion-calculator" component={Conversions}/>
-                        <Route path="/Signup" component={Signup}/>
+                        <Route path="/Signup/:message" component={Signup}/>
                         <Route path="/Login" component={Login}/>
                         <Route path="/articles/:id/:title" component={ContentDetail}/>
                         <Route path="/videos" component={VideoContentContainer}/>

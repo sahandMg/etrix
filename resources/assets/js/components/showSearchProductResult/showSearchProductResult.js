@@ -3,7 +3,6 @@ import axios from 'axios';
 import {Link, withRouter} from 'react-router-dom';
 import dataCode from '../../dataCode';
 import { ClipLoader } from 'react-spinners';
-import buildUrl from 'build-url';
 import * as actions from '../../store/actions/index';
 import Alert from 'react-s-alert';
 import Modal from 'react-responsive-modal';
@@ -61,10 +60,10 @@ class showSearchProductResult extends Component {
     }
 
     filterComponent = (filters) => {
-        console.log("filterComponent filters");
-        console.log(filters);
-        console.log("filterComponent JSON.stringify(filters)");
-        console.log(JSON.stringify(filters));
+        // console.log("filterComponent filters");
+        // console.log(filters);
+        // console.log("filterComponent JSON.stringify(filters)");
+        // console.log(JSON.stringify(filters));
         let url = '/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
         url = url.replace('{',"%7B");
         url = url.replace('}',"%7D");
@@ -73,8 +72,8 @@ class showSearchProductResult extends Component {
         //         'filters': JSON.stringify(filters)
         //     }
         // });
-        console.log("filterComponent url");
-        console.log(url);
+        // console.log("filterComponent url");
+        // console.log(url);
         // url = url.replace('?filters=','/');
         // console.log(url);
         this.props.history.push(url);
@@ -199,7 +198,7 @@ class showSearchProductResult extends Component {
         let productsTble;
         let projectsOption;
         if(this.state.dataCode === dataCode.partSearch) {
-            productsTble = <ProductTable sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
+            productsTble = <ProductTable onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             if(this.state.projects.length > 0) {
                 projectsOption = this.state.projects.map((project, i) => {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)

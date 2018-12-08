@@ -56,7 +56,7 @@ export const getCartFromLocalStorage = (token) => {
 export const getCartFromServer = (token) => {
     return dispatch => {
         dispatch(setLoadingAndError(true, null));
-        // console.log("getCartFromServer");
+        console.log("getCartFromServer");
         axios.post(URLS.base_URL+URLS.user_cart_read, {token: token})
             .then(response => {
                 dispatch(setLoadingAndError(false, null));
@@ -139,7 +139,7 @@ export const updateCart = (token) => {
     return dispatch => {
         let cart = localStorage.getItem('cart');
         let cartLength = 0;
-        // console.log("updateCart");console.log(cart);
+        console.log("updateCart");console.log(cart);
         if(token !== null) {console.log("token is not null");
             if (cart !== null) {
                 // console.log("Cart is not null");

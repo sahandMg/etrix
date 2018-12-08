@@ -37,7 +37,7 @@ class ProductsTable extends Component {
         let dataParts = this.props.dataParts.map((item, i) => {
             let entry = Object.keys(item).map((property, j) => {
                 if(property === "unit_price") {
-                    return ( <SearchedProductPrice key={property} keyword={item['manufacturer_part_number']} category={item[property]} openModal={this.onOpenModal} />)
+                    return ( <SearchedProductPrice key={property} keyword={item['manufacturer_part_number']} category={item[property]} openModal={this.props.onOpenModal} />)
                 } else if(property === "ld_image") {
                     return ( <td key={property}><img alt={this.props.searchKey} src={item[property]} /></td> )
                 } else if(property === "datasheet") {

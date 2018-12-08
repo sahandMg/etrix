@@ -10,6 +10,7 @@ import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import './Signup.css';
 import URLs from "../../../URLs";
+import Alert from 'react-s-alert';
 
 class Signup extends Component {
 
@@ -25,6 +26,15 @@ class Signup extends Component {
 
     componentDidMount() {
         this.props.checkAuthState();
+        if(this.props.match.params.message != null) {
+            Alert.info('برای ادامه خرید باید در سایت ثبت نام کنید', {
+                position: 'bottom-right',
+                effect: 'scale',
+                beep: false,
+                timeout: 5000,
+                offset: 100
+            });
+        }
     }
 
     sendData = (event) => {
