@@ -561,4 +561,5 @@ Route::get('modify-table','TableMakerController@modifyTable');
 Route::get('common-id','TableMakerController@CommonId');
 Route::get('check-model','TableMakerController@checkModelNum');
 Route::get('public-id','TableMakerController@modifyPublic');
+Route::get('code','TableMakerController@columnCode');
 

@@ -258,6 +258,7 @@ class SearchController extends Controller
             }
         }
     }
+
     /**
      * @param Request $request
      *  $filters = [
@@ -269,10 +270,12 @@ class SearchController extends Controller
      * //
      * //        ];
      * @param ColumnCode $code
+     * @param $keyword
      * @return array|string
      */
     public function filterPart($request, $code,$keyword){
 //
+
         /**
          * TODO remove part_number unit_price quantity from filters
          */
@@ -280,10 +283,10 @@ class SearchController extends Controller
 //            'rCl' => ['40MHz'],
 //            'tra'=>['Microchip Technology'],
 //                    ];
-        //        $component = 'Embedded-Microcontrollers';
+//                $component = 'Embedded-Microcontrollers';
 
         $filters = $request->filters;
-        $component = $request->subcategory;
+        $component = $request->category;
         /*
          * convert json to array
          */
@@ -300,6 +303,7 @@ class SearchController extends Controller
         }
 
         $component = DB::table('components')->where('slug','like',"%$component%")->first();
+
         if($component == null ){
             return 410;
         }
