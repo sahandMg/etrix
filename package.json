@@ -52,6 +52,7 @@
         "react-s-alert": "^1.4.1",
         "react-select": "^2.1.0",
         "react-spinners": "^0.4.5",
+        "react-tabs": "^2.3.0",
         "validator": "^10.8.0"
     }
 }
