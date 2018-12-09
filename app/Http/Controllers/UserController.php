@@ -24,6 +24,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
 /*
+ *  Required Params => name,email,password,
  * Get generated token in google registration + password
  * Update user password column
  * Login the user and update the token column
@@ -138,7 +139,10 @@ class UserController extends Controller
             return redirect('http://localhost/googleLogin/' . $user->token);
         }
     }
-
+/*
+ *  Required Params => token
+ *  Send => user data
+ */
     public function userData(Request $request){
 
         $user = Auth::guard('user')->user();

@@ -26,11 +26,39 @@ class CartController extends Controller
         $this->middleware('guest');
     }
 /*
- * Add registered user order to cart
+ * Required Params => cart,token
+ * Format to receive => cart {
+    {
+            "cart": [
+                [
+        {
+        "keyword":"STM32F103CBT6",
+        "num":"1",
+        "project":""
+        },
+        {
+        "keyword":"STM32F429ZGT6",
+        "num":"1",
+        "project":""
+        }
+        ],
+        [
+            {
+        "keyword":"STM32F100C8T6B",
+        "num":"2",
+        "project":"robo"
+        }
+            ]
+            ],
+        "token":""
+    }
+ *
+ * Gets guest cart. then adds it to the authenticated guest account
  * use createCart method
  *
  */
     public function addToCart(Request $request){
+
         $fault = [];
         $carts = $request->cart;
         for($i=0;$i<count($carts);$i++){
@@ -43,7 +71,8 @@ class CartController extends Controller
                 $resp = $this->createCart($request);
 //                Checks if quantity is available
                 if($resp != 200){
-                     array_push($fault,' وجود ندارد '.$request->keyword.' در حال حاضر این تعداد از قطعه ');
+//                     array_push($fault,' وجود ندارد '.$request->keyword.' در حال حاضر این تعداد از قطعه ');
+                     array_push($fault,$resp);
                 }
             }
         }
@@ -56,23 +85,33 @@ class CartController extends Controller
     }
 
     /*
-     * Gets num + keyword + token + project = NULL || Project name
+     * Required Params => num , keyword , token , project = (NULL || Project name)
      * check parts price from price api
      * check parts availability with the requested number
      * Get project_id from project name in $request->project
      */
-    public function createCart(Request $request=null,$arr=null){
+    public function createCart(Request $request,$arr=null){
         /**
          * BOM Bill Of Materials
          * status = 0 -> BOM : open
          * status = 50 -> BOM : closed
          * status = 100 -> BOM : closed
          */
+
         if(!is_null($arr)){
             $request['keyword'] = $arr['keyword'][0];
             $request['num'] = $arr['num'][0];
             if(!is_null($arr['project'])){
                 $request['project'] = $arr['project'];
+            }
+        }
+
+        if(!is_null($request->project)){
+            $project = DB::table('projects')->where('name', $request->project)->where('user_id',  Auth::guard('user')->id())->first();
+            if($project){
+                $projectId = $project->id;
+            }else{
+                return 'project not found';
             }
         }
 
@@ -99,6 +138,7 @@ class CartController extends Controller
             $bom->save();
         }
         $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$request->keyword)->first())['quantity_available'];
+
         if( $quantity < $request->num){
 
             return 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از';
@@ -133,8 +173,8 @@ class CartController extends Controller
         else{
             /*
             * TODO if user , orders parts for two or more projects at a same time then ???
+             * checks if project has been created or not
             */
-
             if (!is_null($request->project)) {
 
                 $project = DB::table('projects')->where('name', $request->project)->where('user_id',  Auth::guard('user')->id())->first();
@@ -364,11 +404,21 @@ class CartController extends Controller
     }
 
     // Deletes an item in a cart using a keyword and a project name
+    /*
+     *  Required Params => project,keyword,token
+     */
 
     public function editCart(Request $request){
         $content = [];
+        $sign = 0;
         if(!is_null($request->project)){
-            $id = DB::table('projects')->where('name',$request->project)->first()->id;
+            try{
+                $id = DB::table('projects')->where('name',$request->project)->first()->id;
+            }catch (\Exception $exception){
+                return 'project not found';
+            }
+
+
             $project_name = DB::table('projects')->where('name',$request->project)->first()->name;
             $cart = Bom::where('user_id', Auth::guard('user')->id())->where('status',0)->first()->carts->where('project_id',$id)->first();
             if(is_null($cart)){
@@ -379,7 +429,11 @@ class CartController extends Controller
                 $items[$i]['project']=$project_name;
                 if($items[$i]['name'] == $request->keyword){
                     unset($items[$i]);
+                    $sign = 1;
                 }
+            }
+            if($sign == 0){
+                return 404;
             }
             $cart->update(['name'=>serialize($items)]);
             $carts = Bom::where('user_id',Auth::guard('user')->id())->where('status',0)->first()->carts;
@@ -398,9 +452,13 @@ class CartController extends Controller
             for ($i=0;$i<count($items);$i++){
                 $items[$i]['project']= null;
                 if($items[$i]['name'] == $request->keyword){
+                    $sign = 1;
                     unset($items[$i]);
                 }
 
+            }
+            if($sign == 0){
+                return 404;
             }
             $cart->update(['name'=>serialize($items)]);
             $carts = Bom::where('user_id',Auth::guard('user')->id())->where('status',0)->first()->carts;
@@ -413,7 +471,7 @@ class CartController extends Controller
 
 
     }
-    // Gets token
+    // Required Params => token,phone,address
     // get all carts related to the user bom
     // calculate total price and update bom price column
     // close bom state
@@ -515,7 +573,10 @@ class CartController extends Controller
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         return ['price'=>$totalPrice,'number'=>$order_number];
     }
-// send user Boms
+/*
+ * Required Params => nothing
+ * Send => user's bill of materials
+ */
     public function getUserBom(){
 
         $boms = DB::table('boms')->where('user_id',Auth::guard('user')->id())->get();
@@ -535,7 +596,10 @@ class CartController extends Controller
         }
 
     }
-//    Get token,order_number and return user cart
+/*
+ *     Required Params => token,order_number
+ *      Send =>  user cart
+ */
     public function getUserBill(Request $request){
 
         try{

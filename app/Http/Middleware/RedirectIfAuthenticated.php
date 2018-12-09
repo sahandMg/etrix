@@ -22,6 +22,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
         try{
             JWTAuth::parseToken()->checkOrFail();
         }catch (TokenBlacklistedException $exception){
@@ -32,6 +33,7 @@ class RedirectIfAuthenticated
         }
         try {
             $userData = User::where('token',$request->token)->firstOrFail();
+
         } catch (\Exception $exception) {
 
 //          throw new TokenException($exception);

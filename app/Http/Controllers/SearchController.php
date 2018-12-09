@@ -22,10 +22,11 @@ class SearchController extends Controller
     public $ColsCode;
     public $newFilter;
 
-    /**
-     * @param ColumnCode $code
-     * @param Request $request
-     * @return array|int
+    /*
+     *  Required Prams => keyword
+     *  Optional Prams for search => category , num
+     *  Required Prams for filter => filter , category
+     *  Required Params for sort => order ,category ,num
      */
     public function SearchPartComp(ColumnCode $code,Request $request)
     {
@@ -34,7 +35,12 @@ class SearchController extends Controller
 
         $keyword = $request->keyword;
         $category = $request->category;
-        $this->paginate = $request->num;
+        if(is_null($request->num)){
+            $this->paginate = 1;
+        }else{
+
+            $this->paginate = $request->num;
+        }
         //        Searching Between Products
         $product = DB::table('products')->where('product_name', 'like', "%$keyword%")
             ->join('components', 'components.product_id', '=', 'products.id')
@@ -220,43 +226,62 @@ class SearchController extends Controller
                     //                return 420;
                     //            }
                     $this->type = '30';
-                    for($t=0;$t<count($parts);$t++){
-                        unset(
-                            $parts[$t]->names,
-                            $parts[$t]->id,
-                            $parts[$t]->component_id,
-                            $parts[$t]->common_id,
-                            $parts[$t]->links,
-                            $parts[$t]->product_id,
-                            $parts[$t]->model,
-                            $parts[$t]->created_at,
-                            $parts[$t]->updated_at
-                        );
-                    }
+                    GetPrice::dispatch($keyword)->delay(2);
+//                        -----------------------------
                     /*
-                     * Create a breadcrumb
-                     */
+                    * Create a breadcrumb
+                    */
                     $breadCrumb = DB::table('components')->where('components.slug',$parts[0]->slug)
                         ->join('products','components.product_id','=','products.id')->select('name','product_name')->get();
                     $breadCrumb = $breadCrumb[0];
 //                -------> Running queued job <------
 //                        Artisan::queue('queue:work',["--once"=>true]);
-                    GetPrice::dispatch($keyword)->delay(2);
-//                        -----------------------------
+
                     if($request->has('filters') && $request->has('category')){
-                        $result = $this->filterPart($request,$code,$keyword);
+                        $result = $this->filterPart($request,$code,$keyword,$this->paginate);
                         if($result == 404){
                             return 'Incorrect Filter Name';
                         }
                         return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
                     }
+                    else if($request->has('order') && $request->has('colName')){
 
+                        $parts = $this->sort($request->all(),$parts);
+                        $parts = $this->unsetPart($parts);
+                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+//                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+                    }
+                    $parts = $this->unsetPart($parts);
                     return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+
+
+
                 }
             }else{
                 return array_values($cName2);
             }
         }
+    }
+    /*
+     * Deletes unnecessary data from search result
+     */
+    private function unsetPart($parts){
+
+        for($t=0;$t<count($parts);$t++){
+            unset(
+                $parts[$t]->names,
+                $parts[$t]->id,
+                $parts[$t]->component_id,
+                $parts[$t]->common_id,
+                $parts[$t]->links,
+                $parts[$t]->product_id,
+                $parts[$t]->part_id,
+                $parts[$t]->model,
+                $parts[$t]->created_at,
+                $parts[$t]->updated_at
+            );
+        }
+        return $parts;
     }
 
     /**
@@ -271,9 +296,10 @@ class SearchController extends Controller
      * //        ];
      * @param ColumnCode $code
      * @param $keyword
+     * @param int $num
      * @return array|string
      */
-    public function filterPart($request, $code,$keyword){
+    public function filterPart($request, $code,$keyword, $num){
 //
 
         /**
@@ -287,6 +313,7 @@ class SearchController extends Controller
 
         $filters = $request->filters;
         $component = $request->category;
+            $pagination = $num;
         /*
          * convert json to array
          */
@@ -462,19 +489,34 @@ class SearchController extends Controller
             array_pop($commonTableCols);
 
             for ($t = 0; $t < count($commonTableCols); $t++) {
-                for ($i = 0; $i < count($parts); $i++) {
+
+                if( count($parts) - 20*($pagination-1) > 20 ){
+                   $endPoint = 20*($pagination);
+               }else if( count($parts) - 20*($pagination-1) > 0){
+                   $endPoint = count($parts);
+               }else{
+                   return 415;
+               }
+                for ($i = 20*($pagination-1); $i < $endPoint ; $i++) {
                     $colName = $commonTableCols[$t];
                     $cols[$commonTableCols[$t]][$i] = $parts[$i]->$colName;
                     $cols[$commonTableCols[$t]] = array_unique($cols[$commonTableCols[$t]]);
                     $cols[$commonTableCols[$t]] = array_values($cols[$commonTableCols[$t]]);
                 }
+
                 if(count($cols[$commonTableCols[$t]]) == 1){
                     unset($cols[$commonTableCols[$t]]);
                 }
             }
-
             for ($t = 0; $t < count($sepTableCols); $t++) {
-                for ($i = 0; $i < count($parts); $i++) {
+                if( count($parts) - 20*($pagination-1) > 20 ){
+                    $endPoint = 20*($pagination);
+                }else if( count($parts) - 20*($pagination-1) > 0){
+                    $endPoint = count($parts);
+                }else{
+                    return 415;
+                }
+                for ($i = 0; $i < $endPoint; $i++) {
                     $colName = $sepTableCols[$t];
                     $sepCols[$sepTableCols[$t]][$i] = $parts[$i]->$colName;
                     $sepCols[$sepTableCols[$t]] = array_unique($sepCols[$sepTableCols[$t]]);
@@ -494,9 +536,9 @@ class SearchController extends Controller
                 $this->newFilter = $result;
                 unset($this->newFilter['unit_price']);
                 unset($this->newFilter['quantity_available']);
-//                unset($this->newFilter['part_number']);
-                $result = $parts;
-                return $result;
+                $parts = array_slice($parts,20*($pagination-1),20);
+                $parts = $this->unsetPart($parts);
+                return $parts;
             }
         }
     }
@@ -619,25 +661,26 @@ class SearchController extends Controller
     }
 
 //    Gets component,num(item per page),order(desc or asc),colName
-    public function sort(Request $request)
+    public function sort($request,$parts)
     {
+
 //        باید دیتا ها رو ۲۰ تا ۲۰ تا سورت کنی
         /*
          *  use two methods to sort columns
          *  1) commonSort -> sort common table columns
          *  2) separateSort -> sort separate table columns
          */
-        $class = 'App\IC\\'.$request->component;
-        $paginate = $request->num;
-        $order = $request->order;
+        $class = 'App\IC\\'.$request['category'];
+
+        $order = $request['order'];
         $model = new $class();
-        $colName = $request->colName;
+        $colName = $request['colName'];
         $commonCols = Schema::getColumnListing('commons') ;
         $sepCols = Schema::getColumnListing($model->getTable());
         if(array_search($colName,$commonCols)){
-            return $this->commonSort($request);
+            return $this->commonSort($request,$parts);
         }elseif (array_search($colName,$sepCols)){
-            return $this->separateSort($request);
+            return $this->separateSort($request,$parts);
         }else{
             return 'column not found';
         }
@@ -645,16 +688,16 @@ class SearchController extends Controller
 
     }
 
-    private function separateSort($request){
-        $rawModel = $request->component;
+    private function separateSort($request,$parts){
+
+        $rawModel = $request['category'];
         str_replace(' ','_',$rawModel);
         $class = 'App\IC\\'.$rawModel;
-        $paginate = $request->num;
-        $order = $request->order;
-        $model = new $class();
-        $colName = $request->colName;
-        $component = DB::table($model->getTable())->get();
 
+        $order = $request['order'];
+        $model = new $class();
+        $colName = $request['colName'];;
+        $component = $parts;
         if($component == null){
             return '410';
         }else{
@@ -694,8 +737,8 @@ class SearchController extends Controller
             }else{
                 asort($volts);
             }
-            $volts = array_keys($volts);
-            $newVolts = array_slice($volts,20*($paginate-1),20);
+            $newVolts = array_keys($volts);
+//            $newVolts = array_slice($volts,20*($paginate-1),20);
             for($i=0 ;$i<count($newVolts);$i++){
                 $common_id = DB::table($model->getTable())
                     ->where($model->getTable().'.'.'id','=',$newVolts[$i])
@@ -705,7 +748,6 @@ class SearchController extends Controller
                     ->first();
             }
             if(isset($rows)){
-
                 return $rows;
             }else{
                 return 420;
@@ -713,17 +755,18 @@ class SearchController extends Controller
         }
     }
 
-    private function commonSort($request){
+    private function commonSort($request,$parts){
 
-        $rawModel = $request->component;
+        $rawModel = $request['category'];
         str_replace(' ','_',$rawModel);
-        $class = 'App\IC\\'.$request->component;
-        $paginate = $request->num;
-        $order = $request->order;
-        $model = new $class();
-        $colName = $request->colName;
+        $class = 'App\IC\\'.$rawModel;
 
-        $component = DB::table('commons')->where('model','like',"%$request->component%")->get();
+        $order = $request['order'];
+        $model = new $class();
+        $colName = $request['colName'];
+//        $component = DB::table('commons')->where('model','like',"%$request->component%")->get();
+        $component = $parts;
+
         if($component == null){
             return '410';
         }else{
@@ -762,16 +805,20 @@ class SearchController extends Controller
             }else{
                 asort($volts);
             }
-            $volts = array_keys($volts);
-            $newVolts = array_slice($volts,20*($paginate-1),20);
+
+            $newVolts = array_keys($volts);
+//            $newVolts = array_slice($volts,20*($paginate-1),20);
+
             for($i=0 ;$i<count($newVolts);$i++){
-                $rows[$i] = DB::table('commons')
-                    ->where('commons.id','=',$newVolts[$i])
+                $common_id = DB::table($model->getTable())
+                    ->where($model->getTable().'.'.'id','=',$newVolts[$i])
+                    ->first()->common_id;
+                $rows[$i] = DB::table('commons')->where('commons.id',$common_id)
                     ->join($model->getTable(),'commons.id','=',$model->getTable().'.'.'common_id')
                     ->first();
             }
-            if(isset($rows)){
 
+            if(isset($rows)){
                 return $rows;
             }else{
                 return 420;
