@@ -1,6 +1,6 @@
 export {
     auth, authGoogle,
-    logout,
+    logout, authFail,
     registerUser,
     authCheckState
 } from './auth';

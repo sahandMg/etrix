@@ -78,8 +78,8 @@ export const auth = (email, password,url) => {
                 }
             })
             .catch(err => {
-                // console.log("error");
-                // console.log(err);
+                console.log("error");
+                console.log(err);
                 dispatch(authFail('دوباره امتحان کنید'));
             });
     };
@@ -97,7 +97,8 @@ export const registerUser = (email, password, name, url) => {
         // console.log("auth action");console.log(url);
         axios.post(url, authData)
             .then((response) => {
-                if(response.data !== 404)
+                console.log("registerUser");console.log(response);
+                if(response.data.token && response.data.userData)
                 {
                     const expirationDate = new Date(new Date().getTime() +  10000* 1000);
                     localStorage.setItem('expirationDate', expirationDate);
@@ -109,10 +110,11 @@ export const registerUser = (email, password, name, url) => {
                     }
                     dispatch(checkAuthTimeout(10000));
                 } else {
-                    dispatch(authFail('ایمیل یا رمز خود را اشتباه وارد کرده اید'));
+                    dispatch(authFail(response.data.email+response.data.password+response.data.name));
                 }
             })
             .catch(err => {
+                console.log("registerUser error");
                 dispatch(authFail('دوباره امتحان کنید'));
             });
     };
@@ -140,12 +142,13 @@ export const setAuthRedirectPath = (path) => {
 
 export const authCheckState = () => {
     return dispatch => {
+        // dispatch(logout());
         const token = localStorage.getItem('token');
         const userData = localStorage.getItem('userData');
         const firstLogin = localStorage.getItem('firstLogin'); // for send cart to server when log in
 
         // console.log("authCheckState");console.log(token);
-        // dispatch(logout());
+
         // dispatch(CartActions.removeAllCart());
         if (!token) {
             // console.log("authCheckState");console.log("token null");
