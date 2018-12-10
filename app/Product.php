@@ -15,6 +15,12 @@ class Product extends Model
 
     }
 
+    public function subcategories(){
+
+        return $this->hasMany(SubCategory::class);
+
+    }
+
 
 
 }

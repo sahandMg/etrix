@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 
 
 use App\Jobs\GetPrice;
+use App\Product;
 use App\Repository\ColumnCode;
 use App\Repository\FilterContent;
+use App\SubCategory;
+use App\Underlay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -825,7 +828,41 @@ class SearchController extends Controller
             }
         }
     }
+/*
+ * Required Params => nothing
+ * return main menu categories
+ */
+    public function subMenu(){
+       $menu = [];
+        $products = Product::all();
+        $subCategories = SubCategory::all();
+        foreach ($products as $key => $product){
+           $menu[$key]['product'] = $product->product_name;
+           $menu[$key]['category'] = $product->subcategories->pluck('name')->toArray();
+            $subCategories = $product->subcategories;
+//            foreach ($subCategories as $item => $subCategory) {
+//                $menu[$key]['category']['subcategory'] = $subCategory->underlays->pluck('name')->toArray();
+//            }
 
+        }
+        return ($menu);
+//        $products = DB::table('products')->get();
+//        $subcategories = DB::table('sub_categories')->get();
+//        $underlays = DB::table('underlays')->get();
+//        foreach ($products as $key => $product) {
+//            foreach ($subcategories as $item => $subcategory) {
+//                foreach ($underlays as  $underlay) {
+//                    $menu[$key]['product'] = $product->product_name;
+//                    $menu[$key]['category'] = DB::table('sub_categories')
+//                        ->where('product_id', $product->id)->get()->pluck('name')->toArray();
+//                    $menu[$key]['underlay'] = DB::table('underlays')
+//                    ->where('subcategory_id',$subcategory->id)->get()->pluck('name')->toArray();
+//                }
+//            }
+//        }
+
+    }
+//subcategory
     //TODO create an object of all components with their category
     // TODO create an api for checking part quantity when clicking on buy button
 }
