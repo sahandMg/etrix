@@ -90,6 +90,7 @@ class Signup extends Component {
             timeout: 5000,
             offset: 100
         });
+        this.props.emptyErrorMessage(null);
     }
 
     render() {
@@ -159,7 +160,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         checkAuthState: () => dispatch( actions.authCheckState() ),
-        registerUser: (email, password, name, url) => dispatch( actions.registerUser(email, password, name, url) )
+        registerUser: (email, password, name, url) => dispatch( actions.registerUser(email, password, name, url) ),
+        emptyErrorMessage: (error) => dispatch( actions.authFail(error) )
     };
 };
 

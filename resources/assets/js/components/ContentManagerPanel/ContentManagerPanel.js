@@ -3,6 +3,7 @@ import { NavLink , Route , Switch } from 'react-router-dom';
 import AddContent from './AddContent/AddContent';
 import AddImages from './AddImages/AddImages';
 import Orders from './Orders/Orders';
+import SlidesManager from './SlidesManager/SlidesManager';
 
 class ContentManagerPanel extends Component {
     render() {
@@ -19,7 +20,7 @@ class ContentManagerPanel extends Component {
                 <hr/>
                 <br/>
                 <Switch>
-                    {/*<Route path="/ContentManagerPanel/slides" exact component={Main}/>*/}
+                    <Route path="/ContentManagerPanel/slides" exact component={SlidesManager}/>
                     <Route path="/ContentManagerPanel/orders" component={Orders}/>
                     <Route path="/ContentManagerPanel/Articles" component={AddContent}/>
                     <Route path="/ContentManagerPanel/images" component={AddImages}/>

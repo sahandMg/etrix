@@ -31,6 +31,8 @@ export default {
     user_google_signup: 'http://localhost:80/login/google',
     user_register: '/user/register',
     user_create_project: '/user/project/create', // token , name
-    user_get_projects: '/user/project/detail', //  token => projects
+    user_get_projects: '/user/project/read', //  token => projects
+    user_delete_project: '/user/project/delete', //  token, project => projects
+    user_get_projects_detail: '/user/project/detail', //  token, project => project detail
     user_get_data: '/user/data',  // token => get user data and token
 }

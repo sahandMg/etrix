@@ -61,7 +61,7 @@ export const getCartFromServer = (token) => {
             .then(response => {
                 dispatch(setLoadingAndError(false, null));
                 let cartNumber = 0;
-                // console.log("getCartFromServer response");console.log(response);
+                console.log("getCartFromServer response");console.log(response);
                 response.data.map((project, i) => {
                     cartNumber = cartNumber + project.length;
                 });
@@ -107,15 +107,16 @@ export const restoreCart = (response) => {
 
 export const sendCartToServer = (cart,token) => {
     return dispatch => {
-        // console.log("cart action sendCartToServer");
-        // console.log(cart);
+        console.log("cart action sendCartToServer");
+        console.log(cart);
         if (cart !== null) {
             if (cart.length > 0) {
                 axios.post(URLS.base_URL + URLS.send_cart_to_server, {cart: cart, token: token})
                     .then(response => {
-                        // console.log("cart action sendCartToServer is done");
-                        // console.log(cart);
+                        console.log("cart action sendCartToServer is done");
+                        console.log(response);
                         // console.log(token);
+                        dispatch(getCartFromServer(token));
                     })
                     .catch(err => {
                         // console.log("sendCartToServer err");
@@ -150,7 +151,7 @@ export const updateCart = (token) => {
                         cartLength = cartLength + cart[i].length;
                     }
                     dispatch(sendCartToServer(cart, token));
-                    dispatch(getCartSuccess(cart, cartLength));
+                    // dispatch(getCartSuccess(cart, cartLength));
                 }
             } else {
                 // console.log("Cart is  null");

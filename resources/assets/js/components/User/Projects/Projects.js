@@ -40,8 +40,9 @@ class Projects extends Component {
     newProject = () => {
         axios.post(URLs.base_URL+URLs.user_create_project, {token: this.props.token, name: this.state.data.projectName})
             .then(response => {
+                console.log("newProject");
                 console.log(response);
-                Alert.success(response.data[0], {
+                Alert.success(response.data, {
                     position: 'bottom-right',
                     effect: 'scale',
                     beep: false,
@@ -62,7 +63,33 @@ class Projects extends Component {
             });
     }
 
-    deleteProject = () => {
+    removeProject = (project) => {
+        axios.post(URLs.base_URL+URLs.user_delete_project, {token: this.props.token, project: project})
+            .then(response => {
+                console.log("delete project");
+                console.log(response);
+                Alert.success(" حذف شد "+project+" پروژه ", {
+                    position: 'bottom-right',
+                    effect: 'scale',
+                    beep: false,
+                    timeout: 4000,
+                    offset: 100
+                });
+                this.getProjects();
+            })
+            .catch(err => {
+                console.log(err);
+                Alert.error('اختلالی پیش آمدعه است،دوباره امتحن کنید', {
+                    position: 'bottom-right',
+                    effect: 'scale',
+                    beep: false,
+                    timeout: 4000,
+                    offset: 100
+                });
+            });
+    }
+
+    deleteProject = (project) => {
         console.log("deleteProject");
         confirmAlert({
             title: 'حذف پروژه',
@@ -75,7 +102,7 @@ class Projects extends Component {
                 {
                     label: 'بله',
                     onClick: () => {
-
+                       this.removeProject(project);
                     }
                 }
             ]
@@ -91,7 +118,7 @@ class Projects extends Component {
                         <CardWrapper>
                             <div className="flex-row space-between flex-center-align">
                                 <Link to="/User/Projects/felan1"><h3>{project.name}</h3></Link><span
-                                onClick={this.deleteProject} className="badge badge-delete">حذف</span>
+                                onClick={()=>{this.deleteProject(project.name)}} className="badge badge-delete">حذف</span>
                             </div>
                             <div className="flex-row space-between">
                                 <span>  تاریخ شروع : {project.created_at}  </span><span>{project.price}مجموع هزینه ها :  تومان </span>

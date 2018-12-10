@@ -95,6 +95,7 @@ class showSearchProductResult extends Component {
                token: this.props.token, project: this.state.projectName
            })
                .then(response => {
+                   console.log("add to cart");
                    console.log(response);console.log("this.state.projectName");console.log(this.state.projectName);
                    this.props.addToCart(productName, this.state.number[productName], category, this.state.projectName);
                    Alert.success('به سبد خرید اضافه شد', {
