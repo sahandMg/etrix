@@ -49,9 +49,14 @@ class ProjectController extends Controller
     public function detail(Request $request){
 
         $token = $request->token;
+        try{
+            $id = DB::table('projects')->where('name',$request->project)->first()->id;
+            $cart = unserialize(DB::table('carts')->where('project_id',$id)->first()->name);
+        }catch (\Exception $exception){
 
-       $id = DB::table('projects')->where('name',$request->project)->first()->id;
-       $cart = unserialize(DB::table('carts')->where('project_id',$id)->first()->name);
+            return $exception;
+        }
+
         return $cart;
     }
     // TODO Add read cart to send user project names

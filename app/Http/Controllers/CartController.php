@@ -114,7 +114,7 @@ class CartController extends Controller
                 return 'project not found';
             }
         }
-
+    try{
         if(count(Auth::user()->boms) > 0 ){
             $bom = Bom::where('user_id', Auth::guard('user')->id())->orderBy('created_at','decs')->first();
             /*
@@ -137,6 +137,10 @@ class CartController extends Controller
             $bom->order_number = rand(100,10000);
             $bom->save();
         }
+    }catch (\Exception $exception){
+        return $exception;
+    }
+
         $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$request->keyword)->first())['quantity_available'];
 
         if( $quantity < $request->num){
@@ -156,16 +160,21 @@ class CartController extends Controller
          */
 
         if(count($orders) == 0){
-            $cart = new Cart();
-            $cart->name = serialize($this->cart);
-            $cart->bom_id = $bom->id;
-            if (!is_null($request->project)) {
-                $projectId = DB::table('projects')->where('name', $request->project)->first()->id;
-                $cart->project_id = $projectId;
-            }
-            $cart->save();
+            try{
+                $cart = new Cart();
+                $cart->name = serialize($this->cart);
+                $cart->bom_id = $bom->id;
+                if (!is_null($request->project)) {
+                    $projectId = DB::table('projects')->where('name', $request->project)->first()->id;
+                    $cart->project_id = $projectId;
+                }
+                $cart->save();
 
-            return 200;
+                return 200;
+            }catch (\Exception $exception){
+                return $exception;
+            }
+
         }
         /*
          * Update last order

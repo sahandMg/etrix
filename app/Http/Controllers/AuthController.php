@@ -75,8 +75,14 @@ class AuthController extends Controller
      */
     public function logout(){
 
-        $forceForever = true;
-         JWTAuth::parseToken()->invalidate($forceForever);
+        try{
+            $forceForever = true;
+            JWTAuth::parseToken()->invalidate($forceForever);
+        }catch (\Exception $exception){
+            return $exception;
+        }
+
+
         return 200;
     }
 }
