@@ -20,7 +20,7 @@ class Signup extends Component {
             password: '',
             name: ''
         },
-        loading: false,
+        // loading: false,
         errors: {}
     }
 
@@ -42,20 +42,29 @@ class Signup extends Component {
         const errors = this.validate(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-            this.setState({loading: true});
+            // this.setState({loading: true});
             console.log('sendData');
-
-            axios.post(URLs.base_URL+URLs.user_register,{email: this.state.data.email , password: this.state.data.password, name: this.state.name})
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((error)=> {
-                    this.setState({loading: false});
-                    console.log("Error");
-                    console.log(error);
-                });
+            let data = this.state.data;
+            this.props.registerUser(data.email, data.password, data.name, URLs.base_URL + URLs.user_register);
+            //     axios.post(URLs.base_URL+URLs.user_register,{email: this.state.data.email , password: this.state.data.password, name: this.state.data.name})
+            //         .then((res) => {
+            //             console.log(res);
+            //             // Alert.info('برای ادامه خرید باید در سایت ثبت نام کنید', {
+            //             //     position: 'bottom-right',
+            //             //     effect: 'scale',
+            //             //     beep: false,
+            //             //     timeout: 5000,
+            //             //     offset: 100
+            //             // });
+            //             // this.setState({loading: false});
+            //         })
+            //         .catch((error)=> {
+            //             // this.setState({loading: false});
+            //             console.log("Error");
+            //             console.log(error);
+            //         });
+            // }
         }
-
     }
 
     validate = (data) => {
@@ -73,11 +82,23 @@ class Signup extends Component {
         });
 
 
+    showErrorMessage = () => {
+        Alert.error(this.props.errosMessage, {
+            position: 'bottom-right',
+            effect: 'scale',
+            beep: false,
+            timeout: 5000,
+            offset: 100
+        });
+    }
+
     render() {
         if (this.props.token) {
             return <Redirect to="/" />;
         }
-        const { data, errors, loading } = this.state;
+        if(this.props.errosMessage) {this.showErrorMessage();}
+        const { data, errors } = this.state;
+        const loading = this.props.loading;
         return (
             <div className="container signupWidth">
               <CardWrapper>
@@ -129,13 +150,16 @@ class Signup extends Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.auth.token
+        token: state.auth.token,
+        loading: state.auth.loading,
+        errosMessage: state.auth.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkAuthState: () => dispatch( actions.authCheckState() )
+        checkAuthState: () => dispatch( actions.authCheckState() ),
+        registerUser: (email, password, name, url) => dispatch( actions.registerUser(email, password, name, url) )
     };
 };
 

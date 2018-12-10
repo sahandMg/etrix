@@ -1,7 +1,7 @@
 export {
     auth, authGoogle,
     logout,
-    setAuthRedirectPath,
+    registerUser,
     authCheckState
 } from './auth';
 
