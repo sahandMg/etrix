@@ -835,16 +835,27 @@ class SearchController extends Controller
     public function subMenu(){
        $menu = [];
         $products = Product::all();
-        $subCategories = SubCategory::all();
         foreach ($products as $key => $product){
-           $menu[$key]['product'] = $product->product_name;
-           $menu[$key]['category'] = $product->subcategories->pluck('name')->toArray();
+           $menu[$key]['product'] = str_replace('_',' ',$product->product_name);
+           $menu[$key]['category'] = str_replace('_',' ',$product->subcategories->pluck('name')->toArray());
             $subCategories = $product->subcategories;
-//            foreach ($subCategories as $item => $subCategory) {
-//                $menu[$key]['category']['subcategory'] = $subCategory->underlays->pluck('name')->toArray();
-//            }
+            foreach ($subCategories as $item => $subCategory) {
+                $arr =  $subCategory->underlays->pluck('name')->toArray();
+                for($i=0 ;$i<count($arr); $i++){
+                    $arr[$i] = substr($arr[$i],0,strlen($arr[$i])-4);
+                    $arr[$i] = str_replace('_',' ',$arr[$i]);
+                }
 
+//
+
+                $menu[$key]['category'][str_replace('_',' ',$product->subcategories->pluck('name')->toArray()[$item])] = $arr;
+                unset( $menu[$key]['category'][$item]);
+            }
         }
+
+//        foreach ($subCategories as $item => $subCategory) {
+//                $menu[$item]['category']['subcategory'] = $subCategory->underlays->pluck('name')->toArray();
+//            }
         return ($menu);
 //        $products = DB::table('products')->get();
 //        $subcategories = DB::table('sub_categories')->get();
