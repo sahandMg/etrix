@@ -44,7 +44,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:60,1',
+            'throttle:600,1',
             'bindings',
             'Role'=> \App\Http\Middleware\RoleMiddleware::class,
         ],
