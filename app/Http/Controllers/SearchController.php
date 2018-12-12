@@ -321,7 +321,7 @@ class SearchController extends Controller
          * convert json to array
          */
         $filters = json_decode($filters,true);
-        dd($request->filters);
+
         /*
         *  Decoding filter array keys
         */

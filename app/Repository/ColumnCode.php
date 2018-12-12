@@ -29,7 +29,7 @@ class ColumnCode
 
 
     public function getFilter($filters){
-        dd($filters);
+
         $keys = array_keys($filters);
         foreach ($keys as $key){
 
