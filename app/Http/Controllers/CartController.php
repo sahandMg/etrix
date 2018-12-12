@@ -149,8 +149,9 @@ class CartController extends Controller
         }
 
         array_push($this->cart ,[
-            'name'  =>  $request->keyword,
+            'keyword'  =>  $request->keyword,
             'num'   =>  $request->num,
+            'project' => $request->project
         ]);
 
 
@@ -273,8 +274,7 @@ class CartController extends Controller
             $orders[$i] =array_values(unserialize($carts[$i]->name));
 
             for($t=0 ; $t<count($orders[$i]);$t++){
-                $orders[$i][$t]['keyword'] = $orders[$i][$t]['name'];
-                unset($orders[$i][$t]['name']);
+
                 $request['keyword'] = $orders[$i][$t]['keyword'];
                 $ctrl = new SearchController();
 //                    /*
@@ -327,12 +327,12 @@ class CartController extends Controller
             session()->forget('check');
             $cartArray = array_values(unserialize($userOrder->name));
             for ($i = 0; $i < count($cartArray); $i++) {
-                if ($cartArray[$i]['name'] == $request->keyword) {
+                if ($cartArray[$i]['keyword'] == $request->keyword) {
                     session()->put('check' ,$i);
                 }
             }
             if (session()->has('check')) {
-                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$cartArray[session('check')]['name'])->first())['quantity_available'];
+                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$cartArray[session('check')]['keyword'])->first())['quantity_available'];
                 if( $quantity < $cartArray[session('check')]['num']){
                     return 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از';
                 }
@@ -371,7 +371,7 @@ class CartController extends Controller
 
 
         array_push($this->cart ,[
-            'name'  =>  $request->keyword,
+            'keyword'  =>  $request->keyword,
             'num'   =>  $request->num,
         ]);
 
@@ -485,6 +485,7 @@ class CartController extends Controller
             foreach ($carts as $cart){
                 array_push($content,array_values(unserialize($cart->name)));
             }
+
             return array_values(array_filter($content));
         }
 
@@ -513,10 +514,10 @@ class CartController extends Controller
             $items = array_values(unserialize($carts[$i]->name));
             // check each item price in a loop
             for($t=0;$t<count($items);$t++){
-                $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['name'])->first())['unit_price'];
-                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['name'])->first())['quantity_available'];
+                $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['unit_price'];
+                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['quantity_available'];
                 $items[$t]['price'] = $price;
-                    DB::table('commons')->where('manufacturer_part_number',$items[$t]['name'])->update(['quantity_available'=>$quantity - $items[$t]['num'] ]);
+                    DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity - $items[$t]['num'] ]);
                 array_push($itemArr,$items[$t]);
                 $totalPrice = $totalPrice + $price * $items[$t]['num'];
             }
@@ -549,17 +550,17 @@ class CartController extends Controller
             $items = array_values(unserialize($carts[$i]->name));
             // check each item price in a loop
             for ($s = 0; $s < count($items); $s++) {
-                if(array_key_exists($items[$s]['name'],$itemArr)){
-                    $itemArr[$items[$s]['name']] = $itemArr[$items[$s]['name']] + $items[$s]['num'];
+                if(array_key_exists($items[$s]['keyword'],$itemArr)){
+                    $itemArr[$items[$s]['keyword']] = $itemArr[$items[$s]['keyword']] + $items[$s]['num'];
                 }else{
 
-                    $itemArr[$items[$s]['name']] = $items[$s]['num'];
+                    $itemArr[$items[$s]['keyword']] = $items[$s]['num'];
                 }
-                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number', $items[$s]['name'])->first())['quantity_available'];
+                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number', $items[$s]['keyword'])->first())['quantity_available'];
                 // check if the requested quantity is available
-                if ( $itemArr[$items[$s]['name']] > $quantity) {
+                if ( $itemArr[$items[$s]['keyword']] > $quantity) {
 //
-                    return 'موجود نمی باشد' . ' ' . $items[$s]['name'] . ' ' . 'در حال حاضر این تعداد از';
+                    return 'موجود نمی باشد' . ' ' . $items[$s]['keyword'] . ' ' . 'در حال حاضر این تعداد از';
                 }
 
             }
@@ -584,7 +585,7 @@ class CartController extends Controller
             $items = array_values(unserialize($carts[$i]->name));
             // check each item price in a loop
             for($t=0;$t<count($items);$t++){
-                $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['name'])->first())['unit_price'];
+                $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['unit_price'];
                 $items[$t]['price'] = $price;
                 array_push($itemArr,$items[$t]);
                 $totalPrice = $totalPrice + $price * $items[$t]['num'];
