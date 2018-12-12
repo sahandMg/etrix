@@ -415,6 +415,7 @@ class CartController extends Controller
     // Deletes an item in a cart using a keyword and a project name
     /*
      *  Required Params => project,keyword,token
+     *  Send => remained parts in cart
      */
 
     public function editCart(Request $request){
@@ -434,9 +435,14 @@ class CartController extends Controller
                 return 'cart not found';
             }
            $items = array_values(unserialize($cart->name));
+
             for ($i=0;$i<count($items);$i++){
                 $items[$i]['project']=$project_name;
-                if($items[$i]['name'] == $request->keyword){
+                if(isset($items[$i]['name'])){
+                    $items[$i]['keyword'] = $items[$i]['name'];
+                    unset($items[$i]['name']);
+                }
+                if($items[$i]['keyword'] == $request->keyword){
                     unset($items[$i]);
                     $sign = 1;
                 }
@@ -458,9 +464,14 @@ class CartController extends Controller
                 return 'cart not found';
             }
             $items = array_values(unserialize($cart->name));
+
             for ($i=0;$i<count($items);$i++){
                 $items[$i]['project']= null;
-                if($items[$i]['name'] == $request->keyword){
+                if(isset($items[$i]['name'])){
+                    $items[$i]['keyword'] = $items[$i]['name'];
+                    unset($items[$i]['name']);
+                }
+                if($items[$i]['keyword'] == $request->keyword){
                     $sign = 1;
                     unset($items[$i]);
                 }
