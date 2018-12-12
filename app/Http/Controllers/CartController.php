@@ -269,7 +269,6 @@ class CartController extends Controller
             return [];
         }
 
-
         for($i=0 ; $i<count($carts) ;$i++){
             $orders[$i] =array_values(unserialize($carts[$i]->name));
 
@@ -309,7 +308,7 @@ class CartController extends Controller
 
 
         }
-        return $orders;
+        return array_filter($orders);
 
 
 
