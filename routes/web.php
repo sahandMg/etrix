@@ -34,17 +34,18 @@ Route::get('excel-import','CartController@Excel_import');
 
 Route::get('url',function (){
 
-$client = new GuzzleClient();
-    $promise = $client->requestAsync('POST', 'https://eshop.eca.ir/317-%D9%85%D9%82%D8%A7%D9%88%D9%85%D8%AA-%D9%87%D8%A7%DB%8C-%D8%AF%D9%82%DB%8C%D9%82-1-2-%D8%AF%D8%B1%D8%B5%D8%AF');
-    $promise->then(
-        function (ResponseInterface $res) {
-            echo $res->getStatusCode() . "\n";
-        },
-        function (RequestException $e) {
-            echo $e->getMessage() . "\n";
-            echo $e->getRequest()->getMethod();
-        }
-    );
+return view('test');
+//$client = new GuzzleClient();
+//    $promise = $client->requestAsync('POST', 'https://eshop.eca.ir/317-%D9%85%D9%82%D8%A7%D9%88%D9%85%D8%AA-%D9%87%D8%A7%DB%8C-%D8%AF%D9%82%DB%8C%D9%82-1-2-%D8%AF%D8%B1%D8%B5%D8%AF');
+//    $promise->then(
+//        function (ResponseInterface $res) {
+//            echo $res->getStatusCode() . "\n";
+//        },
+//        function (RequestException $e) {
+//            echo $e->getMessage() . "\n";
+//            echo $e->getRequest()->getMethod();
+//        }
+//    );
 });
 
 Route::get('page',function (){

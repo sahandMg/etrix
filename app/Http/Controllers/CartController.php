@@ -170,7 +170,7 @@ class CartController extends Controller
                 }
                 $cart->save();
 
-                return 200;
+                return " قطعه اضافه شد.$request->keyword ";
             }catch (\Exception $exception){
                 return $exception;
             }
@@ -206,14 +206,14 @@ class CartController extends Controller
                     $cart->bom_id = $bom->id;
                     $cart->project_id = $projectId;
                     $cart->save();
-                    return 200;
+                    return " اضافه شد $request->keyword قطعه ";
                 }else{
                     /*
                      * update the project cart
                      */
 
                     $this->updateCart($userOrder,$request,$bom);
-                    return 200;
+                    return " اضافه شد $request->keyword قطعه ";
                 }
 
 //
@@ -235,7 +235,7 @@ class CartController extends Controller
                     $cart->save();
 
                 }
-                return 200;
+                return " اضافه شد $request->keyword قطعه ";
             }
 
             /*

@@ -845,9 +845,6 @@ class SearchController extends Controller
                     $arr[$i] = substr($arr[$i],0,strlen($arr[$i])-4);
                     $arr[$i] = str_replace('_',' ',$arr[$i]);
                 }
-
-//
-
                 $menu[$key]['category'][str_replace('_',' ',$product->subcategories->pluck('name')->toArray()[$item])] = $arr;
                 unset( $menu[$key]['category'][$item]);
             }

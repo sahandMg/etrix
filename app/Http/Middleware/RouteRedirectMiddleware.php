@@ -32,6 +32,7 @@ class RouteRedirectMiddleware
          */
 
 //        if(explode('/',$request->path())[0] != 'api'){
+//
 //            return $next($request);
 //        }
     }
