@@ -120,8 +120,8 @@ class Projects extends Component {
                                 <Link to="/User/Projects/felan1"><h3>{project.name}</h3></Link><span
                                 onClick={()=>{this.deleteProject(project.name)}} className="badge badge-delete">حذف</span>
                             </div>
-                            <div className="flex-row space-between">
-                                <span>  تاریخ شروع : {project.created_at}  </span><span>{project.price}مجموع هزینه ها :  تومان </span>
+                            <div className="flex-row space-between" style={{direction: 'rtl'}}>
+                                <span>  تاریخ شروع : {project.created_at}  </span><span>   مجموع هزینه ها :{project.price} تومان </span>
                             </div>
                         </CardWrapper>
                     </li>

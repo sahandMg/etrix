@@ -193,7 +193,11 @@ class showSearchProductResult extends Component {
     }
 
     selectChange = (event) => {
-        this.setState({projectName: event.target.value});
+        // console.log("showSearchProductResult select changes");
+        // console.log(event.target.value);
+        let temp = event.target.value;
+        if(temp === '-'){temp = null;}
+        this.setState({projectName: temp});
     }
 
     render() {

@@ -40,7 +40,7 @@ class Cart extends Component {
                 project: projectName
             })
                 .then(response => {
-                    console.log("deleteFromCart");
+                    console.log("deleteFromCart function");
                     console.log(response);
                     this.props.restoreCart(response);
                     Alert.success("از سبد خرید حذف شد", {

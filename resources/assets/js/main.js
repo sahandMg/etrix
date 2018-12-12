@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AuxWrapper from './components/AuxWrapper/AuxWrapper';
 import SlideImage1 from './assets/Images/Slide1.jpg';
 import SlideImage2 from './assets/Images/Slide2.jpg';
-import SlideImage3 from './assets/Images/bg_3.png';
+import SlideImage3 from './assets/Images/Slide2.png';
 import './App.css';
 import axios from 'axios';
 import ContentSmallSize from './components/Content/ContentSmallSize/ContentSmallSize';
@@ -53,7 +53,7 @@ class App extends Component {
      <AuxWrapper>
         {/*  Slide Show  */}
        <div style={{backgroundColor: "white"}}>
-        <div className="carousel-container col-lg-10 col-md-10 col-sm-10 col-12 ml-auto mr-auto mt-lg-2 slide-div">
+        <div className="carousel-container col-lg-8 col-md-8 col-sm-10 col-12 ml-auto mr-auto mt-lg-2 slide-div">
           <div className="carousel slide" data-ride="carousel" id="carousel-demo">
             <ul className="carousel-indicators">
               <li data-target="#carousel-demo" data-slide-to="0" className="active"></li>
