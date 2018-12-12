@@ -4,6 +4,7 @@ import AddContent from './AddContent/AddContent';
 import AddImages from './AddImages/AddImages';
 import Orders from './Orders/Orders';
 import SlidesManager from './SlidesManager/SlidesManager';
+import ProductData from './ProductData/ProductData';
 
 class ContentManagerPanel extends Component {
     render() {
@@ -25,7 +26,7 @@ class ContentManagerPanel extends Component {
                     <Route path="/ContentManagerPanel/Articles" component={AddContent}/>
                     <Route path="/ContentManagerPanel/images" component={AddImages}/>
                     {/*<Route path="/ContentManagerPanel/videos" component={AdminLogIn}/>*/}
-                    {/*<Route path="/ContentManagerPanel/products" component={AdminControlPanel}/>*/}
+                    <Route path="/ContentManagerPanel/products" component={ProductData}/>
                 </Switch>
             </div>
         )

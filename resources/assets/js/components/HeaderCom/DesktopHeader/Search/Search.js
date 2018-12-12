@@ -113,11 +113,11 @@ class Search extends Component {
                     />
                     <div className="input-group-append" dir="rtl">
                         <select className="form-control m-0" style={{height: '37px'}} dir="rtl" value={this.state.category} onChange={this.onChange} name="category">
-                            <option value="آیتم اول" dir="rtl">آیتم اول</option>
-                            <option value="محصوولات فروشی" dir="rtl">محصوولات فروشی</option>
-                            <option value="محصولات دسته دوم" dir="rtl">محصولات دسته دوم</option>
-                            <option value="دارای درجه بندی" dir="rtl">دارای درجه بندی</option>
-                            <option value="قابلیت ارسال رایگان" dir="rtl">قابلیت ارسال رایگان</option>
+                            <option value="همه" dir="rtl">همه</option>
+                            <option value="خازن ها" dir="rtl">خازن ها</option>
+                            <option value="مقاومت ها" dir="rtl">مقاومت ها</option>
+                            <option value="IC" dir="rtl">IC</option>
+                            <option value="Microcontroller" dir="rtl">Microcontroller</option>
                         </select>
                     </div>
                 </div>
