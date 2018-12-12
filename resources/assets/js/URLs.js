@@ -1,5 +1,7 @@
 export default {
     base_URL: 'http://localhost:80/api',
+    images_URL: 'http://localhost/storage/images/',
+    datasheet_URL: 'http://localhost/storage/datasheets/',
     home: '/home',
     get_more_content: '/more-content',
     get_videos: '/videos',

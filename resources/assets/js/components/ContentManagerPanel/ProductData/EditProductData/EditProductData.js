@@ -41,8 +41,9 @@ class EditProductData extends Component {
                     this.setState({loading: false});
                 })
                 .catch(err => {
-                    console.log("searchroductData searchKey");
+                    console.log("searchroductData error searchKey");
                     console.log(err);
+                    this.setState({loading: false});
                 });
         }
     }

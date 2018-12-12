@@ -88,17 +88,17 @@ class showSearchProductResult extends Component {
     addToCart = (productName,category,number) => {
        if(this.props.token) {
            this.setState({loadingAddCart: true});
-           // console.log("number one :");console.log(this.state.number[productName]);
+           console.log("number of products :");console.log(number);
            axios.post(URLs.base_URL+URLs.user_cart_create, {
                keyword: productName,
                num: number,
                token: this.props.token, project: this.state.projectName
            })
                .then(response => {
-                   console.log("add to cart");
+                   console.log("add to cart function");
                    console.log(response);console.log("this.state.projectName");console.log(this.state.projectName);
-                   this.props.addToCart(productName, this.state.number[productName], category, this.state.projectName);
-                   Alert.success('به سبد خرید اضافه شد', {
+                   this.props.addToCart(productName, number, category, this.state.projectName);
+                   Alert.success(response.data, {
                        position: 'bottom-right',
                        effect: 'scale',
                        beep: false,
@@ -108,8 +108,9 @@ class showSearchProductResult extends Component {
                    this.setState({loadingAddCart: false});
                })
                .catch(err => {
+                   console.log("showSearchProductResult add to cart  error");
                    console.log(err);
-                   Alert.error('دوباره امتحن کنید', {
+                   Alert.error('دوباره امتحان کنید', {
                        position: 'bottom-right',
                        effect: 'scale',
                        beep: false,
