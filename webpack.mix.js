@@ -13,3 +13,15 @@ let mix = require('laravel-mix');
 
 mix.react('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+//    .webpack.mergeConfig({
+//     babel: {
+//         presets: ['es2015','stage-0','react'],
+//         plugins: [
+//             require('rollup-plugin-replace')({
+//                 'process.env.NODE_ENV': JSON.stringify('production')
+//             }),
+//             require('rollup-plugin-commonjs')(),
+//             require('rollup-plugin-uglify')(),
+//         ],
+//     }
+// });

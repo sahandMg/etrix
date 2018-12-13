@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AuxWrapper from './components/AuxWrapper/AuxWrapper';
 import SlideImage1 from './assets/Images/Slide1.jpg';
-import SlideImage2 from './assets/Images/Slide2.jpg';
-import SlideImage3 from './assets/Images/Slide2.png';
+import SlideImage2 from './assets/Images/Slide2.png';
+import SlideImage3 from './assets/Images/Slide2.jpg';
 import './App.css';
 import axios from 'axios';
 import ContentSmallSize from './components/Content/ContentSmallSize/ContentSmallSize';

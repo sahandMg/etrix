@@ -25,7 +25,9 @@ class showSearchProductResult extends Component {
 
     componentDidMount() {prices = {};counter = 0;
         let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category+'&keyword='+this.props.match.params.keyword;
-        if(this.props.match.params.filter != null) {
+        if(this.props.match.params.filter !== undefined) {
+            console.log('showSearchProductResult componentDidMount filter not null');
+            console.log(this.props.match.params.filter);
             url = url+"&filters="+this.props.match.params.filter
         }
         // let temp = window.location.href;
@@ -64,7 +66,7 @@ class showSearchProductResult extends Component {
         // console.log(filters);
         // console.log("filterComponent JSON.stringify(filters)");
         // console.log(JSON.stringify(filters));
-        let url = '/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
+        let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
         url = url.replace('{',"%7B");
         url = url.replace('}',"%7D");
         // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
