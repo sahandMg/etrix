@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('laravel-mix-auto-extract');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,7 +14,10 @@ let mix = require('laravel-mix');
 
 mix.react('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
-//    .webpack.mergeConfig({
+
+mix.autoExtract();
+// mix.extract();
+// mix.webpack.mergeConfig({
 //     babel: {
 //         presets: ['es2015','stage-0','react'],
 //         plugins: [
