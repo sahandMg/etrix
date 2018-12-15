@@ -5,7 +5,7 @@ import axios from 'axios';
 import dataCode from '../../../../dataCode';
 import './Search.css';
 import URLs from "../../../../URLs";
-
+import {connect} from 'react-redux';
 
 let searchSug = [];
 
@@ -96,6 +96,24 @@ class Search extends Component {
             onChange: this.onChangeTest
         };
 
+        let categories = this.props.categories.map((item) => {
+            if (!( (item.product === "Boxes Enclosures Racks") || (item.product === "Cable Assemblies Coaxial Cables RF") ||
+                    (item.product === "Cables Wires") || (item.product === "Connectors Interconnects") ||
+                    (item.product === "Fans Thermal Management Thermal Heat Sinks") ||
+                    (item.product === "Hardware Fasteners Accessories Board Supports") || (item.product === "Industrial Automation and Controls Machine Safety Light Curtains") ||
+                    (item.product === "Industrial Controls Time Delay Relays") || (item.product === "Maker DIY Educational Wearables") ||
+                    (item.product === "Power Supplies Board Mount") || (item.product === "Power Supplies External Internal Off Board") ||
+                    (item.product === "Relays Solid State Relays") || (item.product === "Development Boards Kits Programmers") ||
+                    (item.product === "Static Control ESD Clean Room Products Static Control Clothing") || (item.product === "Test and Measurement") ||
+                    (item.product === "Switches Slide Switches") || (item.product === "Switches Toggle Switches") ||
+                    (item.product === "Tools") || (item.product === "Uncategorized Miscellaneous") ||
+                    (item.product === "Line Protection Distribution Backups Power Distribution Surge Protectors")
+                )) {
+                return (
+                    <option value={item.product} dir="rtl">{item.product.substring(0,10)}</option>
+                )
+            }
+        });
         return (
             <div className="col-12 d-flex justify-content-center p-1 bg-dark">
                 <form onSubmit={this.searchHandler} className="form-inline" id="responsiveSearch">
@@ -115,11 +133,8 @@ class Search extends Component {
                         />
                         <div className="input-group-append p-0 responsive-search-select">
                             <select className="form-control m-0 pr-4 search-responsive-size" dir="rtl" value={this.state.category} onChange={this.onChange} name="category">
-                                <option value="آیتم اول" dir="rtl">آیتم اول</option>
-                                <option value="محصوولات فروشی" dir="rtl">محصوولات فروشی</option>
-                                <option value="محصولات دسته دوم" dir="rtl">محصولات دسته دوم</option>
-                                <option value="دارای درجه بندی" dir="rtl">دارای درجه بندی</option>
-                                <option value="قابلیت ارسال رایگان" dir="rtl">قابلیت ارسال رایگان</option>
+                                <option value="all" dir="rtl">همه</option>
+                                {categories}
                             </select>
                         </div>
                     </div>
@@ -129,4 +144,12 @@ class Search extends Component {
     }
 }
 
-export default withRouter(Search);
+const mapStateToProps = state => {
+    return {
+        categories: state.cart.categories,
+    };
+};
+
+
+export default withRouter(connect(mapStateToProps, null)(Search));
+
