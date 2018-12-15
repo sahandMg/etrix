@@ -1,0 +1,111 @@
+
+.step-container {
+    width: 400px;
+    margin: 30px auto;
+    /*min-height: 200px;*/
+    position: relative;
+    direction: rtl;
+    display: block;
+}
+.step-container:after {
+    content: "";
+    /*display: table;*/
+    clear: both;
+}
+.step-container .step-content {
+    display: none;
+    border: 2px solid #446CB3;
+    border-radius: 2px;
+    background: #fff;
+    /*min-height: 150px;*/
+    /*position: absolute;*/
+    top: 70px;
+}
+.step-container .step-content .text {
+    padding: 15px;
+}
+.step-container .step-dot {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding-top: 40px;
+    position: relative;
+}
+.step-container .step-dot:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    color: #666;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #219150;
+    padding-top: 2px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 99;
+    box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    transition: 0.1s ease-in;
+}
+.step-container .step-dot.one:after {
+    content: "1";
+}
+.step-container .step-dot.two:after {
+    content: "2";
+}
+.step-container .step-dot.three:after {
+    content: "3";
+}
+.step-container .step-dot.one:before {
+    display: none;
+}
+.step-container .step-dot:before {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #999;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: -50%;
+    box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    transition: 0.1s ease-in;
+}
+.step-container label {
+    cursor: pointer;
+    padding: 10px 0;
+    display: block;
+    width: 100px;
+    float: right;
+    user-select: none;
+    -webkit-user-select: none;
+    text-align: center;
+    background: #446CB3;
+    color: #fff;
+    margin-left: 40px;
+    border-bottom-left-radius: 2px;
+}
+.step-container label:hover {
+    background: #365690;
+}
+.step-container input[name='toggler'] {
+    display: none;
+}
+.step-container input[name='toggler']:checked + .step-dot + .step-content {
+    display: block;
+}
+.step-container input[name='toggler']:checked + .step-dot:after {
+    background: #219150;
+    color: #fff;
+}
+.step-container input[name='toggler']:checked ~ input:checked + .step-dot:before {
+    background: #219150;
+}
+.step-container input[name='toggler']:checked ~ input:not(:checked) + .step-dot {
+    color: #888;
+}
+.step-container input[name='toggler']:checked ~ input:not(:checked) + .step-dot:after {
+    border-color: #888;
+    color: #888;
+}

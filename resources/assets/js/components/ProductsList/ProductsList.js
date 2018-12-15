@@ -35,28 +35,36 @@ class ProductsList extends Component {
                     (item.product === "Switches Slide Switches") || (item.product === "Switches Toggle Switches") ||
                     (item.product === "Tools") || (item.product === "Uncategorized Miscellaneous")
                 ) ) {
-                let subcategory1, subcategory2;
+                let subcategory1;let subcategory2 = null;
                 if (Object.keys(item.category).length > 0) {
                     let temp = Object.keys(item.category).map((property, j) => {
-                        let tempLastCategory;
+                        let tempLastCategory = null;
                         if (item.category[property].length > 0) {
                             tempLastCategory = item.category[property].map(subcategory => {
                                 return (
-                                    <li className="custom-dropdown-menu-item">
-                                        <span className="custom-dropdown-menu-item-link">{subcategory}</span>
+                                    <li>
+                                        <Link to="/search/:category">{subcategory}</Link>
                                     </li>
                                 )
                             });
                             if (tempLastCategory !== null) {
-                                subcategory2 = <ul className="custom-dropdown-submenu">
+                                subcategory2 = <ul>
                                     {tempLastCategory}
                                 </ul>
                             }
                         }
+                        if (subcategory2 !== null) {
+                            return (
+                                <li>
+                                    {property}
+                                    {subcategory2}
+                                </li>
+                            )
+                        }
                         return (
                             <li>
                                 <Link to="/search/:category">{property}</Link>
-                                {/*{subcategory2}*/}
+                                {subcategory2}
                             </li>
                         )
                     })

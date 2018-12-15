@@ -48,7 +48,7 @@ class Navigation extends Component {
                                 )
                             });
                             if (tempLastCategory !== null) {
-                                subcategory2 = <ul className="custom-dropdown-submenu">
+                                subcategory2 = <ul className="custom-dropdown-submenu product-list-nav">
                                     {tempLastCategory}
                                 </ul>
                             }
@@ -61,7 +61,7 @@ class Navigation extends Component {
                         )
                     })
                     if (temp !== null) {
-                        subcategory1 = <ul className="custom-dropdown-submenu">
+                        subcategory1 = <ul className="custom-dropdown-submenu product-list-nav">
                             {temp}
                         </ul>
                     }
@@ -70,7 +70,8 @@ class Navigation extends Component {
                 return (
                     <li className="custom-dropdown-menu-item">
                    <span className="custom-dropdown-menu-item-link">
-                       <span className="dropdown-icon">&larr;</span>{item.product}</span>
+                       {/*<span className="dropdown-icon">&larr;</span>*/}
+                       {item.product}</span>
                         {subcategory1}
                     </li>
                 )
@@ -82,7 +83,7 @@ class Navigation extends Component {
                     <a className="navbar-list-item-link custom-dropdown-toggler">
                         محصولات
                     </a>
-                    <ul className="custom-dropdown-menu">
+                    <ul className="custom-dropdown-menu product-list-nav">
                         {categories}
                     </ul>
                 </li>

@@ -74,11 +74,9 @@ const FooterCom = (props) => (
                                     <span className="fa fa-map-marker"></span>
                                 </div>
                                 <div className="contact-us-text">
-                                    , بهارستان
-                                    , خیابان اول
+                                    تهران، میدان ونک، خیابان ملاصدرا،
                                     <br/>
-                                        , کوچه دوم
-                                        , پلاک سوم
+                                    خیابان پردیس، پلاک ۷
                                 </div>
                             </div>
                         </div>
@@ -166,11 +164,9 @@ const FooterCom = (props) => (
                                     <span className="fa fa-map-marker"></span>
                                 </div>
                                 <div className="contact-us-text">
-                                    , بهارستان
-                                    , خیابان اول
+                                    تهران، میدان ونک، خیابان ملاصدرا،
                                     <br/>
-                                        , کوچه دوم
-                                        , پلاک سوم
+                                    خیابان پردیس، پلاک ۷
                                 </div>
                             </div>
                         </div>
