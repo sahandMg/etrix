@@ -52,7 +52,8 @@ class GetPrice implements ShouldQueue
         for($i=0;$i<count($parts);$i++) {
             $output =[];
             $stop = 0;
-            $command = "cd public/storage/V1 && node index.js $parts[$i]";
+            $path = public_path('storage/V1');
+            $command = "cd $path && node index.js $parts[$i]";
 
             Log::info("Searching for $parts[$i] ...");
             while ($stop == 0) {
