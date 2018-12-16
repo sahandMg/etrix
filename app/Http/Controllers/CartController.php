@@ -491,7 +491,7 @@ class CartController extends Controller
 
 
     }
-    // Required Params => token,phone,address
+    // Required Params => token,phone,address,city,province
     // get all carts related to the user bom
     // calculate total price and update bom price column
     // close bom state
@@ -532,6 +532,8 @@ class CartController extends Controller
         $phone = $request->phone;
         DB::table('addresses')->insert([
             'address'=> $address,
+            'province'=>$request->province,
+            'city'=>$request->city,
             'user_id'=>  Auth::guard('user')->id(),
             'created_at'=> Carbon::now()
         ]);
@@ -637,16 +639,14 @@ class CartController extends Controller
                 $temp = array_values(unserialize($carts[$t]->name));
                 $prjName = DB::table('projects')->where('id',$carts[$t]['project_id'])->first()->name;
                 for($i=0 ; $i<count($temp);$i++){
-                    $temp[$i]['keyword'] = $temp[$i]['name'];
-                    unset($temp[$i]['name']);
+
                     $temp[$i]['project'] = $prjName;
                 }
                 $userCart[$t] = $temp;
             }else{
                 $temp = array_values(unserialize($carts[$t]->name));
                 for($i=0 ; $i<count($temp);$i++){
-                    $temp[$i]['keyword'] = $temp[$i]['name'];
-                    unset($temp[$i]['name']);
+
                     $temp[$i]['project'] = null;
                 }
                 $userCart[$t] = $temp;

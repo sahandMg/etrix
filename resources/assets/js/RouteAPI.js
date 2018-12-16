@@ -30,6 +30,7 @@ import ContainerSmallSize from './components/Content/ContainerSmallSize/Containe
 import VideoContentContainer from './components/Content/VideoContentContainer/VideoContentContainer';
 import ProductList from './components/ProductsList/ProductsList';
 import Product from './components/ProductsList/Product/Product';
+import OrderConfirnation from  './components/User/OrderConfirmation/OrderConfirnation';
 // import './react-select.css';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
@@ -52,6 +53,7 @@ class RouteAPI extends Component {
                 <main className="flex-column responsive-margin">
                     <Switch>
                         <Route path="/User/SetFactorInfo" component={RequireAuth(SetFactorInfo,null)}/>
+                        <Route path="/User/OrderConfirnation" component={RequireAuth(OrderConfirnation,null)}/>
                         <Route path="/User/Follow-up" component={RequireAuth(Followup,null)}/>
                         <Route path="/User/Factors/:orderNumber" component={RequireAuth(Factor,null)}/>
                         <Route path="/User/Projects/:projectName" component={RequireAuth(Project,null)}/>

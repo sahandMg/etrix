@@ -24,6 +24,7 @@ Route::get('more-videos','PageController@moreVideos');
 Route::post('home/{category?}','PageController@home');
 Route::get('excel-export','CartController@Excel_export');
 Route::get('excel-import','CartController@Excel_import');
+Route::get('province','PageController@Province');
 
 // ----------------------------- User Routes ----------------------------------------
 //[

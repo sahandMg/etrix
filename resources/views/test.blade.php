@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<img src="{{URL::asset('storage/datasheet/STM32F103C8T6TR.pdf')}}" alt="">
+<h1>Test Mail!</h1>
 </body>
 </html>

@@ -149,6 +149,26 @@ class PageController extends Controller
         return $list;
 
     }
+/*
+ * Required Params => province
+ * Sends => cities of province
+ */
+    public function Province(Request $request){
+
+        $path = public_path('storage/province.json');
+        $contents = json_decode(file_get_contents($path),true);
+        $province = $request->province;
+        $cities = [];
+
+        for($i=0;$i<count($contents);$i++){
+            if($contents[$i]['name'] == $province){
+                array_push($cities,$contents[$i]['Cities']);
+            }
+
+        }
+
+        return $cities[0];
+    }
 
 
 }

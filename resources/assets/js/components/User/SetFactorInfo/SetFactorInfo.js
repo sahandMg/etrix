@@ -38,7 +38,9 @@ class SetFactorInfo extends Component {
         let data = this.state.data;
         return (
             <div className="container" style={{direction: 'rtl'}}>
+                {/*<SterProcess/>*/}
                 <CardWrapper>
+                    <h1 className="text-center">وارد کردن اطلاعات خریدار</h1>
                     <form method="post" action={URLs.base_URL+URLs.user_cart_confirm}>
                         <h2>شماره فاکتور : {this.state.number} </h2>
                         <input name="token" value={this.props.token} hidden />
@@ -67,9 +69,9 @@ class SetFactorInfo extends Component {
                             <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
                         </div>
                         <div className="form-group">
-                            <h3>مبلغ پرداختی : {this.state.price} تومان</h3>
+                            {/*<h3>مبلغ پرداختی سفارش : {this.state.price} تومان</h3>*/}
                         </div>
-                        <button type="submit" className="btn btn-primary">پرداخت</button>
+                        <button type="submit" className="btn btn-primary">ثبت</button>
                     </form>
                 </CardWrapper>
                 <br/><br/><br/><br/>
