@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->increments('id');
             $table->mediumText('address')->nullable();
             $table->mediumText('city')->nullable();
+            $table->integer('post')->nullable();
             $table->mediumText('province')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();

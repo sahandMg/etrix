@@ -27,7 +27,7 @@ class SearchController extends Controller
 
     /*
      *  Required Prams => keyword
-     *  Optional Prams for search => category , num
+     *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
      *  Required Prams for filter => filter , category
      *  Required Params for sort => order ,category ,num
      */
@@ -44,7 +44,9 @@ class SearchController extends Controller
 
             $this->paginate = $request->num;
         }
-        //        Searching Between Products
+/*
+ * First search the keyword between product names if there wouldn't be any answer it continues to next part
+ */
         $product = DB::table('products')->where('product_name', 'like', "%$keyword%")
             ->join('components', 'components.product_id', '=', 'products.id')
             ->skip(($this->skip * ($this->paginate -1)) )->take($this->skip)->get();
@@ -53,17 +55,17 @@ class SearchController extends Controller
             $this->type = '10';
             return [$this->type, $product];
         }
-        //        Searching Between Components
-
-
+/*
+ *  Searching the keyword between categories
+ */
         $component = DB::table('components')->where('name', 'like', "%$keyword%")->get();
 
         if ( !$component->isEmpty()) {
 
             for ($i = 0; $i < count($component); $i++) {
 
-                $cName = $component[$i]->slug;
-                $cName = str_replace('-', '_', $cName);
+                $cName = $component[$i]->name;
+//                $cName = str_replace('-', '_', $cName);
                 // Danger!! Add all parts (IC,Connector,...) to App\IC directory
                 $models[$i] = 'App\IC\\' . $cName;
                 // WARNING! : if the created model haven't been added to App\IC, an exception error will appears
@@ -87,11 +89,8 @@ class SearchController extends Controller
                 $components = DB::table('components')->where('slug', 'like', "%$keyword%")
                     ->join('commons', 'commons.component_id', '=', 'components.id')
                     ->join($models->getTable(), $models->getTable() . '.' . 'common_id', '=', 'commons.id')
-                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
+//                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
                     ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get();
-//
-
-
                 if (isset($components) && $components->count() > 0) {
 
                     $filters = FilterContent::Filters($models, $components);
@@ -104,13 +103,14 @@ class SearchController extends Controller
 
             }
         }
+
         /**
          *        Searching Between Parts
          *      TODO Check search_part_comp pagination
          **/
         $part = DB::table('commons')
 //            ->where('part_number', 'like', "%$keyword%")
-            ->orWhere('manufacturer_part_number', 'like', "%$keyword%")
+            ->Where('manufacturer_part_number', 'like', "%$keyword%")
             ->orWhere('manufacturer', 'like', "%$keyword%")
             ->orWhere('description', 'like', "%$keyword%")
             ->skip(($this->skip * ($this->paginate -1)) )->take($this->skip)->get();
@@ -126,13 +126,13 @@ class SearchController extends Controller
                 $c = null;
             for ($i = 0; $i < count($part); $i++) {
                 $table = DB::table('components')->where('id', $part[$i]->component_id)->first();
+
                 if($table === null){
                     return 410;
                 }
                 $cName[$i] = $table->slug;
                 $temp = DB::table('components')->where('components.id', $part[$i]->component_id)
                     ->join('products','products.id','=','components.product_id')->first();
-
                 if($temp == null){
                     return 410;
                 }
@@ -153,6 +153,7 @@ class SearchController extends Controller
                         $cName2[$i] = ['category'=>$temp->slug,'subcategory'=>[str_replace('-', '_', $cName[$i])]];
                         $c = $i;
                     }
+
                     if($category != 'all' && count($cName2) != 1){
                        if($cName2[$c]['category'] == $category  && count($cName2[$c]['subcategory']) == 1){
                            $cName = str_replace('-', '_', $cName2[$i]['subcategory'])[0];

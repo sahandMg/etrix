@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use Morilog\Jalali\Jalalian;
 
@@ -491,11 +492,55 @@ class CartController extends Controller
 
 
     }
-    // Required Params => token,phone,address,city,province
+// Required Params => token,phone,address,city,province,post
+
+    public function getAddress(Request $request){
+
+        //      Updating user information Tel & Address
+//       $user = DB::table('users')->where('id',Auth::guard('user')->id())->first();
+//       if(!is_null($user)){
+//
+//           DB::table('addresses')->where('user_id',Auth::guard('user')->id())->update([]);
+//
+//       }else{
+        $errors = [];
+        $validator = Validator::make($request->all(),[
+            'address' => 'required',
+            'province' => 'required',
+            'post' => 'required',
+            'city' => 'required',
+        ]);
+
+        if($validator->fails()){
+
+            for($i=0 ;$i<count($validator->errors()->getMessages());$i++){
+                array_push($errors,array_values($validator->errors()->getMessages())[$i][0]);
+            }
+
+            return $errors;
+        }
+
+           DB::table('addresses')->insert([
+               'address'=> $request->address,
+               'province'=>$request->province,
+               'post'=>$request->post,
+               'city'=>$request->city,
+               'user_id'=>  Auth::guard('user')->id(),
+               'created_at'=> Carbon::now()
+           ]);
+           DB::table('users')->where('id', Auth::guard('user')->id())->update(['phone'=>$request->phone]);
+
+//       }
+
+        return 200;
+    }
+
+
     // get all carts related to the user bom
     // calculate total price and update bom price column
     // close bom state
     // add price to cart parts
+
     public function confirm(Request $request){
 
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
@@ -527,18 +572,6 @@ class CartController extends Controller
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
-//      Updating user information Tel & Address
-        $address = $request->address;
-        $phone = $request->phone;
-        DB::table('addresses')->insert([
-            'address'=> $address,
-            'province'=>$request->province,
-            'city'=>$request->city,
-            'user_id'=>  Auth::guard('user')->id(),
-            'created_at'=> Carbon::now()
-        ]);
-
-        DB::table('users')->where('id', Auth::guard('user')->id())->update(['phone'=>$phone]);
 
         // TODO CLEAN THE LINE BELLOW && redirect to localhost/user/follow-up after transaction gate
         return ['price'=>$totalPrice,'number'=>$order_number];

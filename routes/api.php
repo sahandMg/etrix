@@ -48,6 +48,7 @@ Route::get('province','PageController@Province');
             Route::post('add','CartController@addToCart');
             Route::post('confirm','CartController@confirm');
             Route::post('price','CartController@price');
+            Route::post('address','CartController@getAddress');
 
 
         });
