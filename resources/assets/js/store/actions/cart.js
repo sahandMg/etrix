@@ -195,3 +195,26 @@ export const updateProductPrice = (productName, productPrice) => {
         productName: productName, productPrice: productPrice
     }
 }
+
+export const getProductCategories = () => {
+    console.log("cart action getProductCategories");
+    return dispatch => {
+        let url = URLS.base_URL + URLS.get_products_category;
+        axios.get(url)
+            .then(response => {
+                console.log("cart action getProductCategories done");
+                console.log(response);
+                dispatch(storeProductCategories(response.data))
+            })
+            .catch(err => {
+                console.log("cart action getProductCategories error");console.log(err);
+            });
+    }
+}
+
+export const storeProductCategories = (categories) => {
+    return {
+        type: actionTypes.GET_CATEGORIES,
+        categories: categories
+    }
+}

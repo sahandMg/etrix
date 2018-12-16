@@ -5,6 +5,7 @@ import axios from 'axios';
 import dataCode from '../../../../dataCode';
 import './Search.css';
 import URLs from "../../../../URLs";
+import {connect} from 'react-redux';
 
 let searchSug = [];
 
@@ -36,7 +37,10 @@ class Search extends Component {
         redirect: false,
         category: 'all',
         value: '',
-        suggestions: []
+        suggestions: [], categories: [],
+    }
+
+    componentDidMount() {
     }
 
     searchHandler = (event) => {
@@ -93,7 +97,24 @@ class Search extends Component {
             value: searchKey,
             onChange: this.onChangeTest
         };
-
+        let categories = this.props.categories.map((item) => {
+            if (!( (item.product === "Boxes Enclosures Racks") || (item.product === "Cable Assemblies Coaxial Cables RF") ||
+                    (item.product === "Cables Wires") || (item.product === "Connectors Interconnects") ||
+                    (item.product === "Fans Thermal Management Thermal Heat Sinks") ||
+                    (item.product === "Hardware Fasteners Accessories Board Supports") || (item.product === "Industrial Automation and Controls Machine Safety Light Curtains") ||
+                    (item.product === "Industrial Controls Time Delay Relays") || (item.product === "Maker DIY Educational Wearables") ||
+                    (item.product === "Power Supplies Board Mount") || (item.product === "Power Supplies External Internal Off Board") ||
+                    (item.product === "Relays Solid State Relays") || (item.product === "Development Boards Kits Programmers") ||
+                    (item.product === "Static Control ESD Clean Room Products Static Control Clothing") || (item.product === "Test and Measurement") ||
+                    (item.product === "Switches Slide Switches") || (item.product === "Switches Toggle Switches") ||
+                    (item.product === "Tools") || (item.product === "Uncategorized Miscellaneous") ||
+                    (item.product === "Line Protection Distribution Backups Power Distribution Surge Protectors")
+                )) {
+                return (
+                    <option value={item.product} dir="rtl">{item.product}</option>
+                )
+            }
+        });
         return (
         <div className="pt-1 mt-1 ml-5 pl-5 justify-content-center">
             <form onSubmit={this.searchHandler} className="form-inline">
@@ -113,11 +134,8 @@ class Search extends Component {
                     />
                     <div className="input-group-append" dir="rtl">
                         <select className="form-control m-0" style={{height: '37px'}} dir="rtl" value={this.state.category} onChange={this.onChange} name="category">
-                            <option value="همه" dir="rtl">همه</option>
-                            <option value="خازن ها" dir="rtl">خازن ها</option>
-                            <option value="مقاومت ها" dir="rtl">مقاومت ها</option>
-                            <option value="IC" dir="rtl">IC</option>
-                            <option value="Microcontroller" dir="rtl">Microcontroller</option>
+                            <option value="all" dir="rtl">همه</option>
+                            {categories}
                         </select>
                     </div>
                 </div>
@@ -126,6 +144,12 @@ class Search extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        categories: state.cart.categories,
+    };
+};
 
-export default withRouter(Search);
+
+export default withRouter(connect(mapStateToProps, null)(Search));
 

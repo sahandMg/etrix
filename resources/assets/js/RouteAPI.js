@@ -31,6 +31,8 @@ import VideoContentContainer from './components/Content/VideoContentContainer/Vi
 import ProductList from './components/ProductsList/ProductsList';
 import Product from './components/ProductsList/Product/Product';
 import OrderConfirnation from  './components/User/OrderConfirmation/OrderConfirnation';
+import * as actions from './store/actions/index';
+
 // import './react-select.css';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
@@ -94,6 +96,5 @@ const mapStateToProps = state => {
     };
 };
 
-
-export default withRouter(connect(mapStateToProps,null)(RouteAPI));
+export default withRouter(connect(mapStateToProps, null)(RouteAPI));
 

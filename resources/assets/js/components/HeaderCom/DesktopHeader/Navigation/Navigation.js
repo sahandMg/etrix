@@ -3,27 +3,17 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 import axios from 'axios';
 import URLs from "../../../../URLs";
+import {connect} from 'react-redux';
 
 // const Navigation = (props) => (
 class Navigation extends Component {
-    state = {
-        category: [],
-    }
 
     componentDidMount() {
-        let url = URLs.base_URL + URLs.get_products_category;
-        axios.get(url)
-            .then(response => {
-                console.log("componentDidMount Navigation");
-                console.log(response);
-                this.setState({category: response.data});
-            })
-            .catch(err => {
-                console.log("componentDidMount Navigation");console.log(err);
-            });
+
     }
+
     render() {
-        let categories = this.state.category.map((item) => {
+        let categories = this.props.categories.map((item) => {
             if(!( (item.product === "Boxes Enclosures Racks") || (item.product === "Cable Assemblies Coaxial Cables RF") ||
                     (item.product === "Cables Wires") || (item.product === "Connectors Interconnects") ||
                     (item.product === "Fans Thermal Management Thermal Heat Sinks") ||
@@ -115,6 +105,12 @@ class Navigation extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        categories: state.cart.categories,
+    };
+};
 
-export default Navigation;
+
+export default connect(mapStateToProps, null)(Navigation);
 

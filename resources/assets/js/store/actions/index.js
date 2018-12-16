@@ -6,4 +6,4 @@ export {
 } from './auth';
 
 export { addToCart, changeNumFromCart, removeAllCart, restoreCart, updateCart, updateCartPrices, addProductPrice,
-    removeFromCart, getCartFromLocalStorage, getCartFromServer, setLoadingAndError } from './cart'
+    removeFromCart, getCartFromLocalStorage, getCartFromServer, setLoadingAndError, getProductCategories } from './cart'

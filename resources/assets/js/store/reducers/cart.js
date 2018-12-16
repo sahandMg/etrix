@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    cart: [], cartLength: 0, loading: false, errors: null, projectsPrice: [], productPrices: [], cartSumCost: 0
+    cart: [], cartLength: 0, loading: false, errors: null, projectsPrice: [], productPrices: [], cartSumCost: 0,
+    categories: []
 };
 
 const cartADD = ( state, action ) => {
@@ -143,6 +144,11 @@ const setLoadingAndError = (state, action) => {
     return updateObject( state, { loading: action.loading, errors: action.errors} );
 };
 
+const getCategories = (state, action) => {
+    console.log("reducers cart getCategories");
+    return updateObject( state, { categories: action.categories} );
+};
+
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.ADD_TO_CART: return cartADD(state, action);
@@ -154,6 +160,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.SET_LOADING_AND_ERROR: return setLoadingAndError(state, action);
         case actionTypes.UPDATE_CART_PRICES: return updateCartPrices(state, action);
         case actionTypes.ADD_PRODUCT_PRICE: return addProductPrice(state, action);
+        case actionTypes.GET_CATEGORIES: return getCategories(state, action);
         default:
             return state;
     }

@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import DesktopHeader from './DesktopHeader/DesktopHeader';
 import ResponsiveHeader from './ResponsiveHeader/ResponsiveHeader';
+import {connect} from 'react-redux';
+import * as actions from '../../store/actions/index';
 
-const HeaderCom = (props) => (
-    <header>
-      <DesktopHeader/>
-      <ResponsiveHeader/>
-    </header>
-);
+class HeaderCom extends Component {
 
-export default HeaderCom;
+    componentDidMount() {
+        console.log("HeaderCom componentDidMount")
+        this.props.getCategories();
+    }
+    render() {
+        return (
+            <header>
+                <DesktopHeader/>
+                <ResponsiveHeader/>
+            </header>
+        )
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getCategories: () => dispatch(actions.getProductCategories()),
+    };
+};
+
+
+export default connect(null, mapDispatchToProps)(HeaderCom);
 
