@@ -44,7 +44,7 @@ class AddContent extends Component {
                 category: {},
                 editorState: createEditorStateWithText(text),
                 editorRaw: null,
-                editorCurrentState: null
+                editorCurrentState: null, resourceLink: '',
             },
             loading: false,
             errors: {},
@@ -82,7 +82,7 @@ class AddContent extends Component {
                {
                   token: this.props.token, title: data.title, abstract: data.abstract ,
                   category: data.category.value, text: this.state.editorRaw, product: data.product,
-                  image: data.imageTitle
+                  image: data.imageTitle, resource: data.resourceLink
                })
             .then((res) => {
                 Alert.success('با موفقیعت ثبت شد', {
@@ -155,6 +155,11 @@ class AddContent extends Component {
                         <label>عکس کوچک</label>
                         <input name="imageTitle" value={data.imageTitle} onChange={this.onChange} type="text" className="form-control" placeholder="لینک عکس"/>
                         {errors.imageTitle && <InlineError text={errors.imageTitle} />}
+                    </div>
+                    <div className="form-group">
+                        <label>لینک منبع</label>
+                        <input name="resourceLink" value={data.resourceLink} onChange={this.onChange} type="text" className="form-control" placeholder="لینک منبع"/>
+                        {errors.imageTitle && <InlineError text={errors.resourceLink} />}
                     </div>
                     <Select
                         closeOnSelect

@@ -62,24 +62,28 @@ class showSearchProductResult extends Component {
     }
 
     filterComponent = (filters) => {
-        // console.log("filterComponent filters");
-        // console.log(filters);
-        // console.log("filterComponent JSON.stringify(filters)");
-        // console.log(JSON.stringify(filters));
+        console.log("filterComponent filters");
+        console.log(filters);
+        console.log("filterComponent urlParams");
+        let urlParams = Object.keys(filters).map(function(k) {
+            return encodeURIComponent(k) + '=' + encodeURIComponent(urlParams[k])
+        }).join('&')
+
+        console.log(urlParams);
         let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
-        url = url.replace('{',"%7B");
-        url = url.replace('}',"%7D");
+        // url = url.replace('{',"%7B");
+        // url = url.replace('}',"%7D");
         // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
         //     queryParams: {
         //         'filters': JSON.stringify(filters)
         //     }
         // });
-        // console.log("filterComponent url");
-        // console.log(url);
+        console.log("filterComponent url");
+        console.log(url);
         // url = url.replace('?filters=','/');
         // console.log(url);
-        this.props.history.push(url);
-        window.location.reload();
+        // this.props.history.push(url);
+        // window.location.reload();
     }
 
     // setNumber = (e,num) => {
