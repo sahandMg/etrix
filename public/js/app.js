@@ -15911,21 +15911,21 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _draftJs = __webpack_require__(13);
 
-var _draftJsPluginsEditor = __webpack_require__(116);
-
-var _draftJsExportHtml = __webpack_require__(218);
+var _reactRouterDom = __webpack_require__(10);
 
 var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _ContentSmallSize = __webpack_require__(94);
+var _ContentAuthor = __webpack_require__(812);
 
-var _ContentSmallSize2 = _interopRequireDefault(_ContentSmallSize);
+var _ContentAuthor2 = _interopRequireDefault(_ContentAuthor);
 
 var _Comments = __webpack_require__(227);
 
 var _Comments2 = _interopRequireDefault(_Comments);
+
+var _draftJsExportHtml = __webpack_require__(218);
 
 __webpack_require__(782);
 
@@ -15956,7 +15956,7 @@ var ContentDetail = function (_Component) {
             brief: '',
             product: '',
             DraftEditor: null,
-            temp: ''
+            temp: '', resource: '', author: ''
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -15974,7 +15974,8 @@ var ContentDetail = function (_Component) {
                 console.log(res.data[1]);
                 console.log('product');
                 console.log(res.data[2]);
-                _this2.setState({ brief: res.data[0], DraftEditor: res.data[1], product: res.data[2] });
+                _this2.setState({ brief: res.data[0], resource: res.data[0].resource, author: res.data[0].author,
+                    DraftEditor: res.data[1], product: res.data[2] });
                 // this.setState({temp: res.data[0].detail.text});
                 // const test = JSON.parse(res.data[0].detail.text);
                 // const editorState = EditorState.createWithContent(
@@ -16037,16 +16038,22 @@ var ContentDetail = function (_Component) {
                         ),
                         showTest2,
                         _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'text-center' },
+                            _react2.default.createElement(
+                                _reactRouterDom.Link,
+                                { to: this.state.resource, style: { fontSize: "20px" } },
+                                '\u0645\u0646\u0628\u0639'
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
                         _react2.default.createElement('hr', null),
-                        _react2.default.createElement('br', null)
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(_ContentAuthor2.default, { author: this.state.author })
                     )
                 ),
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                    _CardWrapper2.default,
-                    null,
-                    _react2.default.createElement(_Comments2.default, null)
-                ),
                 _react2.default.createElement('br', null),
                 _react2.default.createElement('br', null)
             );
@@ -17570,6 +17577,97 @@ exports.push([module.i, "body.react-confirm-alert-body-element {\n  overflow: hi
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 811 */,
+/* 812 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _draftJs = __webpack_require__(13);
+
+var _userprofile = __webpack_require__(813);
+
+var _userprofile2 = _interopRequireDefault(_userprofile);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContentAuthor = function (_Component) {
+    _inherits(ContentAuthor, _Component);
+
+    function ContentAuthor() {
+        _classCallCheck(this, ContentAuthor);
+
+        return _possibleConstructorReturn(this, (ContentAuthor.__proto__ || Object.getPrototypeOf(ContentAuthor)).apply(this, arguments));
+    }
+
+    _createClass(ContentAuthor, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {}
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'flex-row flex-center-align' },
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement(
+                        'b',
+                        null,
+                        ' \u0646\u0648\u06CC\u0633\u0646\u062F\u0647 : '
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'margin-left-1 margin-right-1' },
+                    _react2.default.createElement('img', { src: _userprofile2.default, width: '40', height: '40', alt: 'slide first' })
+                ),
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement(
+                        'b',
+                        null,
+                        ' ',
+                        this.props.author
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ContentAuthor;
+}(_react.Component);
+
+;
+
+exports.default = ContentAuthor;
+
+/***/ }),
+/* 813 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/userprofile.png?e9a1270db8521f6f11d1f844d5a67681";
 
 /***/ })
 ],[228]);

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {convertFromRaw, EditorState} from 'draft-js';
-import { createEditorStateWithText } from 'draft-js-plugins-editor';
-import {stateToHTML} from 'draft-js-export-html';
+import {Link} from 'react-router-dom';
 import CardWrapper from '../../CardWrapper/CardWrapper';
-import ContentSmallSize from "../ContentSmallSize/ContentSmallSize";
+import ContentAuthor from "../ContentAuthor/ContentAuthor";
 import Comments from '../../Comments/Comments';
+import {stateToHTML} from 'draft-js-export-html';
+
 import './ContentDetail.css';
 
 class ContentDetail extends Component {
@@ -14,7 +15,7 @@ class ContentDetail extends Component {
         brief: '',
         product: '',
         DraftEditor: null,
-        temp: ''
+        temp: '',resource: '', author: ''
     }
     componentDidMount() {
         axios.post('http://localhost:80/api/cm/content/get', { id: this.props.match.params.id})
@@ -27,7 +28,8 @@ class ContentDetail extends Component {
                 console.log(res.data[1]);
                 console.log('product');
                 console.log(res.data[2]);
-                this.setState({brief: res.data[0],DraftEditor: res.data[1],product: res.data[2]});
+                this.setState({brief: res.data[0], resource: res.data[0].resource, author: res.data[0].author,
+                    DraftEditor: res.data[1], product: res.data[2]});
                 // this.setState({temp: res.data[0].detail.text});
                 // const test = JSON.parse(res.data[0].detail.text);
                 // const editorState = EditorState.createWithContent(
@@ -86,16 +88,17 @@ class ContentDetail extends Component {
                       <h1 className="text-center">{this.state.brief.title}</h1>
                         {showTest2}
                       <br/>
+                      <div className="text-center">
+                        <Link to={this.state.resource} style={{fontSize: "20px"}}>منبع</Link>
+                      </div>
+                      <br/>
                       <hr/>
                       <br/>
-                      {/*<Comments/>*/}
+                      <ContentAuthor author={this.state.author}/>
                   </CardWrapper>
 
               </article>
               <br/>
-              <CardWrapper>
-                  <Comments/>
-              </CardWrapper>
               <br/>
               <br/>
           </div>
