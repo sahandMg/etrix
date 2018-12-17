@@ -164,9 +164,21 @@ class CmController extends Controller
 
       public function getContent(Request $request){
 
-          $brief = Brief::where('id',$request->id)->first();
-          $text = unserialize($brief->detail->text);
-          $product = unserialize($brief->product);
+        try{
+            $brief = Brief::where('id',$request->id)->first();
+            $brief['author'] = $brief->user->name;
+            unset($brief['user']);
+        }catch (\Exception $exception){
+              return $exception;
+        }
+
+         try{
+             $text = unserialize($brief->detail->text);
+             $product = unserialize($brief->product);
+         }catch (\Exception $exception){
+             return $exception;
+         }
+
 //          TimeUpdater::updateTime();
           return [$brief,$text,$product];
 
