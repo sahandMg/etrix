@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
             $table->string('name')->nullable();
             $table->string('order_number')->nullable();
             $table->unsignedInteger('project_id')->default(0);
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+//            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->unsignedInteger('bom_id')->default(0);
             $table->timestamps();
         });

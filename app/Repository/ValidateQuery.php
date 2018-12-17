@@ -19,8 +19,8 @@ class ValidateQuery
     public static function check($request){
 
 //        /(n-1)*10  10*n
-
-            self::$validator = Validator::make($request->all(), [
+    $errors = [];
+            $validator = Validator::make($request->all(), [
 
                 'name' => 'bail|required|unique:users',
                 'email' => 'bail|required|email|unique:users',
@@ -28,33 +28,45 @@ class ValidateQuery
 
             ]);
 
-        if(self::$validator->fails()){
+        if($validator->fails()){
 
-            self::$error = true;
+            if($validator->fails()){
 
-            if(isset(json_decode(self::$validator->errors(),true)['email'])){
+                for($i=0 ;$i<count($validator->errors()->getMessages());$i++){
+                    array_push($errors,array_values($validator->errors()->getMessages())[$i][0]);
+                }
 
-
-                return json_decode(self::$validator->errors(),true);
-
-            }elseif(isset(json_decode(self::$validator->errors(),true)['name'])){
-
-                return json_decode(self::$validator->errors(),true);
-
-            }elseif(isset(json_decode(self::$validator->errors(),true)['password'])){
-
-                return json_decode(self::$validator->errors(),true);
-
+                return $errors;
             }
-//elseif (isset(json_decode(self::$validator->errors(),true)['repeat'])){
-//
-//                return 'repeat';
-//            }
-
-        }else{
-
-            return self::$error;
         }
+
+//        if(self::$validator->fails()){
+//
+//            self::$error = true;
+//
+//            if(isset(json_decode(self::$validator->errors(),true)['email'])){
+//
+//
+//                return json_decode(self::$validator->errors(),true);
+//
+//            }elseif(isset(json_decode(self::$validator->errors(),true)['name'])){
+//
+//                return json_decode(self::$validator->errors(),true);
+//
+//            }elseif(isset(json_decode(self::$validator->errors(),true)['password'])){
+//
+//                return json_decode(self::$validator->errors(),true);
+//
+//            }
+////elseif (isset(json_decode(self::$validator->errors(),true)['repeat'])){
+////
+////                return 'repeat';
+////            }
+//
+//        }else{
+//
+//            return self::$error;
+//        }
 
     }
 
