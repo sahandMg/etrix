@@ -41,7 +41,8 @@ const cartADD = ( state, action ) => {
        } else {
            console.log("cartADD reducers projectName is not null ");
            if (temp[i][0].project === action.projectName) {
-               for (let j = 0; j < temp.length; j++) {
+               console.log("cartADD reducers project founded ");
+               for (let j = 0; j < temp[i].length; j++) {
                    if (temp[i][j].keyword === action.productName) {
                        temp[i][j].num = action.number + temp[i][j].num;
                        was = 1;
@@ -70,6 +71,7 @@ const cartADD = ( state, action ) => {
         length = length + 1 ;
     }
     localStorage.setItem('cart', JSON.stringify(temp));
+    console.log("cartADD reducer : ");console.log(temp);
     return updateObject( state, { cart: temp, cartLength: length, projectsPrice: projectPrices} );
 };
 

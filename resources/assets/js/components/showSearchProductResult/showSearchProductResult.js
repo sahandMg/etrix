@@ -174,6 +174,10 @@ class showSearchProductResult extends Component {
     }
 
     onOpenModal = (productName,category,number) => {
+        console.log("showSearchProductResult open Modal");
+        console.log("category");console.log(category);
+        console.log("productName");console.log(productName);
+        console.log("number");console.log(number);
         if(this.props.token) {
             this.setState({open: true});
             this.setState({productName: productName, category: category, number: number});

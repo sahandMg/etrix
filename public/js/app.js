@@ -205,9 +205,7 @@ Object.defineProperty(exports, 'getProductCategories', {
 /* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -243,6 +241,8 @@ InlineError.propTypes = {
 exports.default = InlineError;
 
 /***/ }),
+/* 28 */,
+/* 29 */,
 /* 30 */,
 /* 31 */,
 /* 32 */,
@@ -434,17 +434,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _validator = __webpack_require__(76);
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _index = __webpack_require__(14);
 
@@ -1000,7 +1000,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 __webpack_require__(315);
 
@@ -1092,7 +1092,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1667,7 +1667,7 @@ var _reduxThunk = __webpack_require__(290);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _auth = __webpack_require__(302);
 
@@ -1997,7 +1997,8 @@ var cartADD = function cartADD(state, action) {
         } else {
             console.log("cartADD reducers projectName is not null ");
             if (temp[i][0].project === action.projectName) {
-                for (var _j = 0; _j < temp.length; _j++) {
+                console.log("cartADD reducers project founded ");
+                for (var _j = 0; _j < temp[i].length; _j++) {
                     if (temp[i][_j].keyword === action.productName) {
                         temp[i][_j].num = action.number + temp[i][_j].num;
                         was = 1;
@@ -2026,6 +2027,7 @@ var cartADD = function cartADD(state, action) {
         length = length + 1;
     }
     localStorage.setItem('cart', JSON.stringify(temp));
+    console.log("cartADD reducer : ");console.log(temp);
     return (0, _utility.updateObject)(state, { cart: temp, cartLength: length, projectsPrice: projectPrices });
 };
 
@@ -2354,7 +2356,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactRedux = __webpack_require__(8);
 
@@ -2637,7 +2639,7 @@ var _VideoContent = __webpack_require__(161);
 
 var _VideoContent2 = _interopRequireDefault(_VideoContent);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _URLs = __webpack_require__(5);
 
@@ -3114,9 +3116,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -3531,7 +3533,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactAutosuggest = __webpack_require__(175);
 
@@ -3805,7 +3807,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 __webpack_require__(409);
 
@@ -4029,7 +4031,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactRedux = __webpack_require__(8);
 
@@ -4275,7 +4277,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactAutosuggest = __webpack_require__(175);
 
@@ -4539,7 +4541,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactRedux = __webpack_require__(8);
 
@@ -5607,7 +5609,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _index = __webpack_require__(14);
 
@@ -5687,17 +5689,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _index = __webpack_require__(14);
 
@@ -5892,9 +5894,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _index = __webpack_require__(14);
 
@@ -6025,7 +6027,7 @@ var _GoogleSignup = __webpack_require__(176);
 
 var _GoogleSignup2 = _interopRequireDefault(_GoogleSignup);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _axios = __webpack_require__(7);
 
@@ -6035,11 +6037,11 @@ var _validator = __webpack_require__(76);
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _CardWrapper = __webpack_require__(38);
 
@@ -6360,9 +6362,9 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _index = __webpack_require__(14);
 
@@ -6720,7 +6722,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -6901,7 +6903,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -7115,13 +7117,13 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _index = __webpack_require__(14);
 
@@ -7284,6 +7286,10 @@ var showSearchProductResult = function (_Component) {
                 });
             }
         }, _this.onOpenModal = function (productName, category, number) {
+            console.log("showSearchProductResult open Modal");
+            console.log("category");console.log(category);
+            console.log("productName");console.log(productName);
+            console.log("number");console.log(number);
             if (_this.props.token) {
                 _this.setState({ open: true });
                 _this.setState({ productName: productName, category: category, number: number });
@@ -7550,7 +7556,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _AuxWrapper = __webpack_require__(70);
 
@@ -7718,7 +7724,7 @@ var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7879,7 +7885,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -8029,7 +8035,7 @@ var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _reactConfirmAlert = __webpack_require__(528);
 
@@ -8347,13 +8353,13 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8620,7 +8626,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _BatteryLifeCalculator = __webpack_require__(533);
 
@@ -8821,7 +8827,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11898,7 +11904,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _axios = __webpack_require__(7);
 
@@ -11910,7 +11916,7 @@ var _URLs2 = _interopRequireDefault(_URLs);
 
 var _reactRedux = __webpack_require__(8);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12107,9 +12113,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _URLs = __webpack_require__(5);
 
@@ -12458,13 +12464,13 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _validator = __webpack_require__(76);
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
@@ -12825,7 +12831,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _AddContent = __webpack_require__(571);
 
@@ -12971,7 +12977,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -12983,7 +12989,7 @@ var _reactSelect2 = _interopRequireDefault(_reactSelect);
 
 var _draftJsPluginsEditor = __webpack_require__(191);
 
-var _draftJs = __webpack_require__(12);
+var _draftJs = __webpack_require__(13);
 
 var _draftjsToHtml = __webpack_require__(671);
 
@@ -12991,7 +12997,7 @@ var _draftjsToHtml2 = _interopRequireDefault(_draftjsToHtml);
 
 var _draftJsExportHtml = __webpack_require__(218);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
@@ -14452,11 +14458,11 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactSAlert = __webpack_require__(17);
 
@@ -14777,7 +14783,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _reactTabs = __webpack_require__(223);
 
@@ -14919,7 +14925,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _axios = __webpack_require__(7);
 
@@ -15200,7 +15206,7 @@ var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
@@ -15557,13 +15563,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
@@ -15789,11 +15795,11 @@ var _validator = __webpack_require__(76);
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _InlineError = __webpack_require__(29);
+var _InlineError = __webpack_require__(27);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16007,9 +16013,9 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _draftJs = __webpack_require__(12);
+var _draftJs = __webpack_require__(13);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _CardWrapper = __webpack_require__(38);
 
@@ -16182,7 +16188,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _draftJs = __webpack_require__(12);
+var _draftJs = __webpack_require__(13);
 
 var _userprofile = __webpack_require__(779);
 
@@ -16596,7 +16602,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _URLs = __webpack_require__(5);
 
@@ -16610,7 +16616,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactSpinners = __webpack_require__(13);
+var _reactSpinners = __webpack_require__(12);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16727,7 +16733,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _URLs = __webpack_require__(5);
 
@@ -16924,7 +16930,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRouterDom = __webpack_require__(10);
+var _reactRouterDom = __webpack_require__(9);
 
 var _URLs = __webpack_require__(5);
 
