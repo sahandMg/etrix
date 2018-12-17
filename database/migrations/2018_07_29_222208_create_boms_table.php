@@ -16,6 +16,7 @@ class CreateBomsTable extends Migration
         Schema::create('boms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('price')->nullable();
+            $table->string('delivery')->nullable();
             $table->string('status')->nullable();
             $table->unsignedInteger('user_id')->default(0);
             $table->string('order_number')->nullable();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bom;
 use App\Cart;
+use App\Address;
 use App\Exports\CartsExport;
 use App\Imports\CartsImport;
 use Carbon\Carbon;
@@ -546,6 +547,7 @@ class CartController extends Controller
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
             return 'سبد خرید پیش از این پردازش شده است';
         }
+        $usercart = $this->readCart($request);
         $totalPrice = 0;
         $itemArr = [];
         // check if the requested quantity is available or not
@@ -571,10 +573,17 @@ class CartController extends Controller
         }
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
-        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
+        $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
+        $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();
+        // Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
         // TODO CLEAN THE LINE BELLOW && redirect to localhost/user/follow-up after transaction gate
-        return ['price'=>$totalPrice,'number'=>$order_number];
+        return ['cart'=>$usercart,'price'=>$totalPrice,'number'=>$order_number,
+        'delivery'=>$delivery,
+        'address'=>$query->address,
+        'city'=>$query->city, 
+        'province'=>$query->province, 
+    ];
     }
 
     protected function availability(){

@@ -173,7 +173,8 @@ class SearchController extends Controller
 
 
                     }
-
+                    
+                        
 
             }
             if (!isset($cName) && !isset($models)) {
@@ -204,7 +205,7 @@ class SearchController extends Controller
                     $names = unserialize($names[0]);
 //
                 }
-
+                
                 if (!isset($parts) || $parts->isEmpty()) {
 
                     return 415;
@@ -235,6 +236,7 @@ class SearchController extends Controller
                     /*
                     * Create a breadcrumb
                     */
+                    
                     $breadCrumb = DB::table('components')->where('components.slug',$parts[0]->slug)
                         ->join('products','components.product_id','=','products.id')->select('name','product_name')->get();
                     $breadCrumb = $breadCrumb[0];
@@ -262,7 +264,8 @@ class SearchController extends Controller
 
                 }
             }else{
-                return array_values($cName2);
+                $this->type = 50;
+                return [$this->type ,array_values($cName2)];
             }
         }
     }
