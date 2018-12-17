@@ -19,7 +19,6 @@ class PageController extends Controller
 
     public function home($category=null,Request $request){
 
-      $dataId = Brief::orderBy('id','desc')->first()->id;
       $contents = Brief::orderBy('id','desc')->get()->take($this->info);
         if($category){
             $contents = Brief::orderBy('id','desc')->where('category',$category)->get()->take($this->info);
@@ -41,7 +40,6 @@ class PageController extends Controller
  */
     public function moreContent($category=null,Request $request){
         $num = $request->num;
-        $dataId = Brief::orderBy('id','desc')->first()->id;
         $contents = Brief::orderBy('id','desc')->skip($num*10)->take($this->info)->get();
         if($category){
             $contents = Brief::orderBy('id','desc')->where('category',$category)
