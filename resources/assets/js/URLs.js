@@ -37,5 +37,9 @@ export default {
     user_delete_project: '/user/project/delete', //  token, project => projects
     user_get_projects_detail: '/user/project/detail', //  token, project => project detail
     user_get_data: '/user/data',  // token => get user data and token
-    get_products_category: '/subMenu'  //
+    user_set_order_address: '/user/cart/address', // post token, address,
+    get_cities_name: '/city', //get ?province=provinceName =>  cities name
+    get_province_name: '/province', //  get province name
+    get_products_category: '/subMenu',  //
+
 }
