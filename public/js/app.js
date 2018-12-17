@@ -4,8 +4,7 @@ webpackJsonp([1],[
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57,6 +56,7 @@ exports.default = {
 };
 
 /***/ }),
+/* 6 */,
 /* 7 */,
 /* 8 */,
 /* 9 */,
@@ -64,8 +64,7 @@ exports.default = {
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */,
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75,7 +74,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _auth = __webpack_require__(303);
+var _auth = __webpack_require__(304);
 
 Object.defineProperty(exports, 'auth', {
     enumerable: true,
@@ -190,6 +189,7 @@ Object.defineProperty(exports, 'getProductCategories', {
 });
 
 /***/ }),
+/* 15 */,
 /* 16 */,
 /* 17 */,
 /* 18 */,
@@ -261,7 +261,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(428);
+__webpack_require__(430);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -295,7 +295,30 @@ exports.default = CardWrapper;
 /* 55 */,
 /* 56 */,
 /* 57 */,
-/* 58 */,
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    modelNotFound: 410,
+    partNotFound: 415,
+    articleNotFound: 417,
+    Ok: 200,
+    fetalError: 420,
+    sessionExpired: 300,
+    userNotAllowed: 320,
+    shopNotResponding: 435,
+    productSearch: 10,
+    componentSearch: 20,
+    partSearch: '30'
+};
+
+/***/ }),
 /* 59 */,
 /* 60 */,
 /* 61 */,
@@ -305,7 +328,8 @@ exports.default = CardWrapper;
 /* 65 */,
 /* 66 */,
 /* 67 */,
-/* 68 */
+/* 68 */,
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,7 +359,7 @@ var ADD_PRODUCT_PRICE = exports.ADD_PRODUCT_PRICE = 'ADD_PRODUCT_PRICE';
 var GET_CATEGORIES = exports.GET_CATEGORIES = 'GET_CATEGORIES';
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -351,35 +375,11 @@ var AuxWrapper = function AuxWrapper(props) {
 exports.default = AuxWrapper;
 
 /***/ }),
-/* 70 */,
 /* 71 */,
 /* 72 */,
 /* 73 */,
 /* 74 */,
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    modelNotFound: 410,
-    partNotFound: 415,
-    articleNotFound: 417,
-    Ok: 200,
-    fetalError: 420,
-    sessionExpired: 300,
-    userNotAllowed: 320,
-    shopNotResponding: 435,
-    productSearch: 10,
-    componentSearch: 20,
-    partSearch: '30'
-};
-
-/***/ }),
+/* 75 */,
 /* 76 */,
 /* 77 */,
 /* 78 */,
@@ -416,7 +416,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-__webpack_require__(314);
+__webpack_require__(315);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -534,11 +534,11 @@ var _InlineError2 = _interopRequireDefault(_InlineError);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -706,7 +706,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(541);
+__webpack_require__(543);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -763,7 +763,7 @@ exports.default = InputWithText;
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(768);
+var content = __webpack_require__(770);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -841,7 +841,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.storeProductCategories = exports.getProductCategories = exports.updateProductPrice = exports.addProductPrice = exports.updateCartPrices = exports.updateCart = exports.sendCartToServer = exports.restoreCart = exports.setLoadingAndError = exports.getCartSuccess = exports.getCartFromServer = exports.getCartFromLocalStorage = exports.changeNumFromCart = exports.removeAllCart = exports.removeFromCart = exports.addToCart = undefined;
 
-var _actionTypes = __webpack_require__(68);
+var _actionTypes = __webpack_require__(69);
 
 var actionTypes = _interopRequireWildcard(_actionTypes);
 
@@ -849,7 +849,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -1152,7 +1152,8 @@ exports.default = VideoContent;
 module.exports = "/images/shopping_cart.png?c392c39a12de1d4fc24a60dd6d173df6";
 
 /***/ }),
-/* 176 */
+/* 176 */,
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1166,9 +1167,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(426);
+__webpack_require__(428);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -1201,7 +1202,6 @@ var GoogleSignup = function GoogleSignup(props) {
 exports.default = GoogleSignup;
 
 /***/ }),
-/* 177 */,
 /* 178 */,
 /* 179 */,
 /* 180 */,
@@ -1242,7 +1242,8 @@ exports.default = GoogleSignup;
 /* 215 */,
 /* 216 */,
 /* 217 */,
-/* 218 */
+/* 218 */,
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1266,9 +1267,9 @@ var _ContentSmallSize = __webpack_require__(94);
 
 var _ContentSmallSize2 = _interopRequireDefault(_ContentSmallSize);
 
-__webpack_require__(679);
+__webpack_require__(681);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -1363,44 +1364,13 @@ var ContainerSmallSize = function (_Component) {
 exports.default = ContainerSmallSize;
 
 /***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(719);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(4)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../css-loader/index.js!./plugin.css", function() {
-			var newContent = require("!!../../css-loader/index.js!./plugin.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
 /* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(720);
+var content = __webpack_require__(721);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1425,12 +1395,43 @@ if(false) {
 }
 
 /***/ }),
-/* 221 */,
+/* 221 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(722);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(4)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js!./plugin.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./plugin.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 222 */,
 /* 223 */,
 /* 224 */,
 /* 225 */,
-/* 226 */
+/* 226 */,
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1446,15 +1447,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AddComment = __webpack_require__(776);
+var _AddComment = __webpack_require__(778);
 
 var _AddComment2 = _interopRequireDefault(_AddComment);
 
-var _Comment = __webpack_require__(779);
+var _Comment = __webpack_require__(781);
 
 var _Comment2 = _interopRequireDefault(_Comment);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1513,15 +1514,15 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Comments);
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(228);
-module.exports = __webpack_require__(808);
+__webpack_require__(229);
+module.exports = __webpack_require__(810);
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1533,7 +1534,7 @@ module.exports = __webpack_require__(808);
  * building robust, powerful web applications using React + Laravel.
  */
 
-__webpack_require__(229);
+__webpack_require__(230);
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -1541,16 +1542,16 @@ __webpack_require__(229);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__webpack_require__(251);
+__webpack_require__(252);
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-window._ = __webpack_require__(230);
+window._ = __webpack_require__(231);
 window.Popper = __webpack_require__(134).default;
 
 /**
@@ -1562,7 +1563,7 @@ window.Popper = __webpack_require__(134).default;
 try {
   window.$ = window.jQuery = __webpack_require__(135);
 
-  __webpack_require__(232);
+  __webpack_require__(233);
 } catch (e) {}
 
 /**
@@ -1607,7 +1608,6 @@ if (token) {
 // });
 
 /***/ }),
-/* 230 */,
 /* 231 */,
 /* 232 */,
 /* 233 */,
@@ -1628,7 +1628,8 @@ if (token) {
 /* 248 */,
 /* 249 */,
 /* 250 */,
-/* 251 */
+/* 251 */,
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1648,35 +1649,35 @@ var _reactDom = __webpack_require__(20);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouter = __webpack_require__(258);
+var _reactRouter = __webpack_require__(259);
 
 var _history = __webpack_require__(36);
 
-__webpack_require__(266);
+__webpack_require__(267);
 
 var _redux = __webpack_require__(150);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _reduxThunk = __webpack_require__(289);
+var _reduxThunk = __webpack_require__(290);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _auth = __webpack_require__(301);
+var _auth = __webpack_require__(302);
 
 var _auth2 = _interopRequireDefault(_auth);
 
-var _cart = __webpack_require__(302);
+var _cart = __webpack_require__(303);
 
 var _cart2 = _interopRequireDefault(_cart);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _RouteAPI = __webpack_require__(304);
+var _RouteAPI = __webpack_require__(305);
 
 var _RouteAPI2 = _interopRequireDefault(_RouteAPI);
 
@@ -1761,7 +1762,6 @@ if (document.getElementById('example')) {
 // registerServiceWorker();
 
 /***/ }),
-/* 252 */,
 /* 253 */,
 /* 254 */,
 /* 255 */,
@@ -1775,13 +1775,14 @@ if (document.getElementById('example')) {
 /* 263 */,
 /* 264 */,
 /* 265 */,
-/* 266 */
+/* 266 */,
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(267);
+var content = __webpack_require__(268);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1806,7 +1807,7 @@ if(false) {
 }
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -1820,7 +1821,6 @@ exports.push([module.i, "body {\r\n  margin: 0;\r\n  padding: 0;\r\n  font-famil
 
 
 /***/ }),
-/* 268 */,
 /* 269 */,
 /* 270 */,
 /* 271 */,
@@ -1853,7 +1853,8 @@ exports.push([module.i, "body {\r\n  margin: 0;\r\n  padding: 0;\r\n  font-famil
 /* 298 */,
 /* 299 */,
 /* 300 */,
-/* 301 */
+/* 301 */,
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1863,7 +1864,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _actionTypes = __webpack_require__(68);
+var _actionTypes = __webpack_require__(69);
 
 var actionTypes = _interopRequireWildcard(_actionTypes);
 
@@ -1934,7 +1935,7 @@ var reducer = function reducer() {
 exports.default = reducer;
 
 /***/ }),
-/* 302 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1944,7 +1945,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _actionTypes = __webpack_require__(68);
+var _actionTypes = __webpack_require__(69);
 
 var actionTypes = _interopRequireWildcard(_actionTypes);
 
@@ -2137,7 +2138,7 @@ var reducer = function reducer() {
 exports.default = reducer;
 
 /***/ }),
-/* 303 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2156,7 +2157,7 @@ var _cart = __webpack_require__(160);
 
 var CartActions = _interopRequireWildcard(_cart);
 
-var _actionTypes = __webpack_require__(68);
+var _actionTypes = __webpack_require__(69);
 
 var actionTypes = _interopRequireWildcard(_actionTypes);
 
@@ -2333,7 +2334,7 @@ var authCheckState = exports.authCheckState = function authCheckState() {
 };
 
 /***/ }),
-/* 304 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2351,133 +2352,131 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _main = __webpack_require__(308);
+var _main = __webpack_require__(309);
 
 var _main2 = _interopRequireDefault(_main);
 
-var _AuxWrapper = __webpack_require__(69);
+var _AuxWrapper = __webpack_require__(70);
 
 var _AuxWrapper2 = _interopRequireDefault(_AuxWrapper);
 
-var _HeaderCom = __webpack_require__(316);
+var _HeaderCom = __webpack_require__(317);
 
 var _HeaderCom2 = _interopRequireDefault(_HeaderCom);
 
-var _FooterCom = __webpack_require__(419);
+var _FooterCom = __webpack_require__(421);
 
 var _FooterCom2 = _interopRequireDefault(_FooterCom);
 
-var _My404Component = __webpack_require__(424);
+var _My404Component = __webpack_require__(426);
 
 var _My404Component2 = _interopRequireDefault(_My404Component);
 
-var _Login = __webpack_require__(425);
+var _Login = __webpack_require__(427);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Logout = __webpack_require__(492);
+var _Logout = __webpack_require__(494);
 
 var _Logout2 = _interopRequireDefault(_Logout);
 
-var _GoogleRegPass = __webpack_require__(493);
+var _GoogleRegPass = __webpack_require__(495);
 
 var _GoogleRegPass2 = _interopRequireDefault(_GoogleRegPass);
 
-var _GoogleLogin = __webpack_require__(494);
+var _GoogleLogin = __webpack_require__(496);
 
 var _GoogleLogin2 = _interopRequireDefault(_GoogleLogin);
 
-var _Signup = __webpack_require__(495);
+var _Signup = __webpack_require__(497);
 
 var _Signup2 = _interopRequireDefault(_Signup);
 
-var _Cart = __webpack_require__(498);
+var _Cart = __webpack_require__(500);
 
 var _Cart2 = _interopRequireDefault(_Cart);
 
-var _showSearchProductResult = __webpack_require__(510);
+var _showSearchProductResult = __webpack_require__(512);
 
 var _showSearchProductResult2 = _interopRequireDefault(_showSearchProductResult);
 
-var _Projects = __webpack_require__(525);
+var _Projects = __webpack_require__(527);
 
 var _Projects2 = _interopRequireDefault(_Projects);
 
-var _SetFactorInfo = __webpack_require__(529);
+var _SetFactorInfo = __webpack_require__(531);
 
 var _SetFactorInfo2 = _interopRequireDefault(_SetFactorInfo);
 
-var _Conversions = __webpack_require__(530);
+var _Conversions = __webpack_require__(532);
 
 var _Conversions2 = _interopRequireDefault(_Conversions);
 
-var _Project = __webpack_require__(560);
+var _Project = __webpack_require__(562);
 
 var _Project2 = _interopRequireDefault(_Project);
 
-var _Followup = __webpack_require__(564);
+var _Followup = __webpack_require__(566);
 
 var _Followup2 = _interopRequireDefault(_Followup);
 
-var _Factor = __webpack_require__(565);
+var _Factor = __webpack_require__(567);
 
 var _Factor2 = _interopRequireDefault(_Factor);
 
-var _AdminControlPanel = __webpack_require__(566);
+var _AdminControlPanel = __webpack_require__(568);
 
 var _AdminControlPanel2 = _interopRequireDefault(_AdminControlPanel);
 
-var _AdminLogIn = __webpack_require__(567);
+var _AdminLogIn = __webpack_require__(569);
 
 var _AdminLogIn2 = _interopRequireDefault(_AdminLogIn);
 
-var _ContentManagerPanel = __webpack_require__(568);
+var _ContentManagerPanel = __webpack_require__(570);
 
 var _ContentManagerPanel2 = _interopRequireDefault(_ContentManagerPanel);
 
-var _ContentManagerLogin = __webpack_require__(774);
+var _ContentManagerLogin = __webpack_require__(776);
 
 var _ContentManagerLogin2 = _interopRequireDefault(_ContentManagerLogin);
 
-var _ContentDetail = __webpack_require__(775);
+var _ContentDetail = __webpack_require__(777);
 
 var _ContentDetail2 = _interopRequireDefault(_ContentDetail);
 
-var _require_auth = __webpack_require__(782);
+var _require_auth = __webpack_require__(784);
 
 var _require_auth2 = _interopRequireDefault(_require_auth);
 
-var _ContainerSmallSize = __webpack_require__(218);
+var _ContainerSmallSize = __webpack_require__(219);
 
 var _ContainerSmallSize2 = _interopRequireDefault(_ContainerSmallSize);
 
-var _VideoContentContainer = __webpack_require__(783);
+var _VideoContentContainer = __webpack_require__(785);
 
 var _VideoContentContainer2 = _interopRequireDefault(_VideoContentContainer);
 
-var _ProductsList = __webpack_require__(784);
+var _ProductsList = __webpack_require__(786);
 
 var _ProductsList2 = _interopRequireDefault(_ProductsList);
 
-var _Product = __webpack_require__(787);
+var _Product = __webpack_require__(789);
 
 var _Product2 = _interopRequireDefault(_Product);
 
-var _OrderConfirnation = __webpack_require__(789);
+var _OrderConfirnation = __webpack_require__(791);
 
 var _OrderConfirnation2 = _interopRequireDefault(_OrderConfirnation);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
-
-__webpack_require__(790);
 
 __webpack_require__(792);
 
@@ -2494,6 +2493,8 @@ __webpack_require__(802);
 __webpack_require__(804);
 
 __webpack_require__(806);
+
+__webpack_require__(808);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -2583,10 +2584,10 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(RouteAPI));
 
 /***/ }),
-/* 305 */,
 /* 306 */,
 /* 307 */,
-/* 308 */
+/* 308 */,
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2602,23 +2603,23 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AuxWrapper = __webpack_require__(69);
+var _AuxWrapper = __webpack_require__(70);
 
 var _AuxWrapper2 = _interopRequireDefault(_AuxWrapper);
 
-var _Slide = __webpack_require__(309);
+var _Slide = __webpack_require__(310);
 
 var _Slide2 = _interopRequireDefault(_Slide);
 
-var _Slide3 = __webpack_require__(310);
+var _Slide3 = __webpack_require__(311);
 
 var _Slide4 = _interopRequireDefault(_Slide3);
 
-var _Slide5 = __webpack_require__(311);
+var _Slide5 = __webpack_require__(312);
 
 var _Slide6 = _interopRequireDefault(_Slide5);
 
-__webpack_require__(312);
+__webpack_require__(313);
 
 var _axios = __webpack_require__(7);
 
@@ -2634,7 +2635,7 @@ var _VideoContent2 = _interopRequireDefault(_VideoContent);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -2670,7 +2671,7 @@ var App = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.post('http://localhost:80/api/home').then(function (res) {
+      _axios2.default.post(_URLs2.default.base_URL + '/home').then(function (res) {
         // console.log('res ContainerSmallSize');
         // console.log(res);
         _this2.setState({ contents: res.data });
@@ -2902,31 +2903,31 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 309 */
+/* 310 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Slide1.jpg?a53aa16cfea8539f06a072a644171e07";
 
 /***/ }),
-/* 310 */
+/* 311 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Slide2.png?e316643dc40270aeb13777e64f512169";
 
 /***/ }),
-/* 311 */
+/* 312 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Slide2.jpg?b2098dc8b4a66a2252e876d621c5681f";
 
 /***/ }),
-/* 312 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(313);
+var content = __webpack_require__(314);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2951,7 +2952,7 @@ if(false) {
 }
 
 /***/ }),
-/* 313 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -2965,13 +2966,13 @@ exports.push([module.i, "/*@charset 'UTF-8';*/\r\n/*!* Slider *!*/\r\n/*.slick-l
 
 
 /***/ }),
-/* 314 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(315);
+var content = __webpack_require__(316);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2996,7 +2997,7 @@ if(false) {
 }
 
 /***/ }),
-/* 315 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -3010,7 +3011,7 @@ exports.push([module.i, ".ContentSmallSize {\r\n    flex: 0 1 calc(25% - 1em);\r
 
 
 /***/ }),
-/* 316 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3026,17 +3027,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopHeader = __webpack_require__(317);
+var _DesktopHeader = __webpack_require__(318);
 
 var _DesktopHeader2 = _interopRequireDefault(_DesktopHeader);
 
-var _ResponsiveHeader = __webpack_require__(398);
+var _ResponsiveHeader = __webpack_require__(412);
 
 var _ResponsiveHeader2 = _interopRequireDefault(_ResponsiveHeader);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
@@ -3093,7 +3094,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(HeaderCom);
 
 /***/ }),
-/* 317 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3121,31 +3122,31 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-__webpack_require__(391);
+__webpack_require__(392);
 
 var _shopping_cart = __webpack_require__(175);
 
 var _shopping_cart2 = _interopRequireDefault(_shopping_cart);
 
-var _Search = __webpack_require__(393);
+var _Search = __webpack_require__(394);
 
 var _Search2 = _interopRequireDefault(_Search);
 
-var _Navigation = __webpack_require__(394);
+var _Navigation = __webpack_require__(408);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _user_avatar = __webpack_require__(397);
+var _user_avatar = __webpack_require__(411);
 
 var _user_avatar2 = _interopRequireDefault(_user_avatar);
 
@@ -3392,7 +3393,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(DesktopHeader);
 
 /***/ }),
-/* 318 */,
 /* 319 */,
 /* 320 */,
 /* 321 */,
@@ -3465,13 +3465,14 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /* 388 */,
 /* 389 */,
 /* 390 */,
-/* 391 */
+/* 391 */,
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(392);
+var content = __webpack_require__(393);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3496,7 +3497,7 @@ if(false) {
 }
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -3504,13 +3505,13 @@ exports = module.exports = __webpack_require__(3)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);", ""]);
 
 // module
-exports.push([module.i, "/*@font-face {*/\r\n    /*src: url(\"../fonts/(18).ttf\");*/\r\n    /*font-family: iransans-18; }*/\r\n/*@font-face {*/\r\n    /*src: url(\"../fonts/(33).ttf\");*/\r\n    /*font-family: iransans-33; }*/\r\nbody, html {\r\n    font-family: iransans-33;\r\n    height: 100%; }\r\n\r\n.dropdown-submenu > .dropdown-menu {\r\n    position: absolute; }\r\n\r\n#navbar-top-stacked li.nav-item {\r\n    -webkit-transition: background-color ease .2s;\r\n    -moz-transition: background-color ease .2s;\r\n    -ms-transition: background-color ease .2s;\r\n    -o-transition: background-color ease .2s;\r\n    transition: background-color ease .2s; }\r\n\r\n.carousel-container {\r\n    z-index: 0; }\r\n\r\n.custom-dropdown {\r\n    z-index: 1; }\r\n\r\n.carousel-container .carousel-indicators li {\r\n    cursor: pointer; }\r\n\r\n.carousel-container .carousel-text {\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    right: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    background: linear-gradient(-90deg, #171717, transparent); }\r\n\r\n.carousel-text button {\r\n    position: absolute;\r\n    left: 75%;\r\n    top: 60%;\r\n    -webkit-transform: translate(-25%, -40%);\r\n    -moz-transform: translate(-25%, -40%);\r\n    -ms-transform: translate(-25%, -40%);\r\n    -o-transform: translate(-25%, -40%);\r\n    transform: translate(-25%, -40%); }\r\n\r\n.carousel-container .carousel-text span {\r\n    font-family: \"Calibri Light\";\r\n    position: absolute;\r\n    width: 40%;\r\n    top: 0;\r\n    right: 0;\r\n    font-size: 3vw;\r\n    font-weight: bold; }\r\n\r\n.feature-text {\r\n    font-size: large;\r\n    font-family: iransans-33; }\r\n\r\n.feature-icon {\r\n    -webkit-transition: transform ease .3s;\r\n    -moz-transition: transform ease .3s;\r\n    -ms-transition: transform ease .3s;\r\n    -o-transition: transform ease .3s;\r\n    transition: transform ease .3s; }\r\n\r\n.feature-icon .fa {\r\n    -webkit-transition: ease 0.4s;\r\n    -moz-transition: ease .4s;\r\n    -ms-transition: ease .4s;\r\n    -o-transition: ease .4s;\r\n    transition: ease .4s;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    color: blue;\r\n    font-size: 45px; }\r\n\r\n.feature-icon .fa:hover {\r\n    background-color: rgba(190, 193, 193, 0.71); }\r\n\r\n.feature-icon:hover {\r\n    text-shadow: 0px 0px 10px #525252; }\r\n\r\n.contact-us-icon .fa {\r\n    font-size: x-large; }\r\n\r\n.social-media-item .fa {\r\n    font-size: xx-large; }\r\n\r\n.contact-us-text, .contact-us-text > a {\r\n    font-size: large;\r\n    color: #bdb6ba; }\r\n\r\n.social-media-item, .contact-us-icon {\r\n    -webkit-transition: .4s;\r\n    -moz-transition: .4s;\r\n    -ms-transition: .4s;\r\n    -o-transition: .4s;\r\n    transition: .4s; }\r\n\r\n.social-media-item:hover, .contact-us-icon:hover {\r\n    text-shadow: 0px 0px 10px #c7ceca; }\r\n\r\n.footer-container {\r\n    background-color: #252525; }\r\n\r\n/************************************/\r\n\r\n.navbar-custom {\r\n    width: 100%;\r\n    height: 98px;\r\n    background-color: #252525;\r\n    padding: 0px auto;\r\n    font-family: iransans-33; }\r\n\r\n.navbar-list-item-link {\r\n    font-family: iransans-33; }\r\n\r\n.navbar-list-group {\r\n    width: auto;\r\n    margin: 0; }\r\n.navbar-list-group a {\r\n    color: white;\r\n}\r\n.navbar-list-group .navbar-list-item {\r\n    display: block;\r\n    float: right;\r\n    padding: 5px 15px;\r\n    font-size: medium;\r\n    -webkit-transition: all ease .4s;\r\n    -moz-transition: all ease .4s;\r\n    -ms-transition: all ease .4s;\r\n    -o-transition: all ease .4s;\r\n    transition: all ease .4s;\r\n    cursor: pointer; }\r\n.navbar-list-item a {\r\n    color: white;\r\n}\r\n.navbar-list-item:nth-of-type(1) {\r\n    border-bottom: 3px solid #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(2) {\r\n    border-bottom: 3px solid #f200ff; }\r\n\r\n.navbar-list-item:nth-of-type(3) {\r\n    border-bottom: 3px solid #ff006d; }\r\n\r\n.navbar-list-item:nth-of-type(4) {\r\n    border-bottom: 3px solid #6269ff; }\r\n\r\n.navbar-list-item:nth-of-type(5) {\r\n    border-bottom: 3px solid #192cff; }\r\n\r\n.navbar-list-item:nth-of-type(6) {\r\n    border-bottom: 3px solid #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(1):hover {\r\n    background-color: #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(2):hover {\r\n    background-color: #f200ff; }\r\n\r\n.navbar-list-item:nth-of-type(3):hover {\r\n    background-color: #ff006d; }\r\n\r\n.navbar-list-item:nth-of-type(4):hover {\r\n    background-color: #6269ff; }\r\n\r\n.navbar-list-item:nth-of-type(5):hover {\r\n    background-color: #192cff; }\r\n\r\n.navbar-list-item:nth-of-type(6):hover {\r\n    background-color: #ff000b; }\r\n\r\n.navbar-custom .navbar-list-item:hover .navbar-list-item-link {\r\n    text-shadow: 0 0 10px #a1a1a1;\r\n    color: #cac9ff; }\r\n\r\n.custom-dropdown {\r\n    position: relative; }\r\n\r\n.dropdown-icon {\r\n    float: left !important;\r\n    margin-left: 3px;\r\n    color: blue; }\r\n\r\n.custom-dropdown-menu {\r\n    width: 250%;\r\n    position: absolute;\r\n    right: 0;\r\n    padding: 0;\r\n    top: 100%;\r\n    display: none;\r\n    background-color: #f8f8f8; }\r\n\r\n.custom-dropdown-menu-item {\r\n    width: 100%;\r\n    margin: 0;\r\n    display: block;\r\n    padding: 10px 10px 10px 0;\r\n    text-align: right;\r\n    color: #4f4f4f;\r\n    -webkit-transition: border-bottom ease .4s;\r\n    -moz-transition: border-bottom ease .4s;\r\n    -ms-transition: border-bottom ease .4s;\r\n    -o-transition: border-bottom ease .4s;\r\n    transition: border-right ease .4s; }\r\n\r\n.custom-dropdown-menu-toggler {\r\n    color: #4f4f4f; }\r\n\r\n.custom-dropdown-menu-item:hover {\r\n    border-right: 5px solid red; }\r\n\r\n.custom-dropdown-submenu {\r\n    width: 100%;\r\n    position: absolute;\r\n    right: 100%;\r\n    top: 0;\r\n    padding: 0;\r\n    background-color: #f8f8f8;\r\n    border-right: 1px solid #979797;\r\n    visibility: collapse; }\r\n\r\n.custom-dropdown-menu-item:hover > .custom-dropdown-submenu:first-of-type {\r\n    visibility: visible;\r\n    width: 100%; }\r\n\r\n.custom-dropdown-menu-item:hover > .custom-dropdown-menu-item-link {\r\n    text-shadow: 0px 0px 10px #252525; }\r\n\r\n.breadcrumb {\r\n    background: none !important; }\r\n.breadcrumb li a { color: white;}\r\n.navbar-custom a:hover {\r\n    text-decoration: none; }\r\n\r\n.navbar-sticky-container {\r\n    width: 100%; }\r\n\r\n.navbar-sticky-bg {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    left: 0;\r\n    display: none;\r\n    z-index: 9999;\r\n    background-color: rgba(85, 85, 85, 0.72); }\r\n\r\n.card-header {\r\n    border: none; }\r\n\r\n.card {\r\n    -webkit-border-radius: 0;\r\n    -moz-border-radius: 0;\r\n    border-radius: 0; }\r\n\r\n.card-link {\r\n    float: right; }\r\n\r\n.breadcrumb-item a {\r\n    font-size: large; }\r\n\r\n.navbar-closer:hover {\r\n    color: #4e2d4f; }\r\n\r\n.badge {\r\n    background-color: #2d398b;\r\n    border-radius: 50%; }\r\n\r\n.fixed-navbar-top {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 10; }\r\n\r\n.list-group-item a:hover {\r\n    text-decoration: none; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(1) {\r\n    border-right: 4px solid #ff000b; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(2) {\r\n    border-right: 4px solid #f200ff; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(3) {\r\n    border-right: 4px solid #ff006d; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(4) {\r\n    border-right: 4px solid #6269ff; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(5) {\r\n    border-right: 4px solid #192cff; }\r\n\r\n.first-dropdwon-background {\r\n    background-color: lightgray; }\r\n\r\n.second-dropdwon-background {\r\n    background-color: #c5c5c5; }\r\n\r\n.third-dropdwon-background {\r\n    background-color: #cecece; }\r\n\r\n.shopping-cart-border-color {\r\n    border-color: #8c8b82; }\r\n\r\n /*  User drop down menu  */\r\n.dropdown-user {\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    position: absolute;\r\n    transition: all 0.5s ease;\r\n    margin-top: 0.7rem;\r\n    right: 0;\r\n    display: none;\r\n    background-color: white;\r\n    z-index: 10000;width: 120px;\r\n}\r\n.breadcrumb {\r\n    padding: 0;\r\n    margin-top: 1rem;\r\n}\r\n.breadcrumb li {\r\n    position: relative;\r\n}\r\n.breadcrumb li:hover > ul{\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n.breadcrumb li ul:hover {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n.dropdown-user li {\r\n    clear: both;\r\n    width: 100%;\r\n    padding: 2%;\r\n}\r\n\r\nul li:hover > ul,\r\nul li ul:hover {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n\r\n.user-menu {\r\n    padding-left: 0.7rem;padding-right: 0.7rem;\r\n    padding-bottom: 0rem;\r\n}\r\n.User-area {\r\n    width: 30px;\r\n    height: 30px;\r\n    position: relative;\r\n    cursor: pointer;direction: rtl;\r\n}\r\n.User-area > .User-avtar {\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 30px;\r\n    border: 2px solid #fff;\r\n    box-shadow: 0px 0px 12px -5px #000;\r\n}\r\n.User-area > .User-avtar > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 30px;\r\n}\r\n\r\n.User-Dropdown {\r\n    display: none;\r\n    position: absolute;\r\n    border-radius: 7px;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 8px rgba(214, 214, 214, 0.78);\r\n    list-style: none;\r\n    padding: 0 20px;\r\n    width: 200px;\r\n    margin: 0;\r\n    top: 70px;\r\n    right: -9%;\r\n    z-index: 10000;\r\n}\r\n.User-Dropdown:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    margin-left: -0.5em;\r\n    right: 0px;\r\n    box-sizing: border-box;\r\n    border: 7px solid black;\r\n    border-color: transparent transparent #ffffff #ffffff;\r\n    transform-origin: 0 0;\r\n    transform: rotate(135deg);\r\n    box-shadow: -3px 3px 3px -3px rgba(214, 214, 214, 0.78);\r\n}\r\n.User-Dropdown.U-open {\r\n    display: block;\r\n}\r\n.User-Dropdown > li {\r\n    padding: 0px;\r\n    line-height: 47px;\r\n    border-bottom: 1px solid rgba(215, 215, 215, 0.17);\r\n}\r\n.User-Dropdown > li:last-child {\r\n    border-bottom: 0px;\r\n}\r\n.User-Dropdown > li > a {\r\n    font-size: 13px;\r\n    padding: 15px 25px 16px 10px;\r\n    text-decoration: none;\r\n    color: #1787e0;\r\n    transition: all .2s ease-out;\r\n}\r\n.User-Dropdown span {\r\n    background: #16d67a;\r\n    padding: 3px 10px;\r\n    color: #fff;\r\n    border-radius: 30px;\r\n    font-size: 13px;\r\n}\r\n.User-Dropdown > li:before {\r\n    content: '';\r\n    width: 0px;\r\n    height: 40px;\r\n    position: absolute;\r\n    background: #2196F3;\r\n    margin-top: 4px;\r\n    border-radius: 0 1px 1px 0;\r\n    right: 0px;\r\n    transition: all .2s ease;\r\n}\r\n.User-Dropdown > li:hover:before {\r\n    width: 5px;\r\n    border-radius: 30px;\r\n}\r\n.User-Dropdown > li a:hover {\r\n    margin-right: 5px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "/*@font-face {*/\r\n    /*src: url(\"../fonts/(18).ttf\");*/\r\n    /*font-family: iransans-18; }*/\r\n/*@font-face {*/\r\n    /*src: url(\"../fonts/(33).ttf\");*/\r\n    /*font-family: iransans-33; }*/\r\nbody, html {\r\n    font-family: iransans-33;\r\n    height: 100%; }\r\n\r\n.dropdown-submenu > .dropdown-menu {\r\n    position: absolute; }\r\n\r\n#navbar-top-stacked li.nav-item {\r\n    -webkit-transition: background-color ease .2s;\r\n    -moz-transition: background-color ease .2s;\r\n    -ms-transition: background-color ease .2s;\r\n    -o-transition: background-color ease .2s;\r\n    transition: background-color ease .2s; }\r\n\r\n.carousel-container {\r\n    z-index: 0; }\r\n\r\n.custom-dropdown {\r\n    z-index: 1; }\r\n\r\n.carousel-container .carousel-indicators li {\r\n    cursor: pointer; }\r\n\r\n.carousel-container .carousel-text {\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    right: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    background: linear-gradient(-90deg, #171717, transparent); }\r\n\r\n.carousel-text button {\r\n    position: absolute;\r\n    left: 75%;\r\n    top: 60%;\r\n    -webkit-transform: translate(-25%, -40%);\r\n    -moz-transform: translate(-25%, -40%);\r\n    -ms-transform: translate(-25%, -40%);\r\n    -o-transform: translate(-25%, -40%);\r\n    transform: translate(-25%, -40%); }\r\n\r\n.carousel-container .carousel-text span {\r\n    font-family: \"Calibri Light\";\r\n    position: absolute;\r\n    width: 40%;\r\n    top: 0;\r\n    right: 0;\r\n    font-size: 3vw;\r\n    font-weight: bold; }\r\n\r\n.feature-text {\r\n    font-size: large;\r\n    font-family: iransans-33; }\r\n\r\n.feature-icon {\r\n    -webkit-transition: transform ease .3s;\r\n    -moz-transition: transform ease .3s;\r\n    -ms-transition: transform ease .3s;\r\n    -o-transition: transform ease .3s;\r\n    transition: transform ease .3s; }\r\n\r\n.feature-icon .fa {\r\n    -webkit-transition: ease 0.4s;\r\n    -moz-transition: ease .4s;\r\n    -ms-transition: ease .4s;\r\n    -o-transition: ease .4s;\r\n    transition: ease .4s;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    color: blue;\r\n    font-size: 45px; }\r\n\r\n.feature-icon .fa:hover {\r\n    background-color: rgba(190, 193, 193, 0.71); }\r\n\r\n.feature-icon:hover {\r\n    text-shadow: 0px 0px 10px #525252; }\r\n\r\n.contact-us-icon .fa {\r\n    font-size: x-large; }\r\n\r\n.social-media-item .fa {\r\n    font-size: xx-large; }\r\n\r\n.contact-us-text, .contact-us-text > a {\r\n    font-size: large;\r\n    color: #bdb6ba; }\r\n\r\n.social-media-item, .contact-us-icon {\r\n    -webkit-transition: .4s;\r\n    -moz-transition: .4s;\r\n    -ms-transition: .4s;\r\n    -o-transition: .4s;\r\n    transition: .4s; }\r\n\r\n.social-media-item:hover, .contact-us-icon:hover {\r\n    text-shadow: 0px 0px 10px #c7ceca; }\r\n\r\n.footer-container {\r\n    background-color: #252525; }\r\n\r\n/************************************/\r\n\r\n.navbar-custom {\r\n    width: 100%;\r\n    height: 98px;\r\n    background-color: #252525;\r\n    padding: 0px auto;\r\n    font-family: iransans-33; }\r\n\r\n.navbar-list-item-link {\r\n    font-family: iransans-33; }\r\n\r\n.navbar-list-group {\r\n    width: auto;\r\n    margin: 0; }\r\n.navbar-list-group a {\r\n    color: white;\r\n}\r\n.navbar-list-group .navbar-list-item {\r\n    display: block;\r\n    float: right;\r\n    padding: 5px 15px;\r\n    font-size: medium;\r\n    -webkit-transition: all ease .4s;\r\n    -moz-transition: all ease .4s;\r\n    -ms-transition: all ease .4s;\r\n    -o-transition: all ease .4s;\r\n    transition: all ease .4s;\r\n    cursor: pointer; }\r\n.navbar-list-item a {\r\n    color: white;\r\n}\r\n.navbar-list-item:nth-of-type(1) {\r\n    border-bottom: 3px solid #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(2) {\r\n    border-bottom: 3px solid #f200ff; }\r\n\r\n.navbar-list-item:nth-of-type(3) {\r\n    border-bottom: 3px solid #ff006d; }\r\n\r\n.navbar-list-item:nth-of-type(4) {\r\n    border-bottom: 3px solid #6269ff; }\r\n\r\n.navbar-list-item:nth-of-type(5) {\r\n    border-bottom: 3px solid #192cff; }\r\n\r\n.navbar-list-item:nth-of-type(6) {\r\n    border-bottom: 3px solid #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(1):hover {\r\n    background-color: #ff000b; }\r\n\r\n.navbar-list-item:nth-of-type(2):hover {\r\n    background-color: #f200ff; }\r\n\r\n.navbar-list-item:nth-of-type(3):hover {\r\n    background-color: #ff006d; }\r\n\r\n.navbar-list-item:nth-of-type(4):hover {\r\n    background-color: #6269ff; }\r\n\r\n.navbar-list-item:nth-of-type(5):hover {\r\n    background-color: #192cff; }\r\n\r\n.navbar-list-item:nth-of-type(6):hover {\r\n    background-color: #ff000b; }\r\n\r\n.navbar-custom .navbar-list-item:hover .navbar-list-item-link {\r\n    text-shadow: 0 0 10px #a1a1a1;\r\n    color: #cac9ff; }\r\n\r\n.custom-dropdown {\r\n    position: relative; }\r\n\r\n.dropdown-icon {\r\n    float: left !important;\r\n    margin-left: 3px;\r\n    color: blue; }\r\n\r\n.custom-dropdown-menu {\r\n    width: 250%;\r\n    position: absolute;\r\n    right: 0;\r\n    padding: 0;\r\n    top: 100%;\r\n    display: none;\r\n    background-color: #f8f8f8; }\r\n\r\n.custom-dropdown-menu-item {\r\n    width: 100%;\r\n    margin: 0;\r\n    display: block;\r\n    padding: 10px 10px 10px 0;\r\n    text-align: right;\r\n    color: #4f4f4f;\r\n    -webkit-transition: border-bottom ease .4s;\r\n    -moz-transition: border-bottom ease .4s;\r\n    -ms-transition: border-bottom ease .4s;\r\n    -o-transition: border-bottom ease .4s;\r\n    transition: border-right ease .4s; }\r\n\r\n.custom-dropdown-menu-toggler {\r\n    color: #4f4f4f; }\r\n\r\n.custom-dropdown-menu-item:hover {\r\n    border-right: 5px solid red; }\r\n\r\n.custom-dropdown-submenu {\r\n    width: 100%;\r\n    position: absolute;\r\n    right: 100%;\r\n    top: 0;\r\n    padding: 0;\r\n    background-color: #f8f8f8;\r\n    border-right: 1px solid #979797;\r\n    visibility: collapse; }\r\n\r\n.custom-dropdown-menu-item:hover > .custom-dropdown-submenu:first-of-type {\r\n    visibility: visible;\r\n    width: 100%; }\r\n\r\n.custom-dropdown-menu-item:hover > .custom-dropdown-menu-item-link {\r\n    text-shadow: 0px 0px 10px #252525; }\r\n\r\n.breadcrumb {\r\n    background: none !important; }\r\n.breadcrumb li a { color: white;}\r\n.navbar-custom a:hover {\r\n    text-decoration: none; }\r\n\r\n.navbar-sticky-container {\r\n    width: 100%; }\r\n\r\n.navbar-sticky-bg {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    left: 0;\r\n    display: none;\r\n    z-index: 9999;\r\n    background-color: rgba(85, 85, 85, 0.72); }\r\n\r\n.card-header {\r\n    border: none; }\r\n\r\n.card {\r\n    -webkit-border-radius: 0;\r\n    -moz-border-radius: 0;\r\n    border-radius: 0; }\r\n\r\n.card-link {\r\n    float: right; }\r\n\r\n.breadcrumb-item a {\r\n    font-size: large; }\r\n\r\n.navbar-closer:hover {\r\n    color: #4e2d4f; }\r\n\r\n.badge {\r\n    background-color: #2d398b;\r\n    border-radius: 50%; }\r\n\r\n.fixed-navbar-top {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 10; }\r\n\r\n.list-group-item a:hover {\r\n    text-decoration: none; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(1) {\r\n    border-right: 4px solid #ff000b; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(2) {\r\n    border-right: 4px solid #f200ff; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(3) {\r\n    border-right: 4px solid #ff006d; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(4) {\r\n    border-right: 4px solid #6269ff; }\r\n\r\n.navbar-sticky > .list-group-flush > .list-group-item:nth-of-type(5) {\r\n    border-right: 4px solid #192cff; }\r\n\r\n.first-dropdwon-background {\r\n    background-color: lightgray; }\r\n\r\n.second-dropdwon-background {\r\n    background-color: #c5c5c5; }\r\n\r\n.third-dropdwon-background {\r\n    background-color: #cecece; }\r\n\r\n.shopping-cart-border-color {\r\n    border-color: #8c8b82; }\r\n\r\n /*  User drop down menu  */\r\n.dropdown-user {\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    position: absolute;\r\n    transition: all 0.5s ease;\r\n    margin-top: 0.7rem;\r\n    right: 0;\r\n    display: none;\r\n    background-color: white;\r\n    z-index: 10000;width: 120px;\r\n}\r\n.breadcrumb {\r\n    padding: 0;\r\n    margin-top: 1rem;\r\n}\r\n.breadcrumb li {\r\n    position: relative;\r\n}\r\n.breadcrumb li:hover > ul{\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n.breadcrumb li ul:hover {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n.dropdown-user li {\r\n    clear: both;\r\n    width: 100%;\r\n    padding: 2%;\r\n}\r\n\r\nul li:hover > ul,\r\nul li ul:hover {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    display: block;\r\n}\r\n\r\n.user-menu {\r\n    padding-left: 0.7rem;padding-right: 0.7rem;\r\n    padding-bottom: 0rem;\r\n}\r\n.User-area {\r\n    width: 30px;\r\n    height: 30px;\r\n    position: relative;\r\n    cursor: pointer;direction: rtl;\r\n}\r\n.User-area > .User-avtar {\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 30px;\r\n    border: 2px solid #fff;\r\n    box-shadow: 0px 0px 12px -5px #000;\r\n}\r\n.User-area > .User-avtar > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 30px;\r\n}\r\n\r\n.User-Dropdown {\r\n    display: none;\r\n    position: absolute;\r\n    border-radius: 7px;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 8px rgba(214, 214, 214, 0.78);\r\n    list-style: none;\r\n    padding: 0 20px;\r\n    width: 200px;\r\n    margin: 0;\r\n    top: 70px;\r\n    right: -9%;\r\n    z-index: 10000;\r\n}\r\n.User-Dropdown:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    margin-left: -0.5em;\r\n    right: 0px;\r\n    box-sizing: border-box;\r\n    border: 7px solid black;\r\n    border-color: transparent transparent #ffffff #ffffff;\r\n    transform-origin: 0 0;\r\n    transform: rotate(135deg);\r\n    box-shadow: -3px 3px 3px -3px rgba(214, 214, 214, 0.78);\r\n}\r\n.User-Dropdown.U-open {\r\n    display: block;\r\n}\r\n.User-Dropdown > li {\r\n    padding: 0px;\r\n    line-height: 47px;\r\n    border-bottom: 1px solid rgba(215, 215, 215, 0.17);\r\n}\r\n.User-Dropdown > li:last-child {\r\n    border-bottom: 0px;\r\n}\r\n.User-Dropdown > li > a {\r\n    font-size: 13px;\r\n    padding: 0px 25px 0px 10px;\r\n    text-decoration: none;\r\n    color: #1787e0;\r\n    transition: all .2s ease-out;\r\n    display: block;\r\n}\r\n.User-Dropdown span {\r\n    background: #16d67a;\r\n    padding: 3px 10px;\r\n    color: #fff;\r\n    border-radius: 30px;\r\n    font-size: 13px;\r\n}\r\n.User-Dropdown > li:before {\r\n    content: '';\r\n    width: 0px;\r\n    height: 40px;\r\n    position: absolute;\r\n    background: #2196F3;\r\n    margin-top: 4px;\r\n    border-radius: 0 1px 1px 0;\r\n    right: 0px;\r\n    transition: all .2s ease;\r\n}\r\n.User-Dropdown > li:hover:before {\r\n    width: 5px;\r\n    border-radius: 30px;\r\n}\r\n.User-Dropdown > li a:hover {\r\n    margin-right: 5px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3528,7 +3529,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactAutosuggest = __webpack_require__(402);
+var _reactAutosuggest = __webpack_require__(176);
 
 var _reactAutosuggest2 = _interopRequireDefault(_reactAutosuggest);
 
@@ -3536,17 +3537,17 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _dataCode = __webpack_require__(75);
+var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
-__webpack_require__(810);
+__webpack_require__(406);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3728,7 +3729,63 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Search));
 
 /***/ }),
-/* 394 */
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(407);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(4)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./Search.css", function() {
+			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./Search.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 407 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".input-group-append {\r\n    /*border-radius: 0;*/ }\r\n\r\n.input-group-append .form-control {\r\n    background-color: #eeeeee;\r\n    border: none;\r\n    border-top-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    outline: none; }\r\n\r\n.input-border {\r\n    border-radius: 0;\r\n}\r\n\r\n#desktopSearch input {\r\n    direction: rtl;z-index: 1000;\r\n}\r\n\r\n.auto-suggest-container {\r\n}\r\n.auto-suggest-inputOpen {\r\n    background-color: white;position: absolute;z-index: 1000;width: 53.9%;\r\n}\r\n.auto-suggest-highlighted {\r\n    background-color: #d9d9d9;width: 100%;\r\n}\r\n.auto-suggest-suggestionsList {\r\n    padding: 0px;\r\n}\r\n.auto-suggest-suggestion {\r\n    padding-left: 5%;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3746,17 +3803,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-__webpack_require__(395);
+__webpack_require__(409);
 
 var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3901,13 +3958,13 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Navigation);
 
 /***/ }),
-/* 395 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(396);
+var content = __webpack_require__(410);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3932,7 +3989,7 @@ if(false) {
 }
 
 /***/ }),
-/* 396 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -3946,13 +4003,13 @@ exports.push([module.i, ".product-list-nav {\r\n    height: 500px;\r\n    /*over
 
 
 /***/ }),
-/* 397 */
+/* 411 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/user_avatar.png?b61a23149d6677bc07c1dff0a43a19e1";
 
 /***/ }),
-/* 398 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3970,23 +4027,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _shopping_cart = __webpack_require__(175);
 
 var _shopping_cart2 = _interopRequireDefault(_shopping_cart);
 
-__webpack_require__(399);
+__webpack_require__(413);
 
-var _Search = __webpack_require__(401);
+var _Search = __webpack_require__(415);
 
 var _Search2 = _interopRequireDefault(_Search);
 
-var _Navigation = __webpack_require__(416);
+var _Navigation = __webpack_require__(418);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -3998,7 +4055,7 @@ var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _actions = __webpack_require__(15);
+var _actions = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -4153,13 +4210,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ResponsiveHeader);
 
 /***/ }),
-/* 399 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(400);
+var content = __webpack_require__(414);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -4184,7 +4241,7 @@ if(false) {
 }
 
 /***/ }),
-/* 400 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -4198,7 +4255,7 @@ exports.push([module.i, ".iconbar-container {\r\n    display: inline-block;\r\n 
 
 
 /***/ }),
-/* 401 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4216,7 +4273,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactAutosuggest = __webpack_require__(402);
+var _reactAutosuggest = __webpack_require__(176);
 
 var _reactAutosuggest2 = _interopRequireDefault(_reactAutosuggest);
 
@@ -4224,17 +4281,17 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _dataCode = __webpack_require__(75);
+var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
-__webpack_require__(414);
+__webpack_require__(416);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4417,25 +4474,13 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Search));
 
 /***/ }),
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(415);
+var content = __webpack_require__(417);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -4460,7 +4505,7 @@ if(false) {
 }
 
 /***/ }),
-/* 415 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -4474,7 +4519,7 @@ exports.push([module.i, "#responsiveSearch input {\r\n    direction: rtl;\r\n}\r
 
 
 /***/ }),
-/* 416 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4492,23 +4537,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _AuxWrapper = __webpack_require__(69);
+var _AuxWrapper = __webpack_require__(70);
 
 var _AuxWrapper2 = _interopRequireDefault(_AuxWrapper);
 
-__webpack_require__(417);
+__webpack_require__(419);
 
 var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
@@ -4700,13 +4745,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Navigation);
 
 /***/ }),
-/* 417 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(418);
+var content = __webpack_require__(420);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -4731,7 +4776,7 @@ if(false) {
 }
 
 /***/ }),
-/* 418 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -4739,13 +4784,13 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".navbar-sticky {\r\n    position: absolute;\r\n    bottom: 0;\r\n    top: 0;\r\n    left: 100%;\r\n    /*background-color: rgba(192, 15, 15, 0.96);*/\r\n    box-shadow: 2px 0 24px #252525;\r\n    overflow: auto;\r\n    z-index: 9999; }", ""]);
+exports.push([module.i, ".navbar-sticky {\r\n    position: absolute;\r\n    bottom: 0;\r\n    top: 0;\r\n    left: 100%;\r\n    /*background-color: rgba(192, 15, 15, 0.96);*/\r\n    box-shadow: 2px 0 24px #252525;\r\n    overflow: auto;\r\n    z-index: 9999;\r\n}\r\n.navbar-sticky a {\r\n    display: block;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 419 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4759,15 +4804,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _logo_register_mark = __webpack_require__(420);
+var _logo_register_mark = __webpack_require__(422);
 
 var _logo_register_mark2 = _interopRequireDefault(_logo_register_mark);
 
-var _logo_trust_enamad = __webpack_require__(421);
+var _logo_trust_enamad = __webpack_require__(423);
 
 var _logo_trust_enamad2 = _interopRequireDefault(_logo_trust_enamad);
 
-__webpack_require__(422);
+__webpack_require__(424);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5111,25 +5156,25 @@ var FooterCom = function FooterCom(props) {
 exports.default = FooterCom;
 
 /***/ }),
-/* 420 */
+/* 422 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/logo_register_mark.png?27a0d92de4e92b67c526ae39eb16f895";
 
 /***/ }),
-/* 421 */
+/* 423 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/logo_trust_enamad.png?e09b52b152a69e6207eb93b6b8499f04";
 
 /***/ }),
-/* 422 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(423);
+var content = __webpack_require__(425);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5154,7 +5199,7 @@ if(false) {
 }
 
 /***/ }),
-/* 423 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -5168,7 +5213,7 @@ exports.push([module.i, "footer hr {\r\n    height:0.75px;\r\n}\r\n\r\n\r\n/*foo
 
 
 /***/ }),
-/* 424 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5228,7 +5273,7 @@ var My404Component = function (_Component) {
 exports.default = My404Component;
 
 /***/ }),
-/* 425 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5244,7 +5289,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _GoogleSignup = __webpack_require__(176);
+var _GoogleSignup = __webpack_require__(177);
 
 var _GoogleSignup2 = _interopRequireDefault(_GoogleSignup);
 
@@ -5252,19 +5297,19 @@ var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _LoginCom = __webpack_require__(109);
 
 var _LoginCom2 = _interopRequireDefault(_LoginCom);
 
-__webpack_require__(490);
+__webpack_require__(492);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -5347,13 +5392,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
 
 /***/ }),
-/* 426 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(427);
+var content = __webpack_require__(429);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5378,7 +5423,7 @@ if(false) {
 }
 
 /***/ }),
-/* 427 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -5392,13 +5437,13 @@ exports.push([module.i, ".google-button {\r\n    height: 40px;\r\n    border-wid
 
 
 /***/ }),
-/* 428 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(429);
+var content = __webpack_require__(431);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5423,7 +5468,7 @@ if(false) {
 }
 
 /***/ }),
-/* 429 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -5437,8 +5482,6 @@ exports.push([module.i, ".card-wrapper {\r\n    background: #fff;\r\n    border-
 
 
 /***/ }),
-/* 430 */,
-/* 431 */,
 /* 432 */,
 /* 433 */,
 /* 434 */,
@@ -5497,13 +5540,15 @@ exports.push([module.i, ".card-wrapper {\r\n    background: #fff;\r\n    border-
 /* 487 */,
 /* 488 */,
 /* 489 */,
-/* 490 */
+/* 490 */,
+/* 491 */,
+/* 492 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(491);
+var content = __webpack_require__(493);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5528,7 +5573,7 @@ if(false) {
 }
 
 /***/ }),
-/* 491 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -5542,7 +5587,7 @@ exports.push([module.i, ".loginWidth {\r\n    width: 60%;\r\n}\r\n\r\n@media onl
 
 
 /***/ }),
-/* 492 */
+/* 494 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5560,11 +5605,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -5620,7 +5665,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Logout);
 
 /***/ }),
-/* 493 */
+/* 495 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5650,11 +5695,11 @@ var _InlineError2 = _interopRequireDefault(_InlineError);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _CardWrapper = __webpack_require__(38);
 
@@ -5664,7 +5709,7 @@ var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -5827,7 +5872,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(GoogleRegPass);
 
 /***/ }),
-/* 494 */
+/* 496 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5847,17 +5892,17 @@ var _reactRouterDom = __webpack_require__(10);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -5954,7 +5999,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(GoogleLogin);
 
 /***/ }),
-/* 495 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5972,7 +6017,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _GoogleSignup = __webpack_require__(176);
+var _GoogleSignup = __webpack_require__(177);
 
 var _GoogleSignup2 = _interopRequireDefault(_GoogleSignup);
 
@@ -5996,15 +6041,15 @@ var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-__webpack_require__(496);
+__webpack_require__(498);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -6246,13 +6291,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Signup);
 
 /***/ }),
-/* 496 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(497);
+var content = __webpack_require__(499);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -6277,7 +6322,7 @@ if(false) {
 }
 
 /***/ }),
-/* 497 */
+/* 499 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -6291,7 +6336,7 @@ exports.push([module.i, ".signupWidth {\r\n    width: 60%;\r\n}\r\n\r\n@media on
 
 
 /***/ }),
-/* 498 */
+/* 500 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6315,7 +6360,7 @@ var _reactRouterDom = __webpack_require__(10);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
@@ -6323,23 +6368,23 @@ var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-__webpack_require__(499);
+__webpack_require__(501);
 
-var _CartProject = __webpack_require__(501);
+var _CartProject = __webpack_require__(503);
 
 var _CartProject2 = _interopRequireDefault(_CartProject);
 
-var _reactResponsiveModal = __webpack_require__(186);
+var _reactResponsiveModal = __webpack_require__(187);
 
 var _reactResponsiveModal2 = _interopRequireDefault(_reactResponsiveModal);
 
-var _customStyling = __webpack_require__(508);
+var _customStyling = __webpack_require__(510);
 
 var _customStyling2 = _interopRequireDefault(_customStyling);
 
@@ -6610,13 +6655,13 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)((0, _reactRouterDom.withRouter)(Cart));
 
 /***/ }),
-/* 499 */
+/* 501 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(500);
+var content = __webpack_require__(502);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -6641,7 +6686,7 @@ if(false) {
 }
 
 /***/ }),
-/* 500 */
+/* 502 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -6655,7 +6700,7 @@ exports.push([module.i, "\r\n.cart-responsive-font {\r\n    font-size: 150%;\r\n
 
 
 /***/ }),
-/* 501 */
+/* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6681,17 +6726,17 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _CartProductPrice = __webpack_require__(502);
+var _CartProductPrice = __webpack_require__(504);
 
 var _CartProductPrice2 = _interopRequireDefault(_CartProductPrice);
 
@@ -6836,7 +6881,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CartProject);
 
 /***/ }),
-/* 502 */
+/* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6862,13 +6907,13 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -6996,18 +7041,18 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CartProductPrice);
 
 /***/ }),
-/* 503 */,
-/* 504 */,
 /* 505 */,
 /* 506 */,
 /* 507 */,
-/* 508 */
+/* 508 */,
+/* 509 */,
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(509);
+var content = __webpack_require__(511);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -7032,7 +7077,7 @@ if(false) {
 }
 
 /***/ }),
-/* 509 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -7046,7 +7091,7 @@ exports.push([module.i, ".customOverlay {\r\n    background: rgba(36, 123, 160, 
 
 
 /***/ }),
-/* 510 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7068,13 +7113,13 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _dataCode = __webpack_require__(75);
+var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
@@ -7082,27 +7127,27 @@ var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _reactResponsiveModal = __webpack_require__(186);
+var _reactResponsiveModal = __webpack_require__(187);
 
 var _reactResponsiveModal2 = _interopRequireDefault(_reactResponsiveModal);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-__webpack_require__(511);
+__webpack_require__(513);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _customStyling = __webpack_require__(513);
+var _customStyling = __webpack_require__(515);
 
 var _customStyling2 = _interopRequireDefault(_customStyling);
 
-var _FilterProducts = __webpack_require__(515);
+var _FilterProducts = __webpack_require__(517);
 
 var _FilterProducts2 = _interopRequireDefault(_FilterProducts);
 
-var _ProductsTable = __webpack_require__(523);
+var _ProductsTable = __webpack_require__(525);
 
 var _ProductsTable2 = _interopRequireDefault(_ProductsTable);
 
@@ -7391,13 +7436,13 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)((0, _reactRouterDom.withRouter)(showSearchProductResult));
 
 /***/ }),
-/* 511 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(512);
+var content = __webpack_require__(514);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -7422,7 +7467,7 @@ if(false) {
 }
 
 /***/ }),
-/* 512 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -7436,13 +7481,13 @@ exports.push([module.i, ".searchResultContainer {\r\n    width: 100%;margin: 0 !
 
 
 /***/ }),
-/* 513 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(514);
+var content = __webpack_require__(516);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -7467,7 +7512,7 @@ if(false) {
 }
 
 /***/ }),
-/* 514 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -7481,7 +7526,7 @@ exports.push([module.i, ".customOverlay {\r\n    background: rgba(36, 123, 160, 
 
 
 /***/ }),
-/* 515 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7499,11 +7544,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _AuxWrapper = __webpack_require__(69);
+var _AuxWrapper = __webpack_require__(70);
 
 var _AuxWrapper2 = _interopRequireDefault(_AuxWrapper);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -7634,14 +7679,14 @@ var FilterProducts = function (_Component) {
 exports.default = FilterProducts;
 
 /***/ }),
-/* 516 */,
-/* 517 */,
 /* 518 */,
 /* 519 */,
 /* 520 */,
 /* 521 */,
 /* 522 */,
-/* 523 */
+/* 523 */,
+/* 524 */,
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7657,11 +7702,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SearchedProductPrice = __webpack_require__(524);
+var _SearchedProductPrice = __webpack_require__(526);
 
 var _SearchedProductPrice2 = _interopRequireDefault(_SearchedProductPrice);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -7810,7 +7855,7 @@ var ProductsTable = function (_Component) {
 exports.default = ProductsTable;
 
 /***/ }),
-/* 524 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7836,13 +7881,13 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -7952,7 +7997,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SearchedProductPrice);
 
 /***/ }),
-/* 525 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7970,7 +8015,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _CardWrapper = __webpack_require__(38);
 
@@ -7978,15 +8023,15 @@ var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _reactConfirmAlert = __webpack_require__(526);
+var _reactConfirmAlert = __webpack_require__(528);
 
-__webpack_require__(527);
+__webpack_require__(529);
 
 var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -8216,14 +8261,14 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Projects);
 
 /***/ }),
-/* 526 */,
-/* 527 */
+/* 528 */,
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(528);
+var content = __webpack_require__(530);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -8248,7 +8293,7 @@ if(false) {
 }
 
 /***/ }),
-/* 528 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -8262,7 +8307,7 @@ exports.push([module.i, ".projects {\r\n    margin-top: 1%;text-align: right;\r\
 
 
 /***/ }),
-/* 529 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8280,13 +8325,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -8459,7 +8504,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(SetFactorInfo);
 
 /***/ }),
-/* 530 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8475,91 +8520,91 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _BatteryLifeCalculator = __webpack_require__(531);
+var _BatteryLifeCalculator = __webpack_require__(533);
 
 var _BatteryLifeCalculator2 = _interopRequireDefault(_BatteryLifeCalculator);
 
-var _ParallelandSeriesResistor = __webpack_require__(532);
+var _ParallelandSeriesResistor = __webpack_require__(534);
 
 var _ParallelandSeriesResistor2 = _interopRequireDefault(_ParallelandSeriesResistor);
 
-var _ParallelandSeriesCap = __webpack_require__(533);
+var _ParallelandSeriesCap = __webpack_require__(535);
 
 var _ParallelandSeriesCap2 = _interopRequireDefault(_ParallelandSeriesCap);
 
-var _CurrentDividerCalculator = __webpack_require__(534);
+var _CurrentDividerCalculator = __webpack_require__(536);
 
 var _CurrentDividerCalculator2 = _interopRequireDefault(_CurrentDividerCalculator);
 
-var _TemperatureCalculator = __webpack_require__(536);
+var _TemperatureCalculator = __webpack_require__(538);
 
 var _TemperatureCalculator2 = _interopRequireDefault(_TemperatureCalculator);
 
-var _ResistorsColorCode = __webpack_require__(537);
+var _ResistorsColorCode = __webpack_require__(539);
 
 var _ResistorsColorCode2 = _interopRequireDefault(_ResistorsColorCode);
 
-var _LengthCalculator = __webpack_require__(540);
+var _LengthCalculator = __webpack_require__(542);
 
 var _LengthCalculator2 = _interopRequireDefault(_LengthCalculator);
 
-var _RequestNewConversion = __webpack_require__(543);
+var _RequestNewConversion = __webpack_require__(545);
 
 var _RequestNewConversion2 = _interopRequireDefault(_RequestNewConversion);
 
-var _VoltageDividerCalculator = __webpack_require__(544);
+var _VoltageDividerCalculator = __webpack_require__(546);
 
 var _VoltageDividerCalculator2 = _interopRequireDefault(_VoltageDividerCalculator);
 
-var _WeightCalculator = __webpack_require__(546);
+var _WeightCalculator = __webpack_require__(548);
 
 var _WeightCalculator2 = _interopRequireDefault(_WeightCalculator);
 
-var _battery = __webpack_require__(547);
+var _battery = __webpack_require__(549);
 
 var _battery2 = _interopRequireDefault(_battery);
 
-var _ohm = __webpack_require__(548);
+var _ohm = __webpack_require__(550);
 
 var _ohm2 = _interopRequireDefault(_ohm);
 
-var _Cap = __webpack_require__(549);
+var _Cap = __webpack_require__(551);
 
 var _Cap2 = _interopRequireDefault(_Cap);
 
-var _resistor = __webpack_require__(550);
+var _resistor = __webpack_require__(552);
 
 var _resistor2 = _interopRequireDefault(_resistor);
 
-var _CurrentDiv = __webpack_require__(551);
+var _CurrentDiv = __webpack_require__(553);
 
 var _CurrentDiv2 = _interopRequireDefault(_CurrentDiv);
 
-var _VoltageDiv = __webpack_require__(552);
+var _VoltageDiv = __webpack_require__(554);
 
 var _VoltageDiv2 = _interopRequireDefault(_VoltageDiv);
 
-var _ = __webpack_require__(553);
+var _ = __webpack_require__(555);
 
 var _2 = _interopRequireDefault(_);
 
-var _number = __webpack_require__(554);
+var _number = __webpack_require__(556);
 
 var _number2 = _interopRequireDefault(_number);
 
-var _Weight = __webpack_require__(555);
+var _Weight = __webpack_require__(557);
 
 var _Weight2 = _interopRequireDefault(_Weight);
 
-var _dbm = __webpack_require__(556);
+var _dbm = __webpack_require__(558);
 
 var _dbm2 = _interopRequireDefault(_dbm);
 
-var _led = __webpack_require__(557);
+var _led = __webpack_require__(559);
 
 var _led2 = _interopRequireDefault(_led);
 
-__webpack_require__(558);
+__webpack_require__(560);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8660,7 +8705,7 @@ var Conversions = function Conversions(props) {
 exports.default = Conversions;
 
 /***/ }),
-/* 531 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8749,7 +8794,7 @@ var BatteryLifeCalculator = function BatteryLifeCalculator(props) {
 exports.default = BatteryLifeCalculator;
 
 /***/ }),
-/* 532 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9253,7 +9298,7 @@ var ParallelandSeriesResistor = function (_Component) {
 exports.default = ParallelandSeriesResistor;
 
 /***/ }),
-/* 533 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9752,7 +9797,7 @@ var ParallelandSeriesCap = function (_Component) {
 exports.default = ParallelandSeriesCap;
 
 /***/ }),
-/* 534 */
+/* 536 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9770,7 +9815,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _currentDividerDiagram = __webpack_require__(535);
+var _currentDividerDiagram = __webpack_require__(537);
 
 var _currentDividerDiagram2 = _interopRequireDefault(_currentDividerDiagram);
 
@@ -10094,13 +10139,13 @@ var CurrentDividerCalculator = function (_Component) {
 exports.default = CurrentDividerCalculator;
 
 /***/ }),
-/* 535 */
+/* 537 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/current-divider-diagram.png?af89ad2518bba35570b84cd9e0135024";
 
 /***/ }),
-/* 536 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10224,7 +10269,7 @@ var TemperatureCalculator = function (_Component) {
 exports.default = TemperatureCalculator;
 
 /***/ }),
-/* 537 */
+/* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10242,7 +10287,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(538);
+__webpack_require__(540);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10622,13 +10667,13 @@ var ResistorsColorCode = function (_Component) {
 exports.default = ResistorsColorCode;
 
 /***/ }),
-/* 538 */
+/* 540 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(539);
+var content = __webpack_require__(541);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -10653,7 +10698,7 @@ if(false) {
 }
 
 /***/ }),
-/* 539 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -10667,7 +10712,7 @@ exports.push([module.i, ".circle:after {\r\n    width: 20px;\r\n    height: 20px
 
 
 /***/ }),
-/* 540 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10817,13 +10862,13 @@ var LengthCalculator = function (_Component) {
 exports.default = LengthCalculator;
 
 /***/ }),
-/* 541 */
+/* 543 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(542);
+var content = __webpack_require__(544);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -10848,7 +10893,7 @@ if(false) {
 }
 
 /***/ }),
-/* 542 */
+/* 544 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -10862,7 +10907,7 @@ exports.push([module.i, ".InputWithText span{\r\n    font-size: 150%;\r\n    fon
 
 
 /***/ }),
-/* 543 */
+/* 545 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10974,7 +11019,7 @@ var RequestNewConversion = function (_Component) {
 exports.default = RequestNewConversion;
 
 /***/ }),
-/* 544 */
+/* 546 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10998,7 +11043,7 @@ var _reactSelect = __webpack_require__(114);
 
 var _reactSelect2 = _interopRequireDefault(_reactSelect);
 
-var _voltageDividerDiagram = __webpack_require__(545);
+var _voltageDividerDiagram = __webpack_require__(547);
 
 var _voltageDividerDiagram2 = _interopRequireDefault(_voltageDividerDiagram);
 
@@ -11123,13 +11168,13 @@ var VoltageDividerCalculator = function (_Component) {
 exports.default = VoltageDividerCalculator;
 
 /***/ }),
-/* 545 */
+/* 547 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/voltage-divider-diagram.jpg?b9cf7d06f26bef5d7d61cf7dcb4eb73a";
 
 /***/ }),
-/* 546 */
+/* 548 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11268,79 +11313,79 @@ var WeightCalculator = function (_Component) {
 exports.default = WeightCalculator;
 
 /***/ }),
-/* 547 */
+/* 549 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/battery.svg?70acfde40c82ad5852c9c40e888fb391";
 
 /***/ }),
-/* 548 */
+/* 550 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/ohm.svg?899cdc93e5f60d2d62c62612752d4852";
 
 /***/ }),
-/* 549 */
+/* 551 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Cap.svg?0f37fc11cc8aaab946a2a28fade14ccd";
 
 /***/ }),
-/* 550 */
+/* 552 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/resistor.svg?1faf35fda22924f825cb11608262f720";
 
 /***/ }),
-/* 551 */
+/* 553 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/CurrentDiv.svg?598e211a0ebaba56732828a5a1201250";
 
 /***/ }),
-/* 552 */
+/* 554 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/VoltageDiv.svg?51be28d8a1d0f36144170d2ca8650ac4";
 
 /***/ }),
-/* 553 */
+/* 555 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/2100.svg?7bd5e0d060e16d119ccac1e95f8591c7";
 
 /***/ }),
-/* 554 */
+/* 556 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/number.svg?3705f9547d97f40e5fb10399e7c84541";
 
 /***/ }),
-/* 555 */
+/* 557 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Weight.svg?aa17b0685b6384c40357929de3f7a511";
 
 /***/ }),
-/* 556 */
+/* 558 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/dbm.svg?b4cba9ab8bf636ec7fa734ca4eaac64d";
 
 /***/ }),
-/* 557 */
+/* 559 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/led.svg?74fd183c182ce37ee0255bfc3bda28af";
 
 /***/ }),
-/* 558 */
+/* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(559);
+var content = __webpack_require__(561);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -11365,7 +11410,7 @@ if(false) {
 }
 
 /***/ }),
-/* 559 */
+/* 561 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -11379,7 +11424,7 @@ exports.push([module.i, "#conversionList li {\r\n    flex: 0 1 24%;\r\n    margi
 
 
 /***/ }),
-/* 560 */
+/* 562 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11395,15 +11440,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactAccessibleAccordion = __webpack_require__(561);
+var _reactAccessibleAccordion = __webpack_require__(563);
 
-__webpack_require__(562);
+__webpack_require__(564);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -11689,14 +11734,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Project);
 
 /***/ }),
-/* 561 */,
-/* 562 */
+/* 563 */,
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(563);
+var content = __webpack_require__(565);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -11721,7 +11766,7 @@ if(false) {
 }
 
 /***/ }),
-/* 563 */
+/* 565 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -11735,7 +11780,7 @@ exports.push([module.i, "/**\n* ----------------------------------------------\n
 
 
 /***/ }),
-/* 564 */
+/* 566 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11757,11 +11802,11 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _reactSpinners = __webpack_require__(12);
 
@@ -11944,7 +11989,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Followup);
 
 /***/ }),
-/* 565 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11964,7 +12009,7 @@ var _reactRouterDom = __webpack_require__(10);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -11972,7 +12017,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12289,7 +12334,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Factor);
 
 /***/ }),
-/* 566 */
+/* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12321,17 +12366,17 @@ var _InlineError = __webpack_require__(29);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -12600,7 +12645,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AdminControlPanel);
 
 /***/ }),
-/* 567 */
+/* 569 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12616,7 +12661,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -12662,7 +12707,7 @@ var AdminLogIn = function (_Component) {
 exports.default = AdminLogIn;
 
 /***/ }),
-/* 568 */
+/* 570 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12680,23 +12725,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _AddContent = __webpack_require__(569);
+var _AddContent = __webpack_require__(571);
 
 var _AddContent2 = _interopRequireDefault(_AddContent);
 
-var _AddImages = __webpack_require__(756);
+var _AddImages = __webpack_require__(758);
 
 var _AddImages2 = _interopRequireDefault(_AddImages);
 
-var _Orders = __webpack_require__(762);
+var _Orders = __webpack_require__(764);
 
 var _Orders2 = _interopRequireDefault(_Orders);
 
-var _SlidesManager = __webpack_require__(770);
+var _SlidesManager = __webpack_require__(772);
 
 var _SlidesManager2 = _interopRequireDefault(_SlidesManager);
 
-var _ProductData = __webpack_require__(771);
+var _ProductData = __webpack_require__(773);
 
 var _ProductData2 = _interopRequireDefault(_ProductData);
 
@@ -12802,7 +12847,7 @@ var ContentManagerPanel = function (_Component) {
 exports.default = ContentManagerPanel;
 
 /***/ }),
-/* 569 */
+/* 571 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12838,31 +12883,31 @@ var _draftJsPluginsEditor = __webpack_require__(116);
 
 var _draftJs = __webpack_require__(13);
 
-var _draftjsToHtml = __webpack_require__(669);
+var _draftjsToHtml = __webpack_require__(671);
 
 var _draftjsToHtml2 = _interopRequireDefault(_draftjsToHtml);
 
-var _draftJsExportHtml = __webpack_require__(217);
+var _draftJsExportHtml = __webpack_require__(218);
 
 var _InlineError = __webpack_require__(29);
 
 var _InlineError2 = _interopRequireDefault(_InlineError);
 
-var _ContainerSmallSize = __webpack_require__(218);
+var _ContainerSmallSize = __webpack_require__(219);
 
 var _ContainerSmallSize2 = _interopRequireDefault(_ContainerSmallSize);
 
-var _DraftPlugin = __webpack_require__(681);
+var _DraftPlugin = __webpack_require__(683);
 
 var _DraftPlugin2 = _interopRequireDefault(_DraftPlugin);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-__webpack_require__(754);
+__webpack_require__(756);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13093,8 +13138,6 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(AddContent);
 
 /***/ }),
-/* 570 */,
-/* 571 */,
 /* 572 */,
 /* 573 */,
 /* 574 */,
@@ -13202,13 +13245,15 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(AddContent);
 /* 676 */,
 /* 677 */,
 /* 678 */,
-/* 679 */
+/* 679 */,
+/* 680 */,
+/* 681 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(680);
+var content = __webpack_require__(682);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -13233,7 +13278,7 @@ if(false) {
 }
 
 /***/ }),
-/* 680 */
+/* 682 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -13247,7 +13292,7 @@ exports.push([module.i, ".containerSmallSize {\r\n    display: flex;\r\n    /*fl
 
 
 /***/ }),
-/* 681 */
+/* 683 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13267,63 +13312,63 @@ var _draftJsPluginsEditor = __webpack_require__(116);
 
 var _draftJsPluginsEditor2 = _interopRequireDefault(_draftJsPluginsEditor);
 
-var _draftJsImagePlugin = __webpack_require__(682);
+var _draftJsImagePlugin = __webpack_require__(684);
 
 var _draftJsImagePlugin2 = _interopRequireDefault(_draftJsImagePlugin);
 
-var _draftJsUndoPlugin = __webpack_require__(685);
+var _draftJsUndoPlugin = __webpack_require__(687);
 
 var _draftJsUndoPlugin2 = _interopRequireDefault(_draftJsUndoPlugin);
 
-var _draftJsAnchorPlugin = __webpack_require__(688);
+var _draftJsAnchorPlugin = __webpack_require__(690);
 
 var _draftJsAnchorPlugin2 = _interopRequireDefault(_draftJsAnchorPlugin);
 
-var _draftJsAlignmentPlugin = __webpack_require__(698);
+var _draftJsAlignmentPlugin = __webpack_require__(700);
 
 var _draftJsAlignmentPlugin2 = _interopRequireDefault(_draftJsAlignmentPlugin);
 
-__webpack_require__(219);
-
 __webpack_require__(220);
 
-var _draftJsFocusPlugin = __webpack_require__(721);
+__webpack_require__(221);
+
+var _draftJsFocusPlugin = __webpack_require__(723);
 
 var _draftJsFocusPlugin2 = _interopRequireDefault(_draftJsFocusPlugin);
 
-var _colorBlockPlugin = __webpack_require__(730);
+var _colorBlockPlugin = __webpack_require__(732);
 
 var _colorBlockPlugin2 = _interopRequireDefault(_colorBlockPlugin);
 
-__webpack_require__(731);
+__webpack_require__(733);
 
-var _HeadlinesButton = __webpack_require__(733);
+var _HeadlinesButton = __webpack_require__(735);
 
 var _HeadlinesButton2 = _interopRequireDefault(_HeadlinesButton);
 
-var _AddImage = __webpack_require__(737);
+var _AddImage = __webpack_require__(739);
 
 var _AddImage2 = _interopRequireDefault(_AddImage);
 
-__webpack_require__(740);
+__webpack_require__(742);
 
-var _linkStyles = __webpack_require__(742);
+var _linkStyles = __webpack_require__(744);
 
 var _linkStyles2 = _interopRequireDefault(_linkStyles);
 
-var _draftJsStaticToolbarPlugin = __webpack_require__(744);
+var _draftJsStaticToolbarPlugin = __webpack_require__(746);
 
 var _draftJsStaticToolbarPlugin2 = _interopRequireDefault(_draftJsStaticToolbarPlugin);
 
-var _draftJsButtons = __webpack_require__(63);
+var _draftJsButtons = __webpack_require__(64);
 
-__webpack_require__(748);
+__webpack_require__(750);
 
-var _alignmentToolStyles = __webpack_require__(750);
+var _alignmentToolStyles = __webpack_require__(752);
 
 var _alignmentToolStyles2 = _interopRequireDefault(_alignmentToolStyles);
 
-var _buttonStyles = __webpack_require__(752);
+var _buttonStyles = __webpack_require__(754);
 
 var _buttonStyles2 = _interopRequireDefault(_buttonStyles);
 
@@ -13428,8 +13473,6 @@ var DraftPlugin = function (_Component) {
 exports.default = DraftPlugin;
 
 /***/ }),
-/* 682 */,
-/* 683 */,
 /* 684 */,
 /* 685 */,
 /* 686 */,
@@ -13465,7 +13508,9 @@ exports.default = DraftPlugin;
 /* 716 */,
 /* 717 */,
 /* 718 */,
-/* 719 */
+/* 719 */,
+/* 720 */,
+/* 721 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -13479,7 +13524,7 @@ exports.push([module.i, ".draftJsEmojiPlugin__alignmentTool__2mkQr {\n  left: 50
 
 
 /***/ }),
-/* 720 */
+/* 722 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -13493,8 +13538,6 @@ exports.push([module.i, ".draftJsFocusPlugin__unfocused__1Wvrs:hover {\n  cursor
 
 
 /***/ }),
-/* 721 */,
-/* 722 */,
 /* 723 */,
 /* 724 */,
 /* 725 */,
@@ -13502,7 +13545,9 @@ exports.push([module.i, ".draftJsFocusPlugin__unfocused__1Wvrs:hover {\n  cursor
 /* 727 */,
 /* 728 */,
 /* 729 */,
-/* 730 */
+/* 730 */,
+/* 731 */,
+/* 732 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13518,9 +13563,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(219);
-
 __webpack_require__(220);
+
+__webpack_require__(221);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13572,13 +13617,13 @@ var createColorBlockPlugin = function createColorBlockPlugin() {
 exports.default = createColorBlockPlugin;
 
 /***/ }),
-/* 731 */
+/* 733 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(732);
+var content = __webpack_require__(734);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -13603,7 +13648,7 @@ if(false) {
 }
 
 /***/ }),
-/* 732 */
+/* 734 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -13617,7 +13662,7 @@ exports.push([module.i, ".draftJsUndoPlugin__button__3Vugn {\n  box-sizing: bord
 
 
 /***/ }),
-/* 733 */
+/* 735 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13633,13 +13678,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _draftJsButtons = __webpack_require__(63);
+var _draftJsButtons = __webpack_require__(64);
 
-var _HeadlinesPicker = __webpack_require__(734);
+var _HeadlinesPicker = __webpack_require__(736);
 
 var _HeadlinesPicker2 = _interopRequireDefault(_HeadlinesPicker);
 
-__webpack_require__(735);
+__webpack_require__(737);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13694,7 +13739,7 @@ var HeadlinesButton = function (_Component) {
 exports.default = HeadlinesButton;
 
 /***/ }),
-/* 734 */
+/* 736 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13712,7 +13757,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _draftJsButtons = __webpack_require__(63);
+var _draftJsButtons = __webpack_require__(64);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13783,13 +13828,13 @@ var HeadlinesPicker = function (_Component) {
 exports.default = HeadlinesPicker;
 
 /***/ }),
-/* 735 */
+/* 737 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(736);
+var content = __webpack_require__(738);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -13814,7 +13859,7 @@ if(false) {
 }
 
 /***/ }),
-/* 736 */
+/* 738 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -13828,7 +13873,7 @@ exports.push([module.i, ".headlineButtonWrapper {\r\n    display: inline-block;\
 
 
 /***/ }),
-/* 737 */
+/* 739 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13844,7 +13889,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(738);
+__webpack_require__(740);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13953,13 +13998,13 @@ var ImageAdd = function (_Component) {
 exports.default = ImageAdd;
 
 /***/ }),
-/* 738 */
+/* 740 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(739);
+var content = __webpack_require__(741);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -13984,51 +14029,6 @@ if(false) {
 }
 
 /***/ }),
-/* 739 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".addImage {\r\n    background: #FFF;\r\n    display: inline-block;\r\n}\r\n\r\n.addImagePopover {\r\n    margin-top: 10px;\r\n    background: #FFF;\r\n    position: absolute;\r\n    height: 54px;\r\n    width: 300px;\r\n    border-radius: 2px;\r\n    padding: 10px;\r\n    box-shadow: 0px 4px 30px 0px rgba(220,220,220,1);\r\n    z-index: 1000;\r\n}\r\n\r\n.addImageClosedPopover {\r\n    display: none;\r\n}\r\n\r\n.addImageButton {\r\n    box-sizing: border-box;\r\n    background: #fff;\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 1.5em;\r\n    cursor: pointer;\r\n    height: 1.5em;\r\n    width: 2.5em;\r\n    font-size: 1.5em;\r\n    line-height: 1.2em;\r\n    margin: 0;\r\n}\r\n\r\n.addImageButton:focus {\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.addImageButton:hover {\r\n    background: #f3f3f3;\r\n}\r\n\r\n.addImageButton:active {\r\n    background: #e6e6e6;\r\n}\r\n\r\n.addImagePressedButton {\r\n    /*composes: addImageButton;*/\r\n    box-sizing: border-box;\r\n    /*background: #fff;*/\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 1.5em;\r\n    cursor: pointer;\r\n    height: 1.5em;\r\n    width: 2.5em;\r\n    font-size: 1.5em;\r\n    line-height: 1.2em;\r\n    /*margin: 0;*/\r\n    background: #ededed;\r\n}\r\n\r\n.addImageBottomGradient {\r\n    width: 100%;\r\n    height: 1em;\r\n    position: absolute;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n    background-color: white;\r\n    pointer-events: none;\r\n    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);\r\n}\r\n\r\n.addImageInput {\r\n    box-sizing: border-box;\r\n    border: 1px solid #ddd;\r\n    cursor: text;\r\n    padding: 4px;\r\n    width: 78%;\r\n    border-radius: 2px;\r\n    margin-bottom: 1em;\r\n    box-shadow: inset 0px 1px 8px -3px #ABABAB;\r\n    background: #fefefe;\r\n}\r\n\r\n.addImageConfirmButton {\r\n    box-sizing: border-box;\r\n    background: #fff;\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 2.1em;\r\n    cursor: pointer;\r\n    height: 2.1em;\r\n    width: 18%;\r\n    font-size: 1em;\r\n    line-height: 2.1em;\r\n    margin: 0;\r\n    margin-left: 4%;\r\n}\r\n\r\n.addImageConfirmButton:focus {\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.addImageConfirmButton:hover {\r\n    background: #f3f3f3;\r\n}\r\n\r\n.addImageConfirmButton:active {\r\n    background: #e6e6e6;\r\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 740 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(741);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(4)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./DraftPlugin.css", function() {
-			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./DraftPlugin.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
 /* 741 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14037,7 +14037,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".draftTextEditor {\r\n    background-color: white;\r\n    border: 1px solid;\r\n}\r\n.editor {\r\n    box-sizing: border-box;\r\n    border: 1px solid #ddd;\r\n    cursor: text;\r\n    padding: 16px;\r\n    border-radius: 2px;\r\n    margin-bottom: 2em;\r\n    box-shadow: inset 0px 1px 8px -3px #ABABAB;\r\n    background: #fefefe;\r\n}\r\n\r\n.editor .public-DraftEditor-content {\r\n    min-height: 140px;\r\n}\r\n.options {\r\n    margin-bottom: 10px;\r\n    margin-top: 10px;\r\n}", ""]);
+exports.push([module.i, ".addImage {\r\n    background: #FFF;\r\n    display: inline-block;\r\n}\r\n\r\n.addImagePopover {\r\n    margin-top: 10px;\r\n    background: #FFF;\r\n    position: absolute;\r\n    height: 54px;\r\n    width: 300px;\r\n    border-radius: 2px;\r\n    padding: 10px;\r\n    box-shadow: 0px 4px 30px 0px rgba(220,220,220,1);\r\n    z-index: 1000;\r\n}\r\n\r\n.addImageClosedPopover {\r\n    display: none;\r\n}\r\n\r\n.addImageButton {\r\n    box-sizing: border-box;\r\n    background: #fff;\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 1.5em;\r\n    cursor: pointer;\r\n    height: 1.5em;\r\n    width: 2.5em;\r\n    font-size: 1.5em;\r\n    line-height: 1.2em;\r\n    margin: 0;\r\n}\r\n\r\n.addImageButton:focus {\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.addImageButton:hover {\r\n    background: #f3f3f3;\r\n}\r\n\r\n.addImageButton:active {\r\n    background: #e6e6e6;\r\n}\r\n\r\n.addImagePressedButton {\r\n    /*composes: addImageButton;*/\r\n    box-sizing: border-box;\r\n    /*background: #fff;*/\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 1.5em;\r\n    cursor: pointer;\r\n    height: 1.5em;\r\n    width: 2.5em;\r\n    font-size: 1.5em;\r\n    line-height: 1.2em;\r\n    /*margin: 0;*/\r\n    background: #ededed;\r\n}\r\n\r\n.addImageBottomGradient {\r\n    width: 100%;\r\n    height: 1em;\r\n    position: absolute;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n    background-color: white;\r\n    pointer-events: none;\r\n    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);\r\n}\r\n\r\n.addImageInput {\r\n    box-sizing: border-box;\r\n    border: 1px solid #ddd;\r\n    cursor: text;\r\n    padding: 4px;\r\n    width: 78%;\r\n    border-radius: 2px;\r\n    margin-bottom: 1em;\r\n    box-shadow: inset 0px 1px 8px -3px #ABABAB;\r\n    background: #fefefe;\r\n}\r\n\r\n.addImageConfirmButton {\r\n    box-sizing: border-box;\r\n    background: #fff;\r\n    border: 1px solid #ddd;\r\n    padding: 0;\r\n    color: #888;\r\n    margin: 0;\r\n    border-radius: 2.1em;\r\n    cursor: pointer;\r\n    height: 2.1em;\r\n    width: 18%;\r\n    font-size: 1em;\r\n    line-height: 2.1em;\r\n    margin: 0;\r\n    margin-left: 4%;\r\n}\r\n\r\n.addImageConfirmButton:focus {\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.addImageConfirmButton:hover {\r\n    background: #f3f3f3;\r\n}\r\n\r\n.addImageConfirmButton:active {\r\n    background: #e6e6e6;\r\n}\r\n", ""]);
 
 // exports
 
@@ -14063,8 +14063,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./linkStyles.css", function() {
-			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./linkStyles.css");
+		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./DraftPlugin.css", function() {
+			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./DraftPlugin.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -14082,23 +14082,68 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
+exports.push([module.i, ".draftTextEditor {\r\n    background-color: white;\r\n    border: 1px solid;\r\n}\r\n.editor {\r\n    box-sizing: border-box;\r\n    border: 1px solid #ddd;\r\n    cursor: text;\r\n    padding: 16px;\r\n    border-radius: 2px;\r\n    margin-bottom: 2em;\r\n    box-shadow: inset 0px 1px 8px -3px #ABABAB;\r\n    background: #fefefe;\r\n}\r\n\r\n.editor .public-DraftEditor-content {\r\n    min-height: 140px;\r\n}\r\n.options {\r\n    margin-bottom: 10px;\r\n    margin-top: 10px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 744 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(745);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(4)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./linkStyles.css", function() {
+			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./linkStyles.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 745 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
 exports.push([module.i, ".input {\r\n    height: 34px;\r\n    width: 220px;\r\n    padding: 0 12px;\r\n    font-size: 15px;\r\n    font-family: inherit;\r\n    background-color: transparent;\r\n    border: none;\r\n    color: #ddd;\r\n}\r\n\r\n.input:focus {\r\n    outline: none;\r\n}\r\n\r\n.input::placeholder {\r\n    color: #aaa;\r\n}\r\n\r\n.inputInvalid {\r\n    color: #e65757;\r\n}\r\n\r\n.link {\r\n    color: #2996da;\r\n    text-decoration: underline;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 744 */,
-/* 745 */,
 /* 746 */,
 /* 747 */,
-/* 748 */
+/* 748 */,
+/* 749 */,
+/* 750 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(749);
+var content = __webpack_require__(751);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -14123,51 +14168,6 @@ if(false) {
 }
 
 /***/ }),
-/* 749 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".draftJsToolbar__buttonWrapper__1Dmqh {\n  display: inline-block;\n}\n\n.draftJsToolbar__button__qi1gf {\n  background: #fbfbfb;\n  color: #888;\n  font-size: 18px;\n  border: 0;\n  padding-top: 5px;\n  vertical-align: bottom;\n  height: 34px;\n  width: 36px;\n}\n\n.draftJsToolbar__button__qi1gf svg {\n  fill: #888;\n}\n\n.draftJsToolbar__button__qi1gf:hover, .draftJsToolbar__button__qi1gf:focus {\n  background: #f3f3f3;\n  outline: 0; /* reset for :focus */\n}\n\n.draftJsToolbar__active__3qcpF {\n  background: #efefef;\n  color: #444;\n}\n\n.draftJsToolbar__active__3qcpF svg {\n  fill: #444;\n}\n.draftJsToolbar__separator__3U7qt {\n  display: inline-block;\n  border-right: 1px solid #ddd;\n  height: 24px;\n  margin: 0 0.5em;\n}\n.draftJsToolbar__toolbar__dNtBH {\n  border: 1px solid #ddd;\n  background: #fff;\n  border-radius: 2px;\n  box-shadow: 0px 1px 3px 0px rgba(220,220,220,1);\n  z-index: 2;\n  box-sizing: border-box;\n}\n\n.draftJsToolbar__toolbar__dNtBH:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-top-color: #fff;\n  border-width: 4px;\n  margin-left: -4px;\n}\n.draftJsToolbar__toolbar__dNtBH:before {\n  border-color: rgba(221, 221, 221, 0);\n  border-top-color: #ddd;\n  border-width: 6px;\n  margin-left: -6px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 750 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(751);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(4)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./alignmentToolStyles.css", function() {
-			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./alignmentToolStyles.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
 /* 751 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14176,7 +14176,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".alignmentTool {\r\n    left: 50%;\r\n    transform: translate(-50%) scale(0);\r\n    position: absolute;\r\n    border: 1px solid #111;\r\n    background: #333;\r\n    border-radius: 4px;\r\n    box-shadow: 0px 1px 3px 0px rgba(220, 220, 220, 1);\r\n    z-index: 2;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.alignmentTool:after,\r\n.alignmentTool:before {\r\n    top: 100%;\r\n    left: 50%;\r\n    border: solid transparent;\r\n    content: \" \";\r\n    height: 0;\r\n    width: 0;\r\n    position: absolute;\r\n    pointer-events: none;\r\n}\r\n\r\n.alignmentTool:after {\r\n    border-color: rgba(255, 255, 255, 0);\r\n    border-top-color: #333;\r\n    border-width: 4px;\r\n    margin-left: -4px;\r\n}\r\n\r\n.alignmentTool:before {\r\n    border-color: rgba(221, 221, 221, 0);\r\n    border-top-color: #111;\r\n    border-width: 6px;\r\n    margin-left: -6px;\r\n}", ""]);
+exports.push([module.i, ".draftJsToolbar__buttonWrapper__1Dmqh {\n  display: inline-block;\n}\n\n.draftJsToolbar__button__qi1gf {\n  background: #fbfbfb;\n  color: #888;\n  font-size: 18px;\n  border: 0;\n  padding-top: 5px;\n  vertical-align: bottom;\n  height: 34px;\n  width: 36px;\n}\n\n.draftJsToolbar__button__qi1gf svg {\n  fill: #888;\n}\n\n.draftJsToolbar__button__qi1gf:hover, .draftJsToolbar__button__qi1gf:focus {\n  background: #f3f3f3;\n  outline: 0; /* reset for :focus */\n}\n\n.draftJsToolbar__active__3qcpF {\n  background: #efefef;\n  color: #444;\n}\n\n.draftJsToolbar__active__3qcpF svg {\n  fill: #444;\n}\n.draftJsToolbar__separator__3U7qt {\n  display: inline-block;\n  border-right: 1px solid #ddd;\n  height: 24px;\n  margin: 0 0.5em;\n}\n.draftJsToolbar__toolbar__dNtBH {\n  border: 1px solid #ddd;\n  background: #fff;\n  border-radius: 2px;\n  box-shadow: 0px 1px 3px 0px rgba(220,220,220,1);\n  z-index: 2;\n  box-sizing: border-box;\n}\n\n.draftJsToolbar__toolbar__dNtBH:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-top-color: #fff;\n  border-width: 4px;\n  margin-left: -4px;\n}\n.draftJsToolbar__toolbar__dNtBH:before {\n  border-color: rgba(221, 221, 221, 0);\n  border-top-color: #ddd;\n  border-width: 6px;\n  margin-left: -6px;\n}\n", ""]);
 
 // exports
 
@@ -14202,8 +14202,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./buttonStyles.css", function() {
-			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./buttonStyles.css");
+		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./alignmentToolStyles.css", function() {
+			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./alignmentToolStyles.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -14221,7 +14221,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".buttonWrapper {\r\n    display: inline-block;\r\n}\r\n\r\n.button {\r\n    background: #333;\r\n    color: #ddd;\r\n    font-size: 18px;\r\n    border: 0;\r\n    padding-top: 5px;\r\n    vertical-align: bottom;\r\n    height: 34px;\r\n    width: 36px;\r\n    border-radius: 4px;\r\n}\r\n\r\n.button svg {\r\n    fill: #ddd;\r\n}\r\n\r\n.button:hover,\r\n.button:focus {\r\n    background: #444;\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.active {\r\n    color: #6a9cc9;\r\n}\r\n\r\n.active svg {\r\n    fill: #6a9cc9;\r\n}", ""]);
+exports.push([module.i, ".alignmentTool {\r\n    left: 50%;\r\n    transform: translate(-50%) scale(0);\r\n    position: absolute;\r\n    border: 1px solid #111;\r\n    background: #333;\r\n    border-radius: 4px;\r\n    box-shadow: 0px 1px 3px 0px rgba(220, 220, 220, 1);\r\n    z-index: 2;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.alignmentTool:after,\r\n.alignmentTool:before {\r\n    top: 100%;\r\n    left: 50%;\r\n    border: solid transparent;\r\n    content: \" \";\r\n    height: 0;\r\n    width: 0;\r\n    position: absolute;\r\n    pointer-events: none;\r\n}\r\n\r\n.alignmentTool:after {\r\n    border-color: rgba(255, 255, 255, 0);\r\n    border-top-color: #333;\r\n    border-width: 4px;\r\n    margin-left: -4px;\r\n}\r\n\r\n.alignmentTool:before {\r\n    border-color: rgba(221, 221, 221, 0);\r\n    border-top-color: #111;\r\n    border-width: 6px;\r\n    margin-left: -6px;\r\n}", ""]);
 
 // exports
 
@@ -14247,8 +14247,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!./AddContent.css", function() {
-			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!./AddContent.css");
+		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./buttonStyles.css", function() {
+			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./buttonStyles.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -14266,13 +14266,58 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".draftJsEditor p {\r\n    text-align: justify;\r\n    font-size: 20px;\r\n}\r\n.draftJsEditor div:first-child {\r\n    text-align: center;\r\n}\r\n.draftJsEditor image {\r\n    display: block;margin: auto;\r\n}\r\n/*p:first-child {*/\r\n/*text-align: center;*/\r\n/*font-size: 25px;*/\r\n/*}*/\r\n", ""]);
+exports.push([module.i, ".buttonWrapper {\r\n    display: inline-block;\r\n}\r\n\r\n.button {\r\n    background: #333;\r\n    color: #ddd;\r\n    font-size: 18px;\r\n    border: 0;\r\n    padding-top: 5px;\r\n    vertical-align: bottom;\r\n    height: 34px;\r\n    width: 36px;\r\n    border-radius: 4px;\r\n}\r\n\r\n.button svg {\r\n    fill: #ddd;\r\n}\r\n\r\n.button:hover,\r\n.button:focus {\r\n    background: #444;\r\n    outline: 0; /* reset for :focus */\r\n}\r\n\r\n.active {\r\n    color: #6a9cc9;\r\n}\r\n\r\n.active svg {\r\n    fill: #6a9cc9;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
 /* 756 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(757);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(4)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!./AddContent.css", function() {
+			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!./AddContent.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 757 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".draftJsEditor p {\r\n    text-align: justify;\r\n    font-size: 20px;\r\n}\r\n.draftJsEditor div:first-child {\r\n    text-align: center;\r\n}\r\n.draftJsEditor image {\r\n    display: block;margin: auto;\r\n}\r\n/*p:first-child {*/\r\n/*text-align: center;*/\r\n/*font-size: 25px;*/\r\n/*}*/\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 758 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14304,13 +14349,13 @@ var _reactSAlert = __webpack_require__(17);
 
 var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
 
-var _ImagesLink = __webpack_require__(757);
+var _ImagesLink = __webpack_require__(759);
 
 var _ImagesLink2 = _interopRequireDefault(_ImagesLink);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -14500,7 +14545,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(AddImages);
 
 /***/ }),
-/* 757 */
+/* 759 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14518,7 +14563,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactCopyToClipboard = __webpack_require__(758);
+var _reactCopyToClipboard = __webpack_require__(760);
 
 var _reactCopyToClipboard2 = _interopRequireDefault(_reactCopyToClipboard);
 
@@ -14599,11 +14644,11 @@ var ImagesLink = function (_Component) {
 exports.default = ImagesLink;
 
 /***/ }),
-/* 758 */,
-/* 759 */,
 /* 760 */,
 /* 761 */,
-/* 762 */
+/* 762 */,
+/* 763 */,
+/* 764 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14621,11 +14666,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSpinners = __webpack_require__(12);
 
-var _reactTabs = __webpack_require__(222);
+var _reactTabs = __webpack_require__(223);
 
 __webpack_require__(133);
 
-var _OrdersList = __webpack_require__(769);
+var _OrdersList = __webpack_require__(771);
 
 var _OrdersList2 = _interopRequireDefault(_OrdersList);
 
@@ -14726,12 +14771,12 @@ var Orders = function (_Component) {
 exports.default = Orders;
 
 /***/ }),
-/* 763 */,
-/* 764 */,
 /* 765 */,
 /* 766 */,
 /* 767 */,
-/* 768 */
+/* 768 */,
+/* 769 */,
+/* 770 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -14745,7 +14790,7 @@ exports.push([module.i, ".react-tabs {\n  -webkit-tap-highlight-color: transpare
 
 
 /***/ }),
-/* 769 */
+/* 771 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14767,7 +14812,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -15020,7 +15065,7 @@ var OrdersList = function (_Component) {
 exports.default = OrdersList;
 
 /***/ }),
-/* 770 */
+/* 772 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15038,7 +15083,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -15048,7 +15093,7 @@ var _InlineError2 = _interopRequireDefault(_InlineError);
 
 __webpack_require__(133);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15292,7 +15337,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(SlidesManager);
 
 /***/ }),
-/* 771 */
+/* 773 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15308,15 +15353,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactTabs = __webpack_require__(222);
+var _reactTabs = __webpack_require__(223);
 
 __webpack_require__(133);
 
-var _AddDataPart = __webpack_require__(772);
+var _AddDataPart = __webpack_require__(774);
 
 var _AddDataPart2 = _interopRequireDefault(_AddDataPart);
 
-var _EditProductData = __webpack_require__(773);
+var _EditProductData = __webpack_require__(775);
 
 var _EditProductData2 = _interopRequireDefault(_EditProductData);
 
@@ -15381,7 +15426,7 @@ var ProductData = function (_Component) {
 exports.default = ProductData;
 
 /***/ }),
-/* 772 */
+/* 774 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15599,7 +15644,7 @@ var AddDataPart = function (_Component) {
 exports.default = AddDataPart;
 
 /***/ }),
-/* 773 */
+/* 775 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15619,11 +15664,11 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _dataCode = __webpack_require__(75);
+var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -15760,7 +15805,7 @@ var EditProductData = function (_Component) {
 exports.default = EditProductData;
 
 /***/ }),
-/* 774 */
+/* 776 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15780,7 +15825,7 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -15829,7 +15874,7 @@ var ContentManagerLogin = function (_Component) {
 exports.default = ContentManagerLogin;
 
 /***/ }),
-/* 775 */
+/* 777 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15853,7 +15898,7 @@ var _draftJs = __webpack_require__(13);
 
 var _draftJsPluginsEditor = __webpack_require__(116);
 
-var _draftJsExportHtml = __webpack_require__(217);
+var _draftJsExportHtml = __webpack_require__(218);
 
 var _CardWrapper = __webpack_require__(38);
 
@@ -15863,11 +15908,11 @@ var _ContentSmallSize = __webpack_require__(94);
 
 var _ContentSmallSize2 = _interopRequireDefault(_ContentSmallSize);
 
-var _Comments = __webpack_require__(226);
+var _Comments = __webpack_require__(227);
 
 var _Comments2 = _interopRequireDefault(_Comments);
 
-__webpack_require__(780);
+__webpack_require__(782);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16001,7 +16046,7 @@ var ContentDetail = function (_Component) {
 exports.default = ContentDetail;
 
 /***/ }),
-/* 776 */
+/* 778 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16017,7 +16062,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(777);
+__webpack_require__(779);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16064,13 +16109,13 @@ var AddComment = function (_Component) {
 exports.default = AddComment;
 
 /***/ }),
-/* 777 */
+/* 779 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(778);
+var content = __webpack_require__(780);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16095,7 +16140,7 @@ if(false) {
 }
 
 /***/ }),
-/* 778 */
+/* 780 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -16109,7 +16154,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 779 */
+/* 781 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16185,13 +16230,13 @@ var Comment = function (_Component) {
 exports.default = Comment;
 
 /***/ }),
-/* 780 */
+/* 782 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(781);
+var content = __webpack_require__(783);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16216,7 +16261,7 @@ if(false) {
 }
 
 /***/ }),
-/* 781 */
+/* 783 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -16230,7 +16275,7 @@ exports.push([module.i, ".articleContainer p {\r\n    text-align: justify;\r\n  
 
 
 /***/ }),
-/* 782 */
+/* 784 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16304,9 +16349,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
-var _index = __webpack_require__(15);
+var _index = __webpack_require__(14);
 
 var actions = _interopRequireWildcard(_index);
 
@@ -16325,7 +16370,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /***/ }),
-/* 783 */
+/* 785 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16343,7 +16388,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -16452,7 +16497,7 @@ var VideoContentContainer = function (_Component) {
 exports.default = VideoContentContainer;
 
 /***/ }),
-/* 784 */
+/* 786 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16474,11 +16519,11 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-__webpack_require__(785);
+__webpack_require__(787);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16604,13 +16649,13 @@ var ProductsList = function (_Component) {
 exports.default = ProductsList;
 
 /***/ }),
-/* 785 */
+/* 787 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(786);
+var content = __webpack_require__(788);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16635,7 +16680,7 @@ if(false) {
 }
 
 /***/ }),
-/* 786 */
+/* 788 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -16649,7 +16694,7 @@ exports.push([module.i, ".product-list {\r\n    width: 90%;margin: 1% auto;\r\n 
 
 
 /***/ }),
-/* 787 */
+/* 789 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16671,19 +16716,19 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
-var _dataCode = __webpack_require__(75);
+var _dataCode = __webpack_require__(58);
 
 var _dataCode2 = _interopRequireDefault(_dataCode);
 
-var _product = __webpack_require__(788);
+var _product = __webpack_require__(790);
 
 var _product2 = _interopRequireDefault(_product);
 
-var _Comments = __webpack_require__(226);
+var _Comments = __webpack_require__(227);
 
 var _Comments2 = _interopRequireDefault(_Comments);
 
@@ -16948,13 +16993,13 @@ var Product = function (_Component) {
 exports.default = Product;
 
 /***/ }),
-/* 788 */
+/* 790 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/product.jpg?ca596486f0c667a66591b60557f281fe";
 
 /***/ }),
-/* 789 */
+/* 791 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16972,13 +17017,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(8);
 
 var _CardWrapper = __webpack_require__(38);
 
 var _CardWrapper2 = _interopRequireDefault(_CardWrapper);
 
-var _URLs = __webpack_require__(6);
+var _URLs = __webpack_require__(5);
 
 var _URLs2 = _interopRequireDefault(_URLs);
 
@@ -17101,13 +17146,13 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(OrderConfirnation);
 
 /***/ }),
-/* 790 */
+/* 792 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(791);
+var content = __webpack_require__(793);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -17132,51 +17177,6 @@ if(false) {
 }
 
 /***/ }),
-/* 791 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* Common, default styles for the notification box */\n\n.s-alert-box,\n.s-alert-box * {\n    box-sizing: border-box;\n}\n\n.s-alert-box {\n    position: fixed;\n    background: rgba(42,45,50,0.85);\n    padding: 22px;\n    line-height: 1.4;\n    z-index: 1000;\n    pointer-events: none;\n    color: rgba(250,251,255,0.95);\n    font-size: 100%;\n    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;\n    max-width: 300px;\n    -webkit-transition: top .4s, bottom .4s;\n    transition: top .4s, bottom .4s;\n}\n\n.s-alert-box.s-alert-show {\n    pointer-events: auto;\n}\n\n.s-alert-box a {\n    color: inherit;\n    opacity: 0.7;\n    font-weight: 700;\n}\n\n.s-alert-box a:hover,\n.s-alert-box a:focus {\n    opacity: 1;\n}\n\n.s-alert-box p {\n    margin: 0;\n}\n\n.s-alert-box.s-alert-show,\n.s-alert-box.s-alert-visible {\n    pointer-events: auto;\n}\n\n.s-alert-close {\n    width: 20px;\n    height: 20px;\n    position: absolute;\n    right: 4px;\n    top: 4px;\n    overflow: hidden;\n    text-indent: 100%;\n    cursor: pointer;\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n}\n\n.s-alert-close:hover,\n.s-alert-close:focus {\n    outline: none;\n}\n\n.s-alert-close::before,\n.s-alert-close::after {\n    content: '';\n    position: absolute;\n    width: 3px;\n    height: 60%;\n    top: 50%;\n    left: 50%;\n    background: #fff;\n}\n\n.s-alert-close:hover::before,\n.s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-close::before {\n    -webkit-transform: translate(-50%,-50%) rotate(45deg);\n    transform: translate(-50%,-50%) rotate(45deg);\n}\n\n.s-alert-close::after {\n    -webkit-transform: translate(-50%,-50%) rotate(-45deg);\n    transform: translate(-50%,-50%) rotate(-45deg);\n}\n\n/* positions */\n\n.s-alert-bottom-left {\n    top: auto;\n    right: auto;\n    bottom: 30px;\n    left: 30px;\n}\n.s-alert-top-left {\n    top: 30px;\n    right: auto;\n    bottom: auto;\n    left: 30px;\n}\n.s-alert-top-right {\n    top: 30px;\n    right: 30px;\n    bottom: auto;\n    left: auto;\n}\n.s-alert-bottom-right { /*default*/\n    top: auto;\n    right: 30px;\n    bottom: 30px;\n    left: auto;\n}\n.s-alert-bottom {\n    width: 100%;\n    max-width: 100%;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    top: auto;\n}\n.s-alert-top {\n    width: 100%;\n    max-width: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: auto;\n}\n\n/* conditions */\n\n.s-alert-info {\n    background: #00A2D3;\n    color: #fff;\n}\n.s-alert-success {\n    background: #27AE60;\n    color: #fff;\n}\n.s-alert-warning {\n    background: #F1C40F;\n    color: #fff;\n}\n.s-alert-error {\n    background: #E74C3C;\n    color: #fff;\n}\n\n[class^=\"s-alert-effect-\"].s-alert-hide,\n[class*=\" s-alert-effect-\"].s-alert-hide {\n    -webkit-animation-direction: reverse;\n    animation-direction: reverse;\n}\n\n/* height measurement helper */\n.s-alert-box-height {\n    visibility: hidden;\n    position: fixed;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 792 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(793);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(4)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./slide.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./slide.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
 /* 793 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17185,7 +17185,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* Slide */\n\n.s-alert-effect-slide .s-alert-close::before,\n.s-alert-effect-slide .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-slide .s-alert-close:hover::before,\n.s-alert-effect-slide .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-slide.s-alert-show,\n.s-alert-top.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom.s-alert-effect-slide.s-alert-show {\n    -webkit-animation-name: animSlideElastic;\n    animation-name: animSlideElastic;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/akZHSq */\n\n@-webkit-keyframes animSlideElastic {\n    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); }\n    1.666667% { -webkit-transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); }\n    3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); }\n    5% { -webkit-transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); }\n    6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); }\n    10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); }\n    11.666667% { -webkit-transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); }\n    13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); }\n    15% { -webkit-transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); }\n    18.333333% { -webkit-transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); }\n    20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); }\n    21.666667% { -webkit-transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); }\n    23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); }\n    26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); }\n    28.333333% { -webkit-transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); }\n    30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); }\n    31.666667% { -webkit-transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); }\n    35% { -webkit-transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); }\n    36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); }\n    38.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); }\n    40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); }\n    43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); }\n    45% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); }\n    46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); }\n    48.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); }\n    51.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); }\n    53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); }\n    55% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); }\n    56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); }\n    60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); }\n    61.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); }\n    63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); }\n    65% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); }\n    68.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); }\n    70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); }\n    71.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); }\n    73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); }\n    76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); }\n    78.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); }\n    80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); }\n    81.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); }\n    85% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); }\n    86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); }\n    88.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); }\n    90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    95% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); }\n    96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    98.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animSlideElastic {\n    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); }\n    1.666667% { -webkit-transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); }\n    3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); }\n    5% { -webkit-transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); }\n    6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); }\n    10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); }\n    11.666667% { -webkit-transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); }\n    13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); }\n    15% { -webkit-transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); }\n    18.333333% { -webkit-transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); }\n    20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); }\n    21.666667% { -webkit-transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); }\n    23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); }\n    26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); }\n    28.333333% { -webkit-transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); }\n    30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); }\n    31.666667% { -webkit-transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); }\n    35% { -webkit-transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); }\n    36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); }\n    38.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); }\n    40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); }\n    43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); }\n    45% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); }\n    46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); }\n    48.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); }\n    51.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); }\n    53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); }\n    55% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); }\n    56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); }\n    60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); }\n    61.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); }\n    63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); }\n    65% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); }\n    68.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); }\n    70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); }\n    71.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); }\n    73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); }\n    76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); }\n    78.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); }\n    80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); }\n    81.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); }\n    85% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); }\n    86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); }\n    88.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); }\n    90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    95% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); }\n    96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    98.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n.s-alert-top-right.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-show {\n    -webkit-animation-name: animSlideElasticRight;\n    animation-name: animSlideElasticRight;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/tf9GOc */\n\n@-webkit-keyframes animSlideElasticRight {\n  0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); }\n  3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); }\n  6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); }\n  10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); }\n  13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); }\n  16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); }\n  20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); }\n  23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); }\n  26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); }\n  30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); }\n  33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); }\n  36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); }\n  40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); }\n  43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); }\n  46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); }\n  50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); }\n  53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); }\n  56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); }\n  60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); }\n  63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); }\n  66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); }\n  70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); }\n  73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); }\n  76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); }\n  80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); }\n  83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); }\n  86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); }\n  90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); }\n  96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animSlideElasticRight {\n  0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); }\n  3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); }\n  6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); }\n  10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); }\n  13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); }\n  16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); }\n  20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); }\n  23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); }\n  26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); }\n  30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); }\n  33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); }\n  36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); }\n  40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); }\n  43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); }\n  46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); }\n  50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); }\n  53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); }\n  56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); }\n  60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); }\n  63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); }\n  66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); }\n  70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); }\n  73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); }\n  76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); }\n  80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); }\n  83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); }\n  86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); }\n  90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); }\n  96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n.s-alert-top-left.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-slide.s-alert-hide,\n.s-alert-top.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom.s-alert-effect-slide.s-alert-hide {\n    -webkit-animation-name: animSlide;\n    animation-name: animSlide;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animSlide {\n    0% { -webkit-transform: translate3d(-30px,0,0) translate3d(-100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlide {\n    0% { -webkit-transform: translate3d(-30px,0,0) translate3d(-100%,0,0); transform: translate3d(-30px,0,0) translate3d(-100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}\n\n.s-alert-top-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-top-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-hide {\n    -webkit-animation-name: animSlideRight;\n    animation-name: animSlideRight;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animSlideRight {\n    0% { -webkit-transform: translate3d(30px,0,0) translate3d(100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideRight {\n    0% { -webkit-transform: translate3d(30px,0,0) translate3d(100%,0,0); transform: translate3d(30px,0,0) translate3d(100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}", ""]);
+exports.push([module.i, "/* Common, default styles for the notification box */\n\n.s-alert-box,\n.s-alert-box * {\n    box-sizing: border-box;\n}\n\n.s-alert-box {\n    position: fixed;\n    background: rgba(42,45,50,0.85);\n    padding: 22px;\n    line-height: 1.4;\n    z-index: 1000;\n    pointer-events: none;\n    color: rgba(250,251,255,0.95);\n    font-size: 100%;\n    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;\n    max-width: 300px;\n    -webkit-transition: top .4s, bottom .4s;\n    transition: top .4s, bottom .4s;\n}\n\n.s-alert-box.s-alert-show {\n    pointer-events: auto;\n}\n\n.s-alert-box a {\n    color: inherit;\n    opacity: 0.7;\n    font-weight: 700;\n}\n\n.s-alert-box a:hover,\n.s-alert-box a:focus {\n    opacity: 1;\n}\n\n.s-alert-box p {\n    margin: 0;\n}\n\n.s-alert-box.s-alert-show,\n.s-alert-box.s-alert-visible {\n    pointer-events: auto;\n}\n\n.s-alert-close {\n    width: 20px;\n    height: 20px;\n    position: absolute;\n    right: 4px;\n    top: 4px;\n    overflow: hidden;\n    text-indent: 100%;\n    cursor: pointer;\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n}\n\n.s-alert-close:hover,\n.s-alert-close:focus {\n    outline: none;\n}\n\n.s-alert-close::before,\n.s-alert-close::after {\n    content: '';\n    position: absolute;\n    width: 3px;\n    height: 60%;\n    top: 50%;\n    left: 50%;\n    background: #fff;\n}\n\n.s-alert-close:hover::before,\n.s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-close::before {\n    -webkit-transform: translate(-50%,-50%) rotate(45deg);\n    transform: translate(-50%,-50%) rotate(45deg);\n}\n\n.s-alert-close::after {\n    -webkit-transform: translate(-50%,-50%) rotate(-45deg);\n    transform: translate(-50%,-50%) rotate(-45deg);\n}\n\n/* positions */\n\n.s-alert-bottom-left {\n    top: auto;\n    right: auto;\n    bottom: 30px;\n    left: 30px;\n}\n.s-alert-top-left {\n    top: 30px;\n    right: auto;\n    bottom: auto;\n    left: 30px;\n}\n.s-alert-top-right {\n    top: 30px;\n    right: 30px;\n    bottom: auto;\n    left: auto;\n}\n.s-alert-bottom-right { /*default*/\n    top: auto;\n    right: 30px;\n    bottom: 30px;\n    left: auto;\n}\n.s-alert-bottom {\n    width: 100%;\n    max-width: 100%;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    top: auto;\n}\n.s-alert-top {\n    width: 100%;\n    max-width: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: auto;\n}\n\n/* conditions */\n\n.s-alert-info {\n    background: #00A2D3;\n    color: #fff;\n}\n.s-alert-success {\n    background: #27AE60;\n    color: #fff;\n}\n.s-alert-warning {\n    background: #F1C40F;\n    color: #fff;\n}\n.s-alert-error {\n    background: #E74C3C;\n    color: #fff;\n}\n\n[class^=\"s-alert-effect-\"].s-alert-hide,\n[class*=\" s-alert-effect-\"].s-alert-hide {\n    -webkit-animation-direction: reverse;\n    animation-direction: reverse;\n}\n\n/* height measurement helper */\n.s-alert-box-height {\n    visibility: hidden;\n    position: fixed;\n}\n", ""]);
 
 // exports
 
@@ -17211,8 +17211,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./scale.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./scale.css");
+		module.hot.accept("!!../../../css-loader/index.js!./slide.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./slide.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17230,7 +17230,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* Scale */\n\n.s-alert-effect-scale a {\n    color: #fff;\n}\n\n.s-alert-effect-scale a:hover,\n.s-alert-effect-scale a:focus {\n    color: #fff;\n}\n\n.s-alert-effect-scale .s-alert-close::before,\n.s-alert-effect-scale .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-scale .s-alert-close:hover::before,\n.s-alert-effect-scale .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-effect-scale.s-alert-show,\n.s-alert-effect-scale.s-alert-hide {\n    -webkit-animation-name: animScale;\n    animation-name: animScale;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animScale {\n    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }\n    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }\n}\n\n@keyframes animScale {\n    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }\n    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); transform: translate3d(0,0,0) scale3d(1,1,1); }\n}", ""]);
+exports.push([module.i, "/* Slide */\n\n.s-alert-effect-slide .s-alert-close::before,\n.s-alert-effect-slide .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-slide .s-alert-close:hover::before,\n.s-alert-effect-slide .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-slide.s-alert-show,\n.s-alert-top.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom.s-alert-effect-slide.s-alert-show {\n    -webkit-animation-name: animSlideElastic;\n    animation-name: animSlideElastic;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/akZHSq */\n\n@-webkit-keyframes animSlideElastic {\n    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); }\n    1.666667% { -webkit-transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); }\n    3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); }\n    5% { -webkit-transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); }\n    6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); }\n    10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); }\n    11.666667% { -webkit-transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); }\n    13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); }\n    15% { -webkit-transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); }\n    18.333333% { -webkit-transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); }\n    20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); }\n    21.666667% { -webkit-transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); }\n    23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); }\n    26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); }\n    28.333333% { -webkit-transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); }\n    30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); }\n    31.666667% { -webkit-transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); }\n    35% { -webkit-transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); }\n    36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); }\n    38.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); }\n    40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); }\n    43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); }\n    45% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); }\n    46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); }\n    48.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); }\n    51.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); }\n    53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); }\n    55% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); }\n    56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); }\n    60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); }\n    61.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); }\n    63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); }\n    65% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); }\n    68.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); }\n    70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); }\n    71.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); }\n    73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); }\n    76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); }\n    78.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); }\n    80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); }\n    81.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); }\n    85% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); }\n    86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); }\n    88.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); }\n    90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    95% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); }\n    96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    98.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animSlideElastic {\n    0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1); }\n    1.666667% { -webkit-transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); transform: matrix3d(1.92933, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -739.26805, 0, 0, 1); }\n    3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -521.82545, 0, 0, 1); }\n    5% { -webkit-transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); transform: matrix3d(1.70901, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -349.26115, 0, 0, 1); }\n    6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -218.3238, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); transform: matrix3d(1.21065, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -123.29848, 0, 0, 1); }\n    10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -57.59273, 0, 0, 1); }\n    11.666667% { -webkit-transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); transform: matrix3d(1.0165, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -14.72371, 0, 0, 1); }\n    13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.12794, 0, 0, 1); }\n    15% { -webkit-transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); transform: matrix3d(0.98478, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 24.86339, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.40503, 0, 0, 1); }\n    18.333333% { -webkit-transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); transform: matrix3d(0.9916, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30.75275, 0, 0, 1); }\n    20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 28.10141, 0, 0, 1); }\n    21.666667% { -webkit-transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); transform: matrix3d(0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 23.98271, 0, 0, 1); }\n    23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 19.40752, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 14.99558, 0, 0, 1); }\n    26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11.08575, 0, 0, 1); }\n    28.333333% { -webkit-transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); transform: matrix3d(1.00022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 7.82507, 0, 0, 1); }\n    30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.23737, 0, 0, 1); }\n    31.666667% { -webkit-transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); transform: matrix3d(1.0001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.27389, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.84893, 0, 0, 1); }\n    35% { -webkit-transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); transform: matrix3d(1.00002, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.86364, 0, 0, 1); }\n    36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22079, 0, 0, 1); }\n    38.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16687, 0, 0, 1); }\n    40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.37284, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45594, 0, 0, 1); }\n    43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46116, 0, 0, 1); }\n    45% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4214, 0, 0, 1); }\n    46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.35963, 0, 0, 1); }\n    48.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.29103, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22487, 0, 0, 1); }\n    51.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16624, 0, 0, 1); }\n    53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11734, 0, 0, 1); }\n    55% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.07854, 0, 0, 1); }\n    56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.04909, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.02773, 0, 0, 1); }\n    60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.01295, 0, 0, 1); }\n    61.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00331, 0, 0, 1); }\n    63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0025, 0, 0, 1); }\n    65% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00559, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00684, 0, 0, 1); }\n    68.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00692, 0, 0, 1); }\n    70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00632, 0, 0, 1); }\n    71.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00539, 0, 0, 1); }\n    73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00436, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00337, 0, 0, 1); }\n    76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00249, 0, 0, 1); }\n    78.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00176, 0, 0, 1); }\n    80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00118, 0, 0, 1); }\n    81.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00074, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00042, 0, 0, 1); }\n    85% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00019, 0, 0, 1); }\n    86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00005, 0, 0, 1); }\n    88.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00004, 0, 0, 1); }\n    90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1); }\n    95% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00009, 0, 0, 1); }\n    96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00008, 0, 0, 1); }\n    98.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00007, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n.s-alert-top-right.s-alert-effect-slide.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-show {\n    -webkit-animation-name: animSlideElasticRight;\n    animation-name: animSlideElasticRight;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/tf9GOc */\n\n@-webkit-keyframes animSlideElasticRight {\n  0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); }\n  3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); }\n  6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); }\n  10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); }\n  13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); }\n  16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); }\n  20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); }\n  23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); }\n  26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); }\n  30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); }\n  33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); }\n  36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); }\n  40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); }\n  43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); }\n  46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); }\n  50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); }\n  53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); }\n  56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); }\n  60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); }\n  63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); }\n  66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); }\n  70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); }\n  73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); }\n  76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); }\n  80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); }\n  83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); }\n  86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); }\n  90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); }\n  96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animSlideElasticRight {\n  0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); }\n  3.333333% { -webkit-transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); transform: matrix3d(1.96989, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 521.82545, 0, 0, 1); }\n  6.666667% { -webkit-transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); transform: matrix3d(1.4235, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 218.3238, 0, 0, 1); }\n  10% { -webkit-transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); transform: matrix3d(1.08167, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 57.59273, 0, 0, 1); }\n  13.333333% { -webkit-transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); transform: matrix3d(0.99057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.12794, 0, 0, 1); }\n  16.666667% { -webkit-transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); transform: matrix3d(0.98719, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -30.40503, 0, 0, 1); }\n  20% { -webkit-transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); transform: matrix3d(0.99541, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -28.10141, 0, 0, 1); }\n  23.333333% { -webkit-transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); transform: matrix3d(0.99936, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.40752, 0, 0, 1); }\n  26.666667% { -webkit-transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); transform: matrix3d(1.00021, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11.08575, 0, 0, 1); }\n  30% { -webkit-transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); transform: matrix3d(1.00016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.23737, 0, 0, 1); }\n  33.333333% { -webkit-transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); transform: matrix3d(1.00005, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.84893, 0, 0, 1); }\n  36.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.22079, 0, 0, 1); }\n  40% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.37284, 0, 0, 1); }\n  43.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.46116, 0, 0, 1); }\n  46.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.35963, 0, 0, 1); }\n  50% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.22487, 0, 0, 1); }\n  53.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.11734, 0, 0, 1); }\n  56.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.04909, 0, 0, 1); }\n  60% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.01295, 0, 0, 1); }\n  63.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.0025, 0, 0, 1); }\n  66.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00684, 0, 0, 1); }\n  70% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00632, 0, 0, 1); }\n  73.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00436, 0, 0, 1); }\n  76.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00249, 0, 0, 1); }\n  80% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00118, 0, 0, 1); }\n  83.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00042, 0, 0, 1); }\n  86.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.00005, 0, 0, 1); }\n  90% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  93.333333% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1); }\n  96.666667% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.00008, 0, 0, 1); }\n  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n.s-alert-top-left.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-slide.s-alert-hide,\n.s-alert-top.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom.s-alert-effect-slide.s-alert-hide {\n    -webkit-animation-name: animSlide;\n    animation-name: animSlide;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animSlide {\n    0% { -webkit-transform: translate3d(-30px,0,0) translate3d(-100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlide {\n    0% { -webkit-transform: translate3d(-30px,0,0) translate3d(-100%,0,0); transform: translate3d(-30px,0,0) translate3d(-100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}\n\n.s-alert-top-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-top-right.s-alert-effect-slide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-slide.s-alert-hide {\n    -webkit-animation-name: animSlideRight;\n    animation-name: animSlideRight;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animSlideRight {\n    0% { -webkit-transform: translate3d(30px,0,0) translate3d(100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideRight {\n    0% { -webkit-transform: translate3d(30px,0,0) translate3d(100%,0,0); transform: translate3d(30px,0,0) translate3d(100%,0,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}", ""]);
 
 // exports
 
@@ -17256,8 +17256,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./bouncyflip.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./bouncyflip.css");
+		module.hot.accept("!!../../../css-loader/index.js!./scale.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./scale.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17275,7 +17275,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* Bouncy Flip adapted from animate.css by Dan Eden: http://daneden.github.io/animate.css/ */\n\n.s-alert-bottom-left.s-alert-effect-bouncyflip,\n.s-alert-bottom-right.s-alert-effect-bouncyflip,\n.s-alert-bottom.s-alert-effect-bouncyflip {\n    -webkit-transform-origin: 50% 100%;\n    transform-origin: 50% 100%;\n}\n.s-alert-top-left.s-alert-effect-bouncyflip,\n.s-alert-top-right.s-alert-effect-bouncyflip\n.s-alert-top.s-alert-effect-bouncyflip {\n    -webkit-transform-origin: 50% 0%;\n    transform-origin: 50% 0%;\n}\n\n.s-alert-effect-bouncyflip p {\n    padding: 0.5em 0.8em 0.5em 0.8em;\n}\n\n.s-alert-effect-bouncyflip .s-alert-close::after,\n.s-alert-effect-bouncyflip .s-alert-close::before {\n    background: #fff;\n}\n\n.s-alert-effect-bouncyflip .s-alert-close:hover::after,\n.s-alert-effect-bouncyflip .s-alert-close:hover::before {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-show  {\n    -webkit-animation-name: flipInXTop;\n    animation-name: flipInXTop;\n    -webkit-animation-duration: 0.8s;\n    animation-duration: 0.8s;\n}\n\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-hide {\n    -webkit-animation-name: flipInXBottom;\n    animation-name: flipInXBottom;\n    -webkit-animation-duration: 0.8s;\n    animation-duration: 0.8s;\n}\n\n@-webkit-keyframes flipInXTop {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        -webkit-transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,20deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        -webkit-transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,5deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n    }\n}\n\n@keyframes flipInXTop {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,20deg);\n        transform: perspective(400px) rotate3d(1,0,0,20deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,5deg);\n        transform: perspective(400px) rotate3d(1,0,0,5deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n        transform: perspective(400px);\n    }\n}\n\n@-webkit-keyframes flipInXBottom {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,90deg);\n        -webkit-transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,10deg);\n        -webkit-transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n    }\n}\n\n@keyframes flipInXBottom {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,90deg);\n        transform: perspective(400px) rotate3d(1,0,0,90deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,10deg);\n        transform: perspective(400px) rotate3d(1,0,0,10deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n        transform: perspective(400px);\n    }\n}\n\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-hide {\n    -webkit-animation-name: flipInXSimpleTop;\n    animation-name: flipInXSimpleTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-hide  {\n    -webkit-animation-name: flipInXSimpleBottom;\n    animation-name: flipInXSimpleBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes flipInXSimpleTop {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    -webkit-transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n  }\n}\n\n@keyframes flipInXSimpleTop {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    -webkit-transition-timing-function: ease-in;\n    transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@-webkit-keyframes flipInXSimpleBottom {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n  }\n}\n\n@keyframes flipInXSimpleBottom {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-transition-timing-function: ease-in;\n    transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@media screen and (max-width: 25em) {\n    .s-alert-attached {\n        left: 30px;\n        max-width: none;\n        right: 30px;\n    }\n}", ""]);
+exports.push([module.i, "/* Scale */\n\n.s-alert-effect-scale a {\n    color: #fff;\n}\n\n.s-alert-effect-scale a:hover,\n.s-alert-effect-scale a:focus {\n    color: #fff;\n}\n\n.s-alert-effect-scale .s-alert-close::before,\n.s-alert-effect-scale .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-scale .s-alert-close:hover::before,\n.s-alert-effect-scale .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-effect-scale.s-alert-show,\n.s-alert-effect-scale.s-alert-hide {\n    -webkit-animation-name: animScale;\n    animation-name: animScale;\n    -webkit-animation-duration: 0.25s;\n    animation-duration: 0.25s;\n}\n\n@-webkit-keyframes animScale {\n    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }\n    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }\n}\n\n@keyframes animScale {\n    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }\n    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); transform: translate3d(0,0,0) scale3d(1,1,1); }\n}", ""]);
 
 // exports
 
@@ -17301,8 +17301,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./flip.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./flip.css");
+		module.hot.accept("!!../../../css-loader/index.js!./bouncyflip.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./bouncyflip.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17320,7 +17320,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* Flip */\n\n.s-alert-effect-flip {\n    padding: 1.5em;\n    backface-visibility: hidden;\n}\n\n.s-alert-bottom-left.s-alert-effect-flip,\n.s-alert-bottom-right.s-alert-effect-flip,\n.s-alert-bottom.s-alert-effect-flip {\n    -webkit-transform-origin: 50% 100%;\n    transform-origin: 50% 100%;\n}\n.s-alert-top-left.s-alert-effect-flip,\n.s-alert-top-right.s-alert-effect-flip,\n.s-alert-top.s-alert-effect-flip {\n    -webkit-transform-origin: 50% 0;\n    transform-origin: 50% 0;\n}\n\n.s-alert-effect-flip .s-alert-close::before,\n.s-alert-effect-flip .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-flip .s-alert-close:hover::before,\n.s-alert-effect-flip .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-show {\n    -webkit-animation-name: animFlipFrontBottom;\n    animation-name: animFlipFrontBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-hide {\n    -webkit-animation-name: animFlipFrontBottom;\n    animation-name: animFlipFrontBottom;\n}\n\n.s-alert-top-right.s-alert-effect-flip.s-alert-show,\n.s-alert-top-left.s-alert-effect-flip.s-alert-show,\n.s-alert-top-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-show {\n    -webkit-animation-name: animFlipFrontTop;\n    animation-name: animFlipFrontTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n.s-alert-top-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-hide {\n    -webkit-animation-name: animFlipFrontTop;\n    animation-name: animFlipFrontTop;\n}\n\n@-webkit-keyframes animFlipFrontTop {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); }\n    100% { -webkit-transform: perspective(1000px); }\n}\n\n@keyframes animFlipFrontTop {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); transform: perspective(1000px) rotate3d(1,0,0,-90deg); }\n    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }\n}\n\n@-webkit-keyframes animFlipFrontBottom {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); }\n    100% { -webkit-transform: perspective(1000px); }\n}\n\n@keyframes animFlipFrontBottom {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); transform: perspective(1000px) rotate3d(1,0,0,90deg); }\n    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }\n}", ""]);
+exports.push([module.i, "/* Bouncy Flip adapted from animate.css by Dan Eden: http://daneden.github.io/animate.css/ */\n\n.s-alert-bottom-left.s-alert-effect-bouncyflip,\n.s-alert-bottom-right.s-alert-effect-bouncyflip,\n.s-alert-bottom.s-alert-effect-bouncyflip {\n    -webkit-transform-origin: 50% 100%;\n    transform-origin: 50% 100%;\n}\n.s-alert-top-left.s-alert-effect-bouncyflip,\n.s-alert-top-right.s-alert-effect-bouncyflip\n.s-alert-top.s-alert-effect-bouncyflip {\n    -webkit-transform-origin: 50% 0%;\n    transform-origin: 50% 0%;\n}\n\n.s-alert-effect-bouncyflip p {\n    padding: 0.5em 0.8em 0.5em 0.8em;\n}\n\n.s-alert-effect-bouncyflip .s-alert-close::after,\n.s-alert-effect-bouncyflip .s-alert-close::before {\n    background: #fff;\n}\n\n.s-alert-effect-bouncyflip .s-alert-close:hover::after,\n.s-alert-effect-bouncyflip .s-alert-close:hover::before {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-show  {\n    -webkit-animation-name: flipInXTop;\n    animation-name: flipInXTop;\n    -webkit-animation-duration: 0.8s;\n    animation-duration: 0.8s;\n}\n\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-show,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-hide {\n    -webkit-animation-name: flipInXBottom;\n    animation-name: flipInXBottom;\n    -webkit-animation-duration: 0.8s;\n    animation-duration: 0.8s;\n}\n\n@-webkit-keyframes flipInXTop {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        -webkit-transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,20deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        -webkit-transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,5deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n    }\n}\n\n@keyframes flipInXTop {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        transform: perspective(400px) rotate3d(1,0,0,-90deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,20deg);\n        transform: perspective(400px) rotate3d(1,0,0,20deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        transform: perspective(400px) rotate3d(1,0,0,-10deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,5deg);\n        transform: perspective(400px) rotate3d(1,0,0,5deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n        transform: perspective(400px);\n    }\n}\n\n@-webkit-keyframes flipInXBottom {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,90deg);\n        -webkit-transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,10deg);\n        -webkit-transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        -webkit-transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n    }\n}\n\n@keyframes flipInXBottom {\n    0% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,90deg);\n        transform: perspective(400px) rotate3d(1,0,0,90deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n    }\n\n    40% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        transform: perspective(400px) rotate3d(1,0,0,-20deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    60% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,10deg);\n        transform: perspective(400px) rotate3d(1,0,0,10deg);\n        -webkit-transition-timing-function: ease-in;\n        transition-timing-function: ease-in;\n        opacity: 1;\n    }\n\n    80% {\n        -webkit-transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        transform: perspective(400px) rotate3d(1,0,0,-5deg);\n        -webkit-transition-timing-function: ease-out;\n        transition-timing-function: ease-out;\n    }\n\n    100% {\n        -webkit-transform: perspective(400px);\n        transform: perspective(400px);\n    }\n}\n\n.s-alert-top-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-top.s-alert-effect-bouncyflip.s-alert-hide {\n    -webkit-animation-name: flipInXSimpleTop;\n    animation-name: flipInXSimpleTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n.s-alert-bottom-right.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-bouncyflip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-bouncyflip.s-alert-hide  {\n    -webkit-animation-name: flipInXSimpleBottom;\n    animation-name: flipInXSimpleBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes flipInXSimpleTop {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    -webkit-transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n  }\n}\n\n@keyframes flipInXSimpleTop {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, -90deg);\n    -webkit-transition-timing-function: ease-in;\n    transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@-webkit-keyframes flipInXSimpleBottom {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n  }\n}\n\n@keyframes flipInXSimpleBottom {\n  0% {\n    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    -webkit-transition-timing-function: ease-in;\n    transition-timing-function: ease-in;\n  }\n  100% {\n    -webkit-transform: perspective(400px);\n    transform: perspective(400px);\n  }\n}\n\n@media screen and (max-width: 25em) {\n    .s-alert-attached {\n        left: 30px;\n        max-width: none;\n        right: 30px;\n    }\n}", ""]);
 
 // exports
 
@@ -17346,8 +17346,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./genie.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./genie.css");
+		module.hot.accept("!!../../../css-loader/index.js!./flip.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./flip.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17365,7 +17365,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n/* Genie */\n\n.s-alert-effect-genie .s-alert-close::after,\n.s-alert-effect-genie .s-alert-close::before {\n    background: #fff;\n}\n\n.s-alert-effect-genie .s-alert-close:hover::after,\n.s-alert-effect-genie .s-alert-close:hover::before {\n    background: #fff;\n}\n\n.s-alert-effect-genie.s-alert-show,\n.s-alert-effect-genie.s-alert-hide {\n    -webkit-animation-name: animGenie;\n    animation-name: animGenie;\n    -webkit-animation-duration: 0.4s;\n    animation-duration: 0.4s;\n}\n\n@-webkit-keyframes animGenie {\n    0% { opacity:0; -webkit-transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); -webkit-animation-timing-function: ease-in; }\n    40% { opacity:0.5; -webkit-transform: translate3d(0,0,0) scale3d(0.02,1.1,1); -webkit-animation-timing-function: ease-out; }\n    70% { opacity:0.6; -webkit-transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); }\n    100% { opacity:1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }\n}\n\n@keyframes animGenie {\n    0% { opacity:0; -webkit-transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); -webkit-animation-timing-function: ease-in; transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); animation-timing-function: ease-in; }\n    40% { opacity:0.5; -webkit-transform: translate3d(0,0,0) scale3d(0.02,1.1,1); -webkit-animation-timing-function: ease-out; transform: translate3d(0,0,0) scale3d(0.02,1.1,1); animation-timing-function: ease-out; }\n    70% { opacity:0.6; -webkit-transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); }\n    100% { opacity:1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); transform: translate3d(0,0,0) scale3d(1,1,1); }\n}", ""]);
+exports.push([module.i, "/* Flip */\n\n.s-alert-effect-flip {\n    padding: 1.5em;\n    backface-visibility: hidden;\n}\n\n.s-alert-bottom-left.s-alert-effect-flip,\n.s-alert-bottom-right.s-alert-effect-flip,\n.s-alert-bottom.s-alert-effect-flip {\n    -webkit-transform-origin: 50% 100%;\n    transform-origin: 50% 100%;\n}\n.s-alert-top-left.s-alert-effect-flip,\n.s-alert-top-right.s-alert-effect-flip,\n.s-alert-top.s-alert-effect-flip {\n    -webkit-transform-origin: 50% 0;\n    transform-origin: 50% 0;\n}\n\n.s-alert-effect-flip .s-alert-close::before,\n.s-alert-effect-flip .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-flip .s-alert-close:hover::before,\n.s-alert-effect-flip .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-show {\n    -webkit-animation-name: animFlipFrontBottom;\n    animation-name: animFlipFrontBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-bottom.s-alert-effect-flip.s-alert-hide {\n    -webkit-animation-name: animFlipFrontBottom;\n    animation-name: animFlipFrontBottom;\n}\n\n.s-alert-top-right.s-alert-effect-flip.s-alert-show,\n.s-alert-top-left.s-alert-effect-flip.s-alert-show,\n.s-alert-top-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-show {\n    -webkit-animation-name: animFlipFrontTop;\n    animation-name: animFlipFrontTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n.s-alert-top-right.s-alert-effect-flip.s-alert-hide,\n.s-alert-top-left.s-alert-effect-flip.s-alert-hide,\n.s-alert-top.s-alert-effect-flip.s-alert-hide {\n    -webkit-animation-name: animFlipFrontTop;\n    animation-name: animFlipFrontTop;\n}\n\n@-webkit-keyframes animFlipFrontTop {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); }\n    100% { -webkit-transform: perspective(1000px); }\n}\n\n@keyframes animFlipFrontTop {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); transform: perspective(1000px) rotate3d(1,0,0,-90deg); }\n    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }\n}\n\n@-webkit-keyframes animFlipFrontBottom {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); }\n    100% { -webkit-transform: perspective(1000px); }\n}\n\n@keyframes animFlipFrontBottom {\n    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); transform: perspective(1000px) rotate3d(1,0,0,90deg); }\n    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }\n}", ""]);
 
 // exports
 
@@ -17391,8 +17391,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./jelly.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./jelly.css");
+		module.hot.accept("!!../../../css-loader/index.js!./genie.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./genie.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17410,7 +17410,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* Jelly */\n\n.s-alert-effect-jelly a {\n    color: #fff;\n}\n\n.s-alert-effect-jelly a:hover,\n.s-alert-effect-jelly a:focus {\n    color: #fff;\n}\n\n.s-alert-effect-jelly .s-alert-close::before,\n.s-alert-effect-jelly .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-jelly .s-alert-close:hover::before,\n.s-alert-effect-jelly .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-effect-jelly.s-alert-show {\n    -webkit-animation-name: animJelly;\n    animation-name: animJelly;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n.s-alert-effect-jelly.s-alert-hide {\n    -webkit-animation-name: animFade;\n    animation-name: animFade;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animFade {\n    0% { opacity: 0; }\n    100% { opacity: 1; }\n}\n\n@keyframes animFade {\n    0% { opacity: 0; }\n    100% { opacity: 1; }\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/6iLZu5 */\n\n@-webkit-keyframes animJelly {\n    0% { -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    2.083333% { -webkit-transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    4.166667% { -webkit-transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    6.25% { -webkit-transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    10.416667% { -webkit-transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    12.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    14.583333% { -webkit-transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    18.75% { -webkit-transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    20.833333% { -webkit-transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    22.916667% { -webkit-transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    27.083333% { -webkit-transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    29.166667% { -webkit-transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    31.25% { -webkit-transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    35.416667% { -webkit-transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    37.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    39.583333% { -webkit-transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    43.75% { -webkit-transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    45.833333% { -webkit-transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    47.916667% { -webkit-transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    52.083333% { -webkit-transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    54.166667% { -webkit-transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    56.25% { -webkit-transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    60.416667% { -webkit-transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    62.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    64.583333% { -webkit-transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    68.75% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    70.833333% { -webkit-transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    72.916667% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    77.083333% { -webkit-transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    79.166667% { -webkit-transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    81.25% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    85.416667% { -webkit-transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    87.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    89.583333% { -webkit-transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    93.75% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    95.833333% { -webkit-transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    97.916667% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animJelly {\n    0% { -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    2.083333% { -webkit-transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    4.166667% { -webkit-transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    6.25% { -webkit-transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    10.416667% { -webkit-transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    12.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    14.583333% { -webkit-transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    18.75% { -webkit-transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    20.833333% { -webkit-transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    22.916667% { -webkit-transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    27.083333% { -webkit-transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    29.166667% { -webkit-transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    31.25% { -webkit-transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    35.416667% { -webkit-transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    37.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    39.583333% { -webkit-transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    43.75% { -webkit-transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    45.833333% { -webkit-transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    47.916667% { -webkit-transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    52.083333% { -webkit-transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    54.166667% { -webkit-transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    56.25% { -webkit-transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    60.416667% { -webkit-transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    62.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    64.583333% { -webkit-transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    68.75% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    70.833333% { -webkit-transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    72.916667% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    77.083333% { -webkit-transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    79.166667% { -webkit-transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    81.25% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    85.416667% { -webkit-transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    87.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    89.583333% { -webkit-transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    93.75% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    95.833333% { -webkit-transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    97.916667% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}", ""]);
+exports.push([module.i, "\n/* Genie */\n\n.s-alert-effect-genie .s-alert-close::after,\n.s-alert-effect-genie .s-alert-close::before {\n    background: #fff;\n}\n\n.s-alert-effect-genie .s-alert-close:hover::after,\n.s-alert-effect-genie .s-alert-close:hover::before {\n    background: #fff;\n}\n\n.s-alert-effect-genie.s-alert-show,\n.s-alert-effect-genie.s-alert-hide {\n    -webkit-animation-name: animGenie;\n    animation-name: animGenie;\n    -webkit-animation-duration: 0.4s;\n    animation-duration: 0.4s;\n}\n\n@-webkit-keyframes animGenie {\n    0% { opacity:0; -webkit-transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); -webkit-animation-timing-function: ease-in; }\n    40% { opacity:0.5; -webkit-transform: translate3d(0,0,0) scale3d(0.02,1.1,1); -webkit-animation-timing-function: ease-out; }\n    70% { opacity:0.6; -webkit-transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); }\n    100% { opacity:1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }\n}\n\n@keyframes animGenie {\n    0% { opacity:0; -webkit-transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); -webkit-animation-timing-function: ease-in; transform: translate3d(0,calc(200% + 30px),0) scale3d(0,1,1); animation-timing-function: ease-in; }\n    40% { opacity:0.5; -webkit-transform: translate3d(0,0,0) scale3d(0.02,1.1,1); -webkit-animation-timing-function: ease-out; transform: translate3d(0,0,0) scale3d(0.02,1.1,1); animation-timing-function: ease-out; }\n    70% { opacity:0.6; -webkit-transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); transform: translate3d(0,-40px,0) scale3d(0.8,1.1,1); }\n    100% { opacity:1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); transform: translate3d(0,0,0) scale3d(1,1,1); }\n}", ""]);
 
 // exports
 
@@ -17436,8 +17436,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./stackslide.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./stackslide.css");
+		module.hot.accept("!!../../../css-loader/index.js!./jelly.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./jelly.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17455,7 +17455,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "/* stackslide (top, bottom - full width) */\n\n.s-alert-effect-stackslide .s-alert-close {\n    background: transparent;\n}\n\n.s-alert-effect-stackslide .s-alert-close::before,\n.s-alert-effect-stackslide .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-stackslide p {\n    padding: 0 1.5em;\n    display: inline-block;\n}\n\n.s-alert-effect-stackslide .s-alert-close::before,\n.s-alert-effect-stackslide .s-alert-close::after {\n    width: 2px;\n    background: #fff;\n}\n\n.s-alert-effect-stackslide .s-alert-close:hover::before,\n.s-alert-effect-stackslide .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top-right.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top-left.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-top-right.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-top.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top.s-alert-effect-stackslide.s-alert-hide {\n    -webkit-animation-name: animSlideTop;\n    animation-name: animSlideTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animSlideTop {\n    0% { -webkit-transform: translate3d(0,-100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideTop {\n    0% { -webkit-transform: translate3d(0,-100%,0); transform: translate3d(0,-100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}\n\n.s-alert-bottom-left.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-bottom.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom.s-alert-effect-stackslide.s-alert-hide {\n    -webkit-animation-name: animSlideBottom;\n    animation-name: animSlideBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animSlideBottom {\n    0% { -webkit-transform: translate3d(0,100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideBottom {\n    0% { -webkit-transform: translate3d(0,100%,0); transform: translate3d(0,100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}", ""]);
+exports.push([module.i, "/* Jelly */\n\n.s-alert-effect-jelly a {\n    color: #fff;\n}\n\n.s-alert-effect-jelly a:hover,\n.s-alert-effect-jelly a:focus {\n    color: #fff;\n}\n\n.s-alert-effect-jelly .s-alert-close::before,\n.s-alert-effect-jelly .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-jelly .s-alert-close:hover::before,\n.s-alert-effect-jelly .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-effect-jelly.s-alert-show {\n    -webkit-animation-name: animJelly;\n    animation-name: animJelly;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-timing-function: linear;\n    animation-timing-function: linear;\n}\n\n.s-alert-effect-jelly.s-alert-hide {\n    -webkit-animation-name: animFade;\n    animation-name: animFade;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animFade {\n    0% { opacity: 0; }\n    100% { opacity: 1; }\n}\n\n@keyframes animFade {\n    0% { opacity: 0; }\n    100% { opacity: 1; }\n}\n\n/* Generated with Bounce.js. Edit at http://goo.gl/6iLZu5 */\n\n@-webkit-keyframes animJelly {\n    0% { -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    2.083333% { -webkit-transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    4.166667% { -webkit-transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    6.25% { -webkit-transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    10.416667% { -webkit-transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    12.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    14.583333% { -webkit-transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    18.75% { -webkit-transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    20.833333% { -webkit-transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    22.916667% { -webkit-transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    27.083333% { -webkit-transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    29.166667% { -webkit-transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    31.25% { -webkit-transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    35.416667% { -webkit-transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    37.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    39.583333% { -webkit-transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    43.75% { -webkit-transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    45.833333% { -webkit-transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    47.916667% { -webkit-transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    52.083333% { -webkit-transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    54.166667% { -webkit-transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    56.25% { -webkit-transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    60.416667% { -webkit-transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    62.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    64.583333% { -webkit-transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    68.75% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    70.833333% { -webkit-transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    72.916667% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    77.083333% { -webkit-transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    79.166667% { -webkit-transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    81.25% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    85.416667% { -webkit-transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    87.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    89.583333% { -webkit-transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    93.75% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    95.833333% { -webkit-transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    97.916667% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}\n\n@keyframes animJelly {\n    0% { -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    2.083333% { -webkit-transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    4.166667% { -webkit-transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    6.25% { -webkit-transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    8.333333% { -webkit-transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    10.416667% { -webkit-transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    12.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    14.583333% { -webkit-transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    16.666667% { -webkit-transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    18.75% { -webkit-transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    20.833333% { -webkit-transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    22.916667% { -webkit-transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    25% { -webkit-transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    27.083333% { -webkit-transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    29.166667% { -webkit-transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    31.25% { -webkit-transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    33.333333% { -webkit-transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    35.416667% { -webkit-transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    37.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    39.583333% { -webkit-transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    41.666667% { -webkit-transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    43.75% { -webkit-transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    45.833333% { -webkit-transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    47.916667% { -webkit-transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    50% { -webkit-transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    52.083333% { -webkit-transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    54.166667% { -webkit-transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    56.25% { -webkit-transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    58.333333% { -webkit-transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    60.416667% { -webkit-transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    62.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    64.583333% { -webkit-transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    66.666667% { -webkit-transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    68.75% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    70.833333% { -webkit-transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    72.916667% { -webkit-transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    75% { -webkit-transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    77.083333% { -webkit-transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    79.166667% { -webkit-transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    81.25% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    83.333333% { -webkit-transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    85.416667% { -webkit-transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    87.5% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    89.583333% { -webkit-transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    91.666667% { -webkit-transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    93.75% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    95.833333% { -webkit-transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    97.916667% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n    100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }\n}", ""]);
 
 // exports
 
@@ -17481,8 +17481,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../css-loader/index.js!./react-confirm-alert.css", function() {
-			var newContent = require("!!../../css-loader/index.js!./react-confirm-alert.css");
+		module.hot.accept("!!../../../css-loader/index.js!./stackslide.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./stackslide.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17500,26 +17500,19 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "body.react-confirm-alert-body-element {\n  overflow: hidden;\n}\n\n.react-confirm-alert-blur {\n  filter: url(#gaussian-blur);\n  filter: blur(2px);\n  -webkit-filter: blur(2px);\n}\n\n.react-confirm-alert-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n  background: rgba(255, 255, 255, 0.9);\n  display: -webkit-flex;\n  display: -moz-flex;\n  display: -ms-flex;\n  display: -o-flex;\n  display: flex;\n  justify-content: center;\n  -ms-align-items: center;\n  align-items: center;\n  opacity: 0;\n  -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n}\n\n.react-confirm-alert-body {\n  font-family: Arial, Helvetica, sans-serif;\n  width: 400px;\n  padding: 30px;\n  text-align: left;\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);\n  color: #666;\n}\n\n.react-confirm-alert-svg {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.react-confirm-alert-body > h1 {\n  margin-top: 0;\n}\n\n.react-confirm-alert-body > h3 {\n  margin: 0;\n  font-size: 16px;\n}\n\n.react-confirm-alert-button-group {\n  display: -webkit-flex;\n  display: -moz-flex;\n  display: -ms-flex;\n  display: -o-flex;\n  display: flex;\n  justify-content: flex-start;\n  margin-top: 20px;\n}\n\n.react-confirm-alert-button-group > button {\n  outline: none;\n  background: #333;\n  border: none;\n  display: inline-block;\n  padding: 6px 18px;\n  color: #eee;\n  margin-right: 10px;\n  border-radius: 5px;\n  font-size: 12px;\n  cursor: pointer;\n}\n\n@-webkit-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@-moz-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@-o-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n", ""]);
+exports.push([module.i, "/* stackslide (top, bottom - full width) */\n\n.s-alert-effect-stackslide .s-alert-close {\n    background: transparent;\n}\n\n.s-alert-effect-stackslide .s-alert-close::before,\n.s-alert-effect-stackslide .s-alert-close::after {\n    background: #fff;\n}\n\n.s-alert-effect-stackslide p {\n    padding: 0 1.5em;\n    display: inline-block;\n}\n\n.s-alert-effect-stackslide .s-alert-close::before,\n.s-alert-effect-stackslide .s-alert-close::after {\n    width: 2px;\n    background: #fff;\n}\n\n.s-alert-effect-stackslide .s-alert-close:hover::before,\n.s-alert-effect-stackslide .s-alert-close:hover::after {\n    background: #fff;\n}\n\n.s-alert-top-left.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top-right.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top-left.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-top-right.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-top.s-alert-effect-stackslide.s-alert-show,\n.s-alert-top.s-alert-effect-stackslide.s-alert-hide {\n    -webkit-animation-name: animSlideTop;\n    animation-name: animSlideTop;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animSlideTop {\n    0% { -webkit-transform: translate3d(0,-100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideTop {\n    0% { -webkit-transform: translate3d(0,-100%,0); transform: translate3d(0,-100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}\n\n.s-alert-bottom-left.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom-right.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom-left.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-bottom-right.s-alert-effect-stackslide.s-alert-hide,\n.s-alert-bottom.s-alert-effect-stackslide.s-alert-show,\n.s-alert-bottom.s-alert-effect-stackslide.s-alert-hide {\n    -webkit-animation-name: animSlideBottom;\n    animation-name: animSlideBottom;\n    -webkit-animation-duration: 0.3s;\n    animation-duration: 0.3s;\n}\n\n@-webkit-keyframes animSlideBottom {\n    0% { -webkit-transform: translate3d(0,100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); }\n}\n\n@keyframes animSlideBottom {\n    0% { -webkit-transform: translate3d(0,100%,0); transform: translate3d(0,100%,0); }\n    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }\n}", ""]);
 
 // exports
 
 
 /***/ }),
 /* 808 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 809 */,
-/* 810 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(811);
+var content = __webpack_require__(809);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -17533,8 +17526,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!./Search.css", function() {
-			var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!./Search.css");
+		module.hot.accept("!!../../css-loader/index.js!./react-confirm-alert.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./react-confirm-alert.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -17544,7 +17537,7 @@ if(false) {
 }
 
 /***/ }),
-/* 811 */
+/* 809 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -17552,10 +17545,16 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".input-group-append {\r\n    /*border-radius: 0;*/ }\r\n\r\n.input-group-append .form-control {\r\n    background-color: #eeeeee;\r\n    border: none;\r\n    border-top-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    outline: none; }\r\n\r\n.input-border {\r\n    border-radius: 0;\r\n}\r\n\r\n#desktopSearch input {\r\n    direction: rtl;z-index: 1000;\r\n}\r\n\r\n.auto-suggest-container {\r\n}\r\n.auto-suggest-inputOpen {\r\n    background-color: white;position: absolute;z-index: 1000;width: 53.9%;\r\n}\r\n.auto-suggest-highlighted {\r\n    background-color: #d9d9d9;width: 100%;\r\n}\r\n.auto-suggest-suggestionsList {\r\n    padding: 0px;\r\n}\r\n.auto-suggest-suggestion {\r\n    padding-left: 5%;\r\n}", ""]);
+exports.push([module.i, "body.react-confirm-alert-body-element {\n  overflow: hidden;\n}\n\n.react-confirm-alert-blur {\n  filter: url(#gaussian-blur);\n  filter: blur(2px);\n  -webkit-filter: blur(2px);\n}\n\n.react-confirm-alert-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n  background: rgba(255, 255, 255, 0.9);\n  display: -webkit-flex;\n  display: -moz-flex;\n  display: -ms-flex;\n  display: -o-flex;\n  display: flex;\n  justify-content: center;\n  -ms-align-items: center;\n  align-items: center;\n  opacity: 0;\n  -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n  animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;\n}\n\n.react-confirm-alert-body {\n  font-family: Arial, Helvetica, sans-serif;\n  width: 400px;\n  padding: 30px;\n  text-align: left;\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);\n  color: #666;\n}\n\n.react-confirm-alert-svg {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.react-confirm-alert-body > h1 {\n  margin-top: 0;\n}\n\n.react-confirm-alert-body > h3 {\n  margin: 0;\n  font-size: 16px;\n}\n\n.react-confirm-alert-button-group {\n  display: -webkit-flex;\n  display: -moz-flex;\n  display: -ms-flex;\n  display: -o-flex;\n  display: flex;\n  justify-content: flex-start;\n  margin-top: 20px;\n}\n\n.react-confirm-alert-button-group > button {\n  outline: none;\n  background: #333;\n  border: none;\n  display: inline-block;\n  padding: 6px 18px;\n  color: #eee;\n  margin-right: 10px;\n  border-radius: 5px;\n  font-size: 12px;\n  cursor: pointer;\n}\n\n@-webkit-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@-moz-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@-o-keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@keyframes react-confirm-alert-fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n", ""]);
 
 // exports
 
 
+/***/ }),
+/* 810 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
-],[227]);
+],[228]);

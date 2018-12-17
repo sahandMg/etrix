@@ -416,10 +416,11 @@ ul li ul:hover {
 }
 .User-Dropdown > li > a {
     font-size: 13px;
-    padding: 15px 25px 16px 10px;
+    padding: 0px 25px 0px 10px;
     text-decoration: none;
     color: #1787e0;
     transition: all .2s ease-out;
+    display: block;
 }
 .User-Dropdown span {
     background: #16d67a;

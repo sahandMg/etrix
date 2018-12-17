@@ -15,7 +15,7 @@ class App extends Component {
         contents: [], videos: []
     }
     componentDidMount() {
-        axios.post('http://localhost:80/api/home')
+        axios.post(URLs.base_URL+'/home')
             .then((res) => {
                 // console.log('res ContainerSmallSize');
                 // console.log(res);
