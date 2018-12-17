@@ -66,17 +66,23 @@ class CmController extends Controller
      */
     public function addContent(Request $request){
 
-        $user = $_POST['user'];
-        $detail = new Detail();
-        $brief = new Brief();
-        $brief->title = $request->title;
-        $brief->abstract = $request->abstract;
-        $brief->category = $request->category;
-        $brief->image = $request->image;
-        $brief->resource = $request->resource;
-        $brief->product = serialize($request->product);
-        $brief->user_id = Auth::guard('cManager')->id();
-        $brief->save();
+        try{
+            $user = $_POST['user'];
+            $detail = new Detail();
+            $brief = new Brief();
+            $brief->title = $request->title;
+            $brief->abstract = $request->abstract;
+            $brief->category = $request->category;
+            $brief->image = $request->image;
+            $brief->resource = $request->resource;
+            $brief->product = serialize($request->product);
+            $brief->user_id = Auth::guard('cManager')->id();
+            $brief->save();
+        }catch (\Exception $exception){
+
+            return $exception;
+        }
+
         /**
          * Create a job as TimeUpdater for updating post date time
          * A cron job will trigger the dispatch job method
@@ -88,15 +94,20 @@ class CmController extends Controller
 //            $img->type = 'brief';
 //            $img->save();
 //        }
-        $detail->text = serialize($request->text);
-        $detail->brief_id = Brief::orderBy('created_at','decs')->first()->id;
-        $detail->save();
-        $briefs = Brief::where('user_id',$user->id)->get();
-        foreach ($briefs as $brief){
-            $brief['author'] = $brief->user->name;
-            unset($brief['user_id']);
-            unset($brief['user']);
+        try{
+            $detail->text = serialize($request->text);
+            $detail->brief_id = Brief::orderBy('created_at','decs')->first()->id;
+            $detail->save();
+            $briefs = Brief::where('user_id',$user->id)->get();
+            foreach ($briefs as $brief){
+                $brief['author'] = $brief->user->name;
+                unset($brief['user_id']);
+                unset($brief['user']);
+            }
+        }catch (\Exception $exception){
+            return $exception;
         }
+
 //        return TerminateMiddleware::terminate($briefs);
         return $briefs;
     }
