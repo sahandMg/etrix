@@ -25,6 +25,7 @@ Route::post('home/{category?}','PageController@home');
 Route::get('excel-export','CartController@Excel_export');
 Route::get('excel-import','CartController@Excel_import');
 Route::get('province','PageController@Province');
+Route::get('city','PageController@City');
 
 // ----------------------------- User Routes ----------------------------------------
 //[

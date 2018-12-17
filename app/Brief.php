@@ -17,4 +17,8 @@ class Brief extends Model
     public function images(){
         return $this->hasMany('App\Image');
     }
+
+    public function user(){
+        return $this->belongsTo(Cm::class);
+    }
 }

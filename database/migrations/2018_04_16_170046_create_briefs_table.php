@@ -18,10 +18,11 @@ class CreateBriefsTable extends Migration
             $table->mediumText('title');
             $table->mediumText('abstract');
             $table->mediumText('image')->nullable();
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->index('category');
-            $table->string('product');
+            $table->string('product')->nullable();
             $table->index('product');
+            $table->string('resource')->nullable();
             $table->unsignedInteger('user_id')->default(0);
             $table->string('days')->default(0);
             $table->timestamps();

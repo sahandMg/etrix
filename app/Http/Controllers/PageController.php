@@ -149,11 +149,29 @@ class PageController extends Controller
         return $list;
 
     }
+    /*
+     * Required Params => nothing
+     * Sends array of prvince names
+     */
+    public function Province(){
+
+        $path = public_path('storage/province.json');
+        $contents = json_decode(file_get_contents($path),true);
+        $province = [];
+
+        for($i=0;$i<count($contents);$i++){
+
+            array_push($province,$contents[$i]['name']);
+
+        }
+
+        return $province;
+    }
 /*
  * Required Params => province
  * Sends => cities of province
  */
-    public function Province(Request $request){
+    public function City(Request $request){
 
         $path = public_path('storage/province.json');
         $contents = json_decode(file_get_contents($path),true);

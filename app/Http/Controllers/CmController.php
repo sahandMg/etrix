@@ -7,6 +7,7 @@ use App\Detail;
 use App\Image;
 use App\Repository\CmGoogleRegister;
 use App\Repository\TimeUpdater;
+use App\Repository\URls;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -59,7 +60,10 @@ class CmController extends Controller
     {
         return  CmGoogleRegister::googleRegister();
     }
-
+    /*
+     * Required Params => title,abstract,category,image,resource,product
+     * creates contents
+     */
     public function addContent(Request $request){
 
         $user = $_POST['user'];
@@ -69,6 +73,7 @@ class CmController extends Controller
         $brief->abstract = $request->abstract;
         $brief->category = $request->category;
         $brief->image = $request->image;
+        $brief->resource = $request->resource;
         $brief->product = serialize($request->product);
         $brief->user_id = Auth::guard('cManager')->id();
         $brief->save();
@@ -87,10 +92,17 @@ class CmController extends Controller
         $detail->brief_id = Brief::orderBy('created_at','decs')->first()->id;
         $detail->save();
         $briefs = Brief::where('user_id',$user->id)->get();
+        foreach ($briefs as $brief){
+            $brief['author'] = $brief->user->name;
+            unset($brief['user_id']);
+            unset($brief['user']);
+        }
 //        return TerminateMiddleware::terminate($briefs);
         return $briefs;
     }
-
+/*
+ *  Add content image to database
+ */
     public function addImage(Request $request){
 
         $user = $_POST['user'];
@@ -102,8 +114,8 @@ class CmController extends Controller
             $img->save();
             // Cropper::crop($request,$img,$size ='100x100');
         }
-
-        return redirect('http://localhost:80/ContentManagerPanel/images');
+        $imageUrl = URls::$image;
+        return redirect($imageUrl);
     }
 
     public function getImages(){

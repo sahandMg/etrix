@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\UserRegister;
+use App\Repository\URls;
 use App\Repository\ValidateQuery;
 use App\User;
 use Carbon\Carbon;
@@ -130,13 +131,15 @@ class UserController extends Controller
             /**
              * TODO change this url on server
              */
-            return redirect('http://localhost/google/' . $user->token);
+            $google = URls::$googleLogin;
+            return redirect($google. $user->token);
 //        return  UserGoogleRegister::googleRegister();
         }else{
                 $token = Auth::guard('user')->login($user);
                 $user->update(['token'=>$token]);
             //TODO this url should be changed and logged in user token will be sent over url
-            return redirect('http://localhost/googleLogin/' . $user->token);
+            $redirect = URls::$googleRedirect;
+            return redirect($redirect. $user->token);
         }
     }
 /*
