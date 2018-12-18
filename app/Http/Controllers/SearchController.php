@@ -37,6 +37,9 @@ class SearchController extends Controller
 // ------------ Finding the part in database without filter --------------
 
         $keyword = $request->keyword;
+        if(is_null($keyword)){
+            return 'send a keyword';
+        }
         $category = $request->category;
         if(is_null($request->num)){
             $this->paginate = 1;
