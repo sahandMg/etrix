@@ -9,6 +9,11 @@ class MultiCategory extends Component {
     componentDidMount() {
     }
 
+    openInNewTab = (url) => {
+        let win = window.open(url, '_blank');
+        win.focus();
+    }
+
     render() {
         console.log("MultiCategory render");console.log(this.props.category);
         let categories = this.props.category.map((item,i) => {
@@ -27,7 +32,7 @@ class MultiCategory extends Component {
                 let subcategory1 = item.subcategory.map((sub,j) => {
                     return (
                         <li>
-                            <Link to={"/search/"+this.props.cat+"/"+this.props.keyword+"&subcategory="+sub}>{sub.split("_").join(" ")}</Link>
+                            <a href={"/search/"+this.props.cat+"/"+this.props.keyword+"&subcategory="+sub} target="_blank">{sub.split("_").join(" ")}</a>
                         </li>
                     )
                 });
