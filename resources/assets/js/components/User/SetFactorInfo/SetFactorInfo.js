@@ -17,15 +17,13 @@ class SetFactorInfo extends Component {
     }
 
     componentDidMount() {
-        console.log("SetFactorInfo");
+        console.log("SetFactorInfo componentDidMount");
         axios.post(URLs.base_URL+URLs.user_cart_submit, {token: this.props.token})
             .then(response => {
-                console.log("deleteFromCart");console.log(response);
+                console.log("SetFactorInfo componentDidMount done");console.log(response);
                 this.setState({price: response.data.price, number: response.data.number});
             })
-            .catch(err => {
-                console.log(err);
-            });
+            .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err); });
         axios.get(URLs.base_URL+URLs.get_province_name)
             .then(response => {
                 console.log("SetFactorInfo get province name ");console.log(response);

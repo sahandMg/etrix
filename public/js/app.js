@@ -40,7 +40,7 @@ exports.default = {
     user_cart_read: '/user/cart/read',
     user_cart_remove: '/user/cart/edit', // token, keyword, project  => return cart
     user_cart_submit: '/user/cart/price', // token => price, factor number
-    user_cart_confirm: '/user/cart/confirm', // token address phone => redirect
+    user_cart_confirm: '/user/cart/confirm', // token => address phone  redirect
     user_get_orders: '/user/bom', //token => all orders
     user_get_bill: '/user/bill', // token , factor number => get bill
     user_logout: '/logout',
@@ -4003,7 +4003,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".product-list-nav {\r\n       height: 500px;\r\n       /*overflow-y: scroll;*/\r\n       /*overflow-x: visible;*/\r\n}", ""]);
+exports.push([module.i, ".product-list-nav {\r\n       height: 500px;\r\n       overflow-y: scroll;\r\n       overflow-x: visible;\r\n}", ""]);
 
 // exports
 
@@ -8458,12 +8458,12 @@ var SetFactorInfo = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            console.log("SetFactorInfo");
+            console.log("SetFactorInfo componentDidMount");
             _axios2.default.post(_URLs2.default.base_URL + _URLs2.default.user_cart_submit, { token: this.props.token }).then(function (response) {
-                console.log("deleteFromCart");console.log(response);
+                console.log("SetFactorInfo componentDidMount done");console.log(response);
                 _this2.setState({ price: response.data.price, number: response.data.number });
             }).catch(function (err) {
-                console.log(err);
+                console.log("SetFactorInfo componentDidMount error");console.log(err);
             });
             _axios2.default.get(_URLs2.default.base_URL + _URLs2.default.get_province_name).then(function (response) {
                 console.log("SetFactorInfo get province name ");console.log(response);
@@ -17247,6 +17247,10 @@ var _axios = __webpack_require__(7);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _OrderProject = __webpack_require__(814);
+
+var _OrderProject2 = _interopRequireDefault(_OrderProject);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -17272,11 +17276,9 @@ var OrderConfirnation = function (_Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = OrderConfirnation.__proto__ || Object.getPrototypeOf(OrderConfirnation)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            data: {
-                address: '', phone: '', codePost: ''
-            },
-            price: 0, number: '',
-            errors: {}
+            address: '', phone: '', codePost: '', city: '', province: '',
+            postPrice: 0, projects: [],
+            errors: {}, factorNumber: '', priceAllProjects: ''
         }, _this.onChange = function (e) {
             return _this.setState({
                 data: _extends({}, _this.state.data, _defineProperty({}, e.target.name, e.target.value))
@@ -17289,11 +17291,22 @@ var OrderConfirnation = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            console.log("OrderConfirnation");
-            _axios2.default.post(_URLs2.default.base_URL + _URLs2.default.user_cart_submit, { token: this.props.token }).then(function (response) {
-                console.log("deleteFromCart");console.log(response);
-                _this2.setState({ price: response.data.price, number: response.data.number });
+            console.log("OrderConfirnation componentDidMount");
+            _axios2.default.post(_URLs2.default.base_URL + _URLs2.default.user_cart_confirm, { token: this.props.token }).then(function (response) {
+                console.log("OrderConfirnation response");console.log(response);
+                if (response.data.cart.length > 0) {
+                    _this2.setState({
+                        address: response.data.address,
+                        projects: response.data.cart,
+                        city: response.data.city,
+                        factorNumber: response.data.number,
+                        province: response.data.province,
+                        priceAllProjects: response.data.price,
+                        postPrice: response.data.delivery
+                    });
+                }
             }).catch(function (err) {
+                console.log("OrderConfirnation error");
                 console.log(err);
             });
         }
@@ -17301,7 +17314,10 @@ var OrderConfirnation = function (_Component) {
         key: 'render',
         value: function render() {
             console.log("OrderConfirnation render");
-            var data = this.state.data;
+            var orderList = this.state.projects.map(function (project, i) {
+                return _react2.default.createElement(_OrderProject2.default, { key: i, project: project });
+            });
+
             return _react2.default.createElement(
                 'div',
                 { className: 'container', style: { direction: 'rtl' } },
@@ -17313,18 +17329,28 @@ var OrderConfirnation = function (_Component) {
                         { className: 'text-center' },
                         '\u067E\u06CC\u0634 \u0641\u0627\u06A9\u062A\u0648\u0631'
                     ),
+                    _react2.default.createElement('hr', null),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'h3',
+                        { className: 'text-right' },
+                        ' \u0634\u0645\u0627\u0631\u0647 \u0641\u0627\u06A9\u062A\u0648\u0631: ',
+                        this.state.factorNumber
+                    ),
+                    _react2.default.createElement('br', null),
+                    orderList,
                     _react2.default.createElement(
                         'h3',
                         { className: 'text-center' },
                         '\u0647\u0632\u06CC\u0646\u0647 \u06A9\u0644 \u0642\u0637\u0639\u0627\u062A : ',
-                        this.state.price,
+                        this.state.priceAllProjects,
                         ' \u062A\u0648\u0645\u0627\u0646'
                     ),
                     _react2.default.createElement(
                         'h3',
                         { className: 'text-center' },
                         '\u0647\u0632\u06CC\u0646\u0647 \u0627\u0631\u0633\u0627\u0644 \u0633\u0641\u0627\u0631\u0634 : ',
-                        this.state.price,
+                        this.state.postPrice,
                         ' \u062A\u0648\u0645\u0627\u0646'
                     ),
                     _react2.default.createElement('br', null),
@@ -17332,7 +17358,7 @@ var OrderConfirnation = function (_Component) {
                         'h3',
                         { className: 'text-center' },
                         '\u0645\u0628\u0644\u063A \u067E\u0631\u062F\u0627\u062E\u062A\u06CC \u0633\u0641\u0627\u0631\u0634 : ',
-                        this.state.price,
+                        parseInt(this.state.postPrice) + parseInt(this.state.priceAllProjects),
                         ' \u062A\u0648\u0645\u0627\u0646'
                     ),
                     _react2.default.createElement('br', null),
@@ -17771,6 +17797,258 @@ exports.push([module.i, "body.react-confirm-alert-body-element {\n  overflow: hi
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 813 */,
+/* 814 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactSpinners = __webpack_require__(12);
+
+var _reactSAlert = __webpack_require__(17);
+
+var _reactSAlert2 = _interopRequireDefault(_reactSAlert);
+
+var _axios = __webpack_require__(7);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _index = __webpack_require__(14);
+
+var actions = _interopRequireWildcard(_index);
+
+var _reactRedux = __webpack_require__(8);
+
+var _URLs = __webpack_require__(5);
+
+var _URLs2 = _interopRequireDefault(_URLs);
+
+var _ProductPrice = __webpack_require__(815);
+
+var _ProductPrice2 = _interopRequireDefault(_ProductPrice);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var OrderProject = function (_Component) {
+    _inherits(OrderProject, _Component);
+
+    function OrderProject() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, OrderProject);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = OrderProject.__proto__ || Object.getPrototypeOf(OrderProject)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            projectPrice: 0, loading: true
+        }, _this.calculateProjectPrice = function (cost) {
+            var temp = _this.state.projectPrice;
+            temp = temp + cost;
+            _this.setState({ projectPrice: temp });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(OrderProject, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {}
+    }, {
+        key: 'render',
+        value: function render() {
+            var cost = 0;
+            var entry = this.props.project.map(function (list, j) {
+                cost = parseInt(list.price) + cost;
+                return _react2.default.createElement(_ProductPrice2.default, { keyword: list.keyword, num: list.num, price: list.price });
+            });
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    this.props.project[0].project,
+                    ' '
+                ),
+                _react2.default.createElement(
+                    'table',
+                    { className: 'table table-striped' },
+                    _react2.default.createElement(
+                        'thead',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            '\u0646\u0627\u0645 \u0645\u062D\u0635\u0648\u0644'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            '\u062A\u0639\u062F\u0627\u062F'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            '\u0642\u06CC\u0645\u062A \u0648\u0627\u062D\u062F'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            '\u0642\u06CC\u0645\u062A \u0645\u062C\u0645\u0648\u0639'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        entry,
+                        _react2.default.createElement(
+                            'tr',
+                            null,
+                            _react2.default.createElement('td', null),
+                            _react2.default.createElement('td', null),
+                            _react2.default.createElement(
+                                'td',
+                                null,
+                                _react2.default.createElement(
+                                    'h3',
+                                    { className: 'cart-responsive-font' },
+                                    '\u062C\u0645\u0639 \u06A9\u0644 :'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'td',
+                                null,
+                                _react2.default.createElement(
+                                    'h3',
+                                    { className: 'cart-responsive-font' },
+                                    cost,
+                                    ' \u062A\u0648\u0645\u0627\u0646'
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement('br', null)
+            );
+        }
+    }]);
+
+    return OrderProject;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        token: state.auth.token
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(OrderProject);
+
+/***/ }),
+/* 815 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductPrice = function (_Component) {
+    _inherits(ProductPrice, _Component);
+
+    function ProductPrice() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, ProductPrice);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ProductPrice.__proto__ || Object.getPrototypeOf(ProductPrice)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            price: 0, loading: true, number: 1
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(ProductPrice, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {}
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.keyword
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.num
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.price
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseInt(this.props.price) * parseInt(this.props.num)
+                )
+            );
+        }
+    }]);
+
+    return ProductPrice;
+}(_react.Component);
+
+exports.default = ProductPrice;
 
 /***/ })
 ],[228]);
