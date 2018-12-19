@@ -27,6 +27,9 @@ Route::get('excel-import','CartController@Excel_import');
 Route::get('province','PageController@Province');
 Route::get('city','PageController@City');
 Route::get('product-menu','PageController@productMenu');
+Route::get('category-menu','PageController@CategoryMenu');
+Route::get('subcategory-menu','PageController@subCategoryMenu');
+
 
 // ----------------------------- User Routes ----------------------------------------
 //[
@@ -49,6 +52,7 @@ Route::get('product-menu','PageController@productMenu');
 
             Route::post('add','CartController@addToCart');
             Route::post('confirm','CartController@confirm');
+            Route::post('order-bill','CartController@orderBill');
             Route::post('price','CartController@price');
             Route::post('address','CartController@getAddress');
 

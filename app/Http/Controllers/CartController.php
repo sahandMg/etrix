@@ -72,8 +72,10 @@ class CartController extends Controller
                 $this->cart = [];
                 $resp = $this->createCart($request);
 //                Checks if quantity is available
-                if($resp != 200){
-//                     array_push($fault,' وجود ندارد '.$request->keyword.' در حال حاضر این تعداد از قطعه ');
+                if($resp['code'] != 200){
+                     array_push($fault,['message'=> ' وجود ندارد '.$request->keyword.' در حال حاضر این تعداد از قطعه ',
+                     'code'=>404
+                     ]);
                      array_push($fault,$resp);
                 }
             }
@@ -147,7 +149,8 @@ class CartController extends Controller
 
         if( $quantity < $request->num){
 
-            return 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از';
+            return['message' => 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از',
+                'code'=>404];
         }
 
         array_push($this->cart ,[
@@ -173,7 +176,9 @@ class CartController extends Controller
                 }
                 $cart->save();
 
-                return " قطعه اضافه شد.$request->keyword ";
+                return ['message' => " قطعه اضافه شد.$request->keyword " ,
+                'code' => 200
+                ];
             }catch (\Exception $exception){
                 return $exception;
             }
@@ -238,7 +243,9 @@ class CartController extends Controller
                     $cart->save();
 
                 }
-                return " اضافه شد $request->keyword قطعه ";
+                return ['message' => " اضافه شد $request->keyword قطعه ",
+                'code' => 200
+                ];
             }
 
             /*
@@ -542,18 +549,17 @@ class CartController extends Controller
     // calculate total price and update bom price column
     // close bom state
     // add price to cart parts
+    // Required Param => token
 
-    public function confirm(Request $request){
+    public function orderBill(Request $request){
 
-        if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
-            return 'سبد خرید پیش از این پردازش شده است';
-        }
+
         $usercart = $this->readCart($request);
         $totalPrice = 0;
         $itemArr = [];
         // check if the requested quantity is available or not
         $resp = $this->availability();
-        if($resp != 200 ){
+        if($resp['code'] != 200 ){
             return $resp;
         }
         $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
@@ -564,7 +570,7 @@ class CartController extends Controller
                 $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['unit_price'];
                 $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['quantity_available'];
                 $items[$t]['price'] = $price;
-                    DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity - $items[$t]['num'] ]);
+//                    DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity - $items[$t]['num'] ]);
                 array_push($itemArr,$items[$t]);
                 $totalPrice = $totalPrice + $price * $items[$t]['num'];
             }
@@ -572,13 +578,12 @@ class CartController extends Controller
             $carts[$i]->update(['name'=>serialize($itemArr)]);
             $itemArr = [];
         }
-        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
+//        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
         $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();
-        // Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
-        // TODO CLEAN THE LINE BELLOW && redirect to localhost/user/follow-up after transaction gate
+
         return ['cart'=>$usercart,'price'=>$totalPrice,'number'=>$order_number,
         'delivery'=>$delivery,
         'address'=>$query->address,
@@ -586,7 +591,41 @@ class CartController extends Controller
         'province'=>$query->province, 
     ];
     }
+/*
+ * proccess bom and redirects to payment gateway
+ *
+ * Required Params => token, totalPrice
+ */
+    public function confirm(Request $request){
+        if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
+            return['message'=>'سبد خرید پیش از این پردازش شده است',
+            'code'=>404
+            ] ;
+        }
+        $itemArr = [];
+        $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
+        for($i=0;$i<count($carts);$i++){
+            $items = array_values(unserialize($carts[$i]->name));
+            // check each item price in a loop
+            for($t=0;$t<count($items);$t++){
+                $price = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['unit_price'];
+                $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['quantity_available'];
+                $items[$t]['price'] = $price;
+                    DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity - $items[$t]['num'] ]);
+            }
 
+            $carts[$i]->update(['name'=>serialize($itemArr)]);
+            $itemArr = [];
+        }
+        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$request->totalPrice]);
+        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
+
+        return 200;
+        /*
+         * redirect to gateway
+         */
+
+    }
     protected function availability(){
         $itemArr = [];
         $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
@@ -604,7 +643,10 @@ class CartController extends Controller
                 // check if the requested quantity is available
                 if ( $itemArr[$items[$s]['keyword']] > $quantity) {
 //
-                    return 'موجود نمی باشد' . ' ' . $items[$s]['keyword'] . ' ' . 'در حال حاضر این تعداد از';
+                    return [
+                    'message'=>'موجود نمی باشد' . ' ' . $items[$s]['keyword'] . ' ' . 'در حال حاضر این تعداد از',
+                    'code'=>404
+                    ] ;
                 }
 
             }
@@ -615,7 +657,8 @@ class CartController extends Controller
     public function price(){
 
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
-            return 'سبد خرید پیش از این پردازش شده است';
+            return ['message' => 'سبد خرید پیش از این پردازش شده است',
+                'code'=>404];
         }
         $totalPrice = 0;
         $itemArr = [];

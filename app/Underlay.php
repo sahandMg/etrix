@@ -8,8 +8,8 @@ class Underlay extends Model
 {
     protected $fillable = ['name','subcategory_id'];
 
-//    public function subcategory(){
+//    public function subcategories(){
 //
-//        return $this->hasMany(SubCategory::class);
+//        return $this->belongsToMany(SubCategory::class);
 //    }
 }

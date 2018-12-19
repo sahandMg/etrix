@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Brief;
+use App\Component;
+use App\Product;
+use App\SubCategory;
+use App\Underlay;
 use GuzzleHttp\Client as GuzzleClient;
 use App\Image;
 use App\Repository\Cropper;
@@ -10,6 +14,7 @@ use App\User;
 use App\Variable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Psr\Http\Message\ResponseInterface;
 
@@ -191,11 +196,147 @@ class PageController extends Controller
      */
     public function productMenu(Request $request){
 
-        if(is_null($request->product)){
+        $product = $request->product;
+        if(is_null($product)){
 
+            return 'send a product name';
+        }
+        try{
+            $product = str_replace(' ','_',$product);
+            $components = Product::where('product_name',$product)->first()->subcategories->pluck('name')->toArray();
+        }catch (\Exception $exception){
+
+            return 'product not found';
         }
 
+        return $components;
     }
 
+    /*
+    * Required Params => category
+    */
+    public function CategoryMenu(Request $request){
+
+        $category = $request->category;
+        if(is_null($category)){
+
+            return 'send a category name';
+        }
+        try {
+            $category = str_replace(' ', '_', $category);
+            $components = SubCategory::where('name', $category)->first()->underlays()->get();
+        }catch (\Exception $ex){
+
+            return $ex;
+        }
+
+            /*
+             * if subcategory doesn't have any subcategory
+             * need to find the component_id of this subcategory and then
+             * pluck all related records in commons
+             */
+
+            if(sizeof($components) == 0){
+                try{
+/*
+ *  Finding parts from commons table
+ */
+        try{
+            $categories =  SubCategory::where('name',$category)->first()->components->all();
+        }catch (\Exception $exception){
+            return $exception;
+        }
+
+                foreach ($categories as $item => $category){
+                    $commons = DB::table('commons')->where('component_id',$category->id)->get()->toArray();
+/*
+ * Creating separate part model for fetching table data
+ */
+                    $rowModel = 'App\IC\\' . $category->name;
+                    $instance = new $rowModel();
+                    $table = $instance->getTable();
+                    foreach ($commons as $key => $common){
+                      $complete[$key] = DB::table('commons')->where('commons.id',$common->id)
+                          ->join($table,$table.'.'.'common_id','=','commons.id')->get()->toArray();
+
+                        unset($complete[$key][$item]->id);
+                        unset($complete[$key][$item]->component_id);
+                        unset($complete[$key][$item]->part_id);
+                        unset($complete[$key][$item]->model);
+                        unset($complete[$key][$item]->created_at);
+                        unset($complete[$key][$item]->updated_at);
+                        unset($complete[$key][$item]->common_id);
+                        unset($complete[$key][$item]->product_id);
+                    }
+                }
+//                 ---------------------------
+
+                }catch (\Exception $exception){
+
+                    return $exception;
+                }
+
+                return $complete;
+            }else{
+
+                $underlays = $components->pluck('name');
+                for($i=0; $i<count($underlays); $i++){
+
+                    $underlays[$i] = substr($underlays[$i],0,strlen($underlays[$i])-4);
+                    $underlays[$i] = str_replace('_',' ',$underlays[$i]);
+                }
+                return $underlays;
+            }
+
+    }
+    /*
+    * Required Params => subcategory
+    */
+    public function subCategoryMenu(Request $request)
+    {
+
+
+        $subcategory = $request->subcategory;
+        try {
+            $subcategory = str_replace(' ', '_', $subcategory);
+            $underlay = Underlay::where('name', 'like', "%$subcategory%")->first();
+        } catch (\Exception $ex) {
+
+            return $ex;
+        }
+        $subcategories = DB::table('sub_categories')->where('id', $underlay->id)->get();
+
+        foreach ($subcategories as $key => $subcategory) {
+
+            $categories[$key] = SubCategory::where('name', $subcategory->name)->first()->components->all();
+        }
+
+        foreach ($categories as $item => $category) {
+
+                $commons = DB::table('commons')->where('component_id', $category[$item]->id)->get()->toArray();
+                /*
+                 * Creating separate part model for fetching table data
+                 */
+                $rowModel = 'App\IC\\' . $category[$item]->name;
+                $instance = new $rowModel();
+                $table = $instance->getTable();
+                foreach ($commons as $key => $common) {
+                    $complete[$key] = DB::table('commons')->where('commons.id', $common->id)
+                        ->join($table, $table . '.' . 'common_id', '=', 'commons.id')->get()->toArray();
+                    dd($table);
+                    unset($complete[$key][$item]->id);
+                    unset($complete[$key][$item]->component_id);
+                    unset($complete[$key][$item]->part_id);
+                    unset($complete[$key][$item]->model);
+                    unset($complete[$key][$item]->created_at);
+                    unset($complete[$key][$item]->updated_at);
+                    unset($complete[$key][$item]->common_id);
+                    unset($complete[$key][$item]->product_id);
+                }
+            }
+
+            dd($complete);
+
+        }
 
 }
