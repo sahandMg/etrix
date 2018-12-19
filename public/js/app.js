@@ -16,6 +16,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     base_URL: 'http://localhost:80/api',
     images_URL: 'http://localhost/storage/images/',
+    cm_image: 'http://localhost:80/',
     datasheet_URL: 'http://localhost/storage/datasheets/',
     home: '/home',
     get_more_content: '/more-content',
@@ -14608,7 +14609,7 @@ var AddImages = function (_Component) {
 
             var images = this.state.images.map(function (item, i) {
                 // console.log(i+" : "+item);
-                return _react2.default.createElement(_ImagesLink2.default, { link: "http://localhost:80/" + item, key: i });
+                return _react2.default.createElement(_ImagesLink2.default, { link: _URLs2.default.cm_image + item, key: i });
             });
             return _react2.default.createElement(
                 'div',

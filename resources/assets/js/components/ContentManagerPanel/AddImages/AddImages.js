@@ -117,7 +117,7 @@ class AddImages extends Component {
         // console.log(imagesArray.length);
         const images =  this.state.images.map((item,i)=> {
             // console.log(i+" : "+item);
-            return <ImagesLink link={"http://localhost:80/"+item} key={i}/>
+            return <ImagesLink link={URLs.cm_image+item} key={i}/>
         });
         return (
             <div className="container text-right">
