@@ -6,7 +6,7 @@ import CardWrapper from '../../CardWrapper/CardWrapper';
 import ContentAuthor from "../ContentAuthor/ContentAuthor";
 import Comments from '../../Comments/Comments';
 import {stateToHTML} from 'draft-js-export-html';
-
+import URLs from '../../../URLs';
 import './ContentDetail.css';
 
 class ContentDetail extends Component {
@@ -18,7 +18,7 @@ class ContentDetail extends Component {
         temp: '',resource: '', author: ''
     }
     componentDidMount() {
-        axios.post('http://localhost:80/api/cm/content/get', { id: this.props.match.params.id})
+        axios.post(URLs.base_URL+URLs.cm_get_content, { id: this.props.match.params.id})
             .then((res) => {
                 console.log('get-content');
                 console.log(res.data);

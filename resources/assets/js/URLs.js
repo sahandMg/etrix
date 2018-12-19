@@ -21,6 +21,7 @@ export default {
     cm_add_content: '/cm/content/add',
     cm_add_image: '/cm/image/add',
     cm_get_images: '/cm/image/get?token=',
+    cm_get_content: '/cm/content/get',
     cm_get_ordersList: '/cm/ordersList', // ordersNameList => get Array list
     user_cart_create: '/user/cart/create',
     user_cart_read: '/user/cart/read',
