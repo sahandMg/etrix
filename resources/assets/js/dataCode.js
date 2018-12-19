@@ -9,5 +9,6 @@ export default {
     shopNotResponding: 435,
     productSearch: 10,
     componentSearch: 20,
+    partSearchMultiCategory: 50,
     partSearch: '30'
 }

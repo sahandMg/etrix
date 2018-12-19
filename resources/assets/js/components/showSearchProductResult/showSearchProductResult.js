@@ -12,6 +12,7 @@ import URLs from "../../URLs";
 import styles from './custom-styling.css';
 import FilterProducts from './FilterProducts/FilterProducts';
 import ProductTable from './ProductsTable/ProductsTable';
+import MultiCategory from './MultiCategory/MultiCategory';
 
 let prices = {};let counter = 0;
 
@@ -20,7 +21,7 @@ class showSearchProductResult extends Component {
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
         tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
-        projectName: null
+        projectName: null, multiCategory: [],
     }
 
     componentDidMount() {prices = {};counter = 0;
@@ -36,7 +37,9 @@ class showSearchProductResult extends Component {
         // console.log('componentDidMount temp');console.log(temp);
         console.log('componentDidMount url');console.log(url);
         // if(temp !== '') { url = url + '&filters='+temp; }
-        this.setState({searchKey: this.props.match.params.keyword});
+        let keyword = this.props.match.params.keyword;
+        if(keyword.includes("&subcategory=")) {keyword = keyword.split("&subcategory=")[0];}
+        this.setState({searchKey: keyword});
         // url = "http://localhost/api/search-part-filter?keyword=stm32f4&category=Embedded-Microcontrollers&filters=%7B%22rCl%22:[%2240MHz%22],%22tra%22:[%22Microchip+Technology%22]%7D";
         axios.get(url)
             .then(response => {
@@ -46,7 +49,10 @@ class showSearchProductResult extends Component {
                 if(response.data[0] === dataCode.partSearch) {
                     // console.log("IS EQUAL");
                     this.setState({dataCode: response.data[0],dataParts: response.data[2],dataFilters: response.data[3],tableHeaderS: response.data[5]});
-                }
+                } else if(response.data[0] === dataCode.partSearchMultiCategory) {
+                    this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
+                    console.log("componentDidMount showSearchProductResult multiCategory");
+                } else { console.log("componentDidMount showSearchProductResult none of them"); }
                 this.setState({loading: false});
             })
             .catch(err => {
@@ -212,7 +218,7 @@ class showSearchProductResult extends Component {
 
     render() {
         let productsTble;
-        let projectsOption;
+        let projectsOption;let filterProduct;let multiCAtegory;
         if(this.state.dataCode === dataCode.partSearch) {
             productsTble = <ProductTable onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             if(this.state.projects.length > 0) {
@@ -220,13 +226,17 @@ class showSearchProductResult extends Component {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
                 });
             }
+            filterProduct = <FilterProducts filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
+        } else if(this.state.dataCode === dataCode.partSearchMultiCategory) {
+            multiCAtegory = <MultiCategory category={this.state.multiCategory} cat={this.props.match.params.category} keyword={this.props.match.params.keyword} />
         }
         return(
             <div className="container table-responsive text-center searchResultContainer">
                <div>
                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                </div>
-                <FilterProducts filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
+                {multiCAtegory}
+                {filterProduct}
                 {productsTble}
                 <Modal open={this.state.open} onClose={this.onCloseModal} center
                        classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
