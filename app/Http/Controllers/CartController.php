@@ -214,14 +214,16 @@ class CartController extends Controller
                     $cart->bom_id = $bom->id;
                     $cart->project_id = $projectId;
                     $cart->save();
-                    return " اضافه شد $request->keyword قطعه ";
+                    return ['message' => " اضافه شد $request->keyword قطعه ",
+                        'code'=> 200];
                 }else{
                     /*
                      * update the project cart
                      */
 
                     $this->updateCart($userOrder,$request,$bom);
-                    return " اضافه شد $request->keyword قطعه ";
+                    return ['message'=> " اضافه شد $request->keyword قطعه ",
+                        'code' => 200];
                 }
 
 //
