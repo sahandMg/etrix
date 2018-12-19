@@ -538,6 +538,7 @@ class CartController extends Controller
 
 
     // get all carts related to the user bom
+    // Required Params => token
     // calculate total price and update bom price column
     // close bom state
     // add price to cart parts
@@ -619,10 +620,10 @@ class CartController extends Controller
         $totalPrice = 0;
         $itemArr = [];
         // check if the requested quantity is available or not
-        $resp = $this->availability();
-        if($resp != 200 ){
-            return $resp;
-        }
+//        $resp = $this->availability();
+//        if($resp != 200 ){
+//            return $resp;
+//        }
         $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
         for($i=0;$i<count($carts);$i++){
             $items = array_values(unserialize($carts[$i]->name));

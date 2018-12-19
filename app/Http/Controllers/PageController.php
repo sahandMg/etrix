@@ -186,5 +186,16 @@ class PageController extends Controller
         return $cities[0];
     }
 
+    /*
+     * Required Params => product
+     */
+    public function productMenu(Request $request){
+
+        if(is_null($request->product)){
+
+        }
+
+    }
+
 
 }
