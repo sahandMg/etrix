@@ -127,7 +127,7 @@ class showSearchProductResult extends Component {
                });
 
        } else {
-           this.props.addToCart(productName, this.state.number, category, null);
+           this.props.addToCart(productName, number, category, null);
            Alert.success('به سبد خرید اضافه شد', {
                position: 'bottom-right',
                effect: 'scale',
