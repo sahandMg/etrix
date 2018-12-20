@@ -94,6 +94,7 @@ class SearchController extends Controller
                     ->join($models->getTable(), $models->getTable() . '.' . 'common_id', '=', 'commons.id')
 //                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
                     ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get();
+                    
                 if (isset($components) && $components->count() > 0) {
 
                     $filters = FilterContent::Filters($models, $components);
@@ -115,7 +116,7 @@ class SearchController extends Controller
 //            ->where('part_number', 'like', "%$keyword%")
             ->Where('manufacturer_part_number', 'like', "%$keyword%")
             ->orWhere('manufacturer', 'like', "%$keyword%")
-            ->orWhere('description', 'like', "%$keyword%")
+            // ->orWhere('description', 'like', "%$keyword%")
             ->skip(($this->skip * ($this->paginate -1)) )->take($this->skip)->get();
         if ($part->isEmpty()) {
             $query = DB::table('failed_parts')->where('manufacturer_part_number',$keyword)->first();
@@ -129,13 +130,14 @@ class SearchController extends Controller
                 $c = null;
             for ($i = 0; $i < count($part); $i++) {
                 $table = DB::table('components')->where('id', $part[$i]->component_id)->first();
-
+                
                 if($table === null){
                     return 410;
                 }
                 $cName[$i] = $table->slug;
                 $temp = DB::table('components')->where('components.id', $part[$i]->component_id)
                     ->join('products','products.id','=','components.product_id')->first();
+            
                 if($temp == null){
                     return 410;
                 }
@@ -172,6 +174,7 @@ class SearchController extends Controller
                             $cName[$i] = str_replace('-', '_', $cName[$i]);
                             $models[$i] = 'App\IC\\' . $cName[$i];
                             $models[$i] = new $models[$i]();
+                            
                         }
 
 
@@ -180,22 +183,26 @@ class SearchController extends Controller
                         
 
             }
+            
             if (!isset($cName) && !isset($models)) {
                 return 420;
             }
+        
             $models = collect($models)->unique();
             $models = $models->values();
+            
             if (count($models) == 1) {
                 $models = $models [0];
                 $parts = DB::table('commons')
 //                    ->where('part_number', 'like', "%$keyword%")
-                    ->orWhere('manufacturer_part_number', 'like', "%$keyword%")
+                    ->where('manufacturer_part_number', 'like', "%$keyword%")
                     ->orWhere('manufacturer', 'like', "%$keyword%")
-                    ->orWhere('description', 'like', "%$keyword%")
+                    // ->orWhere('description', 'like', "%$keyword%")
                     ->join('components', 'commons.component_id', '=', 'components.id')
 //                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
                     ->join($models->getTable(), $models->getTable() . '.' . 'common_id', '=', 'commons.id')
                     ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get();
+                    
                 $names = $parts->pluck('names')->toArray();
                 $tableCols = Schema::getColumnListing($models->getTable());
                 array_shift($tableCols);
@@ -268,7 +275,10 @@ class SearchController extends Controller
                 }
             }else{
                 $this->type = 50;
-                return [$this->type ,array_values($cName2)];
+                $arr = [];$dups = [];$subcat=[];$subcat2=[];
+                $cName2 = array_values($cName2);
+        
+                return [$this->type ,$cName2];
             }
         }
     }
@@ -360,8 +370,8 @@ class SearchController extends Controller
         $common = DB::table('commons')
 //            ->where('part_number', 'like', "%$keyword%")
             ->orWhere('manufacturer_part_number', 'like', "%$keyword%")
-            ->orWhere('manufacturer', 'like', "%$keyword%")
-            ->orWhere('description', 'like', "%$keyword%")->get();
+            ->orWhere('manufacturer', 'like', "%$keyword%")->get();
+            // ->orWhere('description', 'like', "%$keyword%")->get();
 
         $separate = DB::table($model->getTable())->get();
         $cFlag = [];
@@ -617,7 +627,7 @@ class SearchController extends Controller
 //            ->where('part_number', 'like', "%$keyword%")
             ->orWhere('manufacturer_part_number', 'like', "%$keyword%")
             ->orWhere('manufacturer', 'like', "%$keyword%")
-            ->orWhere('description', 'like', "%$keyword%")
+            // ->orWhere('description', 'like', "%$keyword%")
             ->join('components', 'commons.component_id', '=', 'components.id')
             ->get()->take(5);
 
@@ -881,4 +891,186 @@ class SearchController extends Controller
 //subcategory
     //TODO create an object of all components with their category
     // TODO create an api for checking part quantity when clicking on buy button
+
+
+    /*
+        * Required Params => product
+        * shows categories related to the specified product name
+        */
+    public function productMenu(Request $request){
+
+        $product = $request->product;
+        if(is_null($product)){
+
+            return 'send a product name';
+        }
+        try{
+            $product = str_replace(' ','_',$product);
+            $components = Product::where('product_name',$product)->first()->subcategories->pluck('name')->toArray();
+        }catch (\Exception $exception){
+
+            return 'product not found';
+        }
+
+        return $components;
+    }
+
+    /*
+    * Required Params => category , num
+     * shows subcategories related to specified category name
+    */
+    public function CategoryMenu(Request $request){
+
+        $category = $request->category;
+        if(is_null($request->num)){
+            $this->paginate = 1;
+        }else{
+
+            $this->paginate = $request->num;
+        }
+        $set = [];
+        if(is_null($category)){
+
+            return 'send a category name';
+        }
+        try {
+            $category = str_replace(' ', '_', $category);
+            $components = SubCategory::where('name', $category)->first()->underlays()->get();
+        }catch (\Exception $ex){
+
+            return $ex;
+        }
+
+        /*
+         * if subcategory doesn't have any subcategory
+         * need to find the component_id of this subcategory and then
+         * pluck all related records in commons
+         */
+
+        if(sizeof($components) == 0){
+            try{
+                /*
+                 *  Finding parts from commons table
+                 */
+                try{
+                    $categories =  SubCategory::where('name',$category)->first()->components->all();
+                }catch (\Exception $exception){
+                    return $exception;
+                }
+
+                foreach ($categories as $item => $category){
+                    $commons = DB::table('commons')->where('component_id',$category->id)->get()->toArray();
+                    /*
+                     * Creating separate part model for fetching table data
+                     */
+                    $rowModel = 'App\IC\\' . $category->name;
+                    $instance = new $rowModel();
+                    $table = $instance->getTable();
+                    foreach ($commons as $key => $common){
+                        $complete = DB::table('commons')->where('commons.id',$common->id)
+                            ->join($table,$table.'.'.'common_id','=','commons.id')->get()->toArray();
+
+                        unset($complete[$item]->id);
+                        unset($complete[$item]->component_id);
+                        unset($complete[$item]->part_id);
+                        unset($complete[$item]->model);
+                        unset($complete[$item]->created_at);
+                        unset($complete[$item]->updated_at);
+                        unset($complete[$item]->common_id);
+                        unset($complete[$item]->product_id);
+
+                        array_push($set, $complete[0]);
+                    }
+                }
+//                 ---------------------------
+
+            }catch (\Exception $exception){
+
+                return $exception;
+            }
+
+            return array_slice($set,$this->skip*($this->paginate - 1),20);
+        }else{
+
+            $underlays = $components->pluck('name');
+            for($i=0; $i<count($underlays); $i++){
+
+                $underlays[$i] = substr($underlays[$i],0,strlen($underlays[$i])-4);
+                $underlays[$i] = str_replace('_',' ',$underlays[$i]);
+            }
+            return $underlays;
+        }
+
+    }
+    /*
+    * Required Params => subcategory , category , num
+     * gets a underlay name and return all parts that relate to the underlay
+     * first to find , this underlay belongs to which subcategories , categories and components
+     * then find all the parts from commons table with the proper component_id
+    */
+    public function subCategoryMenu(Request $request)
+    {
+
+//  finding the related subcategory
+        $underlay = $request->subcategory;
+        $category = $request->category;
+        if(is_null($request->num)){
+            $this->paginate = 1;
+        }else{
+
+            $this->paginate = $request->num;
+        }
+        $set = [];
+        try {
+            $underlay = str_replace(' ', '_', $underlay);
+            $category = str_replace(' ', '_', $category);
+            $query = Underlay::where('name', 'like', "%$underlay%")->first();
+        } catch (\Exception $ex) {
+
+            return $ex;
+        }
+
+        $subcategory = DB::table('sub_categories')->where('id', $query->sub_category_id)
+            ->where('name',$category)->first();
+//  finding the related components
+
+        try{
+            $categories = SubCategory::where('name', $subcategory->name)->first()->components->all();
+        }catch (\Exception $ex){
+
+            return $ex;
+        }
+
+
+        foreach ($categories as $item => $category) {
+
+            $commons[$item] = DB::table('commons')->where('component_id', $category->id)->get()->toArray();
+            /*
+             * Creating separate part model for fetching table data
+             */
+            $rowModel = 'App\IC\\' . $category->name;
+            $instance = new $rowModel();
+            $table = $instance->getTable();
+            for ($i = 0 ; $i < count($commons[$item]) ; $i++) {
+                $complete = DB::table('commons')->where('commons.id', $commons[$item][$i]->id)
+                    ->join($table, $table . '.' . 'common_id', '=', 'commons.id')->get()->toArray();
+
+                unset($complete[$item]->id);
+                unset($complete[$item]->component_id);
+                unset($complete[$item]->part_id);
+                unset($complete[$item]->model);
+                unset($complete[$item]->created_at);
+                unset($complete[$item]->updated_at);
+                unset($complete[$item]->common_id);
+                unset($complete[$item]->product_id);
+                array_push($set, $complete[0]);
+
+
+            }
+        }
+        return array_slice($set,$this->skip*($this->paginate - 1),20);
+
+    }
+
+
 }
