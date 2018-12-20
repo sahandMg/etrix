@@ -10,6 +10,7 @@ use App\Imports\CartsImport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
@@ -62,6 +63,7 @@ class CartController extends Controller
     public function addToCart(Request $request){
 
         $fault = [];
+        $added = [];
         $carts = $request->cart;
         for($i=0;$i<count($carts);$i++){
             for($t=0;$t<count($carts[$i]);$t++){
@@ -73,18 +75,22 @@ class CartController extends Controller
                 $resp = $this->createCart($request);
 //                Checks if quantity is available
                 if($resp['code'] != 200){
-                     array_push($fault,['message'=> ' وجود ندارد '.$request->keyword.' در حال حاضر این تعداد از قطعه ',
-                     'code'=>404
-                     ]);
-                     array_push($fault,$resp);
+
+                     array_push($fault,$resp['body'][0]);
+                }else{
+                   array_push($added,$request['keyword']);
                 }
             }
         }
-        if(count($fault) == 0){
-            return 200;
+
+
+        if(count($fault) != 0){
+            return ['body'=>$fault,'code'=>404];
         }else{
 
-            return $fault;
+            return ['body' => $added ,
+                'code' => 200
+            ];
         }
     }
 
@@ -115,7 +121,9 @@ class CartController extends Controller
             if($project){
                 $projectId = $project->id;
             }else{
-                return 'project not found';
+                return ['body'=>'project not found',
+                'code'=>404
+                ];
             }
         }
     try{
@@ -149,7 +157,7 @@ class CartController extends Controller
 
         if( $quantity < $request->num){
 
-            return['message' => 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از',
+            return['body' =>[ 'موجود نمی باشد'.' '.$request->keyword.' '.'در حال حاضر این تعداد از'],
                 'code'=>404];
         }
 
@@ -175,10 +183,15 @@ class CartController extends Controller
                     $cart->project_id = $projectId;
                 }
                 $cart->save();
+                $resp = $this->availability($request->num);
+                if($resp['code'] == 200){
+                    return ['body' => "$request->keyword قطعه اضافه شد  " ,
+                        'code' => 200
+                    ];
+                }else{
+                    return $resp;
+                }
 
-                return ['message' => " قطعه اضافه شد.$request->keyword " ,
-                'code' => 200
-                ];
             }catch (\Exception $exception){
                 return $exception;
             }
@@ -214,16 +227,30 @@ class CartController extends Controller
                     $cart->bom_id = $bom->id;
                     $cart->project_id = $projectId;
                     $cart->save();
-                    return ['message' => " اضافه شد $request->keyword قطعه ",
-                        'code'=> 200];
+                    $resp = $this->availability($request->num);
+                    if($resp['code'] == 200){
+                        return ['body' => "$request->keyword قطعه اضافه شد  " ,
+                            'code' => 200
+                        ];
+                    }else{
+                        return $resp;
+                    }
+
                 }else{
                     /*
                      * update the project cart
                      */
 
                     $this->updateCart($userOrder,$request,$bom);
-                    return ['message'=> " اضافه شد $request->keyword قطعه ",
-                        'code' => 200];
+                    $resp = $this->availability($request->num);
+                    if($resp['code'] == 200){
+                        return ['body' => "$request->keyword قطعه اضافه شد  " ,
+                            'code' => 200
+                        ];
+                    }else{
+                        return $resp;
+                    }
+
                 }
 
 //
@@ -245,9 +272,15 @@ class CartController extends Controller
                     $cart->save();
 
                 }
-                return ['message' => " اضافه شد $request->keyword قطعه ",
-                'code' => 200
-                ];
+                $resp = $this->availability($request->num);
+                if($resp['code'] == 200){
+                    return ['body' => "$request->keyword قطعه اضافه شد  " ,
+                        'code' => 200
+                    ];
+                }else{
+                    return $resp;
+                }
+
             }
 
             /*
@@ -257,15 +290,14 @@ class CartController extends Controller
 
         }
 
-//
-        /**
-         * TODO Get user address in future
-         * TODO if num > quantity available ??
-         * TODO BOM total price
-         */
     }
 
-    // Getting new Prices when ever the cart page, gets refreshed
+    /* Getting new Prices when ever the cart page, gets refreshed
+
+        Required Params => token
+        get total parts number in all projects and do a comparison
+         to the available number in database
+    */
     public function readCart(Request $request){
 
         try{
@@ -561,9 +593,6 @@ class CartController extends Controller
         $itemArr = [];
         // check if the requested quantity is available or not
         $resp = $this->availability();
-        if($resp['code'] != 200 ){
-            return $resp;
-        }
         $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
         for($i=0;$i<count($carts);$i++){
             $items = array_values(unserialize($carts[$i]->name));
@@ -585,12 +614,11 @@ class CartController extends Controller
         $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
         $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();
 
-
-        return ['cart'=>$usercart,'price'=>$totalPrice,'number'=>$order_number,
+        return ['message'=>$resp,'cart'=>$usercart,'price'=>$totalPrice,'number'=>$order_number,
         'delivery'=>$delivery,
         'address'=>$query->address,
-        'city'=>$query->city, 
-        'province'=>$query->province, 
+        'city'=>$query->city,
+        'province'=>$query->province,
     ];
     }
 /*
@@ -600,7 +628,7 @@ class CartController extends Controller
  */
     public function confirm(Request $request){
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
-            return['message'=>'سبد خرید پیش از این پردازش شده است',
+            return['body'=>'سبد خرید پیش از این پردازش شده است',
             'code'=>404
             ] ;
         }
@@ -628,8 +656,9 @@ class CartController extends Controller
          */
 
     }
-    protected function availability(){
+    protected function availability($num = null){
         $itemArr = [];
+        $fault = [];
         $carts = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->carts;
         for($i=0;$i<count($carts);$i++) {
             $items = array_values(unserialize($carts[$i]->name));
@@ -643,23 +672,61 @@ class CartController extends Controller
                 }
                 $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number', $items[$s]['keyword'])->first())['quantity_available'];
                 // check if the requested quantity is available
-                if ( $itemArr[$items[$s]['keyword']] > $quantity) {
-//
-                    return [
-                    'message'=>'موجود نمی باشد' . ' ' . $items[$s]['keyword'] . ' ' . 'در حال حاضر این تعداد از',
-                    'code'=>404
-                    ] ;
+
+
+                    Cache::put($items[$s]['keyword'],$quantity,1);
+
+                    Cache::put($items[$s]['keyword'],Cache::get($items[$s]['keyword']) - $itemArr[$items[$s]['keyword']],1);
+
+
+
+                if ( Cache::get($items[$s]['keyword']) < 0) {
+    //      Search for the unsufficient part in the cart to reduce number of that part
+                    $contents = unserialize($carts[$i]->name);
+
+            for ($m =0 ; $m <count($contents) ; $m++){
+
+                if($contents[$m]['keyword'] == $items[$s]['keyword']){
+
+                    $contents[$m]['num'] =  $contents[$m]['num']  -  $num;
+                    if($contents[$m]['num'] <= 0){
+                        unset($contents[$m]);
+                    }
+                        $carts[$i]->update(['name'=>serialize($contents)]);
                 }
 
             }
+                    array_push($fault,'موجود نمی باشد' . ' ' . $items[$s]['keyword'] . ' ' . 'در حال حاضر این تعداد از');
+
+                }
+            }
+
+
         }
-        return 200;
+
+        for ($s = 0; $s < count($items); $s++) {
+            Cache::forget($items[$s]['keyword']);
+        }
+        if(sizeof($fault) > 0){
+            $fault = array_unique($fault);
+            return [
+                'body'=>$fault,
+                'code'=>404
+            ] ;
+        }else{
+
+            return [
+                'body'=> 'ok',
+                'code'=>200
+            ] ;
+        }
+
     }
 // Calculate total BOM price for final confirmation
     public function price(){
 
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
-            return ['message' => 'سبد خرید پیش از این پردازش شده است',
+            return ['body' => 'سبد خریدی ثبت نشده است',
                 'code'=>404];
         }
         $totalPrice = 0;
