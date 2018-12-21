@@ -6551,11 +6551,6 @@ var Cart = function (_Component) {
                 cartList,
                 sum,
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                    'button',
-                    { style: { marginLeft: "2%" }, hidden: !this.props.token, onClick: this.onOpenModal, className: 'btn btn-primary' },
-                    '\u0622\u067E\u0644\u0648\u062F \u0641\u0627\u06CC\u0644 \u0627\u06A9\u0633\u0644 BOM'
-                ),
                 buyButton,
                 _react2.default.createElement('br', null),
                 _react2.default.createElement('br', null),

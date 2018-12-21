@@ -137,7 +137,7 @@ class Cart extends Component {
                 {cartList}
                 {sum}
                 <br/>
-                <button style={{marginLeft: "2%"}} hidden={!this.props.token} onClick={this.onOpenModal} className="btn btn-primary">آپلود فایل اکسل BOM</button>
+                {/*<button style={{marginLeft: "2%"}} hidden={!this.props.token} onClick={this.onOpenModal} className="btn btn-primary">آپلود فایل اکسل BOM</button>*/}
                 {buyButton}
                 <br/><br/>
                 <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />

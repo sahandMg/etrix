@@ -7,22 +7,16 @@
         <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
             <meta name="description"
                   content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
-        <title>ETRIX</title>
+        <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="{{asset('js/slick.js')}}"></script>
-    <script src="{{asset('js/iconbar-js.js')}}"></script>
+
     </head>
     <body>
      <div id="example">
      </div>
-     <script src="{{ mix('js/manifest.js') }}"></script>
-     <script src="{{ mix('js/vendor.js') }}"></script>
-     <script src="{{ mix('js/app.js') }}"></script>
+
      <style>
      @font-face {
          font-family: myFirstFont;
@@ -33,6 +27,54 @@
          font-family: myFirstFont;
      }
      </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+     <script src="{{ mix('js/manifest.js') }}"></script>
+          <script src="{{ mix('js/vendor.js') }}"></script>
+          <script src="{{ mix('js/app.js') }}"></script>
+     <script>
+     $(document).ready(function () {
+
+         $('.iconbar-container').click(function () {
+
+             $(this).toggleClass('change');
+
+             $(".navbar-sticky-bg").fadeIn('slow',function () {
+                 $("body").css({overflow : "hidden"});
+                 $('.navbar-sticky').animate({'left' : $(window).outerWidth()-$(".navbar-sticky").outerWidth()},'fast');
+
+             });
+
+         });
+
+         $("body").click(function (e) {
+             // console.log(e.target.classList);
+             if(e.target.classList.contains('navbar-sticky-bg') || e.target.classList.contains('list-group-item')){
+                 // console.log("test navbar");
+                 $('.navbar-sticky')
+                     .animate({"left": "100%"}, 'fast');
+
+                 $('.navbar-sticky-bg').fadeOut('slow',function () {
+                     $("body").css({overflow : "visible"});
+                     $('.iconbar-container').toggleClass('change');
+                 });
+             }
+         })
+
+         $(".list-group-item a").click(function (e) {
+             $('.navbar-sticky')
+                 .animate({"left": "100%"}, 'fast');
+
+             $('.navbar-sticky-bg').fadeOut('slow',function () {
+                 $("body").css({overflow : "visible"});
+                 $('.iconbar-container').toggleClass('change');
+             });
+         })
+
+     });
+     </script>
      <!-- Global site tag (gtag.js) - Google Analytics -->
      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131109496-1"></script>
      <script>
