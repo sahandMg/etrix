@@ -36,6 +36,7 @@ exports.default = {
     cm_add_content: '/cm/content/add',
     cm_add_image: '/cm/image/add',
     cm_get_images: '/cm/image/get?token=',
+    cm_get_content: '/cm/content/get',
     cm_get_ordersList: '/cm/ordersList', // ordersNameList => get Array list
     user_cart_create: '/user/cart/create',
     user_cart_read: '/user/cart/read',
@@ -3913,14 +3914,9 @@ var Navigation = function (_Component) {
                     'li',
                     { className: 'navbar-list-item custom-dropdown', id: 'products' },
                     _react2.default.createElement(
-                        'a',
-                        { className: 'navbar-list-item-link custom-dropdown-toggler' },
+                        _reactRouterDom.Link,
+                        { to: '/ProductList', className: 'navbar-list-item-link custom-dropdown-toggler' },
                         '\u0645\u062D\u0635\u0648\u0644\u0627\u062A'
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'custom-dropdown-menu product-list-nav' },
-                        categories
                     )
                 ),
                 _react2.default.createElement(
@@ -16159,6 +16155,10 @@ var _Comments2 = _interopRequireDefault(_Comments);
 
 var _draftJsExportHtml = __webpack_require__(218);
 
+var _URLs = __webpack_require__(5);
+
+var _URLs2 = _interopRequireDefault(_URLs);
+
 __webpack_require__(785);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -16197,7 +16197,7 @@ var ContentDetail = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            _axios2.default.post('http://localhost:80/api/cm/content/get', { id: this.props.match.params.id }).then(function (res) {
+            _axios2.default.post(_URLs2.default.base_URL + _URLs2.default.cm_get_content, { id: this.props.match.params.id }).then(function (res) {
                 console.log('get-content');
                 console.log(res.data);
                 console.log('brief');
@@ -16613,7 +16613,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".articleContainer p {\r\n    text-align: justify;\r\n    font-size: 20px;\r\n}\r\n.articleContainer img {\r\n    display: block;margin: auto;\r\n}\r\n@media only screen and (max-width: 768px) {\r\n    .articleContainer img {\r\n        max-width: 700px;\r\n    }\r\n}\r\n/*@media only screen and (max-width: 768px) {*/\r\n    /*main {*/\r\n        /*margin-top: 110px;*/\r\n    /*}*/\r\n/*}*/\r\n", ""]);
+exports.push([module.i, ".articleContainer p {\r\n    text-align: justify;\r\n    font-size: 20px;\r\n}\r\n.articleContainer img {\r\n    display: block;margin: auto;\r\n    max-width: 100%;\r\n    height: auto;\r\n}\r\n@media only screen and (max-width: 768px) {\r\n    .articleContainer img {\r\n        max-width: 100%;\r\n        height: auto;\r\n    }\r\n}\r\n@media only screen and (max-width: 420px) {\r\n    .articleContainer p {\r\n        font-size: 18px;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 

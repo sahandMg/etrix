@@ -70,12 +70,12 @@ class Navigation extends Component {
         return (
             <ul className="navbar-list-group text-light">
                 <li className="navbar-list-item custom-dropdown" id="products">
-                    <a className="navbar-list-item-link custom-dropdown-toggler">
+                    <Link to="/ProductList" className="navbar-list-item-link custom-dropdown-toggler">
                         محصولات
-                    </a>
-                    <ul className="custom-dropdown-menu product-list-nav">
-                        {categories}
-                    </ul>
+                    </Link>
+                    {/*<ul className="custom-dropdown-menu product-list-nav">*/}
+                        {/*{categories}*/}
+                    {/*</ul>*/}
                 </li>
                 {/*<li className="navbar-list-item">*/}
                 {/*<a className="navbar-list-item-link">*/}
