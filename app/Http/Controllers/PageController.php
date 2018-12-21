@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Brief;
+use App\Component;
+use App\Product;
+use App\SubCategory;
+use App\Underlay;
 use GuzzleHttp\Client as GuzzleClient;
 use App\Image;
 use App\Repository\Cropper;
@@ -10,6 +14,7 @@ use App\User;
 use App\Variable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Psr\Http\Message\ResponseInterface;
 
@@ -186,16 +191,6 @@ class PageController extends Controller
         return $cities[0];
     }
 
-    /*
-     * Required Params => product
-     */
-    public function productMenu(Request $request){
-
-        if(is_null($request->product)){
-
-        }
-
-    }
 
 
 }

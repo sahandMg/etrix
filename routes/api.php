@@ -26,7 +26,7 @@ Route::get('excel-export','CartController@Excel_export');
 Route::get('excel-import','CartController@Excel_import');
 Route::get('province','PageController@Province');
 Route::get('city','PageController@City');
-Route::get('product-menu','PageController@productMenu');
+
 
 // ----------------------------- User Routes ----------------------------------------
 //[
@@ -49,6 +49,7 @@ Route::get('product-menu','PageController@productMenu');
 
             Route::post('add','CartController@addToCart');
             Route::post('confirm','CartController@confirm');
+            Route::post('order-bill','CartController@orderBill');
             Route::post('price','CartController@price');
             Route::post('address','CartController@getAddress');
 
@@ -119,6 +120,10 @@ Route::post('logout','AuthController@logout')->name('logout');
     // -------------------------------  Searching with filter  -----------------------------------
 
     Route::get('search-part-filter','SearchController@filterPart');
+
+    Route::get('product-menu','SearchController@productMenu');
+    Route::get('category-menu','SearchController@CategoryMenu');
+    Route::get('subcategory-menu','SearchController@subCategoryMenu');
 
 //]
 // -------------------------------  Site Viewers  -----------------------------------

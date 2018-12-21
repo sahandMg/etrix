@@ -13,4 +13,9 @@ class SubCategory extends Model
 
         return $this->hasMany(Underlay::class);
     }
+
+    public function components(){
+
+        return $this->hasMany(Component::class);
+    }
 }
