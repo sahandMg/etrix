@@ -13,6 +13,7 @@ import styles from './custom-styling.css';
 import FilterProducts from './FilterProducts/FilterProducts';
 import ProductTable from './ProductsTable/ProductsTable';
 import MultiCategory from './MultiCategory/MultiCategory';
+import QueryString from 'query-string';
 
 let prices = {};let counter = 0;
 
@@ -26,19 +27,38 @@ class showSearchProductResult extends Component {
 
     componentDidMount() {prices = {};counter = 0;
         let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category+'&keyword='+this.props.match.params.keyword;
+        let newURL = {
+            category: this.props.match.params.category, keyword: this.props.match.params.keyword,
+        }
         if(this.props.match.params.filter !== undefined) {
             console.log('showSearchProductResult componentDidMount filter not null');
             console.log(this.props.match.params.filter);
             url = url+"&filters="+this.props.match.params.filter
+            // url = url+this.props.match.params.filter;
+            // newURL["filter"] = QueryString.parse(this.props.match.params.filter)
         }
         // let temp = window.location.href;
         // temp = temp.replace(URLs.react_search_url+this.props.match.params.category+'/'+this.props.match.params.keyword,'');
         // temp = temp.replace('/','');
         // console.log('componentDidMount temp');console.log(temp);
-        console.log('componentDidMount url');console.log(url);
-        // if(temp !== '') { url = url + '&filters='+temp; }
+        console.log('componentDidMount newURL');
+        console.log(url);
+        // let test = QueryString.stringify({
+        //     category: this.props.match.params.category,
+        //     keyword: this.props.match.params.keyword,
+        //     nested: JSON.stringify({
+        //         filter: this.props.match.params.filter
+        //     })
+        // }, {arrayFormat: 'bracket'});
+        // console.log(test);
+        // // console.log(QueryString.stringify(newURL))
+        // console.log(QueryString.parse(test));
+        // let temp = JSON.parse( QueryString.parse(test).nested );
+        // console.log(temp)
+        // console.log(QueryString.parse( temp.filter));
+        // // if(temp !== '') { url = url + '&filters='+temp; }
         let keyword = this.props.match.params.keyword;
-        if(keyword.includes("&subcategory=")) {keyword = keyword.split("&subcategory=")[0];}
+        // if(keyword.includes("&subcategory=")) {keyword = keyword.split("&subcategory=")[0];}
         this.setState({searchKey: keyword});
         // url = "http://localhost/api/search-part-filter?keyword=stm32f4&category=Embedded-Microcontrollers&filters=%7B%22rCl%22:[%2240MHz%22],%22tra%22:[%22Microchip+Technology%22]%7D";
         axios.get(url)
@@ -70,13 +90,16 @@ class showSearchProductResult extends Component {
     filterComponent = (filters) => {
         console.log("filterComponent filters");
         console.log(filters);
-        console.log("filterComponent urlParams");
-        let urlParams = Object.keys(filters).map(function(k) {
-            return encodeURIComponent(k) + '=' + encodeURIComponent(urlParams[k])
-        }).join('&')
+        console.log("filterComponent new packages");
+        // let urlParams = Object.keys(filters).map(function(k) {
+        //     return encodeURIComponent(k) + '=' + encodeURIComponent(urlParams[k])
+        // }).join('&')
+        const stringified = QueryString.stringify(filters, {arrayFormat: 'bracket'});
 
-        console.log(urlParams);
-        let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+JSON.stringify(filters);
+        console.log(stringified);
+        console.log("filterComponent new packages parse");
+        console.log(QueryString.parse(stringified));
+        let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+stringified;
         // url = url.replace('{',"%7B");
         // url = url.replace('}',"%7D");
         // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
@@ -88,8 +111,8 @@ class showSearchProductResult extends Component {
         console.log(url);
         // url = url.replace('?filters=','/');
         // console.log(url);
-        // this.props.history.push(url);
-        // window.location.reload();
+        this.props.history.push(url);
+        window.location.reload();
     }
 
     // setNumber = (e,num) => {
