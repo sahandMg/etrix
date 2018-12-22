@@ -628,7 +628,7 @@ class CartController extends Controller
  */
     public function confirm(Request $request){
         if(is_null(Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first())){
-            return['body'=>'سبد خرید پیش از این پردازش شده است',
+            return  ['body'=>'سبد خرید پیش از این پردازش شده است',
             'code'=>404
             ] ;
         }
@@ -650,7 +650,9 @@ class CartController extends Controller
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$request->totalPrice]);
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
-        return 200;
+        return  ['body'=>'ok',
+            'code'=>200
+        ] ;
         /*
          * redirect to gateway
          */
