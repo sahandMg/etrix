@@ -14,6 +14,23 @@
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+use Illuminate\Http\Request;
+
+Route::get('test',function (Request $request){
+
+    $filters=[];
+    $str = $_SERVER['QUERY_STRING'];
+    parse_str($str, $queries);
+    $keys = array_keys($queries);
+    for($i=0;$i<count($keys);$i++){
+        $filters [$keys[$i]] = $queries[$keys[$i]];
+    }
+
+
+    dd($filters);
+
+});
+
 Route::post('/',function (){
 
 });

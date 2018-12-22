@@ -37,10 +37,11 @@ class SearchController extends Controller
 // ------------ Finding the part in database without filter --------------
 
         $keyword = $request->keyword;
+        $keyword = str_replace(' ','_',$keyword);
         if(is_null($keyword)){
             return 'send a keyword';
         }
-        $category = $request->category;
+        $category = str_replace(' ','_',$request->category);
         if(is_null($request->num)){
             $this->paginate = 1;
         }else{
@@ -331,13 +332,23 @@ class SearchController extends Controller
 //                    ];
 //                $component = 'Embedded-Microcontrollers';
 
-        $filters = $request->filters;
+        $filters=[];
+        $str = $_SERVER['QUERY_STRING'];
+        parse_str($str, $queries);
+        $keys = array_keys($queries);
+
+        $filters_name = array_splice($keys,array_search('filters',$keys)+1);
+        for($i=0;$i<count($filters_name);$i++){
+
+            $filters[$filters_name[$i]] = $queries[$filters_name[$i]];
+        }
+
         $component = $request->category;
             $pagination = $num;
         /*
          * convert json to array
          */
-        $filters = json_decode($filters,true);
+//        $filters = json_decode($filters,true);
 
         /*
         *  Decoding filter array keys
@@ -394,7 +405,7 @@ class SearchController extends Controller
             for($t=0 ; $t<count($filters);$t++) {
 //  Checking filter keys with separate tables column names to findout whether the tables need to be filtered or not
                 similar_text(array_keys($filters)[$t], $sepTableCols[$i], $percent);
-                if($percent >= 80){
+                if($percent >= 50){
                     array_push($sFlag, array_keys($filters)[$t]);
                     $sFlag = array_unique($sFlag);
                     $sFlag = array_values($sFlag);
@@ -911,8 +922,8 @@ class SearchController extends Controller
 
             return 'product not found';
         }
-
-        return $components;
+        $this->type = 10;
+        return [$this->type,$components];
     }
 
     /*
@@ -988,8 +999,8 @@ class SearchController extends Controller
 
                 return $exception;
             }
-
-            return array_slice($set,$this->skip*($this->paginate - 1),20);
+            $this->type = 30;
+            return [$this->type,array_slice($set,$this->skip*($this->paginate - 1),20)];
         }else{
 
             $underlays = $components->pluck('name');
@@ -998,7 +1009,8 @@ class SearchController extends Controller
                 $underlays[$i] = substr($underlays[$i],0,strlen($underlays[$i])-4);
                 $underlays[$i] = str_replace('_',' ',$underlays[$i]);
             }
-            return $underlays;
+            $this->type = 20;
+            return [$this->type,$underlays];
         }
 
     }
@@ -1068,7 +1080,8 @@ class SearchController extends Controller
 
             }
         }
-        return array_slice($set,$this->skip*($this->paginate - 1),20);
+        $this->type = 30;
+        return [$this->type , array_slice($set,$this->skip*($this->paginate - 1),20)];
 
     }
 
