@@ -131,7 +131,7 @@ class CmController extends Controller
 
     public function getImages(){
         $user = $_POST['user'];
-        return Image::where('user_id',$user->id)->get()->pluck('image');
+        return Image::where('user_id',$user->id)->orderBy('id','desc')->get()->pluck('image');
     }
 
     public function editContent(Request $request){

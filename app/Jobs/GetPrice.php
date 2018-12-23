@@ -44,9 +44,24 @@ class GetPrice implements ShouldQueue
         $parts = [];
 
         $start = Carbon::now();
-
         $partClass = Common::where('manufacturer_part_number','like',"%$this->keyword%")->get();
-        $parts = $partClass->pluck('manufacturer_part_number');
+        $componentIds = $partClass->pluck('component_id');
+        foreach($componentIds as $componentId){
+            $productId = DB::table('components')->where('id',$componentId)->first()->product_id;
+
+            if($productId == 4 || $productId == 26){
+                $recapsTable = 1;
+            }
+        }
+        if(isset($recapsTable)){
+            $recaps = DB::table('re_caps')->where('value','like',"%$this->keyword%")->get();
+            $parts = $recaps->pluck('name');
+        }else{
+
+            $parts = $partClass->pluck('manufacturer_part_number');
+        }
+
+
         Log::info($parts);
 
         for($i=0;$i<count($parts);$i++) {

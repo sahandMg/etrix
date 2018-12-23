@@ -16,7 +16,11 @@
 //});
 use Illuminate\Http\Request;
 
-Route::get('test','TableMakerController@modifyUnderLay');
+Route::get('test',function (){
+
+    \App\Jobs\GetPrice::dispatch('10uF');
+
+});
 Route::post('/',function (){
 
 });

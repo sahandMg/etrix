@@ -134,7 +134,7 @@ class SearchController extends Controller
                     }
                     $redis->lpush('restSearch',$result);
                     $redis->lpush('commonsObject',$commons->toJson());
-                    dd($result);
+
 
 
                 }
