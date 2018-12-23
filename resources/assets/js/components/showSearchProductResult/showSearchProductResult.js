@@ -33,7 +33,7 @@ class showSearchProductResult extends Component {
         if(this.props.match.params.filter !== undefined) {
             console.log('showSearchProductResult componentDidMount filter not null');
             console.log(this.props.match.params.filter);
-            url = url+"&filters="+this.props.match.params.filter
+            url = url+"&filters=&"+this.props.match.params.filter
             // url = url+this.props.match.params.filter;
             // newURL["filter"] = QueryString.parse(this.props.match.params.filter)
         }
@@ -68,7 +68,8 @@ class showSearchProductResult extends Component {
                 // console.log(dataCode.partSearch);
                 if(response.data[0] === dataCode.partSearch) {
                     // console.log("IS EQUAL");
-                    this.setState({dataCode: response.data[0],dataParts: response.data[2],dataFilters: response.data[3],tableHeaderS: response.data[5]});
+                    this.setState({dataCode: response.data[0],dataParts: response.data[2],dataFilters: response.data[3],tableHeaderS: response.data[5],
+                        category: response.data[6] });
                 } else if(response.data[0] === dataCode.partSearchMultiCategory) {
                     this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
                     console.log("componentDidMount showSearchProductResult multiCategory");
@@ -99,7 +100,7 @@ class showSearchProductResult extends Component {
         console.log(stringified);
         console.log("filterComponent new packages parse");
         console.log(QueryString.parse(stringified));
-        let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+stringified;
+        let url = '/search/'+this.state.category.name+'/'+this.props.match.params.keyword+'/'+stringified;
         // url = url.replace('{',"%7B");
         // url = url.replace('}',"%7D");
         // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
