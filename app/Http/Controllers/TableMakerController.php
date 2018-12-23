@@ -510,4 +510,20 @@ class TableMakerController extends Controller
 
 
     }
+/*
+ * Modifies underlays table id
+ */
+    public function modifyUnderLay(){
+//        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+//        DB::statement('SET PRIMARY_KEY_CHECKS = 0');
+        DB::table('underlays')->orderBy('id','desc')->chunkById(300,function($queries){
+
+            foreach ($queries as $key=>$query){
+                DB::table('underlays')->where('id',$query->id)->update(['id'=>$key+1]);
+            }
+        });
+
+        dd('done!');
+    }
+
 }

@@ -17,7 +17,8 @@ class CreateUnderlaysTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('persian_name')->nullable();
-            $table->unsignedInteger('subcategory_id')->default(0);
+            $table->unsignedInteger('sub_category_id')->default(0);
+            $table->unsignedInteger('underlay_id')->default(0);
             $table->timestamps();
         });
     }

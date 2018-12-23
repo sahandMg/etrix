@@ -12,6 +12,7 @@ use App\SubCategory;
 use App\Underlay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
 
@@ -25,6 +26,129 @@ class SearchController extends Controller
     public $ColsCode;
     public $newFilter;
 
+
+
+    public function SearchPartComp2(ColumnCode $code,Request $request){
+//Integrated_Circuits_ICs
+        $keyword = str_replace(' ','_',$request->keyword);
+        $product = str_replace(' ','_',$request->category);
+        if(is_null($request->num)){
+            $this->paginate = 1;
+        }else{
+
+            $this->paginate = $request->num;
+        }
+        $redis = Redis::connection();
+
+        /*
+         *  if Category is not null
+         */
+
+        if($product != 'all'){
+            $redis->set('product',$product);
+            $resp = $this->productMenu();
+            return $resp;
+        }
+
+        else{
+/*
+ *          Find keyword in products table
+ */
+            $redis->del('type');
+            $product = DB::table('products')->where('product_name', 'like', "%$keyword%")
+                ->join('components', 'components.product_id', '=', 'products.id')
+                ->skip(($this->skip * ($this->paginate -1)) )->take($this->skip)->get()->pluck('product_name');
+            if($product->isNotEmpty()){
+                $redis->set('type',10);
+                $type = $redis->get('type');
+                return [$type, array_unique($product->toArray())];
+            }
+            /*
+             * Find keyword in components table
+             */
+            elseif ($redis->get('type') != 10){
+
+                $components = DB::table('components')->where('name', 'like', "%$keyword%")->get();
+                if($components->isNotEmpty()){
+                    $componentsNames = $components->pluck('name');
+                    foreach ($componentsNames as $component){
+
+                        $component = str_replace('_',' ',$component);
+                        $redis->sadd('componentsName',$component);
+                    }
+                    $redis->set('type',20);
+                    $type = $redis->get('type');
+                    return [$type,$redis->smembers('componentsName')];
+                }
+            }
+
+            /*
+             * Find keyword in commons table
+             * get parts model from component_id
+             */
+
+            $commons = DB::table('commons')->where('manufacturer_part_number','like',"%$keyword%")->get();
+            /*
+             * lets find the verity of component_id in commons
+             */
+            $redis->sadd('componentID',$commons->pluck('component_id')->toArray());
+
+            /*
+             * if count of componentID is more than 1 , just return related component names
+             */
+
+            if(sizeof($redis->smembers('componentID')) > 1){
+
+                $componentIDs = $redis->smembers('componentID');
+
+                for($i=0 ; $i<count($componentIDs);$i++){
+
+                    $redis->sadd('componentsName',DB::table('components')->where('id',$componentIDs[$i])->first()->name);
+
+                }
+
+                return ['type'=>10,$redis->smembers('componentsName')];
+
+            }
+            else{
+
+                if($commons->isNotEmpty()){
+                    $componentId = $redis->smembers('componentID');
+                    $componentName = DB::table('components')->where('id',$componentId)->get()->pluck('name');
+                    if($componentName->isEmpty()){
+                        return 'component name not found';
+                    }
+                    /*
+                     * Make a model from component name
+                     */
+                    $rawName = 'App\IC\\'.$componentName->toArray()[0];
+                    $modelInstance = new $rawName;
+                    /*
+                     * Joining rest of tables to commons
+                     */
+                    $modelTable = $modelInstance->getTable();
+
+                    foreach ($commons as $key => $common){
+                        $result[$key] = DB::table($modelTable)->where('common_id',$common->id)->first();
+
+                    }
+                    $redis->lpush('restSearch',$result);
+                    $redis->lpush('commonsObject',$commons->toJson());
+                    dd($result);
+
+
+                }
+
+            }
+
+
+
+            return $redis->get('type');
+        }
+
+
+    }
+
     /*
      *  Required Prams => keyword
      *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
@@ -37,17 +161,30 @@ class SearchController extends Controller
 // ------------ Finding the part in database without filter --------------
 
         $keyword = $request->keyword;
-        $keyword = str_replace(' ','_',$keyword);
-        if(is_null($keyword)){
-            return 'send a keyword';
+        if(strpos($keyword,'_')){
+            $keyword = str_replace(' ','_',$keyword);
         }
         $category = str_replace(' ','_',$request->category);
+        if(is_null($keyword)){
+
+            if($category == 'all'){
+                return 'send a keyword';
+            }else{
+                $resp = $this->productMenu($category);
+                return $resp;
+            }
+        }
+
         if(is_null($request->num)){
             $this->paginate = 1;
         }else{
 
             $this->paginate = $request->num;
         }
+//        if($category != 'all'){
+//            $resp = $this->productMenu($category);
+//            return $resp;
+//        }
 /*
  * First search the keyword between product names if there wouldn't be any answer it continues to next part
  */
@@ -253,21 +390,44 @@ class SearchController extends Controller
                     $breadCrumb = $breadCrumb[0];
 //                -------> Running queued job <------
 //                        Artisan::queue('queue:work',["--once"=>true]);
-
-                    if($request->has('filters') && $request->has('category')){
+/*
+ *      Add filters to search
+ */
+                    if($request->has('filters') && $request->has('category') && !$request->has('order')){
                         $result = $this->filterPart($request,$code,$keyword,$this->paginate);
                         if($result == 404){
                             return 'Incorrect Filter Name';
                         }
                         return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
                     }
-                    else if($request->has('order') && $request->has('colName')){
+                    /*
+                     * Add sort to search
+                     */
+                     if($request->has('order') && $request->has('colName') && !$request->has('filters')){
 
                         $parts = $this->sort($request->all(),$parts);
                         $parts = $this->unsetPart($parts);
                         return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
 //                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
                     }
+                    /*
+                     * Add filter and sort all to gather to search
+                     */
+                    if($request->has('order') && $request->has('colName') && $request->has('filters')){
+
+                        $result = $this->filterPart($request,$code,$keyword,$this->paginate);
+                        if($result == 404){
+                            return 'Incorrect Filter Name';
+                        }
+                        $parts = $this->sort($request->all(),collect($result));
+                        $parts = $this->unsetPart($parts,200);
+                        $filters = FilterContent::Filters($models,collect($parts));
+                        $columns = $code->sendFilter($filters);
+                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+                    }
+                    /*
+                     *  Returns search result if none of above features getting used
+                     */
                     $parts = $this->unsetPart($parts);
                     return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
 
@@ -286,22 +446,42 @@ class SearchController extends Controller
     /*
      * Deletes unnecessary data from search result
      */
-    private function unsetPart($parts){
+    private function unsetPart($parts,$isMixedSearch = null){
 
-        for($t=0;$t<count($parts);$t++){
-            unset(
-                $parts[$t]->names,
-                $parts[$t]->id,
-                $parts[$t]->component_id,
-                $parts[$t]->common_id,
-                $parts[$t]->links,
-                $parts[$t]->product_id,
-                $parts[$t]->part_id,
-                $parts[$t]->model,
-                $parts[$t]->created_at,
-                $parts[$t]->updated_at
-            );
-        }
+//        if($isMixedSearch == 200){
+
+            for($t=0;$t<count($parts);$t++){
+                unset(
+                    $parts[$t]->names,
+//                $parts[$t]->id,
+                    $parts[$t]->component_id,
+                    $parts[$t]->common_id,
+                    $parts[$t]->links,
+                    $parts[$t]->product_id,
+                    $parts[$t]->part_id,
+                    $parts[$t]->model,
+                    $parts[$t]->created_at,
+                    $parts[$t]->updated_at
+                );
+            }
+//        }
+//        else{
+//            for($t=0;$t<count($parts);$t++){
+//                unset(
+//                    $parts[$t]->names,
+//                    $parts[$t]->id,
+//                    $parts[$t]->component_id,
+//                    $parts[$t]->common_id,
+//                    $parts[$t]->links,
+//                    $parts[$t]->product_id,
+//                    $parts[$t]->part_id,
+//                    $parts[$t]->model,
+//                    $parts[$t]->created_at,
+//                    $parts[$t]->updated_at
+//                );
+//            }
+//        }
+
         return $parts;
     }
 
@@ -519,6 +699,7 @@ class SearchController extends Controller
             array_pop($commonTableCols);
             array_pop($commonTableCols);
             array_pop($commonTableCols);
+//            array_unshift($commonTableCols,'id');
 
             for ($t = 0; $t < count($commonTableCols); $t++) {
 
@@ -554,11 +735,11 @@ class SearchController extends Controller
                     $sepCols[$sepTableCols[$t]] = array_unique($sepCols[$sepTableCols[$t]]);
                     $sepCols[$sepTableCols[$t]] = array_values($sepCols[$sepTableCols[$t]]);
                 }
+
                 if(count($sepCols[$sepTableCols[$t]]) == 1){
                     unset($sepCols[$sepTableCols[$t]]);
                 }
             }
-
             if (!isset($cols) || !isset($sepCols)) {
                 return '420';
             } else {
@@ -740,6 +921,7 @@ class SearchController extends Controller
                 $cols[$component[$i]->id] = str_replace('~','',$cols[$component[$i]->id]);
                 $str[$component[$i]->id] = explode(" ",$cols[$component[$i]->id])[0];
                 $volts[$component[$i]->id]  = preg_replace('/[^-0-9\.]/', '',$str[$component[$i]->id]);
+
                 /*
                  * µ , n , m , k , K , M , G
                 */
@@ -804,7 +986,6 @@ class SearchController extends Controller
         }else{
 
             for($i=0 ; $i < count($component) ; $i++){
-
                 $cols[$component[$i]->id] = $component[$i]->$colName;
                 $cols[$component[$i]->id] = str_replace('~','',$cols[$component[$i]->id]);
                 $str[$component[$i]->id] = explode(" ",$cols[$component[$i]->id])[0];
@@ -908,19 +1089,31 @@ class SearchController extends Controller
         * Required Params => product
         * shows categories related to the specified product name
         */
-    public function productMenu(Request $request){
+    public function productMenu($product = null){
 
-        $product = $request->product;
-        if(is_null($product)){
 
-            return 'send a product name';
+
+
+        if( is_null($product)){
+
+            $product = $_GET['product'];
+            if(is_null($product)){
+
+                return 'send a product name';
+            }
         }
+
         try{
             $product = str_replace(' ','_',$product);
             $components = Product::where('product_name',$product)->first()->subcategories->pluck('name')->toArray();
         }catch (\Exception $exception){
 
             return 'product not found';
+        }
+        for($i=0; $i<count($components); $i++){
+
+
+            $components[$i] = str_replace('_',' ',$components[$i]);
         }
         $this->type = 10;
         return [$this->type,$components];
@@ -930,7 +1123,7 @@ class SearchController extends Controller
     * Required Params => category , num
      * shows subcategories related to specified category name
     */
-    public function CategoryMenu(Request $request){
+    public function CategoryMenu(Request $request,ColumnCode $code){
 
         $category = $request->category;
         if(is_null($request->num)){
@@ -964,13 +1157,18 @@ class SearchController extends Controller
                  *  Finding parts from commons table
                  */
                 try{
-                    $categories =  SubCategory::where('name',$category)->first()->components->all();
+
+                    $subcategory = DB::table('sub_categories')->where('name',$category)->first();
+                    $category = DB::table('components')->where('sub_category_id',$subcategory->id)->first();
+                    $product = DB::table('products')->where('id',$subcategory->product_id)->first();
+
                 }catch (\Exception $exception){
                     return $exception;
                 }
 
-                foreach ($categories as $item => $category){
-                    $commons = DB::table('commons')->where('component_id',$category->id)->get()->toArray();
+//                foreach ($categories as $item => $category){
+                    $commons = DB::table('commons')->where('component_id',$category->id)
+                        ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get()->toArray();
                     /*
                      * Creating separate part model for fetching table data
                      */
@@ -981,18 +1179,17 @@ class SearchController extends Controller
                         $complete = DB::table('commons')->where('commons.id',$common->id)
                             ->join($table,$table.'.'.'common_id','=','commons.id')->get()->toArray();
 
-                        unset($complete[$item]->id);
-                        unset($complete[$item]->component_id);
-                        unset($complete[$item]->part_id);
-                        unset($complete[$item]->model);
-                        unset($complete[$item]->created_at);
-                        unset($complete[$item]->updated_at);
-                        unset($complete[$item]->common_id);
-                        unset($complete[$item]->product_id);
-
+                        unset($complete[$key]->id);
+                        unset($complete[$key]->component_id);
+                        unset($complete[$key]->part_id);
+                        unset($complete[$key]->model);
+                        unset($complete[$key]->created_at);
+                        unset($complete[$key]->updated_at);
+                        unset($complete[$key]->common_id);
+                        unset($complete[$key]->product_id);
                         array_push($set, $complete[0]);
                     }
-                }
+//                }
 //                 ---------------------------
 
             }catch (\Exception $exception){
@@ -1000,7 +1197,11 @@ class SearchController extends Controller
                 return $exception;
             }
             $this->type = 30;
-            return [$this->type,array_slice($set,$this->skip*($this->paginate - 1),20)];
+            $filters = FilterContent::Filters($instance,collect($set));
+            $columns = $code->sendFilter($filters);
+            $this->type = 30;
+            return [$this->type,$set,$filters,$columns,['name'=>$category->name,'product_name'=>$product->product_name]];
+
         }else{
 
             $underlays = $components->pluck('name');
@@ -1011,6 +1212,7 @@ class SearchController extends Controller
             }
             $this->type = 20;
             return [$this->type,$underlays];
+
         }
 
     }
@@ -1020,7 +1222,7 @@ class SearchController extends Controller
      * first to find , this underlay belongs to which subcategories , categories and components
      * then find all the parts from commons table with the proper component_id
     */
-    public function subCategoryMenu(Request $request)
+    public function subCategoryMenu(Request $request,ColumnCode $code)
     {
 
 //  finding the related subcategory
@@ -1036,52 +1238,98 @@ class SearchController extends Controller
         try {
             $underlay = str_replace(' ', '_', $underlay);
             $category = str_replace(' ', '_', $category);
-            $query = Underlay::where('name', 'like', "%$underlay%")->first();
+            $query = DB::table('underlays')->where('name', 'like', "%$underlay%")->first();
         } catch (\Exception $ex) {
 
             return $ex;
         }
 
-        $subcategory = DB::table('sub_categories')->where('id', $query->sub_category_id)
-            ->where('name',$category)->first();
+        $category = DB::table('components')->where('underlay_id', $query->id)->first();
+        $product = DB::table('products')->where('id',$category->product_id )->first();
+
 //  finding the related components
 
         try{
-            $categories = SubCategory::where('name', $subcategory->name)->first()->components->all();
+//            $categories = SubCategory::where('name', $subcategory->name)->first()->components->all();
+//            $sub_category = DB::table('sub_categories')->where('name', $subcategory->name)->first();
+//            $categories = DB::table('components')->where('sub_category_id',$sub_category->id)->get();
+
         }catch (\Exception $ex){
 
             return $ex;
         }
 
 
-        foreach ($categories as $item => $category) {
+//        foreach ($categories as $item => $category) {
 
-            $commons[$item] = DB::table('commons')->where('component_id', $category->id)->get()->toArray();
+            $commons = DB::table('commons')->where('component_id', $category->id)
+                ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get()->toArray();
+
             /*
              * Creating separate part model for fetching table data
              */
             $rowModel = 'App\IC\\' . $category->name;
             $instance = new $rowModel();
             $table = $instance->getTable();
-            for ($i = 0 ; $i < count($commons[$item]) ; $i++) {
-                $complete = DB::table('commons')->where('commons.id', $commons[$item][$i]->id)
-                    ->join($table, $table . '.' . 'common_id', '=', 'commons.id')->get()->toArray();
 
-                unset($complete[$item]->id);
-                unset($complete[$item]->component_id);
-                unset($complete[$item]->part_id);
-                unset($complete[$item]->model);
-                unset($complete[$item]->created_at);
-                unset($complete[$item]->updated_at);
-                unset($complete[$item]->common_id);
-                unset($complete[$item]->product_id);
-                array_push($set, $complete[0]);
+            for ($i = 0 ; $i < count($commons) ; $i++) {
+                $complete = DB::table('commons')->where('commons.id', $commons[$i]->id)
+                    ->join($table, $table . '.' . 'common_id', '=', 'commons.id')->first();
+
+                unset($complete->id);
+                unset($complete->component_id);
+                unset($complete->part_id);
+                unset($complete->model);
+                unset($complete->created_at);
+                unset($complete->updated_at);
+                unset($complete->common_id);
+                unset($complete->product_id);
+                array_push($set, $complete);
 
 
             }
-        }
+
+//        /*
+// *      Add filters to search
+// */
+//        if($request->has('filters') && $request->has('category') && !$request->has('order')){
+//            $result = $this->filterPart($request,$code,$keyword,$this->paginate);
+//            if($result == 404){
+//                return 'Incorrect Filter Name';
+//            }
+//            return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
+//        }
+//        /*
+//         * Add sort to search
+//         */
+//        if($request->has('order') && $request->has('colName') && !$request->has('filters')){
+//
+//            $parts = $this->sort($request->all(),$parts);
+//            $parts = $this->unsetPart($parts);
+//            return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+////                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+//        }
+//        /*
+//         * Add filter and sort all to gather to search
+//         */
+//        if($request->has('order') && $request->has('colName') && $request->has('filters')){
+//
+//            $result = $this->filterPart($request,$code,$keyword,$this->paginate);
+//            if($result == 404){
+//                return 'Incorrect Filter Name';
+//            }
+//            $parts = $this->sort($request->all(),collect($result));
+//            $parts = $this->unsetPart($parts,200);
+//            $filters = FilterContent::Filters($models,collect($parts));
+//            $columns = $code->sendFilter($filters);
+//            return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+//        }
+
+
+        $filters = FilterContent::Filters($instance,collect($set));
+        $columns = $code->sendFilter($filters);
         $this->type = 30;
-        return [$this->type , array_slice($set,$this->skip*($this->paginate - 1),20)];
+        return [$this->type,$set,$filters,$columns,['name'=>$category->name,'product_name'=>$product->product_name]];
 
     }
 
