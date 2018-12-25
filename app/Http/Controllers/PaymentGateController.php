@@ -20,8 +20,8 @@ class PaymentGateController extends Controller
         $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
             'Amount' => 1000,
             'Email' => 's23.moghadam@gmail.com',
-            'CallbackURL' => "https://etrix.ir/$request->username/credit/verify",
-            'Description' => 'پرداخت آنلاین سبد خرید');
+            'CallbackURL' => "https://etrix.ir/credit-verify",
+            'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی');
         $jsonData = json_encode($data);
         $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json');
         curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
@@ -105,8 +105,10 @@ class PaymentGateController extends Controller
 //                    return redirect()->route('home');
 //                }
 
-                return redirect()->route('credit',['username'=>Auth::user()->username])->with(['message'=>'اعتبار شما با موفقیت افزایش یافت']);
-
+                return [
+                    'body'=>'عملیات پرداخت با موفقیت انجام شد',
+                    'code' => '200'
+                ];
 
 
             } else {
@@ -115,44 +117,44 @@ class PaymentGateController extends Controller
                 switch($result['Status']){
 
                     case 'NOK':
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼']);
+                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
                         break;
 
                     case '-33':
 
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'رقم تراكنش با رقم پرداخت شده مطابقت ندارد￼￼￼']);
+                        return ['body'=>'رقم تراكنش با رقم پرداخت شده مطابقت ندارد','code'=>404];
                         break;
 
                     case '-22':
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'تراكنش نا موفق مي باشد']);
+                        return ['body'=>'تراكنش نا موفق مي باشد','code'=>404];
                         break;
 
                     case '-21':
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼']);
+                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
                         break;
 
                     case '-12':
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'امكان ويرايش درخواست ميسر نمي باشد']);
+                        return ['body'=>'امكان ويرايش درخواست ميسر نمي باشد','code'=>404];
                         break;
 
                     case '-3':
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'با توجه به محدوديت هاي شاپرك امكان پرداخت با رقم درخواست شده ميسر نمي باشد']);
+                        return ['body'=>'با توجه به محدوديت هاي شاپرك امكان پرداخت با رقم درخواست شده ميسر نمي باشد','code'=>404];
                         break;
 
                     case '-54':
                         $transaction->delete();
-                        return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'درخواست مورد نظر آرشيو شده است']);
+                        return ['body'=>'درخواست مورد نظر آرشيو شده است','code'=>404];
                         break;
 
 
                 }
                 $transaction->delete();
-                return redirect()->route('credit',['username'=>Auth::user()->slug])->with(['Error'=>'ﺕﺭﺎﻜﻨﺷ ﻥﺍ ﻡﻮﻔﻗ ﻢﻴﺑﺎﺷﺩ']);
+                return ['Error'=>'تراکنش ناموفق بود','code'=>404];
 
             }
         }

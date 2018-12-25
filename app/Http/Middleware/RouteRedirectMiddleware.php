@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Repository\URls;
 use Closure;
 
 class RouteRedirectMiddleware
@@ -16,13 +17,14 @@ class RouteRedirectMiddleware
     public function handle($request, Closure $next)
     {
 
+        $url = new URls();
          if(explode('/',$request->path())[0] == 'api' ||
-             $request->url() == 'http://localhost/login/google' ||
-             $request->url() == 'http://localhost/api/user/login/google/callback' ||
-             $request->url() == 'http://localhost/excel-import' ||
-             $request->url() == 'http://localhost/excel-export' ||
-             $request->url() == 'http://localhost/payment-gate' ||
-             $request->url() == 'http://localhost/payment-verify'
+             $request->url() == $url::$myGoogleLogin ||
+             $request->url() == $url::$myGoogleLoginCallback ||
+             $request->url() == $url::$excelImport||
+             $request->url() == $url::$excelExport ||
+             $request->url() == $url::$gate ||
+             $request->url() == $url::$verify
          ){
 
              return $next($request);
