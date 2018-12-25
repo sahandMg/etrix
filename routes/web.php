@@ -534,12 +534,17 @@ Route::get('ldimage',function (){
 
     return 200;
 });
+
+
+Route::get('login/google',['uses'=>'UserController@redirectToProvider'])->name('googleLogin');
+
+Route::get('payment-gate','PaymentGateController@Gate');
+Route::get('payment-verify',['as'=>'paymentVerify','uses'=>'PaymentGateController@verify']);
 /*
  * This routes are using for getting all column names and
  * creating a unit array of names with codes map to them
  * for sending as query string in filter url
  */
-
 App::instance('ColumnCode',new ColumnCode());
 Route::get('column/name','TableController@ColumnName');
 Route::get('column/merge','TableController@merging');

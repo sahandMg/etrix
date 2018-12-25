@@ -20,7 +20,9 @@ class RouteRedirectMiddleware
              $request->url() == 'http://localhost/login/google' ||
              $request->url() == 'http://localhost/api/user/login/google/callback' ||
              $request->url() == 'http://localhost/excel-import' ||
-             $request->url() == 'http://localhost/excel-export'
+             $request->url() == 'http://localhost/excel-export' ||
+             $request->url() == 'http://localhost/payment-gate' ||
+             $request->url() == 'http://localhost/payment-verify'
          ){
 
              return $next($request);

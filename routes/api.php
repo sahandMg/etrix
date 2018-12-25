@@ -14,12 +14,94 @@
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+use App\Common;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 Route::get('test',function (){
 
-    \App\Jobs\GetPrice::dispatch('10uF');
-
+//    $stop = 0;
+//    $parts = [];
+//    $this->keyword = '10uf';
+//    $start = Carbon::now();
+//    $partClass = Common::where('manufacturer_part_number','like',"%$this->keyword%")->get();
+//    $componentIds = $partClass->pluck('component_id');
+//    foreach($componentIds as $componentId){
+//        $productId = DB::table('components')->where('id',$componentId)->first()->product_id;
+//
+//        if($productId == 4 || $productId == 26){
+//            $recapsTable = 1;
+//        }
+//    }
+//    if(isset($recapsTable)){
+//        $recaps = DB::table('re_caps')->where('value','like',"%$this->keyword%")->get();
+//        $parts = $recaps->pluck('name');
+//    }else{
+//
+//        $parts = $partClass->pluck('manufacturer_part_number');
+//    }
+//
+//
+//    Log::info($parts);
+//
+//    for($i=0;$i<count($parts);$i++) {
+//        $output =[];
+//        $stop = 0;
+//        $path = public_path('storage/V1');
+//        $command = "cd $path && node index.js $parts[$i]";
+//
+//        Log::info("Searching for $parts[$i] ...");
+//        while ($stop == 0) {
+//
+//            exec($command, $output, $return);
+//
+//            if (count($output) != 0) {
+//                $stop = 1;
+//
+//            } elseif ($start->diffInSeconds(Carbon::now()) > 50) {
+//                $this->shopResp = '435';
+//                Log::warning("Get price status: $parts[$i]".' --> '.'435 ' .' search stopped ...');
+//                $stop = 1;
+//            }
+//        }
+//
+//        if($this->shopResp != '435') {
+//
+//            Log::warning($output[0]);
+//            if (isset($output) && $output[0] != 'not found') {
+//
+//
+//                if (count($parts) == 0) {
+//
+//                    $this->shopResp = '415';
+//                    Log::warning('Get price status:' . $parts[$i] . ' --> ' . '415');
+//                }
+//                $arr = explode(',',$output[0]);
+//                $price = $arr[0];
+//                if(isset($arr[1])&& sizeof($arr) > 0){
+//
+//                    $quantity = ceil($arr[1]/2);
+//                    $partClass[$i]->update(['quantity_available'=>$quantity]);
+//                }
+//                $partClass[$i]->update(['unit_price'=>$price]);
+//
+//                Log::warning("Get price status: 200");
+//            } elseif (isset($output) && $output[0] == 'not found') {
+//
+//                $this->shopResp = $parts[$i] . ' --> ' . '404';
+//                Log::warning('Get price status:' . $parts[$i] . ' --> ' . '404');
+//            } else {
+//                $this->shopResp = $output[0];
+//                Log::warning("Get price status: $output[0]");
+//            }
+//        }
+////
+////////                ------------------------------------------------
+//    }
+    \App\Jobs\GetPrice::dispatch('ne555');
+Log::info('Searching ?');
 });
 Route::post('/',function (){
 

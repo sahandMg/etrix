@@ -77,7 +77,7 @@ class GetPrice implements ShouldQueue
 
                 if (count($output) != 0) {
                     $stop = 1;
-                } elseif (Carbon::now()->diffInSeconds($start) > 5) {
+                } elseif ($start->diffInSeconds(Carbon::now()) > 5) {
                     $this->shopResp = '435';
                     Log::warning("Get price status: $parts[$i]".' --> '.'435 ' .' search stopped ...');
                     $stop = 1;
@@ -96,18 +96,24 @@ class GetPrice implements ShouldQueue
                     }
                     $arr = explode(',',$output[0]);
                     $price = $arr[0];
-                    if(isset($arr[1])){
+                    if(isset($arr[1])&& sizeof($arr) > 0){
 
-                        $quantity = $arr[1]/2;
-                        $partClass[$i]->update(['quantity_available'=>$quantity]);
+                        $quantity = ceil($arr[1]/2);
+//                        $partClass[$i]->update(['quantity_available'=>$quantity]);
+                        $partClass->orderBy('id','desc')->chunk(100,function ($queries) use($quantity,$price,$parts,$i){
+                            foreach ($queries as $query){
+                                $query->where('manufacturer_part_number',$parts[$i])->first()->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
+
+                            }
+                        });
                     }
-                    $partClass[$i]->update(['unit_price'=>$price]);
+//                    $partClass[$i]->update(['unit_price'=>$price]);
 
                     Log::warning("Get price status: 200");
                 } elseif (isset($output) && $output[0] == 'not found') {
 
-                    $this->shopResp = $parts[$i] . ' --> ' . '440';
-                    Log::warning('Get price status:' . $parts[$i] . ' --> ' . '440');
+                    $this->shopResp = $parts[$i] . ' --> ' . '404';
+                    Log::warning('Get price status:' . $parts[$i] . ' --> ' . '404');
                 } else {
                     $this->shopResp = $output[0];
                     Log::warning("Get price status: $output[0]");

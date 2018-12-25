@@ -16,4 +16,11 @@ class URls
     // path : UserController@handleProviderCallback
     static $googleLogin = 'http://localhost/google/';
     static $googleRedirect = 'http://localhost/googleLogin/';
+    // path : RouteRedirectMiddleware
+    static $myGoogleLogin = 'http://localhost/login/google';
+    static $myGoogleLoginCallback = 'http://localhost/api/user/login/google/callback';
+    static $excelImport = 'http://localhost/excel-import';
+    static $excelExport = 'http://localhost/excel-export';
+    static $gate = 'http://localhost/payment-gate';
+    static $verify = 'http://localhost/payment-verify';
 }

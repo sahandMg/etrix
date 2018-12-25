@@ -379,7 +379,7 @@ class SearchController extends Controller
                     //                return 420;
                     //            }
                     $this->type = '30';
-                    GetPrice::dispatch($keyword)->delay(2);
+                    GetPrice::dispatch($keyword);
 //                        -----------------------------
                     /*
                     * Create a breadcrumb

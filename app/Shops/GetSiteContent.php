@@ -105,7 +105,7 @@ class GetSiteContent
             return '0';
         }
 // -------------------------------------------------------
-            dd($this->flag);
+
         for($t=0;$t<count($this->resp);$t++){
 
                 $crawler[$t] = new Crawler($this->resp[$t]);
