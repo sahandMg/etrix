@@ -43,5 +43,8 @@ export default {
     get_cities_name: '/city', //get ?province=provinceName =>  cities name
     get_province_name: '/province', //  get province name
     get_products_category: '/subMenu',  //
-
+    // get_products_form_category: '/product-menu',  // /categoryMenu/subCategory
+    // get_products_form_category: '/categoryMenu',  // /categoryMenu/subCategory
+    get_products_form_category: '/subCategory', // localhost/api/subcategory-menu?subcategory=Clock_Buffers_Drivers&category=Clock_Timing&num=1
+    get_products_form_two_category: '/categoryMenu', // localhost/api/category-menu?category=Clock_Timing&num=1
 }
