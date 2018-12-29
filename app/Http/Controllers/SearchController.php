@@ -393,7 +393,7 @@ class SearchController extends Controller
 /*
  *      Add filters to search
  */
-                    if($request->has('filters') && $request->has('category') && !$request->has('order')){
+                    if($request->has('filters') && $request->has('category') && !$request->has('order') && !$request->has('subcategory')){
                         $result = $this->filterPart($request,$code,$keyword,$this->paginate);
                         if($result == 404){
                             return 'Incorrect Filter Name';
@@ -401,14 +401,54 @@ class SearchController extends Controller
                         return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
                     }
                     /*
-                     * Add sort to search
+                     * Filter with subcategory
                      */
-                     if($request->has('order') && $request->has('colName') && !$request->has('filters')){
+                    if($request->has('filters') && $request->has('category') && $request->has('subcategory')&& !$request->has('order')){
+                        $result = $this->filterPart($request,$code,$keyword,$this->paginate,$request->subcategory);
+                        if($result == 404){
+                            return 'Incorrect Filter Name';
+                        }
+                        $filters = FilterContent::Filters($models,collect($parts));
+                        $columns = $code->sendFilter($filters);
+
+                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
+                    }
+                    /*
+                     * Add sort + subcategory to search
+                     */
+                    if($request->has('order') && $request->has('colName') && $request->has('subcategory') && !$request->has('filters')){
 
                         $parts = $this->sort($request->all(),$parts);
                         $parts = $this->unsetPart($parts);
                         return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
 //                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+                    }
+
+                    /*
+                     * Add sort to search
+                     */
+                     if($request->has('order') && $request->has('colName') && !$request->has('subcategory') && !$request->has('filters')){
+
+                        $parts = $this->sort($request->all(),$parts);
+                        $parts = $this->unsetPart($parts);
+                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+//                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
+                    }
+                    /*
+                     * Add filter and sort + subcategory all to gather to search
+                     */
+                    if($request->has('order') && $request->has('colName') && $request->has('subcategory') && $request->has('filters')){
+
+                        $result = $this->filterPart($request,$code,$keyword,$this->paginate,$request->subcategory);
+                        if($result == 404){
+                            return 'Incorrect Filter Name';
+                        }
+
+                        $parts = $this->sort($request->all(),collect($result));
+                        $parts = $this->unsetPart($parts,200);
+                        $filters = FilterContent::Filters($models,collect($parts));
+                        $columns = $code->sendFilter($filters);
+                        return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
                     }
                     /*
                      * Add filter and sort all to gather to search
@@ -456,6 +496,8 @@ class SearchController extends Controller
 //                $parts[$t]->id,
                     $parts[$t]->component_id,
                     $parts[$t]->common_id,
+                    $parts[$t]->underlay_id,
+                    $parts[$t]->sub_category_id,
                     $parts[$t]->links,
                     $parts[$t]->product_id,
                     $parts[$t]->part_id,
@@ -500,7 +542,7 @@ class SearchController extends Controller
      * @param int $num
      * @return array|string
      */
-    public function filterPart($request, $code,$keyword, $num){
+    public function filterPart($request, $code,$keyword, $num , $subcategory=null){
 //
 
         /**
@@ -522,9 +564,8 @@ class SearchController extends Controller
 
             $filters[$filters_name[$i]] = $queries[$filters_name[$i]];
         }
+        $category = $request->category;
 
-        $component = $request->category;
-            $pagination = $num;
         /*
          * convert json to array
          */
@@ -535,17 +576,22 @@ class SearchController extends Controller
         */
 
         $filters = $code->getFilter($filters);
-
         if($filters == 404){
 
             return 404;
         }
+        if(is_null($subcategory)){
 
-        $component = DB::table('components')->where('slug','like',"%$component%")->first();
+            $component = DB::table('components')->where('name','like',"%$category%")->first();
+        }else{
+            $component = DB::table('components')->where('name','like',"%$subcategory%")->first();
+
+        }
 
         if($component == null ){
             return 410;
         }
+
 //        Create class path from class string name --> App\IC\PMIC_Display_Drivers
         $class = 'App\IC\\'.str_replace('-','_',$component->slug);
 //        Class Name --> PMIC_Display_Drivers
@@ -560,16 +606,16 @@ class SearchController extends Controller
 //        $common = DB::table('commons')->get();
         $common = DB::table('commons')
 //            ->where('part_number', 'like', "%$keyword%")
-            ->orWhere('manufacturer_part_number', 'like', "%$keyword%")
-            ->orWhere('manufacturer', 'like', "%$keyword%")->get();
+            ->where('manufacturer_part_number', 'like', "%$keyword%")->get();
+//            ->orWhere('manufacturer', 'like', "%$keyword%")->get();
             // ->orWhere('description', 'like', "%$keyword%")->get();
 
         $separate = DB::table($model->getTable())->get();
+//        ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->
         $cFlag = [];
         $sFlag = [];
 //    $result = [];
 //    $ids = [];
-
         for($i=0 ; $i < count($commonTableCols) ; $i++){
             for($t=0 ; $t<count($filters);$t++) {
 //  Checking filter keys with common table column names to findout whether the common table needs to be filtered or not
@@ -625,8 +671,11 @@ class SearchController extends Controller
 
             }
         }
+
         if($sFlag){
+
             for($i=0;$i<count($sFlag);$i++) {
+
 
                 if(count($filters[$sFlag[$i]]) > 1){
 
@@ -639,20 +688,25 @@ class SearchController extends Controller
                     }
                 }else{
                     for ($j = 0; $j < count($filters[$sFlag[$i]]); $j++) {
+
                         $separate = $separate->where($sFlag[$i], $filters[$sFlag[$i]][$j]);
                     }
                 }
 
             }
+
+
             $separate = array_values($separate->all());
+
             for($i=0;$i<count($separate);$i++){
-
-                $result[$i] = DB::table('commons')->where('id',$separate[$i]->common_id)->first()->id;
-
+                    $result[$i] = DB::table('commons')->where('id',$separate[$i]->common_id)
+                        ->get()->pluck('id')->toArray();
             }
         }
 
-        if (isset($ids)  && isset($result)) {
+        if (isset($ids)  && isset($result) && sizeof($result)>0) {
+            $result = array_filter($result);
+            $result = array_values($result);
             $sameIds = array_intersect($result, $ids);
 
         }elseif(isset($ids) && $sFlag == null){
@@ -664,6 +718,7 @@ class SearchController extends Controller
 
             return 415;
         }
+
         $sameIds = array_values($sameIds);
 
         for ($i = 0; $i < count($sameIds); $i++) {
@@ -703,14 +758,14 @@ class SearchController extends Controller
 
             for ($t = 0; $t < count($commonTableCols); $t++) {
 
-                if( count($parts) - 20*($pagination-1) > 20 ){
-                   $endPoint = 20*($pagination);
-               }else if( count($parts) - 20*($pagination-1) > 0){
+                if( count($parts) - 20*($this->paginate -1) > 20 ){
+                   $endPoint = 20*($this->paginate);
+               }else if( count($parts) - 20*($this->paginate-1) > 0){
                    $endPoint = count($parts);
                }else{
                    return 415;
                }
-                for ($i = 20*($pagination-1); $i < $endPoint ; $i++) {
+                for ($i = 20*($this->paginate -1); $i < $endPoint ; $i++) {
                     $colName = $commonTableCols[$t];
                     $cols[$commonTableCols[$t]][$i] = $parts[$i]->$colName;
                     $cols[$commonTableCols[$t]] = array_unique($cols[$commonTableCols[$t]]);
@@ -722,9 +777,9 @@ class SearchController extends Controller
                 }
             }
             for ($t = 0; $t < count($sepTableCols); $t++) {
-                if( count($parts) - 20*($pagination-1) > 20 ){
-                    $endPoint = 20*($pagination);
-                }else if( count($parts) - 20*($pagination-1) > 0){
+                if( count($parts) - 20*($this->paginate -1) > 20 ){
+                    $endPoint = 20*($this->paginate);
+                }else if( count($parts) - 20*($this->paginate-1) > 0){
                     $endPoint = count($parts);
                 }else{
                     return 415;
@@ -749,7 +804,7 @@ class SearchController extends Controller
                 $this->newFilter = $result;
                 unset($this->newFilter['unit_price']);
                 unset($this->newFilter['quantity_available']);
-                $parts = array_slice($parts,20*($pagination-1),20);
+                $parts = array_slice($parts,20*($this->paginate-1),20);
                 $parts = $this->unsetPart($parts);
                 return $parts;
             }
@@ -770,7 +825,8 @@ class SearchController extends Controller
         }
 
         $price = DB::table('commons')->where('manufacturer_part_number', $request->keyword)
-            ->select('manufacturer_part_number','unit_price')->first();
+            ->select('manufacturer_part_number','unit_price')->get();
+        dd($price);
         if($price == null){
             return 415;
         }
@@ -883,7 +939,13 @@ class SearchController extends Controller
          *  1) commonSort -> sort common table columns
          *  2) separateSort -> sort separate table columns
          */
-        $class = 'App\IC\\'.$request['category'];
+
+        if(isset($request['subcategory'])){
+            $request['category'] = $request['subcategory'];
+            $class = 'App\IC\\'.$request['subcategory'];
+        }else{
+            $class = 'App\IC\\'.$request['category'];
+        }
 
         $order = $request['order'];
         $model = new $class();
@@ -906,7 +968,6 @@ class SearchController extends Controller
         $rawModel = $request['category'];
         str_replace(' ','_',$rawModel);
         $class = 'App\IC\\'.$rawModel;
-
         $order = $request['order'];
         $model = new $class();
         $colName = $request['colName'];;
