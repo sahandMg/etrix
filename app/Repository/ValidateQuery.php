@@ -22,7 +22,7 @@ class ValidateQuery
     $errors = [];
             $validator = Validator::make($request->all(), [
 
-                'name' => 'bail|required|unique:users',
+                'name' => 'bail|required',
                 'email' => 'bail|required|email|unique:users',
                 'password' => 'bail|required|min:8',
 
