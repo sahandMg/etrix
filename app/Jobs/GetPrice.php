@@ -73,19 +73,19 @@ class GetPrice implements ShouldQueue
             Log::info("Searching for $parts[$i] ...");
 //            while ($stop == 0) {
 
-                exec($command, $output, $return);
+            exec($command, $output, $return);
 
-                if (count($output) != 0) {
-                    $stop = 1;
-                } elseif ($start->diffInSeconds(Carbon::now()) > 5) {
-                    $this->shopResp = '435';
-                    Log::warning("Get price status: $parts[$i]".' --> '.'435 ' .' search stopped ...');
-                    $stop = 1;
-                }
+            if (count($output) != 0) {
+                $stop = 1;
+            } elseif ($start->diffInSeconds(Carbon::now()) > 5) {
+                $this->shopResp = '435';
+                Log::warning("Get price status: $parts[$i]".' --> '.'435 ' .' search stopped ...');
+                $stop = 1;
+            }
 //            }
             if($this->shopResp != '435') {
 
-                Log::warning($output[0]);
+                Log::warning($output);
                 if (isset($output) && $output[0] != '404') {
 
 

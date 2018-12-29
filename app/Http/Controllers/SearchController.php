@@ -825,7 +825,7 @@ class SearchController extends Controller
         }
 
         $price = DB::table('commons')->where('manufacturer_part_number', $request->keyword)
-            ->select('manufacturer_part_number','unit_price')->get();
+            ->select('manufacturer_part_number','unit_price')->first();
         if($price == null){
             return 415;
         }
