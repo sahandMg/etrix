@@ -10,8 +10,8 @@
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('css/7.1198f13a.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('css/main.d7208f82.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/7.1198f13a.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.d7208f82.chunk.css')}}" rel="stylesheet">
     </head>
     <body>
      <div id="example">
@@ -182,8 +182,8 @@
             f()
         }([])
     </script>
-    <script src="{{ asset('js/7.c397faf3.chunk.js')}}"></script>
-    <script src="{{ asset('js/main.16a35e5b.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/7.c397faf3.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.16a35e5b.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
 
