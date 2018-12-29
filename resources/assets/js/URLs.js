@@ -1,8 +1,8 @@
 export default {
-    base_URL: 'http://localhost:80/api',
-    images_URL: 'http://localhost/storage/images/',
-    cm_image: 'http://localhost:80/',
-    datasheet_URL: 'http://localhost/storage/datasheets/',
+    base_URL: 'https://etrix.ir/api',
+    images_URL: 'https://etrix.ir/storage/images/',
+    cm_image: 'https://etrix.ir/',
+    datasheet_URL: 'https://etrix.ir/storage/datasheets/',
     home: '/home',
     get_more_content: '/more-content',
     get_videos: '/videos',
@@ -32,7 +32,7 @@ export default {
     user_get_bill: '/user/bill', // token , factor number => get bill
     user_logout: '/logout',
     user_login: '/user/login',
-    user_google_signup: 'http://localhost:80/login/google',
+    user_google_signup: 'https://etrix.ir/login/google',
     user_register: '/user/register',
     user_create_project: '/user/project/create', // token , name
     user_get_projects: '/user/project/read', //  token => projects
