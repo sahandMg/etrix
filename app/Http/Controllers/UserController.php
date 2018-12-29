@@ -74,7 +74,25 @@ class UserController extends Controller
 
             event(new UserRegister($user));
 
-            return '200';
+            try{
+
+                $token = Auth::guard('user')->attempt(['email'=> $request->email,'password'=>$request->password]);
+                if(!$token){
+
+                    return '404';
+                }
+
+            }
+            catch(JWTException $ex){
+
+                return '500';
+            }
+
+//        $user = JWTAuth::parseToken()->toUser();
+            $user = Auth::guard('user')->user();
+            $user->update(['token'=>$token]);
+            $user['role'] = null ;
+            return ['token'=>$token,'userData'=>$user];
         }
     }
 

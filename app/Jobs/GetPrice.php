@@ -86,7 +86,7 @@ class GetPrice implements ShouldQueue
             if($this->shopResp != '435') {
 
                 Log::warning($output[0]);
-                if (isset($output) && $output[0] != 'not found') {
+                if (isset($output) && $output[0] != '404') {
 
 
                     if (count($parts) == 0) {
@@ -97,7 +97,7 @@ class GetPrice implements ShouldQueue
                     $arr = explode(',',$output[0]);
                     $price = $arr[0];
                     if(isset($arr[1])&& sizeof($arr) > 0){
-
+                        Log::warning("Get price status: 200");
                         $quantity = round($arr[1]*0.8);
                         $partClass[$i]->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
 //                        $partClass->orderBy('id','desc')->chunk(100,function ($queries) use($quantity,$price,$parts,$i){
@@ -109,8 +109,8 @@ class GetPrice implements ShouldQueue
                     }
 //                    $partClass[$i]->update(['unit_price'=>$price]);
 
-                    Log::warning("Get price status: 200");
-                } elseif (isset($output) && $output[0] == 'not found') {
+
+                } elseif (isset($output) && $output[0] == '404') {
 
                     $this->shopResp = $parts[$i] . ' --> ' . '404';
                     Log::warning('Get price status:' . $parts[$i] . ' --> ' . '404');
