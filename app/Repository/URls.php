@@ -21,6 +21,10 @@ class URls
     static $myGoogleLoginCallback = 'https://etrix.ir/api/user/login/google/callback';
     static $excelImport = 'http://localhost/excel-import';
     static $excelExport = 'http://localhost/excel-export';
+    //path PaymentController
     static $gate = 'https://etrix.ir/payment-gate';
     static $verify = 'https://etrix.ir/credit-verify';
+    static $truePayment = 'https://etrix.ir/User/buy/completed';
+    static $falsePayment = 'https://etrix.ir/User/buy/Uncompleted';
+
 }

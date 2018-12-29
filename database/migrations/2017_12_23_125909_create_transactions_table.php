@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('refId')->nullable();
             $table->string('completed')->nullable();
             $table->text('authority')->nullable();
+            $table->string('order_number')->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });
