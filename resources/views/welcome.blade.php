@@ -183,7 +183,7 @@
         }([])
     </script>
     <script src="{{ asset('static/js/7.c397faf3.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.16a35e5b.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.efa0d9b5.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
 
