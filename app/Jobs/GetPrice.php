@@ -71,7 +71,7 @@ class GetPrice implements ShouldQueue
             $command = "cd $path && node index.js $parts[$i]";
 
             Log::info("Searching for $parts[$i] ...");
-            while ($stop == 0) {
+//            while ($stop == 0) {
 
                 exec($command, $output, $return);
 
@@ -82,7 +82,7 @@ class GetPrice implements ShouldQueue
                     Log::warning("Get price status: $parts[$i]".' --> '.'435 ' .' search stopped ...');
                     $stop = 1;
                 }
-            }
+//            }
             if($this->shopResp != '435') {
 
                 Log::warning($output[0]);
@@ -98,14 +98,14 @@ class GetPrice implements ShouldQueue
                     $price = $arr[0];
                     if(isset($arr[1])&& sizeof($arr) > 0){
 
-                        $quantity = ceil($arr[1]/2);
-//                        $partClass[$i]->update(['quantity_available'=>$quantity]);
-                        $partClass->orderBy('id','desc')->chunk(100,function ($queries) use($quantity,$price,$parts,$i){
-                            foreach ($queries as $query){
-                                $query->where('manufacturer_part_number',$parts[$i])->first()->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
-
-                            }
-                        });
+                        $quantity = round($arr[1]*0.8);
+                        $partClass[$i]->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
+//                        $partClass->orderBy('id','desc')->chunk(100,function ($queries) use($quantity,$price,$parts,$i){
+//                            foreach ($queries as $query){
+//                                $query->where('manufacturer_part_number',$parts[$i])->first()->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
+//
+//                            }
+//                        });
                     }
 //                    $partClass[$i]->update(['unit_price'=>$price]);
 

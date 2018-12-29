@@ -39,11 +39,12 @@ class PaymentGateController extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            if ($result["Status"] == 100) {
+            if ($result["Status"] == '100' ) {
                 $transaction = new Transaction();
                 $transaction->user_id = 1;
-                $transaction->price = $request->totalPrice;
+                $transaction->price = $data['Amount'];
                 $transaction->authority = $result['Authority'];
+                $transaction->status = $result['Status'];
                 $transaction->save();
                 header('Location: https://www.zarinpal.com/pg/StartPay/' . $result["Authority"]);
             } else {
@@ -69,7 +70,7 @@ class PaymentGateController extends Controller
 //            }
 //        }
         $transaction = Transaction::where('user_id',1)->orderBy('created_at','decs')->first();
-        $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be', 'Authority' => $Authority, 'Amount'=>$transaction->money);
+        $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be', 'Authority' => $Authority, 'Amount'=>$transaction->price);
 
         $jsonData = json_encode($data);
         $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json');
@@ -88,7 +89,7 @@ class PaymentGateController extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            if ($result['Status'] == 100) {
+            if ($result['Status'] == '100') {
                 //echo 'Transation success. RefID:' . $result['RefID'];
 
                 $transaction->completed = 1;
@@ -135,6 +136,10 @@ class PaymentGateController extends Controller
                         $transaction->delete();
                         return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
                         break;
+                    case '-11':
+                        $transaction->delete();
+                        return ['body'=>'درخواست مورد نظر یافت نشد','code'=>404];
+                        break;
 
                     case '-12':
                         $transaction->delete();
@@ -151,8 +156,8 @@ class PaymentGateController extends Controller
                         return ['body'=>'درخواست مورد نظر آرشيو شده است','code'=>404];
                         break;
 
-
                 }
+
                 $transaction->delete();
                 return ['Error'=>'تراکنش ناموفق بود','code'=>404];
 

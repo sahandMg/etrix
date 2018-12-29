@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('test',function (){
 
@@ -100,8 +101,9 @@ Route::get('test',function (){
 ////
 ////////                ------------------------------------------------
 //    }
-    \App\Jobs\GetPrice::dispatch('ne555');
-Log::info('Searching ?');
+
+    return 200;
+
 });
 Route::post('/',function (){
 

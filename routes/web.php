@@ -538,7 +538,7 @@ Route::get('ldimage',function (){
 
 Route::get('login/google',['uses'=>'UserController@redirectToProvider'])->name('googleLogin');
 
-Route::get('payment-gate','PaymentGateController@Gate');
+Route::get('payment-gate','PaymentGateController@Gate')->name('gateway');
 Route::get('credit-verify',['as'=>'paymentVerify','uses'=>'PaymentGateController@verify']);
 /*
  * This routes are using for getting all column names and

@@ -12,13 +12,13 @@ namespace App\Repository;
 class URls
 {
 // path : CmController@image
-    static $image = 'http://localhost:80/ContentManagerPanel/images';
+    static $image = 'https://etrix.ir/ContentManagerPanel/images';
     // path : UserController@handleProviderCallback
-    static $googleLogin = 'http://localhost/google/';
-    static $googleRedirect = 'http://localhost/googleLogin/';
+    static $googleLogin = 'https://etrix.ir/google/';
+    static $googleRedirect = 'https://etrix.ir/googleLogin/';
     // path : RouteRedirectMiddleware
-    static $myGoogleLogin = 'http://localhost/login/google';
-    static $myGoogleLoginCallback = 'http://localhost/api/user/login/google/callback';
+    static $myGoogleLogin = 'https://etrix.ir/login/google';
+    static $myGoogleLoginCallback = 'https://etrix.ir/api/user/login/google/callback';
     static $excelImport = 'http://localhost/excel-import';
     static $excelExport = 'http://localhost/excel-export';
     static $gate = 'https://etrix.ir/payment-gate';

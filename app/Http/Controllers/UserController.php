@@ -67,6 +67,7 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
+            $user->remember_token = str_random(20);
 //        $user->reset_password = str_shuffle("ajleyqwncx3497");
 //        $user->avatar = 'Blank100*100.png';
             $user->save();
@@ -128,16 +129,13 @@ class UserController extends Controller
 
 //        $token = Auth::guard('user')->login($user);
 //        $user->update(['token'=>$token]);
-            /**
-             * TODO change this url on server
-             */
+
             $google = URls::$googleLogin;
             return redirect($google. $user->token);
 //        return  UserGoogleRegister::googleRegister();
         }else{
-                $token = Auth::guard('user')->login($user);
-                $user->update(['token'=>$token]);
-            //TODO this url should be changed and logged in user token will be sent over url
+            $token = Auth::guard('user')->login($user);
+            $user->update(['token'=>$token]);
             $redirect = URls::$googleRedirect;
             return redirect($redirect. $user->token);
         }

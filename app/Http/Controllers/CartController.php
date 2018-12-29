@@ -7,6 +7,7 @@ use App\Cart;
 use App\Address;
 use App\Exports\CartsExport;
 use App\Imports\CartsImport;
+use App\Repository\URls;
 use App\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -623,7 +624,7 @@ class CartController extends Controller
     ];
     }
 /*
- * proccess bom and redirects to payment gateway
+ * process bom and redirects to payment gateway
  *
  * Required Params => token, totalPrice
  */
@@ -651,12 +652,15 @@ class CartController extends Controller
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$request->totalPrice]);
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
-        return  ['body'=>'ok',
-            'code'=>200
-        ] ;
+//        return  ['body'=>'ok',
+//            'code'=>200
+//        ] ;
         /*
-         * redirect to gateway
-         */
+        * redirect to gateway
+        */
+        $urls = new URls();
+        return redirect($urls::$gate);
+
 
     }
     protected function availability($num = null){
