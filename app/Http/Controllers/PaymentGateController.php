@@ -113,6 +113,7 @@ class PaymentGateController extends Controller
 //                    'code' => '200'
 //                ];
                 $url = URls::$truePayment.'/'.$bom->order_number;
+                $bom->update(['status'=>50]);
                 return redirect($url);
 
             } else {
