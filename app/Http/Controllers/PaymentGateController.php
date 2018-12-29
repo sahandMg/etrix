@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Bom;
+use App\Repository\URls;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaymentGateController extends Controller
 {
@@ -15,11 +18,16 @@ class PaymentGateController extends Controller
 
     public function Gate(Request $request){
 
-
+        $user = DB::table('users')->where('token',$request->token)->first();
+        if(is_null($user)){
+            return '320';
+        }
+        $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
+        $price = $bom->price;
         $MerchantID = 'ed8eea3e-068c-11e9-9efd-005056a205be'; //Required
         $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
-            'Amount' => 1000,
-            'Email' => 's23.moghadam@gmail.com',
+            'Amount' => $price,
+            'Email' => $user->email,
             'CallbackURL' => "https://etrix.ir/credit-verify",
             'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی');
         $jsonData = json_encode($data);
@@ -41,7 +49,8 @@ class PaymentGateController extends Controller
         } else {
             if ($result["Status"] == '100' ) {
                 $transaction = new Transaction();
-                $transaction->user_id = 1;
+                $transaction->user_id = $user->id;
+                $transaction->order_number = $bom->order_number;
                 $transaction->price = $data['Amount'];
                 $transaction->authority = $result['Authority'];
                 $transaction->status = $result['Status'];
@@ -69,7 +78,9 @@ class PaymentGateController extends Controller
 //
 //            }
 //        }
-        $transaction = Transaction::where('user_id',1)->orderBy('created_at','decs')->first();
+        $transaction = Transaction::where('authority',$Authority)->orderBy('id','decs')->first();
+        $user = DB::table('users')->where('id',$transaction->user_id)->first();
+        $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
         $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be', 'Authority' => $Authority, 'Amount'=>$transaction->price);
 
         $jsonData = json_encode($data);
@@ -87,7 +98,7 @@ class PaymentGateController extends Controller
         curl_close($ch);
         $result = json_decode($result, true);
         if ($err) {
-            echo "cURL Error #:" . $err;
+            return "cURL Error #:" . $err;
         } else {
             if ($result['Status'] == '100') {
                 //echo 'Transation success. RefID:' . $result['RefID'];
@@ -95,71 +106,64 @@ class PaymentGateController extends Controller
                 $transaction->completed = 1;
                 $transaction->refId = $result['RefID'];
                 $transaction->save();
-//                $credit = Auth::user()->credit;
-//                Auth::user()->update(['credit' => $transaction->money + $credit]);
 
-//                if(isset(Url::where('ip',request()->ip())->first()->pageUrl)){
-//                    $page = Url::where('ip',request()->ip())->first()->pageUrl;
-//                    Url::where('ip',request()->ip())->first()->delete();
-//                    return redirect($page)->with(['message'=>'اعتبار شما با موفقیت افزایش یافت']);
-//                }else{
-//                    return redirect()->route('home');
-//                }
 
-                return [
-                    'body'=>'عملیات پرداخت با موفقیت انجام شد',
-                    'code' => '200'
-                ];
-
+//                return [
+//                    'body'=>'عملیات پرداخت با موفقیت انجام شد',
+//                    'code' => '200'
+//                ];
+                $url = URls::$truePayment.'/'.$bom->order_number;
+                return redirect($url);
 
             } else {
 // echo 'Transation failed. Status:' . $result['Status'];
 //	return redirect()->route('credit',['username'=>$request->username])->with(['Error'=>'تراکنش موفقیت آمیز نبود']);
-                switch($result['Status']){
-
-                    case 'NOK':
-                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
-                        break;
-
-                    case '-33':
-
-                        $transaction->delete();
-                        return ['body'=>'رقم تراكنش با رقم پرداخت شده مطابقت ندارد','code'=>404];
-                        break;
-
-                    case '-22':
-                        $transaction->delete();
-                        return ['body'=>'تراكنش نا موفق مي باشد','code'=>404];
-                        break;
-
-                    case '-21':
-                        $transaction->delete();
-                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
-                        break;
-                    case '-11':
-                        $transaction->delete();
-                        return ['body'=>'درخواست مورد نظر یافت نشد','code'=>404];
-                        break;
-
-                    case '-12':
-                        $transaction->delete();
-                        return ['body'=>'امكان ويرايش درخواست ميسر نمي باشد','code'=>404];
-                        break;
-
-                    case '-3':
-                        $transaction->delete();
-                        return ['body'=>'با توجه به محدوديت هاي شاپرك امكان پرداخت با رقم درخواست شده ميسر نمي باشد','code'=>404];
-                        break;
-
-                    case '-54':
-                        $transaction->delete();
-                        return ['body'=>'درخواست مورد نظر آرشيو شده است','code'=>404];
-                        break;
-
-                }
+//                switch($result['Status']){
+//
+//                    case 'NOK':
+//                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
+//                        break;
+//
+//                    case '-33':
+//
+//                        $transaction->delete();
+//                        return ['body'=>'رقم تراكنش با رقم پرداخت شده مطابقت ندارد','code'=>404];
+//                        break;
+//
+//                    case '-22':
+//                        $transaction->delete();
+//                        return ['body'=>'تراكنش نا موفق مي باشد','code'=>404];
+//                        break;
+//
+//                    case '-21':
+//                        $transaction->delete();
+//                        return ['body'=>'هيچ نوع عمليات مالي براي اين تراكنش يافت نشد￼','code'=>404];
+//                        break;
+//                    case '-11':
+//                        $transaction->delete();
+//                        return ['body'=>'درخواست مورد نظر یافت نشد','code'=>404];
+//                        break;
+//
+//                    case '-12':
+//                        $transaction->delete();
+//                        return ['body'=>'امكان ويرايش درخواست ميسر نمي باشد','code'=>404];
+//                        break;
+//
+//                    case '-3':
+//                        $transaction->delete();
+//                        return ['body'=>'با توجه به محدوديت هاي شاپرك امكان پرداخت با رقم درخواست شده ميسر نمي باشد','code'=>404];
+//                        break;
+//
+//                    case '-54':
+//                        $transaction->delete();
+//                        return ['body'=>'درخواست مورد نظر آرشيو شده است','code'=>404];
+//                        break;
+//
+//                }
 
                 $transaction->delete();
-                return ['Error'=>'تراکنش ناموفق بود','code'=>404];
+                return redirect(URls::$falsePayment.'/'.$bom->order_number);
+//                return ['Error'=>'تراکنش ناموفق بود','code'=>404];
 
             }
         }

@@ -652,14 +652,14 @@ class CartController extends Controller
         Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>Cache::get('totalPrice')]);
 //        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
-        return  ['body'=>'ok',
-            'code'=>200
-        ] ;
+//        return  ['body'=>'ok',
+//            'code'=>200
+//        ] ;
         /*
         * redirect to gateway
         */
         $urls = new URls();
-        return redirect($urls::$gate);
+        return redirect($urls::$gate.'?'.'token='.$request->token);
 
 
     }
