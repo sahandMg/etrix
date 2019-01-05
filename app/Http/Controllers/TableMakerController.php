@@ -210,6 +210,7 @@ class TableMakerController extends Controller
     public function separate(){
         ini_set('memory_limit', '1024M');
 //        print_r(phpinfo());
+
         $models = DB::table('components')->get()->pluck('name');
 
             $path = "/imports/newCSVs_previously Added to CSV result";

@@ -102,12 +102,19 @@ Route::get('test',function (){
 ////////                ------------------------------------------------
 //    }
 
-    return 200;
+    dd(phpinfo());
 
 });
 Route::post('/',function (){
 
 });
+/*
+ * Emenu Code Generator
+ */
+Route::get('emenu/{code}','PageController@checkMe');
+
+
+
 
 Route::post('more-content/{category?}','PageController@moreContent');
 Route::get('videos','PageController@Videos');

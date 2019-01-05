@@ -12,19 +12,19 @@ namespace App\Repository;
 class URls
 {
 // path : CmController@image
-    static $image = 'https://etrix.ir/ContentManagerPanel/images';
+    static $image = 'http://etrix.ir/ContentManagerPanel/images';
     // path : UserController@handleProviderCallback
-    static $googleLogin = 'https://etrix.ir/google/';
-    static $googleRedirect = 'https://etrix.ir/googleLogin/';
+    static $googleLogin = 'http://etrix.ir/google/';
+    static $googleRedirect = 'http://etrix.ir/googleLogin/';
     // path : RouteRedirectMiddleware
-    static $myGoogleLogin = 'https://etrix.ir/login/google';
+    static $myGoogleLogin = 'http://etrix.ir/login/google';
     static $myGoogleLoginCallback = 'https://etrix.ir/api/user/login/google/callback';
     static $excelImport = 'http://localhost/excel-import';
     static $excelExport = 'http://localhost/excel-export';
     //path PaymentController
-    static $gate = 'https://etrix.ir/payment-gate';
-    static $verify = 'https://etrix.ir/credit-verify';
-    static $truePayment = 'https://etrix.ir/User/buy/completed';
-    static $falsePayment = 'https://etrix.ir/User/buy/Uncompleted';
+    static $gate = 'http://etrix.ir/payment-gate';
+    static $verify = 'http://etrix.ir/credit-verify';
+    static $truePayment = 'http://etrix.ir/User/buy/completed';
+    static $falsePayment = 'http://etrix.ir/User/buy/Uncompleted';
 
 }

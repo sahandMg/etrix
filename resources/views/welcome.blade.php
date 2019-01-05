@@ -7,6 +7,7 @@
         <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
             <meta name="description"
                   content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
+        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

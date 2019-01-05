@@ -27,9 +27,22 @@ class SearchController extends Controller
     public $newFilter;
 
 
-
+/*
+ * All Params : keyword,num,category,subcategory,filter,order
+ */
+    /*
+        *  Required Prams => keyword
+        *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
+        *  Required Prams for filter => filter , category
+        *  Required Params for sort => order ,category ,num
+        */
     public function SearchPartComp2(ColumnCode $code,Request $request){
 //Integrated_Circuits_ICs
+/*
+ *  Check if search has keyword and category = all
+ *  Check if search has keyword and category!=all
+ *  Check if
+ */
         $keyword = str_replace(' ','_',$request->keyword);
         $product = str_replace(' ','_',$request->category);
         if(is_null($request->num)){

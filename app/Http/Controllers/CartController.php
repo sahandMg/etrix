@@ -25,7 +25,7 @@ class CartController extends Controller
      * @internal param Request $request
      */
     public $cart = [];
-
+    public $delivery = 10000;
     public function __construct()
     {
         $this->middleware('guest');
@@ -139,6 +139,7 @@ class CartController extends Controller
                 $bom = new Bom();
                 $bom->status = 0;
                 $bom->user_id =  Auth::guard('user')->id();
+                $bom->delivery = $this->delivery;
                 $bom->price = 0;
                 $bom->order_number = rand(100,10000);
                 $bom->save();
@@ -148,6 +149,7 @@ class CartController extends Controller
             $bom->status = 0;
             $bom->user_id =  Auth::guard('user')->id();
             $bom->price = 0;
+            $bom->delivery = $this->delivery;
             $bom->order_number = rand(100,10000);
             $bom->save();
         }
@@ -407,6 +409,7 @@ class CartController extends Controller
 
             $bom = new Bom();
             $bom->status = 0;
+            $bom->delivery = $this->delivery;
             $bom->order_number = rand(100,10000);
             $bom->save();
             session()->put(['guestBom'=>$bom]);

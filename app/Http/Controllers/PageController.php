@@ -22,6 +22,31 @@ class PageController extends Controller
 {
     public $info = 10;
 
+    public function checkMe($code=null){
+
+        if(is_null($code)){
+            return 'null code';
+        }else{
+
+
+            $randomNumber = $code;
+            $cipher = "aes-128-gcm";
+            $key1 = "sahand";
+            $key2 = "mohammad";
+            if (in_array($cipher, openssl_get_cipher_methods()))
+            {
+                $ivlen = openssl_cipher_iv_length($cipher);
+                $ciphertext = openssl_encrypt($randomNumber, $cipher, $key1, $options=0, $key1, $tag);
+                $ciphertext2 = openssl_encrypt($randomNumber, $cipher, $key2, $options=0, $key2, $tag);
+                return ['key'=>$randomNumber,'trial'=>$ciphertext,'original'=>$ciphertext2];
+
+            }
+
+        }
+
+    }
+
+
     public function home($category=null,Request $request){
 
       $contents = Brief::orderBy('id','desc')->get()->take($this->info);
