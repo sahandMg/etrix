@@ -31,7 +31,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script>
+     <script>
         ! function(i) {
             function e(e) {
                 for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
@@ -188,7 +188,7 @@
         }([])
     </script>
     <script src="{{ asset('static/js/9.9a7ae88e.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.70068d2f.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.1a3c2128.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
 
