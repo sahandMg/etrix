@@ -32,23 +32,6 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script>
-        var ViewModel = function(t, i, n, e) {
-            this.Quantity = ko.observable(t), this.Inventory = ko.observable(i), this.SaleRatio = ko.observable(n), this.InstantQuantity = ko.observable(e), this.SaleRatioFake = ko.pureComputed(function() {
-                isNaN(this.Quantity()) || this.Quantity();
-                var t = isNaN(this.Inventory()) ? 0 : this.Inventory(),
-                    i = 0;
-                return i = (isNaN(this.InstantQuantity()) || "" === this.InstantQuantity() ? 0 : this.InstantQuantity()).toString() !== t.toString() ? this.SaleRatio() : 1, isNaN(i) ? "" : i
-            }, this), this.OrderQuantity = ko.pureComputed(function() {
-                var t = isNaN(this.Quantity()) ? 0 : this.Quantity(),
-                    i = isNaN(this.InstantQuantity()) || "" === this.InstantQuantity() ? 0 : this.InstantQuantity(),
-                    n = isNaN(this.Inventory()) ? 0 : this.Inventory(),
-                    e = 0;
-                return e = n < t ? (i = n, new BigNumber(t).minus(new BigNumber(i))) : (i = t, 0), $("#InstantQuantity").val(i).change(), t <= n ? $("#SaleMOQOrder").val(0) : $("#SaleMOQOrder").val($("#SaleMOQOrderTemp").val()), $("#Quantity").val() == 1 * $("#SaleMOQExpositive").val() ? $("#pricing_require").slideUp() : $("#pricing_require").slideDown(), 0 < e ? $("#require_order").slideDown() : $("#require_order").slideUp(), e = isNaN(e) ? 0 : e <= 0 ? 0 : e
-            }, this)
-        };
-        ko.cleanNode($("#CreateShoppingCarts")[0]), ko.applyBindings(new ViewModel(1, 103, 1, 1), $("#CreateShoppingCarts")[0])
-    </script>
-    <script>
         ! function(i) {
             function e(e) {
                 for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
@@ -204,7 +187,7 @@
             f()
         }([])
     </script>
-    <script src="{{ asset('static/js/9.9a7ae88e.chunkjs')}}"></script>
+    <script src="{{ asset('static/js/9.9a7ae88e.chunk.js')}}"></script>
     <script src="{{ asset('static/js/main.70068d2f.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
