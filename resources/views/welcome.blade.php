@@ -188,7 +188,7 @@
         }([])
     </script>
     <script src="{{ asset('static/js/9.9a7ae88e.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.1a3c2128.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.a8ef918b.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
 
