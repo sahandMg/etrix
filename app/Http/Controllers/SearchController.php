@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 
 
+use App\Common;
 use App\Jobs\GetPrice;
 use App\Product;
 use App\Repository\ColumnCode;
 use App\Repository\FilterContent;
 use App\SubCategory;
 use App\Underlay;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
@@ -25,11 +27,17 @@ class SearchController extends Controller
     public $shopResp = null;
     public $ColsCode;
     public $newFilter;
+    public $searchHelper;
 
 
-/*
- * All Params : keyword,num,category,subcategory,filter,order
- */
+    public function __construct()
+    {
+        $this->searchHelper = new SearchHelper();
+
+    }
+    /*
+     * All Params : keyword,num,category,subcategory,filter,order
+     */
     /*
         *  Required Prams => keyword
         *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
@@ -51,116 +59,29 @@ class SearchController extends Controller
 
             $this->paginate = $request->num;
         }
-        $redis = Redis::connection();
 
         /*
-         *  if Category is not null
+         * if keyword sent in request is null
+         * this state happens just in case of selecting a category without any keyword searching
+         * return the subcategories of the selected product
          */
 
-        if($product != 'all'){
-            $redis->set('product',$product);
-            $resp = $this->productMenu();
-            return $resp;
+        if(is_null($request->keyword) && $product != 'all'){
+
+            return $this->searchHelper->getSubcategories($product);
+        }elseif(is_null($request->keyword) && $product == 'all'){
+
+            return $this->searchHelper->getAllCategories();
+        }elseif(!is_null($request->keyword) && $product == 'all'){
+
+        }else{
+
         }
 
-        else{
-/*
- *          Find keyword in products table
- */
-            $redis->del('type');
-            $product = DB::table('products')->where('product_name', 'like', "%$keyword%")
-                ->join('components', 'components.product_id', '=', 'products.id')
-                ->skip(($this->skip * ($this->paginate -1)) )->take($this->skip)->get()->pluck('product_name');
-            if($product->isNotEmpty()){
-                $redis->set('type',10);
-                $type = $redis->get('type');
-                return [$type, array_unique($product->toArray())];
-            }
-            /*
-             * Find keyword in components table
-             */
-            elseif ($redis->get('type') != 10){
-
-                $components = DB::table('components')->where('name', 'like', "%$keyword%")->get();
-                if($components->isNotEmpty()){
-                    $componentsNames = $components->pluck('name');
-                    foreach ($componentsNames as $component){
-
-                        $component = str_replace('_',' ',$component);
-                        $redis->sadd('componentsName',$component);
-                    }
-                    $redis->set('type',20);
-                    $type = $redis->get('type');
-                    return [$type,$redis->smembers('componentsName')];
-                }
-            }
-
-            /*
-             * Find keyword in commons table
-             * get parts model from component_id
-             */
-
-            $commons = DB::table('commons')->where('manufacturer_part_number','like',"%$keyword%")->get();
-            /*
-             * lets find the verity of component_id in commons
-             */
-            $redis->sadd('componentID',$commons->pluck('component_id')->toArray());
-
-            /*
-             * if count of componentID is more than 1 , just return related component names
-             */
-
-            if(sizeof($redis->smembers('componentID')) > 1){
-
-                $componentIDs = $redis->smembers('componentID');
-
-                for($i=0 ; $i<count($componentIDs);$i++){
-
-                    $redis->sadd('componentsName',DB::table('components')->where('id',$componentIDs[$i])->first()->name);
-
-                }
-
-                return ['type'=>10,$redis->smembers('componentsName')];
-
-            }
-            else{
-
-                if($commons->isNotEmpty()){
-                    $componentId = $redis->smembers('componentID');
-                    $componentName = DB::table('components')->where('id',$componentId)->get()->pluck('name');
-                    if($componentName->isEmpty()){
-                        return 'component name not found';
-                    }
-                    /*
-                     * Make a model from component name
-                     */
-                    $rawName = 'App\IC\\'.$componentName->toArray()[0];
-                    $modelInstance = new $rawName;
-                    /*
-                     * Joining rest of tables to commons
-                     */
-                    $modelTable = $modelInstance->getTable();
-
-                    foreach ($commons as $key => $common){
-                        $result[$key] = DB::table($modelTable)->where('common_id',$common->id)->first();
-
-                    }
-                    $redis->lpush('restSearch',$result);
-                    $redis->lpush('commonsObject',$commons->toJson());
-
-
-
-                }
-
-            }
-
-
-
-            return $redis->get('type');
-        }
 
 
     }
+
 
     /*
      *  Required Prams => keyword
@@ -245,7 +166,7 @@ class SearchController extends Controller
                     ->join($models->getTable(), $models->getTable() . '.' . 'common_id', '=', 'commons.id')
 //                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
                     ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get();
-                    
+
                 if (isset($components) && $components->count() > 0) {
 
                     $filters = FilterContent::Filters($models, $components);
@@ -281,14 +202,14 @@ class SearchController extends Controller
                 $c = null;
             for ($i = 0; $i < count($part); $i++) {
                 $table = DB::table('components')->where('id', $part[$i]->component_id)->first();
-                
+
                 if($table === null){
                     return 410;
                 }
                 $cName[$i] = $table->slug;
                 $temp = DB::table('components')->where('components.id', $part[$i]->component_id)
                     ->join('products','products.id','=','components.product_id')->first();
-            
+
                 if($temp == null){
                     return 410;
                 }
@@ -325,23 +246,23 @@ class SearchController extends Controller
                             $cName[$i] = str_replace('-', '_', $cName[$i]);
                             $models[$i] = 'App\IC\\' . $cName[$i];
                             $models[$i] = new $models[$i]();
-                            
+
                         }
 
 
                     }
-                    
-                        
+
+
 
             }
-            
+
             if (!isset($cName) && !isset($models)) {
                 return 420;
             }
-        
+
             $models = collect($models)->unique();
             $models = $models->values();
-            
+
             if (count($models) == 1) {
                 $models = $models [0];
                 $parts = DB::table('commons')
@@ -353,7 +274,7 @@ class SearchController extends Controller
 //                    ->join('persian_names', 'persian_names.component_id', '=', 'components.id')
                     ->join($models->getTable(), $models->getTable() . '.' . 'common_id', '=', 'commons.id')
                     ->skip(($this->skip * ($this->paginate - 1)))->take($this->skip)->get();
-                    
+
                 $names = $parts->pluck('names')->toArray();
                 $tableCols = Schema::getColumnListing($models->getTable());
                 array_shift($tableCols);
@@ -366,7 +287,7 @@ class SearchController extends Controller
                     $names = unserialize($names[0]);
 //
                 }
-                
+
                 if (!isset($parts) || $parts->isEmpty()) {
 
                     return 415;
@@ -397,7 +318,7 @@ class SearchController extends Controller
                     /*
                     * Create a breadcrumb
                     */
-                    
+
                     $breadCrumb = DB::table('components')->where('components.slug',$parts[0]->slug)
                         ->join('products','components.product_id','=','products.id')->select('name','product_name')->get();
                     $breadCrumb = $breadCrumb[0];
@@ -491,7 +412,7 @@ class SearchController extends Controller
                 $this->type = 50;
                 $arr = [];$dups = [];$subcat=[];$subcat2=[];
                 $cName2 = array_values($cName2);
-        
+
                 return [$this->type ,$cName2];
             }
         }
@@ -1406,5 +1327,29 @@ class SearchController extends Controller
 
     }
 
+/*
+ *  gets keyword with number and price and update the records in commons table
+ *  Required Params => keyword,price,num
+ */
 
+    public function updatePrice(Request $request){
+
+        if(!$request->has('price') || !$request->has('num') || !$request->has('keyword')){
+
+            return 'not sufficient params';
+        }else{
+            $price = $request->has('price');
+            $quantity = $request->has('num');
+            $keyword = $request->has('keyword');
+
+            $part = Common::where('manufacturer_part_number',$keyword)->first();
+            if(is_null($part)){
+
+                return $keyword.' not found in database';
+            }
+
+            $part->update(['quantity_available'=>$quantity,'unit_price'=>$price]);
+                return 200;
+        }
+    }
 }

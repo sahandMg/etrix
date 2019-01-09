@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Stevebauman\Location\Facades\Location;
 
 Route::get('test',function (){
 
@@ -102,7 +103,8 @@ Route::get('test',function (){
 ////////                ------------------------------------------------
 //    }
 
-    dd(phpinfo());
+    return  dd(Location::get('88.234.174.10')->countryCode);
+
 
 });
 Route::post('/',function (){
@@ -113,7 +115,7 @@ Route::post('/',function (){
  */
 Route::get('emenu/{code}','PageController@checkMe');
 
-
+Route::get('json','PartController@makeJson');
 
 
 Route::post('more-content/{category?}','PageController@moreContent');
@@ -212,7 +214,7 @@ Route::post('logout','AuthController@logout')->name('logout');
     Route::get('subMenu','SearchController@subMenu');
     // -------------------------------  Getting price from shops  -----------------------------------
     Route::post('get-price','SearchController@getPrice');
-
+    Route::get('update-price','SearchController@updatePrice');
 // -------------------------------  Getting price from shops  -----------------------------------
     Route::post('get-quantity','SearchController@getQuantity');
     // -------------------------------  Searching with filter  -----------------------------------

@@ -22,6 +22,7 @@
         "phpoffice/phpspreadsheet": "^1.5",
         "predis/predis": "^1.1",
         "silber/page-cache": "^1.0",
+        "stevebauman/location": "^3.0",
         "symfony/dom-crawler": "^4.0",
         "symfony/psr-http-message-bridge": "^1.0",
         "tymon/jwt-auth": "dev-develop",

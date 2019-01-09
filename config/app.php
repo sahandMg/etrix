@@ -163,7 +163,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Silber\PageCache\LaravelServiceProvider::class,
         Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
-        App\Providers\MyServiceProvider::class
+        App\Providers\MyServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class
 
 
     ],
@@ -218,6 +219,7 @@ return [
         'JWTAuth'=>Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'=>Tymon\JWTAuth\Facades\JWTFactory::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Location' => Stevebauman\Location\Facades\Location::class,
 
 
 

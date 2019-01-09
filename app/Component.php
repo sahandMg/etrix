@@ -19,6 +19,12 @@ class Component extends Model
     public function commons(){
         return $this->hasMany('App\Common');
     }
+    public function subcategory(){
+        return $this->belongsTo(SubCategory::class,'sub_category_id');
+    }
 
+    public function underlay(){
+        return $this->belongsTo(Underlay::class,'underlay_id');
+    }
 
 }
