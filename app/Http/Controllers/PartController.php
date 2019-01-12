@@ -42,14 +42,15 @@ class PartController extends Controller
                     if(!isset($underlay)){
                         $data = [
                             'category' => [$product->product_name, $subcats],
-                            'category_id' => $product->components[$t]->id,
+                            'component_id' => $product->components[$t]->id,
                             'product_id' => $product->id,
                             'columns' => array_merge($presetColumns,$names)
                         ];
                     }else{
                         $data = [
+                            'num'=>$t,
                             'category' => [$product->product_name, $subcats,$underlay],
-                            'categoryId' => $product->components[$t]->id,
+                            'component_id' => $product->components[$t]->id,
                             'product_id' => $product->id,
                             'columns' => array_merge($presetColumns,$names)
                         ];
