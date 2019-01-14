@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
-            <meta name="description"
-                  content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
-                  <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
+        <meta name="description"
+            content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
+        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/9.1198f13a.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.d7208f82.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/11.c431ba77.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.1e2b74d5.chunk.css')}}" rel="stylesheet">
     </head>
     <body>
      <div id="example">
@@ -34,9 +34,9 @@
      <script>
         ! function(i) {
             function e(e) {
-                for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
+                for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (i[t] = o[t]);
-                for (p && p(e); c.length;) c.shift()();
+                for (p && p(e); u.length;) u.shift()();
                 return l.push.apply(l, a || []), f()
             }
 
@@ -51,11 +51,11 @@
                 return e
             }
             var r = {},
-                c = {
-                    11: 0
+                u = {
+                    13: 0
                 },
                 s = {
-                    11: 0
+                    13: 0
                 },
                 l = [];
 
@@ -70,28 +70,32 @@
             }
             d.e = function(l) {
                 var e = [];
-                c[l] ? e.push(c[l]) : 0 !== c[l] && {
+                u[l] ? e.push(u[l]) : 0 !== u[l] && {
                     4: 1,
-                    5: 1
-                }[l] && e.push(c[l] = new Promise(function(e, n) {
+                    5: 1,
+                    7: 1,
+                    12: 1
+                }[l] && e.push(u[l] = new Promise(function(e, n) {
                     for (var t = "static/css/" + ({}[l] || l) + "." + {
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-                            4: "38898ce5",
-                            5: "4fa85488",
+                            4: "999c1a33",
+                            5: "1b824000",
                             6: "31d6cfe0",
-                            7: "31d6cfe0",
+                            7: "8eacb140",
                             8: "31d6cfe0",
-                            10: "31d6cfe0"
+                            9: "31d6cfe0",
+                            10: "31d6cfe0",
+                            12: "7329fae5"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                        var u = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
-                        if ("stylesheet" === i.rel && (u === t || u === o)) return e()
+                        var c = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
+                        if ("stylesheet" === i.rel && (c === t || c === o)) return e()
                     }
-                    var c = document.getElementsByTagName("style");
-                    for (a = 0; a < c.length; a++) {
+                    var u = document.getElementsByTagName("style");
+                    for (a = 0; a < u.length; a++) {
                         var i;
-                        if ((u = (i = c[a]).getAttribute("data-href")) === t || u === o) return e()
+                        if ((c = (i = u[a]).getAttribute("data-href")) === t || c === o) return e()
                     }
                     var f = document.createElement("link");
                     f.rel = "stylesheet", f.type = "text/css", f.onload = e, f.onerror = function(e) {
@@ -100,7 +104,7 @@
                         r.request = t, n(r)
                     }, f.href = o, document.getElementsByTagName("head")[0].appendChild(f)
                 }).then(function() {
-                    c[l] = 0
+                    u[l] = 0
                 }));
                 var r = s[l];
                 if (0 !== r)
@@ -113,17 +117,19 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-                            0: "fe48acb8",
-                            2: "4d970d18",
-                            3: "aba5c259",
-                            4: "a6c33554",
-                            5: "abe25c2a",
-                            6: "32a7b70d",
-                            7: "f15b0e1e",
-                            8: "1d83392c",
-                            10: "79b235ce"
+                            0: "b728a061",
+                            2: "ed11143c",
+                            3: "16d0bf2c",
+                            4: "ab336fe7",
+                            5: "cfc61c31",
+                            6: "9abc14ba",
+                            7: "560dae1f",
+                            8: "a75f5b19",
+                            9: "39e5f7f9",
+                            10: "6c10e498",
+                            12: "38899b9b"
                         }[l] + ".chunk.js", n = function(e) {
-                            a.onerror = a.onload = null, clearTimeout(u);
+                            a.onerror = a.onload = null, clearTimeout(c);
                             var t = s[l];
                             if (0 !== t) {
                                 if (t) {
@@ -135,7 +141,7 @@
                                 s[l] = void 0
                             }
                         };
-                        var u = setTimeout(function() {
+                        var c = setTimeout(function() {
                             n({
                                 type: "timeout",
                                 target: a
@@ -187,8 +193,8 @@
             f()
         }([])
     </script>
-    <script src="{{ asset('static/js/9.80a83ea9.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.982cc208.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/11.e52230ec.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.30c9db4d.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
 
