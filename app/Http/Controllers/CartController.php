@@ -807,23 +807,21 @@ class CartController extends Controller
 
                     $temp[$i]['project'] = $prjName;
                 }
-                $userCart[$t] = $temp;
+                $userCart['cart'][$t] = $temp;
             }else{
                 $temp = array_values(unserialize($carts[$t]->name));
                 for($i=0 ; $i<count($temp);$i++){
 
                     $temp[$i]['project'] = null;
                 }
-                $userCart[$t] = $temp;
+                $userCart['cart'][$t] = $temp;
 
             }
-
-
         }
-         array_push($userCart,['order_number'=>$bom->order_number,
-             'date'=>Jalalian::forge($bom->updated_at)->toString(),
-             'totalPrice'=>$bom->price
-         ]);
+
+        $userCart['order_number'] = $bom->order_number;
+        $userCart['date'] = Jalalian::forge($bom->updated_at)->toString();
+        $userCart['totalPrice'] = $bom->price;
         return ($userCart);
     }
 
