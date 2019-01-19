@@ -116,7 +116,7 @@ Route::post('/',function (){
 Route::get('emenu/{code}','PageController@checkMe');
 
 Route::get('json','PartController@makeJson');
-
+Route::post('add-parts','PartController@addNewParts');
 
 Route::post('more-content/{category?}','PageController@moreContent');
 Route::get('videos','PageController@Videos');
