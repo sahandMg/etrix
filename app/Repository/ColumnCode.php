@@ -105,10 +105,11 @@ class ColumnCode
          */
         $this->keys = [];
         $cols = $this->all();
-        $values = array_values($filters);
+        $values = array_keys($filters);
         /*
          * finding related codes
          */
+
         for($i=0;$i<count($values);$i++){
 
             $key = array_search($values[$i],$cols);
