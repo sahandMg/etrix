@@ -333,7 +333,7 @@ class SearchController extends Controller
                         if($result == 404){
                             return 'Incorrect Filter Name';
                         }
-                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$this->filteredCols,$breadCrumb]);
+                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb,$this->filteredCols]);
                     }
                     /*
                      * Filter with subcategory
@@ -346,7 +346,7 @@ class SearchController extends Controller
                         $filters = FilterContent::Filters($models,collect($parts));
                         $columns = $code->sendFilter($filters);
 
-                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$this->filteredCols,$breadCrumb]);
+                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb,$this->filteredCols]);
                     }
                     /*
                      * Add sort + subcategory to search
