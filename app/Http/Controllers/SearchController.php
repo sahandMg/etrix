@@ -511,7 +511,7 @@ class SearchController extends Controller
         */
 
         $filters = $code->getFilter($filters);
-        array_push($this->filteredCols,$code->sendFilter($filters));
+        $this->filteredCols = $code->makeCodeArray($filters);
         if($filters == 404){
 
             return 404;
