@@ -511,6 +511,7 @@ class SearchController extends Controller
         */
 
         $filters = $code->getFilter($filters);
+        array_push($this->filteredCols,$code->sendFilter($filters));
         if($filters == 404){
 
             return 404;
@@ -708,7 +709,7 @@ class SearchController extends Controller
                 }
 
                 if(count($cols[$commonTableCols[$t]]) == 1){
-                    array_push($this->filteredCols,$commonTableCols[$t]);
+
                     unset($cols[$commonTableCols[$t]]);
                 }
             }
@@ -729,7 +730,7 @@ class SearchController extends Controller
                 }
 
                 if(count($sepCols[$sepTableCols[$t]]) == 1){
-                    array_push($this->filteredCols,$sepTableCols[$t]);
+
                     unset($sepCols[$sepTableCols[$t]]);
                 }
 
@@ -741,7 +742,6 @@ class SearchController extends Controller
                 $ColsCode = $code->sendFilter(array_merge($cols,$sepCols));
                 $result = array_merge($cols,$sepCols);
                 $this->ColsCode = $ColsCode;
-                $this->filteredCols = $code->makeCodeArray($this->filteredCols);
                 $this->newFilter = $result;
                 unset($this->newFilter['unit_price']);
                 unset($this->newFilter['quantity_available']);
