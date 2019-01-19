@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <meta name="description"
                   content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
 
@@ -16,12 +17,21 @@
             content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
         <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
+=======
+        <meta name="description"
+            content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
+        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{asset('static/css/11.c431ba77.chunk.css')}}" rel="stylesheet">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link href="{{asset('static/css/main.2d392d3f.chunk.css')}}" rel="stylesheet">
+=======
+    <link href="{{asset('static/css/main.1e2b74d5.chunk.css')}}" rel="stylesheet">
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
 =======
     <link href="{{asset('static/css/main.1e2b74d5.chunk.css')}}" rel="stylesheet">
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
@@ -47,11 +57,14 @@
         ! function(f) {
             function e(e) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
                 for (p && p(e); c.length;) c.shift()();
                 return l.push.apply(l, a || []), i()
 =======
+=======
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
                 for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (i[t] = o[t]);
                 for (p && p(e); u.length;) u.shift()();
@@ -71,7 +84,11 @@
             }
             var r = {},
 <<<<<<< HEAD
+<<<<<<< HEAD
                 c = {
+=======
+                u = {
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
 =======
                 u = {
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
@@ -99,7 +116,11 @@
                     7: 1,
                     12: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
                 }[l] && e.push(c[l] = new Promise(function(e, n) {
+=======
+                }[l] && e.push(u[l] = new Promise(function(e, n) {
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
 =======
                 }[l] && e.push(u[l] = new Promise(function(e, n) {
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
@@ -117,6 +138,7 @@
                             12: "7329fae5"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         var u = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
                         if ("stylesheet" === f.rel && (u === t || u === o)) return e()
                     }
@@ -128,10 +150,18 @@
                         var c = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
                         if ("stylesheet" === i.rel && (c === t || c === o)) return e()
                     }
+=======
+                        var c = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
+                        if ("stylesheet" === i.rel && (c === t || c === o)) return e()
+                    }
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
                     var u = document.getElementsByTagName("style");
                     for (a = 0; a < u.length; a++) {
                         var i;
                         if ((c = (i = u[a]).getAttribute("data-href")) === t || c === o) return e()
+<<<<<<< HEAD
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
+=======
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
                     }
                     var i = document.createElement("link");
@@ -156,6 +186,7 @@
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
                             0: "b728a061",
 <<<<<<< HEAD
+<<<<<<< HEAD
                             2: "67dcffcf",
                             3: "f7ed782f",
                             4: "7e851895",
@@ -163,12 +194,17 @@
                             6: "9abc14ba",
                             7: "d18f683e",
 =======
+=======
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
                             2: "ed11143c",
                             3: "16d0bf2c",
                             4: "ab336fe7",
                             5: "cfc61c31",
                             6: "9abc14ba",
                             7: "560dae1f",
+<<<<<<< HEAD
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
+=======
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
                             8: "a75f5b19",
                             9: "39e5f7f9",
@@ -241,7 +277,11 @@
     </script>
     <script src="{{ asset('static/js/11.e52230ec.chunk.js')}}"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="{{ asset('static/js/main.c6627c74.chunk.js')}}"></script>
+=======
+    <script src="{{ asset('static/js/main.30c9db4d.chunk.js')}}"></script>
+>>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
 =======
     <script src="{{ asset('static/js/main.30c9db4d.chunk.js')}}"></script>
 >>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
