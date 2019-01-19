@@ -2,8 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Brief;
 use App\Jobs\TimeUpdate;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ContentUpdate extends Command
 {
@@ -39,6 +42,15 @@ class ContentUpdate extends Command
      */
     public function handle()
     {
-        TimeUpdate::dispatch();
+        Brief::chunk(100, function ($briefs) {
+
+            foreach ($briefs as $brief) {
+
+                $brief->update(['days' => Carbon::now()->diffInDays($brief->created_at)]);
+            }
+
+        });
+
+        Log::info('Contents are up to date:  ' . Carbon::now());
     }
 }

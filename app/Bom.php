@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bom extends Model
 {
-    protected $fillable = ['price','status'];
+    protected $fillable = ['price','status','delivery'];
     public function user(){
 
         return $this->hasOne(User::class);

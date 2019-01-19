@@ -183,7 +183,7 @@ class PageController extends Controller
      */
     public function Province(){
 
-        $path = public_path('storage/province.json');
+        $path = public_path('files/province.json');
         $contents = json_decode(file_get_contents($path),true);
         $province = [];
 
@@ -201,7 +201,7 @@ class PageController extends Controller
  */
     public function City(Request $request){
 
-        $path = public_path('storage/province.json');
+        $path = public_path('files/province.json');
         $contents = json_decode(file_get_contents($path),true);
         $province = $request->province;
         $cities = [];

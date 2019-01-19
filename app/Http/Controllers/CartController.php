@@ -614,7 +614,7 @@ class CartController extends Controller
             $carts[$i]->update(['name'=>serialize($itemArr)]);
             $itemArr = [];
         }
-//        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
+        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['delivery'=>10000]);
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
         $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();
@@ -799,30 +799,38 @@ class CartController extends Controller
         }
 
 //        $userCart = [];
-        for ($t=0;$t<count($carts);$t++){
-            if($carts[$t]['project_id'] != 0){
-                $temp = array_values(unserialize($carts[$t]->name));
-                $prjName = DB::table('projects')->where('id',$carts[$t]['project_id'])->first()->name;
-                for($i=0 ; $i<count($temp);$i++){
+        if($bom->status != 0 ){
 
-                    $temp[$i]['project'] = $prjName;
+            for ($t=0;$t<count($carts);$t++){
+                if($carts[$t]['project_id'] != 0){
+                    $temp = array_values(unserialize($carts[$t]->name));
+                    $prjName = DB::table('projects')->where('id',$carts[$t]['project_id'])->first()->name;
+                    for($i=0 ; $i<count($temp);$i++){
+
+                        $temp[$i]['project'] = $prjName;
+                    }
+                    $userCart['cart'][$t] = $temp;
+                }else{
+                    $temp = array_values(unserialize($carts[$t]->name));
+                    for($i=0 ; $i<count($temp);$i++){
+
+                        $temp[$i]['project'] = null;
+                    }
+                    $userCart['cart'][$t] = $temp;
+
                 }
-                $userCart['cart'][$t] = $temp;
-            }else{
-                $temp = array_values(unserialize($carts[$t]->name));
-                for($i=0 ; $i<count($temp);$i++){
-
-                    $temp[$i]['project'] = null;
-                }
-                $userCart['cart'][$t] = $temp;
-
             }
+
+            $userCart['order_number'] = $bom->order_number;
+            $userCart['date'] = Jalalian::forge($bom->updated_at)->toString();
+            $userCart['totalPrice'] = $bom->price;
+            return ($userCart);
+        }else{
+
+            return 'سفارشی ثبت نشده است';
         }
 
-        $userCart['order_number'] = $bom->order_number;
-        $userCart['date'] = Jalalian::forge($bom->updated_at)->toString();
-        $userCart['totalPrice'] = $bom->price;
-        return ($userCart);
+
     }
 
     public function Excel_export(){

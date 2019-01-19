@@ -25,10 +25,11 @@ class PaymentGateController extends Controller
         $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
         $price = $bom->price;
         $MerchantID = 'ed8eea3e-068c-11e9-9efd-005056a205be'; //Required
+        $verifyUrl = URls::$verify;
         $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
             'Amount' => $price,
             'Email' => $user->email,
-            'CallbackURL' => "https://etrix.ir/credit-verify",
+            'CallbackURL' => $verifyUrl,
             'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی');
         $jsonData = json_encode($data);
         $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json');
