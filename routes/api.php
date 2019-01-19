@@ -103,7 +103,7 @@ Route::get('test',function (){
 ////////                ------------------------------------------------
 //    }
 
-    return  dd(Location::get('88.234.174.10')->countryCode);
+    return  dd(Location::get('10.30.2.70')->countryCode);
 
 
 });

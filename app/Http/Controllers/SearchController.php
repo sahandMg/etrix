@@ -28,6 +28,7 @@ class SearchController extends Controller
     public $ColsCode;
     public $newFilter;
     public $searchHelper;
+    public $filteredCols = [];
 
 
     public function __construct()
@@ -313,7 +314,7 @@ class SearchController extends Controller
                     //                return 420;
                     //            }
                     $this->type = '30';
-                    GetPrice::dispatch($keyword);
+//                    GetPrice::dispatch($keyword);
 //                        -----------------------------
                     /*
                     * Create a breadcrumb
@@ -332,7 +333,7 @@ class SearchController extends Controller
                         if($result == 404){
                             return 'Incorrect Filter Name';
                         }
-                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
+                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$this->filteredCols,$breadCrumb]);
                     }
                     /*
                      * Filter with subcategory
@@ -345,7 +346,7 @@ class SearchController extends Controller
                         $filters = FilterContent::Filters($models,collect($parts));
                         $columns = $code->sendFilter($filters);
 
-                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$breadCrumb]);
+                        return ([$this->type,$this->shopResp,$result,$this->newFilter,$names,$this->ColsCode,$this->filteredCols,$breadCrumb]);
                     }
                     /*
                      * Add sort + subcategory to search
@@ -707,9 +708,11 @@ class SearchController extends Controller
                 }
 
                 if(count($cols[$commonTableCols[$t]]) == 1){
+                    array_push($this->filteredCols,$commonTableCols[$t]);
                     unset($cols[$commonTableCols[$t]]);
                 }
             }
+
             for ($t = 0; $t < count($sepTableCols); $t++) {
                 if( count($parts) - 20*($this->paginate -1) > 20 ){
                     $endPoint = 20*($this->paginate);
@@ -726,15 +729,19 @@ class SearchController extends Controller
                 }
 
                 if(count($sepCols[$sepTableCols[$t]]) == 1){
+                    array_push($this->filteredCols,$sepTableCols[$t]);
                     unset($sepCols[$sepTableCols[$t]]);
                 }
+
             }
+
             if (!isset($cols) || !isset($sepCols)) {
                 return '420';
             } else {
                 $ColsCode = $code->sendFilter(array_merge($cols,$sepCols));
                 $result = array_merge($cols,$sepCols);
                 $this->ColsCode = $ColsCode;
+                $this->filteredCols = $code->makeCodeArray($this->filteredCols);
                 $this->newFilter = $result;
                 unset($this->newFilter['unit_price']);
                 unset($this->newFilter['quantity_available']);

@@ -614,7 +614,7 @@ class CartController extends Controller
             $carts[$i]->update(['name'=>serialize($itemArr)]);
             $itemArr = [];
         }
-//        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>$totalPrice]);
+        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['delivery'=>10000]);
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
         $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();

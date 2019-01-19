@@ -65,6 +65,7 @@ class ColumnCode
         return $cols;
     }
     /*
+     * use this for remainig columns after filtering
      * Get filter columns from search controller
      * find related codes
      * Generate new array [code => columnName]
@@ -88,8 +89,33 @@ class ColumnCode
         }
         return array_combine($this->keys,$values);
 
+    }
 
+    /*
+     * use this for filtered columns after filtering
+     * get filtered columns names
+     * find related codes for columns
+     * Generate new array [code => columnName]
+     */
 
+    public function makeCodeArray($filters){
+
+         /*
+         * set $keys array as values in $cols array
+         */
+        $this->keys = [];
+        $cols = $this->all();
+        $values = array_values($filters);
+        /*
+         * finding related codes
+         */
+        for($i=0;$i<count($values);$i++){
+
+            $key = array_search($values[$i],$cols);
+            array_push($this->keys,$key);
+        }
+
+        return array_combine($this->keys,$values);
 
     }
 
