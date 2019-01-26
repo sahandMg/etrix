@@ -27,4 +27,5 @@ class Component extends Model
         return $this->belongsTo(Underlay::class,'underlay_id');
     }
 
+
 }

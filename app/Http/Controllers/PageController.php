@@ -15,6 +15,7 @@ use App\Variable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Stevebauman\Location\Facades\Location;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Psr\Http\Message\ResponseInterface;
 
@@ -22,6 +23,10 @@ class PageController extends Controller
 {
     public $info = 10;
 
+    public function test(){
+
+        dd(Location::get('216.151.180.162'));
+    }
     public function checkMe($code=null){
 
         if(is_null($code)){

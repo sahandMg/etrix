@@ -27,7 +27,6 @@ class SearchController extends Controller
     public $shopResp = null;
     public $ColsCode;
     public $newFilter;
-    public $searchHelper;
     public $filteredCols = [];
 
 
@@ -45,15 +44,20 @@ class SearchController extends Controller
         *  Required Prams for filter => filter , category
         *  Required Params for sort => order ,category ,num
         */
-    public function SearchPartComp2(ColumnCode $code,Request $request){
+    public function SearchPartComp(ColumnCode $code,Request $request){
 //Integrated_Circuits_ICs
 /*
  *  Check if search has keyword and category = all
  *  Check if search has keyword and category!=all
  *  Check if
  */
+
         $keyword = str_replace(' ','_',$request->keyword);
         $product = str_replace(' ','_',$request->category);
+        if(isset($request->subcategory)){
+        $subcategory = str_replace(' ','_',$request->subcategory);
+        }
+
         if(is_null($request->num)){
             $this->paginate = 1;
         }else{
@@ -67,7 +71,7 @@ class SearchController extends Controller
          * return the subcategories of the selected product
          */
 
-        if(is_null($request->keyword) && $product != 'all'){
+        if(is_null($request->keyword) && $product != 'all' && !isset($request->subcategory)){
 
             return $this->searchHelper->getSubcategories($product);
         }elseif(is_null($request->keyword) && $product == 'all'){
@@ -75,22 +79,31 @@ class SearchController extends Controller
             return $this->searchHelper->getAllCategories();
         }elseif(!is_null($request->keyword) && $product == 'all'){
 
-        }else{
+            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
+        }elseif( isset($subcategory) && is_null($request->keyword)){
+
+                return $this->searchHelper->getPartsFromSubcategory($subcategory,$this->paginate);
+        }elseif(!is_null($request->keyword) && $product != 'all'){
+
+            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
 
         }
+//        elseif (isset($subcategory) && !is_null($request->keyword) && $product != 'all'){
+//
+//            return $this->searchHelper->getPartsFromSubcategory($subcategory,$this->paginate);
+//        }
+        else{
 
-
-
+            return 'tell Sahand what have you done !';
+        }
     }
-
-
     /*
      *  Required Prams => keyword
      *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
      *  Required Prams for filter => filter , category
      *  Required Params for sort => order ,category ,num
      */
-    public function SearchPartComp(ColumnCode $code,Request $request)
+    public function SearchPartComp2(ColumnCode $code,Request $request)
     {
 
 // ------------ Finding the part in database without filter --------------
@@ -401,7 +414,7 @@ class SearchController extends Controller
                         return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
                     }
                     /*
-                     *  Returns search result if none of above features getting used
+                     *  Returns search result if none of above features get used
                      */
                     $parts = $this->unsetPart($parts);
                     return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
@@ -509,7 +522,6 @@ class SearchController extends Controller
         /*
         *  Decoding filter array keys
         */
-
         $filters = $code->getFilter($filters);
         $this->filteredCols = $code->makeCodeArray($filters);
         if($filters == 404){
@@ -563,6 +575,7 @@ class SearchController extends Controller
                 }
             }
         }
+
         for($i=0 ; $i < count($sepTableCols) ; $i++){
             for($t=0 ; $t<count($filters);$t++) {
 //  Checking filter keys with separate tables column names to findout whether the tables need to be filtered or not
@@ -586,26 +599,26 @@ class SearchController extends Controller
                             break;
                         }
 
-                        $common = $common->whereIn($cFlag[$i], [$filters[$cFlag[$i]][$j], $filters[$cFlag[$i]][$j + 1]])
-                            ->where('model',str_replace('-',' ',$component->slug));
+                        $common = $common->whereIn($cFlag[$i], [$filters[$cFlag[$i]][$j], $filters[$cFlag[$i]][$j + 1]]);
                     }
                 }else{
 
 //                for($i=0;$i<count($cFlag);$i++) {
                     for ($j = 0; $j < count($filters[$cFlag[$i]]); $j++) {
-                        $common = $common->where($cFlag[$i], $filters[$cFlag[$i]][$j])->where('model',str_replace('-',' ',$component->slug));
+                        $common = $common->where($cFlag[$i], $filters[$cFlag[$i]][$j]);
                     }
 
                 }
             }
 
-            $common = array_values($common->all());
 
-            for($i=0;$i<count($common);$i++){
+        }
+        $common = array_values($common->all());
 
-                $ids[$i] = $common[$i]->id;
+        for($i=0;$i<count($common);$i++){
 
-            }
+            $ids[$i] = $common[$i]->id;
+
         }
 
         if($sFlag){
@@ -632,11 +645,17 @@ class SearchController extends Controller
             }
 
 
+
             $separate = array_values($separate->all());
 
             for($i=0;$i<count($separate);$i++){
-                    $result[$i] = DB::table('commons')->where('id',$separate[$i]->common_id)
-                        ->get()->pluck('id')->toArray();
+                   try{
+
+                       $result[$i] = DB::table('commons')->where('id',$separate[$i]->common_id)
+                           ->first()->id;
+                   }catch (\Exception $exception){
+                       return $exception;
+                   }
             }
         }
 
@@ -739,6 +758,7 @@ class SearchController extends Controller
             if (!isset($cols) || !isset($sepCols)) {
                 return '420';
             } else {
+
                 $ColsCode = $code->sendFilter(array_merge($cols,$sepCols));
                 $result = array_merge($cols,$sepCols);
                 $this->ColsCode = $ColsCode;
