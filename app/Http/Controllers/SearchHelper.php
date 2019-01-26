@@ -402,7 +402,6 @@ class SearchHelper
             for($i = 0;$i<count($columnNames);$i++) {
                 // checks if there is just , one data in filter array, then removes it from filters
                 if (count($columnContent[$columnNames[$i]]) == 1) {
-                    array_push($filteredCols,$columnNames[$i]);
                     unset($columnContent[$columnNames[$i]]);
                 }
             }
@@ -597,6 +596,29 @@ class SearchHelper
         $finalArray = [];
         $count = count($completePartArray);
         $type = $this->type;
+
+        if(!is_null($this->filteredColumn)){
+            $filtersArray = $completePartArray[$count-4];
+            unset($completePartArray[$count - 4]);
+            $filtersCodeArray = $completePartArray[$count - 3];
+            unset($completePartArray[$count - 3]);
+            $breadCrumb = $completePartArray[$count - 2];
+            unset($completePartArray[$count - 2]);
+            $filteredCols = $completePartArray[$count - 1];
+            unset($completePartArray[$count - 1]);
+
+            array_push($finalArray,$type);
+            array_push($finalArray,null);
+            array_push($finalArray,$completePartArray);
+            array_push($finalArray,$filtersArray);
+            array_push($finalArray,false);
+            array_push($finalArray,$filtersCodeArray);
+            array_push($finalArray,$breadCrumb);
+            array_push($finalArray,$filteredCols);
+            return $finalArray;
+
+        }
+
         $filtersArray = $completePartArray[$count-3];
         unset($completePartArray[$count - 3]);
         $filtersCodeArray = $completePartArray[$count - 2];
