@@ -18,6 +18,7 @@ class SearchHelper
 
     public $skip = 20;
     public $type;
+    public $filteredColumn;
     /*
      * returns categories and subcategories of a particular
      */
@@ -161,7 +162,7 @@ class SearchHelper
             $modifiedFilteredPartArray = $result[0];
             $columnContent = $result[1];
             $codes = $this->getColumnCodes($columnContent);
-            array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb);
+            array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
             $modifiedFilteredPartArray = $this->makeMamadFormat($modifiedFilteredPartArray);
             return $modifiedFilteredPartArray;
         }
@@ -213,7 +214,7 @@ class SearchHelper
             $modifiedFilteredSortedPartArray = $this->removeExtraData($sortedArrayPart);
             $columnContent = $result[1];
             $codes = $this->getColumnCodes($columnContent);
-            array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb);
+            array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
             $modifiedFilteredSortedPartArray =  $this->makeMamadFormat($modifiedFilteredSortedPartArray);
             return $modifiedFilteredSortedPartArray;
         }
@@ -261,7 +262,7 @@ class SearchHelper
                 $columnContent = $result[1];
 
                 $codes = $this->getColumnCodes($columnContent);
-                array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb);
+                array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredPartArray = $this->makeMamadFormat($modifiedFilteredPartArray);
                 return $modifiedFilteredPartArray;
             }
@@ -312,7 +313,7 @@ class SearchHelper
                 $modifiedFilteredSortedPartArray = $this->removeExtraData($sortedArrayPart);
                 $columnContent = $result[1];
                 $codes = $this->getColumnCodes($columnContent);
-                array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb);
+                array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredSortedPartArray = $this->makeMamadFormat($modifiedFilteredSortedPartArray);
                 return $modifiedFilteredSortedPartArray;
             }
@@ -382,6 +383,7 @@ class SearchHelper
     // remove some extra column
         $partArray = $this->removeExtraData($partArray);
         $columnContent = [];
+        $filteredCols = [];
         $j = 0;
         for($t = 0;$t<count($partArray);$t++) {
             $columnNames = array_keys($partArray[$t]);
@@ -400,7 +402,7 @@ class SearchHelper
             for($i = 0;$i<count($columnNames);$i++) {
                 // checks if there is just , one data in filter array, then removes it from filters
                 if (count($columnContent[$columnNames[$i]]) == 1) {
-
+                    array_push($filteredCols,$columnNames[$i]);
                     unset($columnContent[$columnNames[$i]]);
                 }
             }
@@ -409,7 +411,7 @@ class SearchHelper
             return 'column names not defined';
         }
 
-        return $columnContent;
+            return $columnContent;
     }
 
     public function doFiltering($keyword = null,$subcategory = null,$modifiedPartArray){
@@ -475,6 +477,9 @@ class SearchHelper
     }
 
     public function filterResultsWithFilterNames($filtersNameArray,$modifiedPartArray){
+
+        $this->filteredColumn = $this->getColumnCodes($filtersNameArray);
+
         $filteredData = [];
         $sign = 0;
         for($i=0;$i<count($modifiedPartArray);$i++){
