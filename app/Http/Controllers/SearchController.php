@@ -27,7 +27,6 @@ class SearchController extends Controller
     public $shopResp = null;
     public $ColsCode;
     public $newFilter;
-    public $searchHelper;
     public $filteredCols = [];
 
 
@@ -45,15 +44,20 @@ class SearchController extends Controller
         *  Required Prams for filter => filter , category
         *  Required Params for sort => order ,category ,num
         */
-    public function SearchPartComp2(ColumnCode $code,Request $request){
+    public function SearchPartComp(ColumnCode $code,Request $request){
 //Integrated_Circuits_ICs
 /*
  *  Check if search has keyword and category = all
  *  Check if search has keyword and category!=all
  *  Check if
  */
+
         $keyword = str_replace(' ','_',$request->keyword);
         $product = str_replace(' ','_',$request->category);
+        if(isset($request->subcategory)){
+        $subcategory = str_replace(' ','_',$request->subcategory);
+        }
+
         if(is_null($request->num)){
             $this->paginate = 1;
         }else{
@@ -67,7 +71,7 @@ class SearchController extends Controller
          * return the subcategories of the selected product
          */
 
-        if(is_null($request->keyword) && $product != 'all'){
+        if(is_null($request->keyword) && $product != 'all' && !isset($request->subcategory)){
 
             return $this->searchHelper->getSubcategories($product);
         }elseif(is_null($request->keyword) && $product == 'all'){
@@ -75,22 +79,31 @@ class SearchController extends Controller
             return $this->searchHelper->getAllCategories();
         }elseif(!is_null($request->keyword) && $product == 'all'){
 
-        }else{
+            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
+        }elseif( isset($subcategory) && is_null($request->keyword)){
+
+                return $this->searchHelper->getPartsFromSubcategory($subcategory,$this->paginate);
+        }elseif(!is_null($request->keyword) && $product != 'all'){
+
+            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
 
         }
+//        elseif (isset($subcategory) && !is_null($request->keyword) && $product != 'all'){
+//
+//            return $this->searchHelper->getPartsFromSubcategory($subcategory,$this->paginate);
+//        }
+        else{
 
-
-
+            return 'tell Sahand what have you done !';
+        }
     }
-
-
     /*
      *  Required Prams => keyword
      *  Optional Prams for search => category , num , subcategory (Capacitors_Tantalum_Capacitors)
      *  Required Prams for filter => filter , category
      *  Required Params for sort => order ,category ,num
      */
-    public function SearchPartComp(ColumnCode $code,Request $request)
+    public function SearchPartComp2(ColumnCode $code,Request $request)
     {
 
 // ------------ Finding the part in database without filter --------------
@@ -401,7 +414,7 @@ class SearchController extends Controller
                         return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];
                     }
                     /*
-                     *  Returns search result if none of above features getting used
+                     *  Returns search result if none of above features get used
                      */
                     $parts = $this->unsetPart($parts);
                     return [$this->type,$this->shopResp ,$parts, $filters, $names ,$columns,$breadCrumb];

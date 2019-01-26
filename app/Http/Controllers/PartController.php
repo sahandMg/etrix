@@ -106,13 +106,15 @@ class PartController extends Controller
             if(is_null($part)){
 
                 $dbCommons->$key = $common;
+            }else{
+                return 'Duplicate Part data!';
             }
         }
         // counts how many parts are in a separate table related to this component to calculate part_id number
         $partNumber = DB::table('commons')->where('component_id',$dbCommons->component_id)->count();
         $dbCommons->part_id = $partNumber + 1;
 
-//        $dbCommons->save();
+        $dbCommons->save();
         try{
 
             $componentName = DB::table('components')->where('id',$dbCommons->component_id)->first()->name;
@@ -128,6 +130,9 @@ class PartController extends Controller
         }
         $dbSeparate->common_id = $dbCommons->id;
 
-        dd($dbSeparate);
+//        dd($dbSeparate,$dbCommons);
+        $dbSeparate->save();
+
+        return 200;
     }
 }

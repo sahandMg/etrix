@@ -65,7 +65,7 @@ class ColumnCode
         return $cols;
     }
     /*
-     * use this for remainig columns after filtering
+     * use this for remaining columns after filtering
      * Get filter columns from search controller
      * find related codes
      * Generate new array [code => columnName]
