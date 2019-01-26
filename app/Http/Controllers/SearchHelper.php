@@ -85,6 +85,7 @@ class SearchHelper
             ->skip(($this->skip * ($paginate - 1)))->take($this->skip)
             ->get();
 //     save unknown keyword in failed_parts table
+        $this->type = 30;
         if ($commonGroup->isEmpty()) {
             $query = DB::table('failed_parts')->where('manufacturer_part_number', $keyword)->first();
             if ($query != null) {
@@ -219,7 +220,6 @@ class SearchHelper
 
 
         array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
-        $this->type = 30;
         $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
         return $modifiedPartArray;
 
@@ -590,13 +590,14 @@ class SearchHelper
 
     public function makeMamadFormat(array $completePartArray){
         $finalArray = [];
+        $count = count($completePartArray);
         $type = $this->type;
-        $filtersArray = $completePartArray[20];
-        unset($completePartArray[20]);
-        $filtersCodeArray = $completePartArray[21];
-        unset($completePartArray[21]);
-        $breadCrumb = $completePartArray[22];
-        unset($completePartArray[22]);
+        $filtersArray = $completePartArray[$count-3];
+        unset($completePartArray[$count - 3]);
+        $filtersCodeArray = $completePartArray[$count - 2];
+        unset($completePartArray[$count - 2]);
+        $breadCrumb = $completePartArray[$count - 1];
+        unset($completePartArray[$count - 1]);
         array_push($finalArray,$type);
         array_push($finalArray,null);
         array_push($finalArray,$completePartArray);
