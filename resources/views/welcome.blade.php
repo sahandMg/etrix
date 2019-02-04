@@ -11,8 +11,8 @@
     <title>ETRIX-فروشگاه قطعات الکترونیک</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/11.afa69c0a.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.88c0f9e0.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/11.64dbc818.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.8baf88bb.chunk.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script>
+     <script>
         ! function(i) {
             function e(e) {
                 for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
@@ -79,14 +79,14 @@
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-                            4: "689e62f3",
-                            5: "14f3b066",
+                            4: "3b15c6fb",
+                            5: "9879324d",
                             6: "31d6cfe0",
-                            7: "e7e12414",
+                            7: "86f099c4",
                             8: "31d6cfe0",
                             9: "31d6cfe0",
                             10: "31d6cfe0",
-                            12: "1e466373"
+                            12: "9042c119"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
                         var u = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
                         if ("stylesheet" === i.rel && (u === t || u === o)) return e()
@@ -116,17 +116,17 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-                            0: "8d72ab3f",
-                            2: "93bd7a24",
-                            3: "fb546b1c",
-                            4: "aba54bfd",
-                            5: "dc46d843",
-                            6: "639be01e",
-                            7: "6f4bec89",
-                            8: "fce9b566",
-                            9: "36bc6de8",
-                            10: "9cb0a604",
-                            12: "b969da75"
+                            0: "c5403624",
+                            2: "edf1be14",
+                            3: "ebb5ff7d",
+                            4: "abeeb1b9",
+                            5: "de1e6ee0",
+                            6: "665b943a",
+                            7: "0f68c0a1",
+                            8: "70208ebd",
+                            9: "5751413a",
+                            10: "67a2bf3a",
+                            12: "13e8308d"
                         }[l] + ".chunk.js", n = function(e) {
                             a.onerror = a.onload = null, clearTimeout(u);
                             var t = s[l];
@@ -192,8 +192,8 @@
             f()
         }([])
     </script>
-    <script src="{{ asset('static/js/11.dd2d47c4.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.771994b8.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/11.6f167a9b.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.ff070172.chunk.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('.iconbar-container').click(function() {
