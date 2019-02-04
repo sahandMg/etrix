@@ -8,6 +8,7 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentGateController extends Controller
 {
@@ -115,6 +116,20 @@ class PaymentGateController extends Controller
 //                ];
                 $url = URls::$truePayment.'/'.$bom->order_number;
                 $bom->update(['status'=>50]);
+
+                try{
+
+                    $userCartData = unserialize(DB::table('carts')->where('bom_id',$bom->id)->first()->name);
+                }catch (\Exception $exception){
+
+                    return $exception;
+                }
+                $data = [
+
+                ];
+                Mail::send('cart',$data,function($message){
+
+                });
                 return redirect($url);
 
             } else {

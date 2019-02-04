@@ -1,15 +1,20 @@
 <!doctype html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
-    <meta name="description" content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک" />
-    <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
-    <title>ETRIX-فروشگاه قطعات الکترونیک</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
+            <meta name="description"
+                  content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
+
+        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
+
+
+        <title>ETRIX - فروشگاه قطعات الکترونیک</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{asset('static/css/11.64dbc818.chunk.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/main.8baf88bb.chunk.css')}}" rel="stylesheet">

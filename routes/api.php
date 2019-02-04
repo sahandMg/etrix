@@ -32,6 +32,8 @@ Route::post('/',function (){
  */
 Route::get('emenu/{code}','PageController@checkMe');
 
+Route::get('translate','PageController@translate');
+
 Route::get('json','PartController@makeJson');
 Route::post('add-parts','PartController@addNewParts');
 
