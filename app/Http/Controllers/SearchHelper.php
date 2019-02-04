@@ -241,7 +241,8 @@ class SearchHelper
             ->where('component_id', $componentId)
             ->skip(($this->skip * ($paginate - 1)))->take($this->skip)
             ->get();
-        if (!is_null($commonPart)) {
+            
+        if (!$commonPart->isEmpty()) {
 
 
             $completePart = $this->MakeCompletePartArray($commonPart->toArray());
@@ -640,8 +641,6 @@ class SearchHelper
         for($i=0;$i<count($partArray);$i++){
             unset($partArray[$i]['id']);
             unset($partArray[$i]['hd_image']);
-            unset($partArray[$i]['ld_image']);
-            unset($partArray[$i]['datasheet']);
             unset($partArray[$i]['footprint']);
             unset($partArray[$i]['component_id']);
             unset($partArray[$i]['part_id']);

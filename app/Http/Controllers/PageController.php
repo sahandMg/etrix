@@ -10,6 +10,8 @@ use App\Underlay;
 use GuzzleHttp\Client as GuzzleClient;
 use App\Image;
 use App\Repository\Cropper;
+use Maatwebsite\Excel\Facades\Excel;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use App\User;
 use App\Variable;
 use Illuminate\Http\Request;
@@ -24,8 +26,15 @@ class PageController extends Controller
     public $info = 10;
 
     public function test(){
+        $userCartDatas = DB::table('carts')->where('bom_id',33)->get();
+//
+//        foreach ($userCartDatas as $key => $userCartData){
+//
+//            $data[$key] = unserialize($userCartData->name);
+//        }
+//        return view('emails.cart',compact('data'));
 
-        dd(Location::get('216.151.180.162'));
+        dd(Cache::get('translated'));
     }
     public function checkMe($code=null){
 
@@ -219,6 +228,27 @@ class PageController extends Controller
         }
 
         return $cities[0];
+    }
+
+    public function translate(){
+        Cache::forget('translated');
+        $nameArray = [];
+        $tr = new GoogleTranslate('en');
+        $columnArrays = DB::table('helpers')->get()->pluck('helper');
+        foreach ($columnArrays as $key => $columnArray){
+
+            $columnArrayU = unserialize($columnArray);
+
+            for($i = 0 ; $i < count($columnArrayU); $i ++){
+//                $nameArray[$columnArrayU[$i]] =  $tr->setSource('en')->setTarget('fa')->translate(str_replace('_',' ',$columnArrayU[$i]));
+                $nameArray[$columnArrayU[$i]] =  str_replace('_',' ',$columnArrayU[$i]);
+
+            }
+        }
+
+        return array_keys($nameArray);
+
+
     }
 
 
