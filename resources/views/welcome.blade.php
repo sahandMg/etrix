@@ -5,17 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
-<<<<<<< HEAD
             <meta name="description"
                   content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
 
         <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
 
-=======
-        <meta name="description"
-            content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
-        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
->>>>>>> 78f8fc13efb45b801b33503954138d90328b3b44
+
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
