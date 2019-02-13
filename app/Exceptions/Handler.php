@@ -5,7 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
-
+use App\Log;
 class Handler extends ExceptionHandler
 {
     /**
@@ -37,7 +37,14 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        parent::report($exception);
+      $log = new Log();
+       $log->message = $exception->getMessage();
+       $log->extra = $exception->getFile(). $exception->getLine();
+       $log->level = 'error';
+       $log->context = json_encode($this->context());
+       $log->env = env('LOG_CHANNEL');
+       $log->save();
+      parent::report($exception);
     }
 
     /**

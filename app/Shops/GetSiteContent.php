@@ -9,10 +9,10 @@
 namespace App\Shops;
 use Carbon\Carbon;
 use GuzzleHttp\Client as GuzzleClient;
+use Psr\Http\Message\ResponseInterface;
 use League\Flysystem\Exception;
 use Symfony\Component\DomCrawler\Crawler;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 
 

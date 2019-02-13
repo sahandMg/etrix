@@ -12,7 +12,52 @@ use Illuminate\Support\Facades\Mail;
 
 class PaymentGateController extends Controller
 {
-    /*
+
+    public function testGateway(){
+
+        $price = 100;
+        $MerchantID = 'ed8eea3e-068c-11e9-9efd-005056a205be'; //Required
+        $verifyUrl = URls::$verify;
+        $data = array('MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
+            'Amount' => $price,
+            'Email' => 'sahand.mg.ne@gmail.com',
+            'CallbackURL' => 'http://etrix.ir',
+            'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی');
+        $jsonData = json_encode($data);
+        $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($jsonData)
+        ));
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
+        $result = json_decode($result, true);
+        curl_close($ch);
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            if ($result["Status"] == '100' ) {
+                // $transaction = new Transaction();
+                // $transaction->user_id = $user->id;
+                // $transaction->order_number = $bom->order_number;
+                // $transaction->price = $data['Amount'];
+                // $transaction->authority = $result['Authority'];
+                // $transaction->status = $result['Status'];
+                // $transaction->save();
+                print_r($result);
+                // header('Location: https://www.zarinpal.com/pg/StartPay/' . $result["Authority"]);
+            } else {
+                echo'ERR: ' . $result["Status"];
+            }
+        }
+
+    }
+
+/*
  * Payment Gate
  * Required Params => token , totalPrice , email
  */
