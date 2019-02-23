@@ -24,7 +24,8 @@ class RouteRedirectMiddleware
              $request->url() == $url::$excelImport||
              $request->url() == $url::$excelExport ||
              $request->url() == $url::$gate ||
-             $request->url() == $url::$verify
+             $request->url() == $url::$verify ||
+             $request->url() == $url::$sitemap
          ){
 
              return $next($request);

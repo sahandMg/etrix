@@ -26,5 +26,6 @@ class URls
     static $verify = 'http://etrix.ir/credit-verify';
     static $truePayment = 'http://etrix.ir/User/buy/completed';
     static $falsePayment = 'http://etrix.ir/User/buy/Uncompleted';
+    static $sitemap = 'http://etrix.ir/sitemap.xml';
 
 }
