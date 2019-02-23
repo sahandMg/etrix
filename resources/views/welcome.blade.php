@@ -11,8 +11,8 @@
         <title>ETRIX - فروشگاه قطعات الکترونیک</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/11.c3e742c2.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.ce2ad8f6.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/11.61f7ca68.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.27961095.chunk.css')}}" rel="stylesheet">
     </head>
     <body>
      <div id="example">
@@ -80,14 +80,14 @@
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-                            4: "7b8added",
-                            5: "401ce5ff",
+                            4: "a551f86e",
+                            5: "6986d6ff",
                             6: "31d6cfe0",
-                            7: "f8741a31",
+                            7: "760a4b8e",
                             8: "31d6cfe0",
                             9: "31d6cfe0",
                             10: "31d6cfe0",
-                            12: "b0e1ff0d"
+                            12: "ac3ff142"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
                         var u = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
                         if ("stylesheet" === f.rel && (u === t || u === o)) return e()
@@ -117,17 +117,17 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-                            0: "55a61e77",
-                            2: "f97a88b8",
-                            3: "a5ed5650",
-                            4: "da6316cc",
-                            5: "34634099",
-                            6: "2e76bffa",
-                            7: "bc217e3d",
-                            8: "dc014103",
-                            9: "9e48c8fa",
-                            10: "62e05d70",
-                            12: "8e79eee4"
+                            0: "3d0c7f58",
+                            2: "18871bfd",
+                            3: "9bd477c4",
+                            4: "bb377b30",
+                            5: "63ee8b78",
+                            6: "ecbde786",
+                            7: "af55cf04",
+                            8: "de1ab15d",
+                            9: "a85ced2e",
+                            10: "2053ef7c",
+                            12: "40217140"
                         }[l] + ".chunk.js", n = function(e) {
                             a.onerror = a.onload = null, clearTimeout(u);
                             var t = s[l];
@@ -193,23 +193,17 @@
             i()
         }([])
     </script>
-    <script src="{{ asset('static/js/11.a06cac6f.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.62000306.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/11.2077ca8f.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.6ff505ec.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
-
          $('.iconbar-container').click(function () {
-
              $(this).toggleClass('change');
-
              $(".navbar-sticky-bg").fadeIn('slow',function () {
                  $("body").css({overflow : "hidden"});
                  $('.navbar-sticky').animate({'left' : $(window).outerWidth()-$(".navbar-sticky").outerWidth()},'fast');
-
              });
-
          });
-
          $("body").click(function (e) {
              // console.log(e.target.classList);
              if(e.target.classList.contains('navbar-sticky-bg') || e.target.classList.contains('list-group-item')){
@@ -223,17 +217,14 @@
                  });
              }
          })
-
          $(".list-group-item a").click(function (e) {
              $('.navbar-sticky')
                  .animate({"left": "100%"}, 'fast');
-
              $('.navbar-sticky-bg').fadeOut('slow',function () {
                  $("body").css({overflow : "visible"});
                  $('.iconbar-container').toggleClass('change');
              });
          })
-
      });
      </script>
      <!-- Global site tag (gtag.js) - Google Analytics -->
