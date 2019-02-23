@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{asset('static/css/11.61f7ca68.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.27961095.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.5892e72e.chunk.css')}}" rel="stylesheet">
     </head>
     <body>
      <div id="example">
@@ -117,17 +117,17 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-                            0: "3d0c7f58",
-                            2: "18871bfd",
-                            3: "9bd477c4",
-                            4: "bb377b30",
-                            5: "63ee8b78",
-                            6: "ecbde786",
-                            7: "af55cf04",
-                            8: "de1ab15d",
-                            9: "a85ced2e",
+                            0: "42a6a0b2",
+                            2: "28cd6d93",
+                            3: "4ffb1247",
+                            4: "955b9330",
+                            5: "72cbfc17",
+                            6: "d594666f",
+                            7: "98325c81",
+                            8: "070ebe4a",
+                            9: "6fa32a31",
                             10: "2053ef7c",
-                            12: "40217140"
+                            12: "917b78a0"
                         }[l] + ".chunk.js", n = function(e) {
                             a.onerror = a.onload = null, clearTimeout(u);
                             var t = s[l];
@@ -193,8 +193,8 @@
             i()
         }([])
     </script>
-    <script src="{{ asset('static/js/11.2077ca8f.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.6ff505ec.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/11.d7221464.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.2acf3022.chunk.js')}}"></script>
      <script>
      $(document).ready(function () {
          $('.iconbar-container').click(function () {
