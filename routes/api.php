@@ -35,7 +35,7 @@ Route::get('emenu/{code}','PageController@checkMe');
 Route::get('gateway','PaymentGateController@testGateway');
 
 Route::get('json','PartController@makeJson');
-Route::post('add-parts','PartController@addNewParts');
+
 
 Route::post('more-content/{category?}','PageController@moreContent');
 Route::get('videos','PageController@Videos');
@@ -150,6 +150,8 @@ Route::get('get-viewer','PageController@viewer');
 
 // -------------------------------  Add/Read/Edit Parts Routes  -----------------------------------
 //[
+
+    Route::post('add-parts','PartController@addNewParts');
 
     Route::post('edit-part','ProductController@edit');
 

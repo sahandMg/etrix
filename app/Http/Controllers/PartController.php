@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Common;
 use App\Helper;
+use App\PartMaping;
 use App\Product;
 
 use App\Underlay;
@@ -86,22 +87,30 @@ class PartController extends Controller
      */
     public function addNewParts(Request $request){
 
-
-        if(!isset($request->all()['commons'])){
+        $request = $request->all();
+        if(!isset($request['commons'])){
 
             return 'commons not set!';
         }
-        if(!isset($request->all()['separate'])){
+        if(!isset($request['separate'])){
 
             return 'separate not set!';
         }
 
         $commons = $request['commons'];
         $separates = $request['separate'];
+        if(isset($request['website'])){
+            $mapping = new PartMaping();
+            $mapping->website = $request['website'];
+            $mapping->crawled_name = $commons['manufacturer_part_number'];
+            $mapping->map_name = $request['map_name'];
+            $mapping->save();
 
+        }
         $dbCommons = new Common();
 
         foreach ($commons as $key=>$common){
+
             $part = DB::table('commons')->where('manufacturer_part_number',$commons['manufacturer_part_number'])->first();
             if(is_null($part)){
 
@@ -132,6 +141,7 @@ class PartController extends Controller
 
 //        dd($dbSeparate,$dbCommons);
         $dbSeparate->save();
+
 
         return 200;
     }
