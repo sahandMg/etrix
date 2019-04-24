@@ -228,12 +228,19 @@ class SearchHelper
 
     /*
      * get all parts from a specific subcategory
+     * subcategory == underlay in database
      */
-    public function getPartsFromSubcategory($subcategory, $paginate)
+    public function getPartsFromSubcategory($product,$subcategory, $paginate)
     {
         $this->type = 40;
+        try{
+
+            $product_id = DB::table('products')->where('product_name',$product)->first()->id;
+        }catch (\Exception $exception){
+            return 'Product not found in database';
+        }
         try {
-            $componentId = DB::table('components')->where('name', 'like', "%$subcategory%")->first()->id;
+            $componentId = DB::table('components')->where('product_id',$product_id)->where('name', 'like', "%$subcategory%")->first()->id;
         } catch (\Exception $exception) {
             return 'component not found on search helper at getPartsFromSubcategory';
         }
@@ -241,15 +248,18 @@ class SearchHelper
             ->where('component_id', $componentId)
             ->skip(($this->skip * ($paginate - 1)))->take($this->skip)
             ->get();
-            
+
         if (!$commonPart->isEmpty()) {
 
-
             $completePart = $this->MakeCompletePartArray($commonPart->toArray());
+            if(is_string($completePart)){
+                return $completePart;
+            }
             $modifiedPartArray = $this->removeExtraData($completePart);
             $breadCrumb = $this->makeBreadCrumb($completePart[0]);
             $columnContent = $this->makeFilters($modifiedPartArray);
             $codes = $this->getColumnCodes($columnContent);
+
             // Filter
             if(isset($_GET['filters']) && !isset($_GET['order'])){
                 $breadCrumb = $this->makeBreadCrumb($completePart[0]);
@@ -309,7 +319,6 @@ class SearchHelper
                 if(!isset($_GET['subcategory'])){
 //                return 'Send A Sub Category!';
                 }
-
                 $sortedArrayPart = $this->sortTable($modifiedFilteredPartArray,$colName,$order);
                 $modifiedFilteredSortedPartArray = $this->removeExtraData($sortedArrayPart);
                 $columnContent = $result[1];
@@ -318,7 +327,6 @@ class SearchHelper
                 $modifiedFilteredSortedPartArray = $this->makeMamadFormat($modifiedFilteredSortedPartArray);
                 return $modifiedFilteredSortedPartArray;
             }
-
             array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
             $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
             return $modifiedPartArray;
@@ -330,12 +338,11 @@ class SearchHelper
     }
 
     /*
-     * this helper gives array of commons data and returns complete array of part data
+     * this helper gets array of commons data and returns complete array of part data
      */
 
     public function MakeCompletePartArray($commonGroup)
     {
-
 
         $separateGroup = [];
         for ($i = 0; $i < count($commonGroup); $i++) {
@@ -357,7 +364,7 @@ class SearchHelper
             // check if there is separate part available the connects to common part
             if (is_null($partSeparate)) {
 
-                return 'no separate found for id number' . $commonGroup[$i]->id . ' in commos';
+                return 'no separate found for id number ' . $commonGroup[$i]->id . ' in commons';
             }
 
             array_push($separateGroup, $partSeparate);
