@@ -11,8 +11,8 @@
     <title>ETRIX-فروشگاه قطعات الکترونیک</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/11.c3e742c2.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.6af9c915.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/11.6744c0d5.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.19800fe9.chunk.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -33,9 +33,9 @@
     <script>
         ! function(f) {
             function e(e) {
-                for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
+                for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
-                for (p && p(e); c.length;) c.shift()();
+                for (p && p(e); u.length;) u.shift()();
                 return l.push.apply(l, a || []), i()
             }
 
@@ -50,7 +50,7 @@
                 return e
             }
             var r = {},
-                c = {
+                u = {
                     13: 0
                 },
                 s = {
@@ -69,32 +69,32 @@
             }
             d.e = function(l) {
                 var e = [];
-                c[l] ? e.push(c[l]) : 0 !== c[l] && {
+                u[l] ? e.push(u[l]) : 0 !== u[l] && {
                     4: 1,
                     5: 1,
                     7: 1,
                     12: 1
-                }[l] && e.push(c[l] = new Promise(function(e, n) {
+                }[l] && e.push(u[l] = new Promise(function(e, n) {
                     for (var t = "static/css/" + ({}[l] || l) + "." + {
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-                            4: "7b8added",
-                            5: "401ce5ff",
+                            4: "f54b269a",
+                            5: "e16dc5ba",
                             6: "31d6cfe0",
-                            7: "f8741a31",
+                            7: "e1fe6d7c",
                             8: "31d6cfe0",
                             9: "31d6cfe0",
                             10: "31d6cfe0",
-                            12: "b0e1ff0d"
+                            12: "205f0f9c"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                        var u = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
-                        if ("stylesheet" === f.rel && (u === t || u === o)) return e()
+                        var c = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
+                        if ("stylesheet" === f.rel && (c === t || c === o)) return e()
                     }
-                    var c = document.getElementsByTagName("style");
-                    for (a = 0; a < c.length; a++) {
+                    var u = document.getElementsByTagName("style");
+                    for (a = 0; a < u.length; a++) {
                         var f;
-                        if ((u = (f = c[a]).getAttribute("data-href")) === t || u === o) return e()
+                        if ((c = (f = u[a]).getAttribute("data-href")) === t || c === o) return e()
                     }
                     var i = document.createElement("link");
                     i.rel = "stylesheet", i.type = "text/css", i.onload = e, i.onerror = function(e) {
@@ -103,7 +103,7 @@
                         r.request = t, n(r)
                     }, i.href = o, document.getElementsByTagName("head")[0].appendChild(i)
                 }).then(function() {
-                    c[l] = 0
+                    u[l] = 0
                 }));
                 var r = s[l];
                 if (0 !== r)
@@ -116,19 +116,19 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-                            0: "55a61e77",
-                            2: "f97a88b8",
-                            3: "a5ed5650",
-                            4: "da6316cc",
-                            5: "34634099",
-                            6: "2e76bffa",
-                            7: "bc217e3d",
-                            8: "dc014103",
-                            9: "9e48c8fa",
-                            10: "62e05d70",
-                            12: "8e79eee4"
+                            0: "f7dec202",
+                            2: "fd5897fe",
+                            3: "5cb56f3a",
+                            4: "15821dc3",
+                            5: "83ec26f5",
+                            6: "00cbb658",
+                            7: "ad91851c",
+                            8: "d558c63a",
+                            9: "9d665c2e",
+                            10: "4195ece2",
+                            12: "7efc004a"
                         }[l] + ".chunk.js", n = function(e) {
-                            a.onerror = a.onload = null, clearTimeout(u);
+                            a.onerror = a.onload = null, clearTimeout(c);
                             var t = s[l];
                             if (0 !== t) {
                                 if (t) {
@@ -140,7 +140,7 @@
                                 s[l] = void 0
                             }
                         };
-                        var u = setTimeout(function() {
+                        var c = setTimeout(function() {
                             n({
                                 type: "timeout",
                                 target: a
@@ -192,8 +192,8 @@
             i()
         }([])
     </script>
-    <script src="{{ asset('static/js/11.a06cac6f.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.45f9d652.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/11.055c4aa8.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.654346e7.chunk.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('.iconbar-container').click(function() {
