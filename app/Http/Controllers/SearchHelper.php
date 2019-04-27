@@ -98,14 +98,13 @@ class SearchHelper
             return '415';
         }
         // check if requested part is available in multiple categories
-
          $uniqueComponentIds = array_values(array_unique($commonGroup->pluck('component_id')->toArray()));
-
         if(count($uniqueComponentIds) > 1){
             // find categories with their products
             $breadCrumbs = [];
             for($m=0;$m<count($uniqueComponentIds);$m++){
-                array_push($breadCrumbs,$this->makeBreadCrumb(get_object_vars($commonGroup->toArray()[$m])));
+
+                array_push($breadCrumbs,$this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first())));
             }
             return $breadCrumbs;
         }

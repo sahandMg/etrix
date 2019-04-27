@@ -51,15 +51,19 @@ class SearchController extends Controller
  *  Check if search has keyword and category!=all
  *  Check if
  */
+    if(isset($request->keyword)){
 
         $keyword = str_replace(' ','_',$request->keyword);
         // check mapped names from other websites
         if($this->mapName($keyword) != 0){
             $keyword = $this->mapName($keyword);
         }
+    }else{
+        $keyword = null;
+    }
         $product = str_replace(' ','_',$request->category);
         if(isset($request->subcategory)){
-        $subcategory = str_replace(' ','_',$request->subcategory);
+             $subcategory = str_replace(' ','_',$request->subcategory);
         }
 
         if(is_null($request->num)){
@@ -93,7 +97,6 @@ class SearchController extends Controller
 
                 return $this->searchHelper->getPartsFromSubcategory($product,$subcategory,$this->paginate);
         }elseif(!is_null($keyword) && $product != 'all'){
-
             return $this->searchHelper->findKeyword($keyword,$this->paginate);
 
         }
