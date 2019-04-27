@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-<<<<<<< HEAD
 
 <head>
     <meta charset="utf-8">
@@ -37,45 +36,7 @@
                 for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
                 for (p && p(e); u.length;) u.shift()();
-=======
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
-        <meta name="description"
-            content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
-        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
-        <title>ETRIX - فروشگاه قطعات الکترونیک</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/11.61f7ca68.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.5892e72e.chunk.css')}}" rel="stylesheet">
-    </head>
-    <body>
-     <div id="example">
-     </div>
 
-     <style>
-     @font-face {
-         font-family: myFirstFont;
-         src: url(font/3.woff);
-     }
-
-     body {
-         font-family: myFirstFont;
-     }
-     </style>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-      <script>
-        ! function(f) {
-            function e(e) {
-                for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
-                for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
-                for (p && p(e); c.length;) c.shift()();
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
                 return l.push.apply(l, a || []), i()
             }
 
@@ -119,7 +80,6 @@
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-<<<<<<< HEAD
                             4: "f54b269a",
                             5: "e16dc5ba",
                             6: "31d6cfe0",
@@ -136,24 +96,7 @@
                     for (a = 0; a < u.length; a++) {
                         var f;
                         if ((c = (f = u[a]).getAttribute("data-href")) === t || c === o) return e()
-=======
-                            4: "a551f86e",
-                            5: "6986d6ff",
-                            6: "31d6cfe0",
-                            7: "760a4b8e",
-                            8: "31d6cfe0",
-                            9: "31d6cfe0",
-                            10: "31d6cfe0",
-                            12: "ac3ff142"
-                        }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                        var u = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
-                        if ("stylesheet" === f.rel && (u === t || u === o)) return e()
-                    }
-                    var c = document.getElementsByTagName("style");
-                    for (a = 0; a < c.length; a++) {
-                        var f;
-                        if ((u = (f = c[a]).getAttribute("data-href")) === t || u === o) return e()
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+
                     }
                     var i = document.createElement("link");
                     i.rel = "stylesheet", i.type = "text/css", i.onload = e, i.onerror = function(e) {
@@ -175,7 +118,7 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-<<<<<<< HEAD
+
                             0: "f7dec202",
                             2: "fd5897fe",
                             3: "5cb56f3a",
@@ -187,19 +130,9 @@
                             9: "9d665c2e",
                             10: "4195ece2",
                             12: "7efc004a"
-=======
-                            0: "42a6a0b2",
-                            2: "28cd6d93",
-                            3: "4ffb1247",
-                            4: "955b9330",
-                            5: "72cbfc17",
-                            6: "d594666f",
-                            7: "98325c81",
-                            8: "070ebe4a",
-                            9: "6fa32a31",
-                            10: "2053ef7c",
-                            12: "917b78a0"
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+
+
+
                         }[l] + ".chunk.js", n = function(e) {
                             a.onerror = a.onload = null, clearTimeout(u);
                             var t = s[l];
@@ -265,7 +198,7 @@
             i()
         }([])
     </script>
-<<<<<<< HEAD
+
     <script src="{{ asset('static/js/11.055c4aa8.chunk.js')}}"></script>
     <script src="{{ asset('static/js/main.654346e7.chunk.js')}}"></script>
     <script>
@@ -319,50 +252,8 @@
         gtag('config', 'UA-131109496-1');
     </script>
 </body>
-=======
-    <script src="{{ asset('static/js/11.d7221464.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.2acf3022.chunk.js')}}"></script>
-     <script>
-     $(document).ready(function () {
-         $('.iconbar-container').click(function () {
-             $(this).toggleClass('change');
-             $(".navbar-sticky-bg").fadeIn('slow',function () {
-                 $("body").css({overflow : "hidden"});
-                 $('.navbar-sticky').animate({'left' : $(window).outerWidth()-$(".navbar-sticky").outerWidth()},'fast');
-             });
-         });
-         $("body").click(function (e) {
-             // console.log(e.target.classList);
-             if(e.target.classList.contains('navbar-sticky-bg') || e.target.classList.contains('list-group-item')){
-                 // console.log("test navbar");
-                 $('.navbar-sticky')
-                     .animate({"left": "100%"}, 'fast');
 
-                 $('.navbar-sticky-bg').fadeOut('slow',function () {
-                     $("body").css({overflow : "visible"});
-                     $('.iconbar-container').toggleClass('change');
-                 });
-             }
-         })
-         $(".list-group-item a").click(function (e) {
-             $('.navbar-sticky')
-                 .animate({"left": "100%"}, 'fast');
-             $('.navbar-sticky-bg').fadeOut('slow',function () {
-                 $("body").css({overflow : "visible"});
-                 $('.iconbar-container').toggleClass('change');
-             });
-         })
-     });
-     </script>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131109496-1"></script>
-     <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
 
-       gtag('config', 'UA-131109496-1');
-     </script>
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+
 
 </html>
