@@ -4,7 +4,9 @@
 /public/js/vendor.js
 /public/css/app.css
 /public/storage
+/public/static
 /storage/app
+/resources/views/welcome.blade.php
 /vendor
 /.idea
 /.vscode

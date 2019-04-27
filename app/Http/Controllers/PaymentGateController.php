@@ -164,13 +164,13 @@ class PaymentGateController extends Controller
 
                 try{
 
-                    $userCartData = unserialize(DB::table('carts')->where('bom_id',$bom->id)->first()->name);
+                    $userCartData = (DB::table('carts')->where('bom_id',$bom->id)->get());
                 }catch (\Exception $exception){
 
                     return $exception;
                 }
                 $data = [
-
+                'cart'=>$userCartData
                 ];
                 Mail::send('cart',$data,function($message){
 
@@ -224,6 +224,24 @@ class PaymentGateController extends Controller
 //                }
 
                 $transaction->delete();
+
+                // increase item numbers
+
+                $carts = $bom->carts;
+                for($i=0;$i<count($carts);$i++){
+                    $items = array_values(unserialize($carts[$i]->name));
+                    // check each item price in a loop
+                    for($t=0;$t<count($items);$t++){
+
+                        $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['quantity_available'];
+
+                        DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity + $items[$t]['num'] ]);
+                    }
+
+                    $items = [];
+                }
+
+
                 return redirect(URls::$falsePayment.'/'.$bom->order_number);
 //                return ['Error'=>'تراکنش ناموفق بود','code'=>404];
 
