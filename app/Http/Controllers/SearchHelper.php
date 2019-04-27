@@ -101,14 +101,15 @@ class SearchHelper
          $uniqueComponentIds = array_values(array_unique($commonGroup->pluck('component_id')->toArray()));
         if(count($uniqueComponentIds) > 1){
             // find categories with their products
+            $final_resp = [];
+            array_push($final_resp,50);
             $breadCrumbs = [];
-            array_push($breadCrumbs,50);
             for($m=0;$m<count($uniqueComponentIds);$m++){
 
                 array_push($breadCrumbs,$this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first())));
             }
-
-            return $breadCrumbs;
+            array_push($final_resp,$breadCrumbs);
+            return $final_resp;
         }
 
         // finding the separate parts of this group
