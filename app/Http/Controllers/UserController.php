@@ -144,7 +144,7 @@ class UserController extends Controller
             $user->token = str_random(80);
             $user->save();
 
-
+            event(new UserRegister($user));
 //        $token = Auth::guard('user')->login($user);
 //        $user->update(['token'=>$token]);
 

@@ -51,11 +51,19 @@ class SearchController extends Controller
  *  Check if search has keyword and category!=all
  *  Check if
  */
+    if(isset($request->keyword)){
 
         $keyword = str_replace(' ','_',$request->keyword);
+        // check mapped names from other websites
+        if($this->mapName($keyword) != 0){
+            $keyword = $this->mapName($keyword);
+        }
+    }else{
+        $keyword = null;
+    }
         $product = str_replace(' ','_',$request->category);
         if(isset($request->subcategory)){
-        $subcategory = str_replace(' ','_',$request->subcategory);
+             $subcategory = str_replace(' ','_',$request->subcategory);
         }
 
         if(is_null($request->num)){
@@ -66,26 +74,30 @@ class SearchController extends Controller
         }
 
         /*
+         * Check Searched Keyword in PartMapping table
+         */
+
+
+        /*
          * if keyword sent in request is null
          * this state happens just in case of selecting a category without any keyword searching
          * return the subcategories of the selected product
          */
 
-        if(is_null($request->keyword) && $product != 'all' && !isset($request->subcategory)){
+        if(is_null($keyword) && $product != 'all' && !isset($request->subcategory)){
 
             return $this->searchHelper->getSubcategories($product);
-        }elseif(is_null($request->keyword) && $product == 'all'){
+        }elseif(is_null($keyword) && $product == 'all'){
 
             return $this->searchHelper->getAllCategories();
-        }elseif(!is_null($request->keyword) && $product == 'all'){
+        }elseif(!is_null($keyword) && $product == 'all'){
 
-            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
-        }elseif( isset($subcategory) && is_null($request->keyword)){
+            return $this->searchHelper->findKeyword($keyword,$this->paginate);
+        }elseif( isset($subcategory) && is_null($keyword)){
 
-                return $this->searchHelper->getPartsFromSubcategory($subcategory,$this->paginate);
-        }elseif(!is_null($request->keyword) && $product != 'all'){
-
-            return $this->searchHelper->findKeyword($request->keyword,$this->paginate);
+                return $this->searchHelper->getPartsFromSubcategory($product,$subcategory,$this->paginate);
+        }elseif(!is_null($keyword) && $product != 'all'){
+            return $this->searchHelper->findKeyword($keyword,$this->paginate);
 
         }
 //        elseif (isset($subcategory) && !is_null($request->keyword) && $product != 'all'){
@@ -95,6 +107,17 @@ class SearchController extends Controller
         else{
 
             return 'tell Sahand what have you done !';
+        }
+    }
+
+    private function mapName($keyword){
+        if(!is_null($keyword)){
+            $partName = DB::table('part_mapings')->where('map_name','like',"%$keyword%")->first();
+            if(!is_null($partName)){
+                return $partName->crawled_name;
+            }else{
+                return 0;
+            }
         }
     }
     /*

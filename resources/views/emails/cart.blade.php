@@ -9,11 +9,6 @@
 </head>
 <body>
 
-    @for($i=0;$i<count($i);$i++)
-        @for($t=0;$t<count($i);$i++)
-            @for($i=0;$i<count($i);$i++)
-
-
 
 
 

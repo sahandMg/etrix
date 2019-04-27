@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
 
 <head>
     <meta charset="utf-8">
@@ -12,8 +15,13 @@
     <title>ETRIX-فروشگاه قطعات الکترونیک</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
     <link href="{{asset('static/css/11.c3e742c2.chunk.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/main.6af9c915.chunk.css')}}" rel="stylesheet">
+=======
+    <link href="{{asset('static/css/11.6744c0d5.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.19800fe9.chunk.css')}}" rel="stylesheet">
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
 </head>
 
 <body>
@@ -32,6 +40,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script>
+<<<<<<< HEAD
 =======
     <head>
         <meta charset="utf-8">
@@ -66,11 +75,14 @@
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
       <script>
 >>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+=======
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
         ! function(f) {
             function e(e) {
-                for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) r = n[u], s[r] && c.push(s[r][0]), s[r] = 0;
+                for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
                 for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
-                for (p && p(e); c.length;) c.shift()();
+                for (p && p(e); u.length;) u.shift()();
+
                 return l.push.apply(l, a || []), i()
             }
 
@@ -115,6 +127,7 @@
                             2: "31d6cfe0",
                             3: "31d6cfe0",
 <<<<<<< HEAD
+<<<<<<< HEAD
                             4: "7b8added",
                             5: "401ce5ff",
                             6: "31d6cfe0",
@@ -133,14 +146,25 @@
                             10: "31d6cfe0",
                             12: "ac3ff142"
 >>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+=======
+                            4: "f54b269a",
+                            5: "e16dc5ba",
+                            6: "31d6cfe0",
+                            7: "e1fe6d7c",
+                            8: "31d6cfe0",
+                            9: "31d6cfe0",
+                            10: "31d6cfe0",
+                            12: "205f0f9c"
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                        var u = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
-                        if ("stylesheet" === f.rel && (u === t || u === o)) return e()
+                        var c = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
+                        if ("stylesheet" === f.rel && (c === t || c === o)) return e()
                     }
-                    var c = document.getElementsByTagName("style");
-                    for (a = 0; a < c.length; a++) {
+                    var u = document.getElementsByTagName("style");
+                    for (a = 0; a < u.length; a++) {
                         var f;
-                        if ((u = (f = c[a]).getAttribute("data-href")) === t || u === o) return e()
+                        if ((c = (f = u[a]).getAttribute("data-href")) === t || c === o) return e()
+
                     }
                     var i = document.createElement("link");
                     i.rel = "stylesheet", i.type = "text/css", i.onload = e, i.onerror = function(e) {
@@ -162,6 +186,7 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
+<<<<<<< HEAD
 <<<<<<< HEAD
                             0: "55a61e77",
                             2: "f97a88b8",
@@ -187,6 +212,23 @@
                             10: "2053ef7c",
                             12: "917b78a0"
 >>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+=======
+
+                            0: "f7dec202",
+                            2: "fd5897fe",
+                            3: "5cb56f3a",
+                            4: "15821dc3",
+                            5: "83ec26f5",
+                            6: "00cbb658",
+                            7: "ad91851c",
+                            8: "d558c63a",
+                            9: "9d665c2e",
+                            10: "4195ece2",
+                            12: "7efc004a"
+
+
+
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
                         }[l] + ".chunk.js", n = function(e) {
                             a.onerror = a.onload = null, clearTimeout(u);
                             var t = s[l];
@@ -253,8 +295,14 @@
         }([])
     </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="{{ asset('static/js/11.a06cac6f.chunk.js')}}"></script>
     <script src="{{ asset('static/js/main.45f9d652.chunk.js')}}"></script>
+=======
+
+    <script src="{{ asset('static/js/11.055c4aa8.chunk.js')}}"></script>
+    <script src="{{ asset('static/js/main.654346e7.chunk.js')}}"></script>
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
     <script>
         $(document).ready(function() {
             $('.iconbar-container').click(function() {
@@ -306,6 +354,7 @@
         gtag('config', 'UA-131109496-1');
     </script>
 </body>
+<<<<<<< HEAD
 =======
     <script src="{{ asset('static/js/11.d7221464.chunk.js')}}"></script>
     <script src="{{ asset('static/js/main.2acf3022.chunk.js')}}"></script>
@@ -351,5 +400,10 @@
        gtag('config', 'UA-131109496-1');
      </script>
 >>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
+=======
+
+
+
+>>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
 
 </html>
