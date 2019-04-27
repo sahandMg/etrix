@@ -102,10 +102,12 @@ class SearchHelper
         if(count($uniqueComponentIds) > 1){
             // find categories with their products
             $breadCrumbs = [];
+            array_push($breadCrumbs,50);
             for($m=0;$m<count($uniqueComponentIds);$m++){
 
                 array_push($breadCrumbs,$this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first())));
             }
+
             return $breadCrumbs;
         }
 
