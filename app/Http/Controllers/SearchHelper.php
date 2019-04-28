@@ -30,7 +30,7 @@ class SearchHelper
             $product = Product::where('product_name', $product)->firstOrFail();
         } catch (\Exception $exception) {
 
-            return 'product name not found';
+            return 'product name not found at line '.$exception->getLine();
         }
         $menu = [];
 
@@ -79,7 +79,7 @@ class SearchHelper
     /*
      * find the keyword in database
      */
-    public function findKeyword($keyword, $paginate)
+    public function findKeyword($keyword, $paginate,$subcategory)
     {
         $commonGroup = DB::table('commons')
             ->where('manufacturer_part_number', 'like', "%$keyword%")
@@ -97,37 +97,40 @@ class SearchHelper
 
             return '415';
         }
-        // check if requested part is available in multiple categories
-         $uniqueComponentIds = array_values(array_unique($commonGroup->pluck('component_id')->toArray()));
-        if(count($uniqueComponentIds) > 1){
-            // find categories with their products
-            $final_resp = [];
+        if($subcategory == null){
 
-            $breadCrumbs = [];
-            $keys = [];
-            for($m=0;$m<count($uniqueComponentIds);$m++){
-                $resp = $this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first()));
-                array_push($breadCrumbs , ['category'=>$resp['product_name'],'subcategory'=> $resp['name']]);
-                array_push($keys,$resp['product_name']);
-            }
-            $keys = array_values(array_unique($keys));
-            $count = 0;
+            // check if requested part is available in multiple categories
+            $uniqueComponentIds = array_values(array_unique($commonGroup->pluck('component_id')->toArray()));
+            if(count($uniqueComponentIds) > 1){
+                // find categories with their products
+                $final_resp = [];
+
+                $breadCrumbs = [];
+                $keys = [];
+                for($m=0;$m<count($uniqueComponentIds);$m++){
+                    $resp = $this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first()));
+                    array_push($breadCrumbs , ['category'=>$resp['product_name'],'subcategory'=> $resp['name']]);
+                    array_push($keys,$resp['product_name']);
+                }
+                $keys = array_values(array_unique($keys));
+                $count = 0;
                 for($i=0;$i<count($keys);$i++){
                     for($j=0;$j<count($breadCrumbs);$j++){
 
-                    if($breadCrumbs[$j]['category'] == $keys[$i]){
-                        $final_resp[$i]['category'] = $keys[$i];
-                        $final_resp[$i]['subcategory'][$count] = $breadCrumbs[$j]['subcategory'];
-                        $count++;
+                        if($breadCrumbs[$j]['category'] == $keys[$i]){
+                            $final_resp[$i]['category'] = $keys[$i];
+                            $final_resp[$i]['subcategory'][$count] = $breadCrumbs[$j]['subcategory'];
+                            $count++;
+                        }
                     }
-                }
                     $count = 0;
-            }
-            $resp = [];
-            array_push($resp,50);
-            array_push($resp,$final_resp);
-            return $resp;
+                }
+                $resp = [];
+                array_push($resp,50);
+                array_push($resp,$final_resp);
+                return $resp;
 
+            }
         }
 
         // finding the separate parts of this group
@@ -139,7 +142,7 @@ class SearchHelper
                 $modelName = DB::table('components')->where('id', $commonGroup[$i]->component_id)->first()->name;
             } catch (\Exception $exception) {
 
-                return 'model name not found in search helper at 102';
+                return 'model name not found in search helper at line '.$exception->getLine();
             }
 
             $model = 'App\IC\\' . $modelName;
@@ -257,12 +260,12 @@ class SearchHelper
 
             $product_id = DB::table('products')->where('product_name',$product)->first()->id;
         }catch (\Exception $exception){
-            return 'Product not found in database';
+            return 'Product not found in database at line '.$exception->getLine();
         }
         try {
             $componentId = DB::table('components')->where('product_id',$product_id)->where('name', 'like', "%$subcategory%")->first()->id;
         } catch (\Exception $exception) {
-            return 'component not found on search helper at getPartsFromSubcategory';
+            return 'component not found on search helper at getPartsFromSubcategory at line '.$exception->getLine();
         }
         $commonPart = DB::table('commons')
             ->where('component_id', $componentId)
@@ -372,7 +375,7 @@ class SearchHelper
                 $modelName = DB::table('components')->where('id', $commonGroup[$i]->component_id)->first()->name;
             } catch (\Exception $exception) {
 
-                return 'model name not found in search helper at 168';
+                return 'model name not found in search helper at line '.$exception->getLine();
             }
 
             $model = 'App\IC\\' . $modelName;

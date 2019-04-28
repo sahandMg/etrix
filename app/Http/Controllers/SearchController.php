@@ -90,14 +90,14 @@ class SearchController extends Controller
         }elseif(is_null($keyword) && $product == 'all'){
 
             return $this->searchHelper->getAllCategories();
-        }elseif(!is_null($keyword) && $product == 'all'){
+        }elseif(!is_null($keyword) && $product == 'all' && isset($subcategory)){
 
-            return $this->searchHelper->findKeyword($keyword,$this->paginate);
+            return $this->searchHelper->findKeyword($keyword,$this->paginate,isset($subcategory)?$subcategory:null);
         }elseif( isset($subcategory) && is_null($keyword)){
 
                 return $this->searchHelper->getPartsFromSubcategory($product,$subcategory,$this->paginate);
         }elseif(!is_null($keyword) && $product != 'all'){
-            return $this->searchHelper->findKeyword($keyword,$this->paginate);
+            return $this->searchHelper->findKeyword($keyword,$this->paginate,isset($subcategory)?$subcategory:null);
 
         }
 //        elseif (isset($subcategory) && !is_null($request->keyword) && $product != 'all'){
