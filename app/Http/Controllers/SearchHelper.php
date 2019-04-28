@@ -102,14 +102,32 @@ class SearchHelper
         if(count($uniqueComponentIds) > 1){
             // find categories with their products
             $final_resp = [];
-            array_push($final_resp,50);
-            $breadCrumbs = [];
-            for($m=0;$m<count($uniqueComponentIds);$m++){
 
-                array_push($breadCrumbs,$this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first())));
+            $breadCrumbs = [];
+            $keys = [];
+            for($m=0;$m<count($uniqueComponentIds);$m++){
+                $resp = $this->makeBreadCrumb(get_object_vars($commonGroup->where('component_id',$uniqueComponentIds[$m])->first()));
+                array_push($breadCrumbs , ['category'=>$resp['product_name'],'subcategory'=> $resp['name']]);
+                array_push($keys,$resp['product_name']);
             }
-            array_push($final_resp,$breadCrumbs);
-            return $final_resp;
+            $keys = array_values(array_unique($keys));
+            $count = 0;
+                for($i=0;$i<count($keys);$i++){
+                    for($j=0;$j<count($breadCrumbs);$j++){
+
+                    if($breadCrumbs[$j]['category'] == $keys[$i]){
+                        $final_resp[$i]['category'] = $keys[$i];
+                        $final_resp[$i]['subcategory'][$count] = $breadCrumbs[$j]['subcategory'];
+                        $count++;
+                    }
+                }
+                    $count = 0;
+            }
+            $resp = [];
+            array_push($resp,50);
+            array_push($resp,$final_resp);
+            return $resp;
+
         }
 
         // finding the separate parts of this group
@@ -132,7 +150,7 @@ class SearchHelper
             // check if there is separate part available the connects to common part
             if (is_null($partSeparate)) {
 
-                return 'no separate found for id number' . $commonGroup[$i]->id . ' in commos';
+                return 'no separate found for id number ' . $commonGroup[$i]->id . ' in commons';
             }
 
             array_push($separateGroup, $partSeparate);
