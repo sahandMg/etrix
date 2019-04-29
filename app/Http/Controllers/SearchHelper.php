@@ -30,28 +30,30 @@ class SearchHelper
             $product = Product::where('product_name', $product)->firstOrFail();
         } catch (\Exception $exception) {
 
-            return 'product name not found at line '.$exception->getLine();
+            return 'product name not found at line ' . $exception->getLine();
         }
         $menu = [];
-
+        $final_resp = [];
+        array_push($final_resp,50);
         try {
             $subCategories = $product->subcategories;
 
             foreach ($subCategories as $item => $subCategory) {
-                $menu['product'] = str_replace('_', ' ', $product->product_name);
+                $menu['category'] = str_replace('_', ' ', $product->product_name);
                 $arr = $subCategory->underlays->pluck('name')->toArray();
                 for ($i = 0; $i < count($arr); $i++) {
                     $arr[$i] = substr($arr[$i], 0, strlen($arr[$i]) - 4);
                     $arr[$i] = str_replace('_', ' ', $arr[$i]);
                 }
-                $menu['category'][str_replace('_', ' ', $product->subcategories->pluck('name')->toArray()[$item])] = $arr;
-                unset($menu['category'][$item]);
+                $menu['subcategory'][str_replace('_', ' ', $product->subcategories->pluck('name')->toArray()[$item])] = $arr;
+                unset($menu['subcategory'][$item]);
             }
         } catch (\Exception $exception) {
 
         }
+        array_push($final_resp,[$menu]);
+        return $final_resp;
 
-        return $menu;
 
     }
 
