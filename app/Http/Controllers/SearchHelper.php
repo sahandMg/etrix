@@ -133,6 +133,19 @@ class SearchHelper
                 return $resp;
 
             }
+        }else{
+            try{
+                $id = DB::table('components')->where('name',$subcategory)->first()->id;
+            }catch (\Exception $exception){
+
+                return 'no component id found at '.$exception->getLine();
+            }
+
+            $commonGroup = DB::table('commons')
+                ->where('manufacturer_part_number', 'like', "%$keyword%")
+                ->where('component_id',$id)
+                ->skip(($this->skip * ($paginate - 1)))->take($this->skip)
+                ->get();
         }
 
         // finding the separate parts of this group

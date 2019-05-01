@@ -470,11 +470,10 @@ class CartController extends Controller
         $sign = 0;
         if(!is_null($request->project)){
             try{
-                $id = DB::table('projects')->where('name',$request->project)->first()->id;
+                $id = DB::table('projects')->where('user_id', Auth::guard('user')->id())->where('name',$request->project)->first()->id;
             }catch (\Exception $exception){
                 return 'project not found';
             }
-
 
             $project_name = DB::table('projects')->where('name',$request->project)->first()->name;
             $cart = Bom::where('user_id', Auth::guard('user')->id())->where('status',0)->first()->carts->where('project_id',$id)->first();
@@ -482,7 +481,6 @@ class CartController extends Controller
                 return 'cart not found';
             }
            $items = array_values(unserialize($cart->name));
-
             for ($i=0;$i<count($items);$i++){
                 $items[$i]['project']=$project_name;
                 if(isset($items[$i]['name'])){
@@ -493,7 +491,11 @@ class CartController extends Controller
                     unset($items[$i]);
                     $sign = 1;
                 }
+
             }
+
+
+
             if($sign == 0){
                 return 404;
             }
@@ -503,7 +505,7 @@ class CartController extends Controller
                 array_push($content,array_values(unserialize($cart->name)));
             }
 
-            return array_values(array_filter($content));
+            return $this->readCart($request);
         }else{
 
            $cart = Bom::where('user_id', Auth::guard('user')->id())->where('status',0)->first()->carts->where('project_id',0)->first();
@@ -521,6 +523,7 @@ class CartController extends Controller
                 if($items[$i]['keyword'] == $request->keyword){
                     $sign = 1;
                     unset($items[$i]);
+                    $sign = 1;
                 }
 
             }
@@ -528,12 +531,14 @@ class CartController extends Controller
                 return 404;
             }
             $cart->update(['name'=>serialize($items)]);
+
             $carts = Bom::where('user_id',Auth::guard('user')->id())->where('status',0)->first()->carts;
             foreach ($carts as $cart){
                 array_push($content,array_values(unserialize($cart->name)));
             }
 
-            return array_values(array_filter($content));
+//            return array_values(array_filter($content));
+            return $this->readCart($request);
         }
 
 
