@@ -1,9 +1,5 @@
 <!doctype html>
 <html>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
 
 <head>
     <meta charset="utf-8">
@@ -15,18 +11,13 @@
     <title>ETRIX-فروشگاه قطعات الکترونیک</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-    <link href="{{asset('static/css/11.c3e742c2.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.6af9c915.chunk.css')}}" rel="stylesheet">
-=======
-    <link href="{{asset('static/css/11.6744c0d5.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.19800fe9.chunk.css')}}" rel="stylesheet">
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
+    <link href="{{asset('static/css/11.7439f669.chunk.css')}}" rel="stylesheet">
+    <link href="{{asset('static/css/main.fd089453.chunk.css')}}" rel="stylesheet">
 </head>
 
 <body>
     <div id="example"></div>
-    <style>
+  <style>
         @font-face {
             font-family: myFirstFont;
             src: url(font/3.woff)
@@ -39,54 +30,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script>
-<<<<<<< HEAD
-=======
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="مقالات آموزشی الکترونیک,آی سی,ای سی,ماژول,مقاومت,خازن,ترانزیستور,فروش اینترنتی,الکترونیک,آردوینو,رباتیک,میکروکنترلر,قطعات الکترونیک,فروش">
-        <meta name="description"
-            content="فروشگاه آنلاین قطعات الکترونیک و مجله آموزشی الکترونیک"/>
-        <meta name="google-site-verification" content="4DHhbhIWzWzQradPyRcPiW-5nlgcWdcQWX4fosAHVkI" />
-        <title>ETRIX - فروشگاه قطعات الکترونیک</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{asset('static/css/11.61f7ca68.chunk.css')}}" rel="stylesheet">
-    <link href="{{asset('static/css/main.5892e72e.chunk.css')}}" rel="stylesheet">
-    </head>
-    <body>
-     <div id="example">
-     </div>
-
-     <style>
-     @font-face {
-         font-family: myFirstFont;
-         src: url(font/3.woff);
-     }
-
-     body {
-         font-family: myFirstFont;
-     }
-     </style>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-      <script>
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
-=======
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
-        ! function(f) {
+   <script>
+        ! function(i) {
             function e(e) {
                 for (var t, r, n = e[0], o = e[1], a = e[2], c = 0, u = []; c < n.length; c++) r = n[c], s[r] && u.push(s[r][0]), s[r] = 0;
-                for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (f[t] = o[t]);
+                for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (i[t] = o[t]);
                 for (p && p(e); u.length;) u.shift()();
-
-                return l.push.apply(l, a || []), i()
+                return l.push.apply(l, a || []), f()
             }
 
-            function i() {
+            function f() {
                 for (var e, t = 0; t < l.length; t++) {
                     for (var r = l[t], n = !0, o = 1; o < r.length; o++) {
                         var a = r[o];
@@ -97,7 +50,7 @@
                 return e
             }
             var r = {},
-                c = {
+                u = {
                     13: 0
                 },
                 s = {
@@ -112,68 +65,45 @@
                     l: !1,
                     exports: {}
                 };
-                return f[e].call(t.exports, t, t.exports, d), t.l = !0, t.exports
+                return i[e].call(t.exports, t, t.exports, d), t.l = !0, t.exports
             }
             d.e = function(l) {
                 var e = [];
-                c[l] ? e.push(c[l]) : 0 !== c[l] && {
+                u[l] ? e.push(u[l]) : 0 !== u[l] && {
                     4: 1,
                     5: 1,
                     7: 1,
                     12: 1
-                }[l] && e.push(c[l] = new Promise(function(e, n) {
+                }[l] && e.push(u[l] = new Promise(function(e, n) {
                     for (var t = "static/css/" + ({}[l] || l) + "." + {
                             0: "31d6cfe0",
                             2: "31d6cfe0",
                             3: "31d6cfe0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            4: "7b8added",
-                            5: "401ce5ff",
+                            4: "17303a96",
+                            5: "f38481c2",
                             6: "31d6cfe0",
-                            7: "f8741a31",
+                            7: "a8c49de9",
                             8: "31d6cfe0",
                             9: "31d6cfe0",
                             10: "31d6cfe0",
-                            12: "b0e1ff0d"
-=======
-                            4: "a551f86e",
-                            5: "6986d6ff",
-                            6: "31d6cfe0",
-                            7: "760a4b8e",
-                            8: "31d6cfe0",
-                            9: "31d6cfe0",
-                            10: "31d6cfe0",
-                            12: "ac3ff142"
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
-=======
-                            4: "f54b269a",
-                            5: "e16dc5ba",
-                            6: "31d6cfe0",
-                            7: "e1fe6d7c",
-                            8: "31d6cfe0",
-                            9: "31d6cfe0",
-                            10: "31d6cfe0",
-                            12: "205f0f9c"
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
+                            12: "cd960371"
                         }[l] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                        var c = (f = r[a]).getAttribute("data-href") || f.getAttribute("href");
-                        if ("stylesheet" === f.rel && (c === t || c === o)) return e()
+                        var c = (i = r[a]).getAttribute("data-href") || i.getAttribute("href");
+                        if ("stylesheet" === i.rel && (c === t || c === o)) return e()
                     }
                     var u = document.getElementsByTagName("style");
                     for (a = 0; a < u.length; a++) {
-                        var f;
-                        if ((c = (f = u[a]).getAttribute("data-href")) === t || c === o) return e()
-
+                        var i;
+                        if ((c = (i = u[a]).getAttribute("data-href")) === t || c === o) return e()
                     }
-                    var i = document.createElement("link");
-                    i.rel = "stylesheet", i.type = "text/css", i.onload = e, i.onerror = function(e) {
+                    var f = document.createElement("link");
+                    f.rel = "stylesheet", f.type = "text/css", f.onload = e, f.onerror = function(e) {
                         var t = e && e.target && e.target.src || o,
                             r = new Error("Loading CSS chunk " + l + " failed.\n(" + t + ")");
                         r.request = t, n(r)
-                    }, i.href = o, document.getElementsByTagName("head")[0].appendChild(i)
+                    }, f.href = o, document.getElementsByTagName("head")[0].appendChild(f)
                 }).then(function() {
-                    c[l] = 0
+                    u[l] = 0
                 }));
                 var r = s[l];
                 if (0 !== r)
@@ -186,51 +116,19 @@
                         var n, o = document.getElementsByTagName("head")[0],
                             a = document.createElement("script");
                         a.charset = "utf-8", a.timeout = 120, d.nc && a.setAttribute("nonce", d.nc), a.src = d.p + "static/js/" + ({}[l] || l) + "." + {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            0: "55a61e77",
-                            2: "f97a88b8",
-                            3: "a5ed5650",
-                            4: "da6316cc",
-                            5: "34634099",
-                            6: "2e76bffa",
-                            7: "bc217e3d",
-                            8: "dc014103",
-                            9: "9e48c8fa",
-                            10: "62e05d70",
-                            12: "8e79eee4"
-=======
-                            0: "42a6a0b2",
-                            2: "28cd6d93",
-                            3: "4ffb1247",
-                            4: "955b9330",
-                            5: "72cbfc17",
-                            6: "d594666f",
-                            7: "98325c81",
-                            8: "070ebe4a",
-                            9: "6fa32a31",
-                            10: "2053ef7c",
-                            12: "917b78a0"
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
-=======
-
-                            0: "f7dec202",
-                            2: "fd5897fe",
-                            3: "5cb56f3a",
-                            4: "15821dc3",
-                            5: "83ec26f5",
-                            6: "00cbb658",
-                            7: "ad91851c",
-                            8: "d558c63a",
-                            9: "9d665c2e",
-                            10: "4195ece2",
-                            12: "7efc004a"
-
-
-
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
+                            0: "69c00a5a",
+                            2: "e134c1de",
+                            3: "3c87a191",
+                            4: "0cf79a13",
+                            5: "86b052c7",
+                            6: "89676203",
+                            7: "db2f5a39",
+                            8: "17d802ff",
+                            9: "1ec5d9f2",
+                            10: "3ea5fa11",
+                            12: "7de97063"
                         }[l] + ".chunk.js", n = function(e) {
-                            a.onerror = a.onload = null, clearTimeout(u);
+                            a.onerror = a.onload = null, clearTimeout(c);
                             var t = s[l];
                             if (0 !== t) {
                                 if (t) {
@@ -242,7 +140,7 @@
                                 s[l] = void 0
                             }
                         };
-                        var u = setTimeout(function() {
+                        var c = setTimeout(function() {
                             n({
                                 type: "timeout",
                                 target: a
@@ -251,7 +149,7 @@
                         a.onerror = a.onload = n, o.appendChild(a)
                     }
                 return Promise.all(e)
-            }, d.m = f, d.c = r, d.d = function(e, t, r) {
+            }, d.m = i, d.c = r, d.d = function(e, t, r) {
                 d.o(e, t) || Object.defineProperty(e, t, {
                     enumerable: !0,
                     get: r
@@ -291,18 +189,11 @@
             t.push = e, t = t.slice();
             for (var o = 0; o < t.length; o++) e(t[o]);
             var p = n;
-            i()
+            f()
         }([])
     </script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <script src="{{ asset('static/js/11.a06cac6f.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.45f9d652.chunk.js')}}"></script>
-=======
-
-    <script src="{{ asset('static/js/11.055c4aa8.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.654346e7.chunk.js')}}"></script>
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
+    <script src="{{asset('static/js/11.30f83418.chunk.js')}}"></script>
+    <script src="{{asset('static/js/main.d9f71aed.chunk.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('.iconbar-container').click(function() {
@@ -354,56 +245,8 @@
         gtag('config', 'UA-131109496-1');
     </script>
 </body>
-<<<<<<< HEAD
-=======
-    <script src="{{ asset('static/js/11.d7221464.chunk.js')}}"></script>
-    <script src="{{ asset('static/js/main.2acf3022.chunk.js')}}"></script>
-     <script>
-     $(document).ready(function () {
-         $('.iconbar-container').click(function () {
-             $(this).toggleClass('change');
-             $(".navbar-sticky-bg").fadeIn('slow',function () {
-                 $("body").css({overflow : "hidden"});
-                 $('.navbar-sticky').animate({'left' : $(window).outerWidth()-$(".navbar-sticky").outerWidth()},'fast');
-             });
-         });
-         $("body").click(function (e) {
-             // console.log(e.target.classList);
-             if(e.target.classList.contains('navbar-sticky-bg') || e.target.classList.contains('list-group-item')){
-                 // console.log("test navbar");
-                 $('.navbar-sticky')
-                     .animate({"left": "100%"}, 'fast');
-
-                 $('.navbar-sticky-bg').fadeOut('slow',function () {
-                     $("body").css({overflow : "visible"});
-                     $('.iconbar-container').toggleClass('change');
-                 });
-             }
-         })
-         $(".list-group-item a").click(function (e) {
-             $('.navbar-sticky')
-                 .animate({"left": "100%"}, 'fast');
-             $('.navbar-sticky-bg').fadeOut('slow',function () {
-                 $("body").css({overflow : "visible"});
-                 $('.iconbar-container').toggleClass('change');
-             });
-         })
-     });
-     </script>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131109496-1"></script>
-     <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-
-       gtag('config', 'UA-131109496-1');
-     </script>
->>>>>>> 365a983d6686aee30a18b055f2e17d8d431dcd0e
-=======
 
 
 
->>>>>>> 211b139eed1c653e2a316cb827ce2cfd639efa47
 
 </html>

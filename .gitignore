@@ -1,12 +1,7 @@
 /node_modules
-/public/hot
-/public/js/app.js
-/public/js/vendor.js
-/public/css/app.css
 /public/storage
-/public/static
+/public/hot
 /storage/app
-/resources/views/welcome.blade.php
 /vendor
 /.idea
 /.vscode
