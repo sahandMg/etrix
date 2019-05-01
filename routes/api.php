@@ -46,7 +46,8 @@ Route::get('excel-import','CartController@Excel_import');
 Route::get('province','PageController@Province');
 Route::get('city','PageController@City');
 
-
+Route::get('gateway-test','PaymentGateController@GatewayTest');
+Route::get('verify-test','PaymentGateController@verifyGatewayTest');
 // ----------------------------- User Routes ----------------------------------------
 //[
 

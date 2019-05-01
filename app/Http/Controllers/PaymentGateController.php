@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use SoapClient;
 
 class PaymentGateController extends Controller
 {
@@ -114,7 +115,7 @@ class PaymentGateController extends Controller
 
 
     public function verify(Request $request){
-        $Authority = $_GET['Authority'];
+
 //        if($request->Status == 'NOK') {
 //            Transaction::where('user_id', Auth::id())->orderBy('created_at', 'decs')->first()->delete();
 //
@@ -125,6 +126,7 @@ class PaymentGateController extends Controller
 //
 //            }
 //        }
+        $Authority = $_GET['Authority'];
         $transaction = Transaction::where('authority',$Authority)->orderBy('id','decs')->first();
         $user = DB::table('users')->where('id',$transaction->user_id)->first();
         $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
@@ -250,6 +252,128 @@ class PaymentGateController extends Controller
 
 
 
+    }
+
+    public function GatewayTest(){
+
+        $user = DB::table('users')->where('id',1)->first();
+        if(is_null($user)){
+            return '320';
+        }
+
+
+        $user = DB::table('users')->where('token',$user->token)->first();
+        if(is_null($user)){
+            return '320';
+        }
+
+        $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
+        $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+        $result = $client->PaymentRequest(
+            [
+                'MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
+                'Amount' => 100,
+                'Email' => $user->email,
+                'CallbackURL' => 'http://etrix.ir/verify-test',
+                'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی'
+            ]
+        );
+//Redirect to URL You can do it also by creating a form
+        if ($result->Status == 100) {
+            $transaction = new Transaction();
+            $transaction->user_id = $user->id;
+            $transaction->order_number = $bom->order_number;
+            $transaction->price = 100;
+            $transaction->authority = $result->Authority;
+            $transaction->status = $result->Status;
+            $transaction->save();
+            Header('Location: https://sandbox.zarinpal.com/pg/StartPay/'.$result->Authority);
+        } else {
+            echo'ERR: '.$result->Status;
+        }
+
+    }
+
+    public function verifyGatewayTest(){
+
+        $Authority = $_GET['Authority'];
+        $transaction = Transaction::where('authority',$Authority)->orderBy('id','decs')->first();
+        $user = DB::table('users')->where('id',$transaction->user_id)->first();
+        $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
+        $MerchantID = 'ed8eea3e-068c-11e9-9efd-005056a205be';
+        $Amount = 100; //Amount will be based on Toman
+        $Authority = $_GET['Authority'];
+
+        if ($_GET['Status'] == 'OK') {
+
+            $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
+            $result = $client->PaymentVerification(
+                [
+                    'MerchantID' => $MerchantID,
+                    'Authority' => $Authority,
+                    'Amount' => $Amount,
+                ]
+            );
+
+            if ($result->Status == 100) {
+
+                $transaction->completed = 1;
+                $transaction->refId = $result['RefID'];
+                $transaction->save();
+
+
+//                return [
+//                    'body'=>'عملیات پرداخت با موفقیت انجام شد',
+//                    'code' => '200'
+//                ];
+                $url = URls::$truePayment.'/'.$bom->order_number;
+                $bom->update(['status'=>50]);
+
+                try{
+
+                    $userCartData = (DB::table('carts')->where('bom_id',$bom->id)->get());
+                }catch (\Exception $exception){
+
+                    return $exception;
+                }
+                $data = [
+                    'cart'=>$userCartData
+                ];
+                Mail::send('cart',$data,function($message){
+
+                });
+                return redirect($url);
+
+            } else {
+
+
+                $transaction->delete();
+
+                // increase item numbers
+
+                $carts = $bom->carts;
+                for($i=0;$i<count($carts);$i++){
+                    $items = array_values(unserialize($carts[$i]->name));
+                    // check each item price in a loop
+                    for($t=0;$t<count($items);$t++){
+
+                        $quantity = get_object_vars(DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->first())['quantity_available'];
+
+                        DB::table('commons')->where('manufacturer_part_number',$items[$t]['keyword'])->update(['quantity_available'=>$quantity + $items[$t]['num'] ]);
+                    }
+
+                    $items = [];
+                }
+
+
+                return redirect(URls::$falsePayment.'/'.$bom->order_number);
+
+            }
+        } else {
+
+            echo 'Transaction canceled by user';
+        }
     }
 
 
