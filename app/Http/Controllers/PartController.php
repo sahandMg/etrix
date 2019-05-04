@@ -152,7 +152,8 @@ class PartController extends Controller
      */
     public function addNewPartsManual(Request $request){
 
-        $subcategory = $request->subcategory;
+        $category = $request->category;
+        $subcategory = str_replace('*','',strrchr($category,'*'));
         $subcategory = str_replace(' ','_',$subcategory);
         $str = 'App\IC\\'.$subcategory;
         try{
