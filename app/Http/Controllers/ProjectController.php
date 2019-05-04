@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Project;
 use App\User;
 use Carbon\Carbon;
@@ -87,9 +88,35 @@ class ProjectController extends Controller
 
         $prjs =  User::where('token',$token)->first()->projects;
         foreach ($prjs as $prj){
-
+            $price = $this->ProjectPrice($prj->name);
+            $prj->update(['price'=> $price]);
             $prj['created_at'] = Jalalian::fromCarbon($prj->created_at) ;
+
         }
         return $prjs;
+    }
+
+    /* gets paid project (bom status = 50) total price
+     * Required Params => token,project
+     */
+    public function ProjectPrice($name){
+
+        $projectName = $name;
+        $projectQuery = DB::table('projects')->where('user_id',Auth::guard('user')->id())->where('name',$projectName)->first();
+        if(is_null($projectQuery)){
+            return 'project not found';
+        }
+        $carts = Cart::where('project_id',$projectQuery->id)->get();
+        $ProjectPrice = 0;
+        foreach ($carts as $key=>$cart){
+
+            if($cart->bom->status != 0 ){
+
+                $ProjectPrice = unserialize($cart->name)[0]['price'] + $ProjectPrice;
+
+            }
+        }
+
+        return $ProjectPrice;
     }
 }

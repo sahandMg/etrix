@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\App;
 
 class Project extends Model
 {
+    protected $fillable = ['price'];
     public function cart(){
 
         return $this->hasOne(Cart::class);

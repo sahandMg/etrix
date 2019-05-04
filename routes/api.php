@@ -81,6 +81,7 @@ Route::get('verify-test','PaymentGateController@verifyGatewayTest');
 
             Route::post('create','ProjectController@createProject');
             Route::post('read','ProjectController@readProject');
+            Route::post('price','ProjectController@ProjectPrice');
             Route::post('detail','ProjectController@detail');
             Route::post('delete','ProjectController@deleteProject');
         });

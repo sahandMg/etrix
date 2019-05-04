@@ -183,7 +183,7 @@ class CartController extends Controller
                 $cart->name = serialize($this->cart);
                 $cart->bom_id = $bom->id;
                 if (!is_null($request->project)) {
-                    $projectId = DB::table('projects')->where('name', $request->project)->first()->id;
+                    $projectId = DB::table('projects')->where('user_id',Auth::guard('user')->id())->where('name', $request->project)->first()->id;
                     $cart->project_id = $projectId;
                 }
                 $cart->save();
