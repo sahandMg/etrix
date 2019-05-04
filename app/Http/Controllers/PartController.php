@@ -10,6 +10,7 @@ use App\Product;
 use App\Underlay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class PartController extends Controller
 {
@@ -146,9 +147,60 @@ class PartController extends Controller
         return 200;
     }
     /*
-     * Add new Parts Manually buy using
+     * Add new Parts Manually buy using subcategory name
+     * returns column names
      */
-    public function addNewPartsManual(){
+    public function addNewPartsManual(Request $request){
+
+        $subcategory = $request->subcategory;
+        $subcategory = str_replace(' ','_',$subcategory);
+        $str = 'App\IC\\'.$subcategory;
+        try{
+            $model = new $str();
+        }catch (\Exception $exception){
+            return 'No model found for '.$str.' at line '.$exception->getLine();
+        }
+        try{
+
+            $component = DB::table('components')->where('name',$subcategory)->first();
+            $component_id = $component->id;
+            $product_id = $component->product_id;
+        }catch (\Exception $exception){
+
+            return 'component not found for '.$subcategory;
+        }
+        $privateColumns = Schema::getColumnListing($model->getTable());
+        array_pop($privateColumns);
+        array_pop($privateColumns);
+        array_shift($privateColumns);
+        $common = new Common();
+        $commonColumns = Schema::getColumnListing($common->getTable());
+        array_pop($commonColumns);
+        array_pop($commonColumns);
+        array_pop($commonColumns);
+        array_pop($commonColumns);
+        array_shift($commonColumns);
+//        $partArray = array_merge($commonColumns,$privateColumns);
+        $privateColumnNames = [];
+        $commonColumnNames = [];
+        for($i=0;$i<count($commonColumns);$i++){
+            $commonColumnNames[$commonColumns[$i]] = '';
+            if($commonColumns[$i] == 'component_id' ){
+                $commonColumnNames[$commonColumns[$i]] = $component_id;
+            }
+
+        }
+
+        for($i=0;$i<count($privateColumns);$i++){
+            $privateColumnNames[$privateColumns[$i]] = '';
+            if($privateColumns[$i] == 'product_id' ){
+                $privateColumnNames[$privateColumns[$i]] = $product_id;
+            }
+        }
+
+
+        return ['commons'=>$commonColumnNames,'separate'=>$privateColumnNames];
+
 
     }
 }

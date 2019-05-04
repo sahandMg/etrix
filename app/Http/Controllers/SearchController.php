@@ -96,6 +96,7 @@ class SearchController extends Controller
 
                 return $this->searchHelper->getPartsFromSubcategory($product,$subcategory,$this->paginate);
         }elseif(!is_null($keyword) && $product != 'all'){
+
             return $this->searchHelper->findKeyword($keyword,$this->paginate,isset($subcategory)?$subcategory:null);
 
         }

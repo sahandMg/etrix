@@ -24,7 +24,6 @@ class SearchHelper
      */
     public function getSubcategories($product)
     {
-
         try {
 
             $product = Product::where('product_name', $product)->firstOrFail();
@@ -297,6 +296,7 @@ class SearchHelper
             $breadCrumb = $this->makeBreadCrumb($completePart[0]);
             $columnContent = $this->makeFilters($modifiedPartArray);
             $codes = $this->getColumnCodes($columnContent);
+
 
             // Filter
             if(isset($_GET['filters']) && !isset($_GET['order'])){
