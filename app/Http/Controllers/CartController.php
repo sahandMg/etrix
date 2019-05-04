@@ -623,7 +623,7 @@ class CartController extends Controller
         $order_number = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->order_number;
         $delivery = Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->delivery;
         $query = Address::where('user_id', Auth::guard('user')->id())->orderBy('created_at','desc')->first();
-        Cache::put('totalPrice',$totalPrice+$delivery,10);
+        Cache::put('totalPrice'.Auth::guard('user')->id(),$totalPrice+$delivery,10);
         return ['message'=>$resp,'cart'=>$usercart,'price'=>$totalPrice,'number'=>$order_number,
         'delivery'=>$delivery,
         'address'=>$query->address,
@@ -657,7 +657,7 @@ class CartController extends Controller
             $carts[$i]->update(['name'=>serialize($items)]);
             $items = [];
         }
-        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>Cache::get('totalPrice')]);
+        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['price'=>Cache::get('totalPrice'.Auth::guard('user')->id())]);
 //        Bom::where([['user_id', Auth::guard('user')->id()],['status',0]])->first()->update(['status'=>50]);
 
 //        return  ['body'=>'ok',
