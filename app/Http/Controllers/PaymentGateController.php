@@ -263,16 +263,16 @@ class PaymentGateController extends Controller
         }
 
         $bom = Bom::where([['user_id', $user->id],['status',0]])->first();
-        $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
-        $result = $client->PaymentRequest(
-            [
-                'MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
-                'Amount' => $bom->price,
-                'Email' => $user->email,
-                'CallbackURL' => 'http://etrix.ir/verify-test',
-                'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی'
-            ]
-        );
+//        $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+//        $result = $client->PaymentRequest(
+//            [
+//                'MerchantID' => 'ed8eea3e-068c-11e9-9efd-005056a205be',
+//                'Amount' => $bom->price,
+//                'Email' => $user->email,
+//                'CallbackURL' => 'http://etrix.ir/verify-test',
+//                'Description' => 'فروشگاه اینترنتی قطعات الکترونیکی'
+//            ]
+//        );
 
 //Redirect to URL You can do it also by creating a form
 //        if ($result->Status == 100) {
@@ -282,7 +282,7 @@ class PaymentGateController extends Controller
             $transaction->price = $bom->price;
             $num = rand(1000,100000);
             $transaction->authority = $num;
-            $transaction->status = $result->Status;
+            $transaction->status = 100;
             $transaction->save();
 //            Header('Location: https://sandbox.zarinpal.com/pg/StartPay/'.$result->Authority);
 //        } else {

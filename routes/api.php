@@ -154,6 +154,8 @@ Route::get('get-viewer','PageController@viewer');
 
     Route::post('add-parts','PartController@addNewParts');
 
+    Route::post('add-parts-manual','PartController@addNewPartsManual');
+
     Route::post('edit-part','ProductController@edit');
 
     Route::post('get-part-list','ProductController@getPartList');

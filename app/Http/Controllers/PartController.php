@@ -145,4 +145,10 @@ class PartController extends Controller
 
         return 200;
     }
+    /*
+     * Add new Parts Manually buy using
+     */
+    public function addNewPartsManual(){
+
+    }
 }
