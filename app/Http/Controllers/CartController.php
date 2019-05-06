@@ -623,7 +623,7 @@ class CartController extends Controller
 
         $addresses = DB::table('addresses')->where('user_id',Auth::guard('user')->id())->get()->toArray();
         if(count($addresses) == 0){
-            return 404;
+            return [];
         }
         $arr = [];
         foreach ($addresses as $key=>$address){
