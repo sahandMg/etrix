@@ -577,18 +577,18 @@ class CartController extends Controller
         // checks for duplicated tags
         if(!is_null($address)){
 
-            return 'duplicate tag founded!';
+            return 'duplicate tag found!';
         }
-
-           DB::table('addresses')->insert([
-               'address'=> $request->address,
-               'province'=>$request->province,
-               'post'=>$request->post,
-               'city'=>$request->city,
-               'tag'=>$request->tag,
-               'user_id'=>  Auth::guard('user')->id(),
-               'created_at'=> Carbon::now()
-           ]);
+            $newAdress = new Address();
+        $newAdress->address = $request->address;
+        $newAdress->province = $request->province;
+        $newAdress->post = $request->post;
+        $newAdress->city = $request->city;
+        $newAdress->tag = $request->tag;
+        $newAdress->user_id = Auth::guard('user')->id();
+        $newAdress->created_at = Carbon::now();
+        $newAdress->save();
+            DB::table('boms')->where('user_id',Auth::guard('user')->id())->where('status',0)->update(['address_id'=>$newAdress->id]);
            DB::table('users')->where('id', Auth::guard('user')->id())->update(['phone'=>$request->phone]);
 
 //       }
@@ -611,12 +611,13 @@ class CartController extends Controller
         if(is_null($address)){
             return 'no address found for this tag';
         }else{
-            return get_object_vars($address);
+            DB::table('boms')->where('user_id',Auth::guard('user')->id())->where('status',0)->update(['address_id'=>$address->id]);
+            return 200;
         }
 
     }
     /*
-     * get all of user's address tags
+     * gets users tag insted of address
      */
     public function getAddressTag(Request $request){
 
