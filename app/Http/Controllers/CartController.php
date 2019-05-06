@@ -596,8 +596,8 @@ class CartController extends Controller
         return 200;
     }
     /*
-     * sends address from tag name
      *
+     * gets users tag insted of address
      * Required params : tag , token
      *
      */
@@ -617,7 +617,7 @@ class CartController extends Controller
 
     }
     /*
-     * gets users tag insted of address
+     * sends all tags
      */
     public function getAddressTag(Request $request){
 
