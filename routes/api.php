@@ -66,14 +66,12 @@ Route::get('verify-test','PaymentGateController@verifyGatewayTest');
             Route::post('read','CartController@readCart');
             Route::post('edit','CartController@editCart');
             Route::get('excel','CartController@Excel');
-
             Route::post('add','CartController@addToCart');
             Route::post('confirm','CartController@confirm');
             Route::post('order-bill','CartController@orderBill');
             Route::post('price','CartController@price');
             Route::post('address','CartController@getAddress');
-
-
+            Route::post('address-tag','CartController@addressTag');
         });
 
 

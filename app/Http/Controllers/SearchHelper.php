@@ -20,7 +20,7 @@ class SearchHelper
     public $type;
     public $filteredColumn;
     /*
-     * returns categories and subcategories of a particular
+     * returns categories and subcategories of a particular product
      */
     public function getSubcategories($product)
     {
@@ -98,6 +98,9 @@ class SearchHelper
 
             return '415';
         }
+        $partsNumber = $commonGroup = DB::table('commons')
+            ->where('manufacturer_part_number', 'like', "%$keyword%")->count();
+
         if($subcategory == null){
 
             // check if requested part is available in multiple categories
@@ -201,6 +204,7 @@ class SearchHelper
             $codes = $this->getColumnCodes($columnContent);
             array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
             $modifiedFilteredPartArray = $this->makeMamadFormat($modifiedFilteredPartArray);
+            array_push($modifiedFilteredPartArray,$partsNumber);
             return $modifiedFilteredPartArray;
         }
 
@@ -223,6 +227,7 @@ class SearchHelper
             $modifiedSortedPartArray = $this->removeExtraData($sortedArrayPart);
             array_push($modifiedSortedPartArray,$columnContent,$codes,$breadCrumb);
             $modifiedSortedPartArray = $this->makeMamadFormat($modifiedSortedPartArray);
+            array_push($modifiedSortedPartArray,$partsNumber);
             return $modifiedSortedPartArray ;
         }
         // Sort + Filter
@@ -253,12 +258,14 @@ class SearchHelper
             $codes = $this->getColumnCodes($columnContent);
             array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
             $modifiedFilteredSortedPartArray =  $this->makeMamadFormat($modifiedFilteredSortedPartArray);
+            array_push($modifiedFilteredSortedPartArray,$partsNumber);
             return $modifiedFilteredSortedPartArray;
         }
 
 
         array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
         $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
+        array_push($modifiedPartArray,$partsNumber);
         return $modifiedPartArray;
 
     }
@@ -285,6 +292,8 @@ class SearchHelper
             ->where('component_id', $componentId)
             ->skip(($this->skip * ($paginate - 1)))->take($this->skip)
             ->get();
+        $partNumber =  DB::table('commons')
+            ->where('component_id', $componentId)->count();
 
         if (!$commonPart->isEmpty()) {
 
@@ -313,6 +322,7 @@ class SearchHelper
                 $codes = $this->getColumnCodes($columnContent);
                 array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredPartArray = $this->makeMamadFormat($modifiedFilteredPartArray);
+                array_push($modifiedFilteredPartArray,$partNumber);
                 return $modifiedFilteredPartArray;
             }
             // Sort
@@ -334,6 +344,7 @@ class SearchHelper
                 $modifiedSortedPartArray = $this->removeExtraData($sortedArrayPart);
                 array_push($modifiedSortedPartArray,$columnContent,$codes,$breadCrumb);
                 $modifiedSortedPartArray = $this->makeMamadFormat($modifiedSortedPartArray);
+                array_push($modifiedSortedPartArray,$partNumber);
                 return $modifiedSortedPartArray ;
             }
             // Sort + Filter
@@ -363,10 +374,12 @@ class SearchHelper
                 $codes = $this->getColumnCodes($columnContent);
                 array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredSortedPartArray = $this->makeMamadFormat($modifiedFilteredSortedPartArray);
+                array_push($modifiedFilteredSortedPartArray,$partNumber);
                 return $modifiedFilteredSortedPartArray;
             }
             array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
             $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
+            array_push($modifiedPartArray,$partNumber);
             return $modifiedPartArray;
         } else {
 
@@ -695,8 +708,8 @@ class SearchHelper
             unset($partArray[$i]['common_id']);
             unset($partArray[$i]['product_id']);
         }
-
         return $partArray;
 
     }
+
 }

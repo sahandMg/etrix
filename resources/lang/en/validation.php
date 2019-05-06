@@ -128,7 +128,8 @@ return [
         'post'=>'کد پستی',
         'province'=>'استان',
         'city'=>'شهر',
-        'address' => 'آدرس'
+        'address' => 'آدرس',
+        'addressTitle'=>'عنوان آدرس'
     ],
 
 ];

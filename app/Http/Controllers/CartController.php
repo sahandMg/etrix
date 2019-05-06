@@ -561,6 +561,7 @@ class CartController extends Controller
             'province' => 'required',
             'post' => 'required',
             'city' => 'required',
+            'title' => 'required',
         ]);
 
         if($validator->fails()){
@@ -577,6 +578,7 @@ class CartController extends Controller
                'province'=>$request->province,
                'post'=>$request->post,
                'city'=>$request->city,
+               'tag'=>$request->title,
                'user_id'=>  Auth::guard('user')->id(),
                'created_at'=> Carbon::now()
            ]);
@@ -585,6 +587,26 @@ class CartController extends Controller
 //       }
 
         return 200;
+    }
+    /*
+     * gets address from tag name
+     *
+     * Required params : tag , token
+     *
+     */
+    public function addressTag(Request $request){
+
+        if(!isset($request->all()['tag'])){
+            return 'send a tag!';
+        }
+        $tag = $request->tag;
+        $address = DB::table('addresses')->where('user_id',Auth::guard('user')->id())->where('tag',$tag)->first();
+        if(is_null($address)){
+            return 'no address found for this tag';
+        }else{
+            return $address;
+        }
+
     }
 
 

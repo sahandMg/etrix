@@ -6,7 +6,8 @@ use App\Common;
 use App\Helper;
 use App\PartMaping;
 use App\Product;
-
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 use App\Underlay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -153,14 +154,21 @@ class PartController extends Controller
     public function addNewPartsManual(Request $request){
 
         $category = $request->category;
-        $subcategory = str_replace('*','',strrchr($category,'*'));
-        $subcategory = str_replace(' ','_',$subcategory);
-        $str = 'App\IC\\'.$subcategory;
-        try{
+        $subcategoryPure = str_replace('*','',strrchr($category,'*'));
+        $subcategory = str_replace(' ','_',$subcategoryPure);
+        $str = '/IC/'.$subcategory;
+            if(!file_exists(app_path().$str.'.php')){
+
+                $subcategoryPure = str_replace('*',' ',$category);
+                $subcategory = str_replace(' ','_',$subcategoryPure);
+                $str = '/IC/'.$subcategory;
+                if(!file_exists(app_path().$str.'.php')){
+                    return 'No model file found for '.$str;
+                }
+            }
+            $str = 'App\IC\\'.$subcategory;
             $model = new $str();
-        }catch (\Exception $exception){
-            return 'No model found for '.$str.' at line '.$exception->getLine();
-        }
+
         try{
 
             $component = DB::table('components')->where('name',$subcategory)->first();
