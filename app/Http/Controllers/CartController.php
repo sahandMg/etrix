@@ -561,7 +561,7 @@ class CartController extends Controller
             'province' => 'required',
             'post' => 'required',
             'city' => 'required',
-            'title' => 'required',
+            'tag' => 'required',
         ]);
 
         if($validator->fails()){
@@ -573,12 +573,19 @@ class CartController extends Controller
             return $errors;
         }
 
+        $address = DB::table('addresses')->where('user_id',Auth::guard('user')->id())->where('tag',$request->tag)->first();
+        // checks for duplicated tags
+        if(!is_null($address)){
+
+            return 'duplicate tag founded!';
+        }
+
            DB::table('addresses')->insert([
                'address'=> $request->address,
                'province'=>$request->province,
                'post'=>$request->post,
                'city'=>$request->city,
-               'tag'=>$request->title,
+               'tag'=>$request->tag,
                'user_id'=>  Auth::guard('user')->id(),
                'created_at'=> Carbon::now()
            ]);
@@ -594,7 +601,7 @@ class CartController extends Controller
      * Required params : tag , token
      *
      */
-    public function addressTag(Request $request){
+    public function getAddressTag(Request $request){
 
         if(!isset($request->all()['tag'])){
             return 'send a tag!';
@@ -604,9 +611,26 @@ class CartController extends Controller
         if(is_null($address)){
             return 'no address found for this tag';
         }else{
-            return $address;
+            return get_object_vars($address);
         }
 
+    }
+    /*
+     * send all of user's address tags
+     */
+    public function sendAddressTag(Request $request){
+
+        $addresses = DB::table('addresses')->where('user_id',Auth::guard('user')->id())->get()->toArray();
+        if(count($addresses) == 0){
+            return 404;
+        }
+        $arr = [];
+        foreach ($addresses as $key=>$address){
+
+            $arr[$address->tag]= get_object_vars($address);
+        }
+
+        return ($arr);
     }
 
 

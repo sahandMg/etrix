@@ -71,7 +71,8 @@ Route::get('verify-test','PaymentGateController@verifyGatewayTest');
             Route::post('order-bill','CartController@orderBill');
             Route::post('price','CartController@price');
             Route::post('address','CartController@getAddress');
-            Route::post('address-tag','CartController@addressTag');
+            Route::post('get-address-tag','CartController@getAddressTag');
+            Route::post('send-address-tag','CartController@sendAddressTag');
         });
 
 
