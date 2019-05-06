@@ -98,7 +98,7 @@ class SearchHelper
 
             return '415';
         }
-        $partsNumber = $commonGroup = DB::table('commons')
+        $partsNumber = DB::table('commons')
             ->where('manufacturer_part_number', 'like', "%$keyword%")->count();
 
         if($subcategory == null){
