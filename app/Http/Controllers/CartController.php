@@ -596,12 +596,12 @@ class CartController extends Controller
         return 200;
     }
     /*
-     * gets address from tag name
+     * sends address from tag name
      *
      * Required params : tag , token
      *
      */
-    public function getAddressTag(Request $request){
+    public function sendAddressTag(Request $request){
 
         if(!isset($request->all()['tag'])){
             return 'send a tag!';
@@ -616,9 +616,9 @@ class CartController extends Controller
 
     }
     /*
-     * send all of user's address tags
+     * get all of user's address tags
      */
-    public function sendAddressTag(Request $request){
+    public function getAddressTag(Request $request){
 
         $addresses = DB::table('addresses')->where('user_id',Auth::guard('user')->id())->get()->toArray();
         if(count($addresses) == 0){
