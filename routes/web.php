@@ -538,8 +538,8 @@ Route::get('ldimage',function (){
 
 Route::get('login/google',['uses'=>'UserController@redirectToProvider'])->name('googleLogin');
 
-Route::get('payment-gate','PaymentGateController@GatewayTest')->name('gateway');
-Route::get('credit-verify',['as'=>'paymentVerify','uses'=>'PaymentGateController@verifyGatewayTest']);
+Route::get('payment-gate','PaymentGateController@Gate')->name('gateway');
+Route::get('credit-verify',['as'=>'paymentVerify','uses'=>'PaymentGateController@verify']);
 
 Route::get('sitemap.xml');
 /*

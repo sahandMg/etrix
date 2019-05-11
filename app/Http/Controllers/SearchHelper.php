@@ -227,6 +227,7 @@ class SearchHelper
             $modifiedSortedPartArray = $this->removeExtraData($sortedArrayPart);
             array_push($modifiedSortedPartArray,$columnContent,$codes,$breadCrumb);
             $modifiedSortedPartArray = $this->makeMamadFormat($modifiedSortedPartArray);
+            array_push($modifiedSortedPartArray,[]);
             array_push($modifiedSortedPartArray,$partsNumber);
             return $modifiedSortedPartArray ;
         }
@@ -265,6 +266,7 @@ class SearchHelper
 
         array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
         $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
+        array_push($modifiedPartArray,[]);
         array_push($modifiedPartArray,$partsNumber);
         return $modifiedPartArray;
 
@@ -322,6 +324,7 @@ class SearchHelper
                 $codes = $this->getColumnCodes($columnContent);
                 array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredPartArray = $this->makeMamadFormat($modifiedFilteredPartArray);
+                array_push($modifiedFilteredPartArray,[]);
                 array_push($modifiedFilteredPartArray,$partNumber);
                 return $modifiedFilteredPartArray;
             }
@@ -344,6 +347,7 @@ class SearchHelper
                 $modifiedSortedPartArray = $this->removeExtraData($sortedArrayPart);
                 array_push($modifiedSortedPartArray,$columnContent,$codes,$breadCrumb);
                 $modifiedSortedPartArray = $this->makeMamadFormat($modifiedSortedPartArray);
+                array_push($modifiedSortedPartArray,[]);
                 array_push($modifiedSortedPartArray,$partNumber);
                 return $modifiedSortedPartArray ;
             }
@@ -374,11 +378,13 @@ class SearchHelper
                 $codes = $this->getColumnCodes($columnContent);
                 array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
                 $modifiedFilteredSortedPartArray = $this->makeMamadFormat($modifiedFilteredSortedPartArray);
+                array_push($modifiedFilteredSortedPartArray,[]);
                 array_push($modifiedFilteredSortedPartArray,$partNumber);
                 return $modifiedFilteredSortedPartArray;
             }
             array_push($modifiedPartArray,$columnContent,$codes,$breadCrumb);
             $modifiedPartArray = $this->makeMamadFormat($modifiedPartArray);
+            array_push($modifiedPartArray,[]);
             array_push($modifiedPartArray,$partNumber);
             return $modifiedPartArray;
         } else {

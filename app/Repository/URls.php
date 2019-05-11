@@ -22,9 +22,9 @@ class URls
     static $excelImport = 'http://localhost/excel-import';
     static $excelExport = 'http://localhost/excel-export';
     //path PaymentController
-    static $gate = 'http://localhost/payment-gate';
+    static $gate = 'http://etrix.ir/payment-gate';
     static $verify = 'http://etrix.ir/credit-verify';
-    static $truePayment = 'http://localhost/User/buy/completed';
+    static $truePayment = 'http://etrix.ir/User/buy/completed';
     static $falsePayment = 'http://etrix.ir/User/buy/Uncompleted';
     static $sitemap = 'http://etrix.ir/sitemap.xml';
 
