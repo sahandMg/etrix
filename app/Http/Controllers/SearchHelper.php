@@ -200,6 +200,7 @@ class SearchHelper
                 return 'Filter Values Not Found In Search Result';
             }
             $modifiedFilteredPartArray = $result[0];
+            $partsNumber = count($modifiedFilteredPartArray);
             $columnContent = $result[1];
             $codes = $this->getColumnCodes($columnContent);
             array_push($modifiedFilteredPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
@@ -257,6 +258,7 @@ class SearchHelper
             $modifiedFilteredSortedPartArray = $this->removeExtraData($sortedArrayPart);
             $columnContent = $result[1];
             $codes = $this->getColumnCodes($columnContent);
+            $partsNumber = count($modifiedFilteredSortedPartArray);
             array_push($modifiedFilteredSortedPartArray,$columnContent,$codes,$breadCrumb,$this->filteredColumn);
             $modifiedFilteredSortedPartArray =  $this->makeMamadFormat($modifiedFilteredSortedPartArray);
             array_push($modifiedFilteredSortedPartArray,$partsNumber);
@@ -319,6 +321,7 @@ class SearchHelper
                 }
 
                 $modifiedFilteredPartArray = $result[0];
+
                 $columnContent = $result[1];
 
                 $codes = $this->getColumnCodes($columnContent);
@@ -623,7 +626,7 @@ class SearchHelper
             }
             $SortedResult = $volts;
             $sortedPartArray = [];
-        for($j = 0; $j <count($completePartArray); $j++) {
+        for($j = 0; $j <count($SortedResult); $j++) {
 
             for($t = 0; $t <count($completePartArray); $t++){
 
@@ -658,6 +661,7 @@ class SearchHelper
 
 
     public function makeMamadFormat(array $completePartArray){
+
         $finalArray = [];
         $count = count($completePartArray);
         $type = $this->type;
